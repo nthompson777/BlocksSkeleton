@@ -1,0 +1,12 @@
+<template>
+  <require from="layout/nav-bar.html"></require>
+  <nav-bar router.bind="router"></nav-bar>
+  <div class="page-host">
+    <div class="container">
+      <router-view containerless></router-view>
+    </div><!-- /container -->
+  </div><!-- /page-host -->
+  <footer role="contentinfo">
+    <p class="copyright-text">&copy;2017, PIEtech, Inc. All rights reserved. BLOCKS Powered by MoneyGuidePro<sup class="reg-symbol">&reg;</sup>.</p>
+  </footer>
+</template>

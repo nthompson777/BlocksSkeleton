@@ -1,0 +1,10 @@
+<template>
+  <div class="row nav-footer">
+    <div class="col-xs-12">
+      <div class="btn-cont">
+        <a if.bind="back" id="back" class="btn btn-back" href="${router.generate(back)}" click.trigger="navigate($event)" role="button" aria-label="back to ${back} page"><i iconify class="fa fa-angle-left fa-fw" aria-hidden="true"></i> Back</a>
+        <a if.bind="next && !hideNext" id="next" class="btn btn-next" href="${router.generate(next)}" click.trigger="navigate($event)" role="button" aria-label="next to ${next} page">Next <i iconify class="fa fa-angle-right fa-fw" aria-hidden="true"></i></a>
+      </div><!-- /btn-cont -->
+    </div><!-- /col -->
+  </div><!-- /row -->
+</template>
