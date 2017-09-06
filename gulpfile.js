@@ -47,9 +47,7 @@ gulp.task('styles-copy', function () {
 });
 
 
-
-// --------------------------------------------------------------------------------------------------------
-// BLOCKS -- Watch for changes to our Sass files on Blocks Pages - Run task seperately/independently!!!
+// Watch for changes to our Sass files on Blocks Pages - Run task seperately/independently!!!
 gulp.task('blocks-watch', function () {
   gulp.watch(paths.styles.blocks)
   .on('change', function () {
@@ -88,3 +86,18 @@ gulp.task('blocks-minify', function () {
     .pipe(gulp.dest(destPath_blocks));
   });
 });
+
+// Stylelint Task for analyzing our Sass files by running through Stylelint & produces report 
+gulp.task('analyze-scss', function () {
+  return gulp.src(paths.styles.lint)
+    .pipe(postcss([
+      stylelint(),
+      reporter()],
+      {syntax: syntax_scss}
+    ));
+});
+
+// SAVE the Commented Out Task Directly Below!!!! Autoprefixer Check - 
+// Uncomment & run gulp via CLI to see the browser list, rules, selectors, & properties covered 
+// var info = autoprefixer({ browsers: ['last 3 versions', 'not ie < 11'] }).info();
+// console.log(info);
