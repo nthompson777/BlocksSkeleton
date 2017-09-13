@@ -1,5 +1,5 @@
 {
-  "name": "BlocksSkeleton_2",
+  "name": "BlocksSkeleton",
   "type": "project:application",
   "bundler": {
     "id": "cli",
@@ -137,7 +137,8 @@
     "id": "none",
     "displayName": "None",
     "fileExtension": ".css",
-    "source": "src/**/*.css"
+    "source": "src/**/*.css",
+    "blocks": "../../../../../../Content/Blocks/**/*/*.scss"
   },
   "editor": {
     "id": "vscode",

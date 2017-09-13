@@ -13,7 +13,6 @@
   "bugs": {
     "url": "https://github.com/nthompson777/aurelia-skeleton-blocks/issues"
   },
-  "license": "CC0-1.0",
   "author": "Nate Thompson",
   "main": "dist/main.js",
   "repository": {

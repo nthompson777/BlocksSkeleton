@@ -31,14 +31,14 @@ To run the app, follow these steps:
 Building the app is performed with the Aurelia CLI:
 
   ```shell
-    au build
+  au build
   ```
 
 ## Gulp Tasks
 You can also analyze your Sass files using the command bellow:
 
   ```shell
-    gulp analyze-scss
+  gulp analyze-scss
   ```
 
 ## Running The Unit Tests
