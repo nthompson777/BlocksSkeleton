@@ -1,0 +1,76 @@
+// Add new icons below !!!
+//----------------------------------------------------
+
+// Using a Sass Map (key: value) 
+$fmgpIcons-list: (     
+  sortable            :   '\e901', 
+  supersolve          :   '\e900',
+  retirement-expenses :   '\e80a',
+  car                 :   '\e80b',
+  celebration-wine    :   '\e80c',
+  college             :   '\e80d',
+  gift-package        :   '\e80e',
+  healthcare          :   '\e80f',
+  tools               :   '\e810',
+  leave-bequest       :   '\e811',
+  sailboat            :   '\e812',
+  house               :   '\e813',
+  questionmark-circle :   '\e814',
+  school-book         :   '\e815',
+  healthcare2         :   '\e816',
+  business-briefcase  :   '\e817',
+  travel-plane        :   '\e818',
+  wedding-rings       :   '\e819',
+  today               :   '\e81a',
+  cut-dollar          :   '\e800',
+  tombstone           :   '\e801',
+  onfire-dollar       :   '\e802',
+  birthday-cake       :   '\e803',
+  heart-med           :   '\e804',
+  low-return          :   '\e805',
+  house-user          :   '\e806',
+  broken-bank         :   '\e807',
+  clock               :   '\e808',
+  sinking-stock       :   '\e809',
+  equals              :   '\e60f',
+  piggy-bank          :   '\e610',
+  safe                :   '\e611',
+  dollars             :   '\e612',
+  dollar2             :   '\e613',
+  moneybag            :   '\e614',
+  coins               :   '\e615',
+  dollar-vertical     :   '\e616',
+  no-funds            :   '\e617',
+  live-logo           :   '\e600',
+  triangle-logo       :   '\e601',
+  pro-logo            :   '\e602',
+  mcmeter             :   '\e603',
+  pin                 :   '\e604',
+  new                 :   '\e605',
+  easel               :   '\e606',
+  bucket              :   '\e607',
+  address-book        :   '\e944',
+  documents           :   '\e608',
+  tools2              :   '\e609',
+  money-funds         :   '\e60a',
+  coin-dollar         :   '\e93b',
+  calculator          :   '\e940',
+  spades              :   '\e917',
+  clubs               :   '\e918',
+  diamonds            :   '\e919',
+  users               :   '\e60b',
+  users2              :   '\e60c',
+  user                :   '\e60d',
+  user2               :   '\e60e',
+  profile             :   '\e923',
+  user-plus           :   '\e973',
+  user-minus          :   '\e974',
+  user-check          :   '\e975'
+);
+
+// @each directive loops through the list (Sass Map) above
+@each $iconKeys, $iconValues in $fmgpIcons-list {
+  .fmgp-#{$iconKeys}:before { 
+     content: $iconValues;  
+  }
+}

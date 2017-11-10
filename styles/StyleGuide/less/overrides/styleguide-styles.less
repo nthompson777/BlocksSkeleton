@@ -1,0 +1,110 @@
+// Styles Specific ONLY to this Style Guide!!!
+
+.tile-block.cont {
+        display: inline-block;
+        max-width: 100%;
+        height: auto;
+        padding: 4px;
+        line-height: 1.42857143;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        width: 90px;
+        height: 90px;
+        float: left;
+        margin-right: 30px;
+}
+.tile-block {
+    width: 80px;
+    height: 80px;
+    &.primary-color-bg {
+        background: @brand-primary;
+    }
+    &.secondary-color-bg {
+        background: @brand-secondary;
+    }
+    &.tertiary-color-bg {
+        background: @brand-tertiary;
+    }
+    .help-tooltip:after {
+      content: '';
+    }
+}
+
+.code-snippet {
+  margin: 30px 0 0;
+}
+
+/* section {
+  
+h3, h4, h5 {
+
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
+} 
+.popover h3.popover-title {
+  margin-top: 0;
+} */
+
+.modal-dialog {
+  z-index: 1002;
+}
+
+// Support Help Box
+//-------------------------------------
+#support-cont {
+  position: fixed;
+  bottom: 0;
+  right: 4.1%;
+  background-color: @brand-secondary;
+  color: @font-color-for-darkBG;
+  border-radius: 3px 3px 0 0;
+  transition: all 0.25s ease-in-out;
+  height: 34px;
+  text-align: center;
+  z-index: 1005;
+  opacity: 0.9;
+  a {
+    color: @font-color-for-darkBG;
+  }
+}
+/* #support-cont .support-box {
+  position: relative;
+  opacity: 1.0;
+  transition: all 0.50s ease-in-out;
+  a {
+    display: inline-block;
+    padding: 5px 9px 7px;
+  }
+} */
+#support-cont .support-box-hover {
+  position: relative;
+  opacity: 1.0;
+  padding: 8px 10px 0 3px;  // added 
+  height: 34px;
+  // transition: all 0.20s ease-in;
+}
+#support-cont {
+  /* &:hover,
+  &:active {
+    height: 37px;
+    .support-box {
+      opacity: 0;
+      position: absolute;
+
+    } */
+    .support-box-hover {
+      position: relative;
+      opacity: 1.0;
+      //padding: 8px 10px 0 5px;
+      z-index: 1005;
+      a {
+        color: @font-color-for-darkBG;
+        margin: 0 6px;
+        text-decoration: none;
+      }
+    }
+
+}

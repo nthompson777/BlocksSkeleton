@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Font MGP - Icon Font</title>
+
+    <!-- CSS
+    ======================================== -->
+    <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+    <link href="../css/global.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="demo.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="extras.css">
+
+    <!-- Conditional Scripts to keep here, all other scripts on bottom
+    ======================================== -->
+    <!--[if lt IE 9]>
+      <link href="css/ie8-global.min.css" rel="stylesheet">
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons
+    ======================================== -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="/" title="MoneyGuide Pro">
+              <img src="../img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Style Guide</a></li>
+            <li><a href="/fontmgp">Font MGP</a></li>
+            <li><a href="/color-palette">MGP Color Palette</a></li>
+            <li><a href="/snippets">MGP Code Snippets &amp; JavaScript Reference</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <div class="container">
+    <!-- Begin Unique Body Content -->
+    <section>
+  		<div class="row">
+            <div class="col-xs-12">
+    			<h1>Font MGP <small>- Sass Version</small></h1>
+    			<h4>Updated 05.10.2017</h4>  
+    			<h4>Total Icons: 80 &nbsp; (v 1.62 - 2 Icons Added for Bliss)</h4>
+    			<p>
+    				<a href="downloads/font-mgp-1.62.zip" class="btn btn-secondary">Download the latest Font MGP (fonts and Sass files) <i class="fa fa-download fa-fw"></i></a>
+    			</p>
+    		</div>
+		</div>
+ 
+	</section>
+
+	<section>
+		<div class="row">
+	        <div class="col-sm-7 col-md-6">	
+				<h3>Example Uses</h3>
+				<p>
+					<a class="toggle collapsed" data-toggle="collapse" href="#examples" aria-expanded="false" aria-controls="examples">
+        				See HTML Examples
+      				</a>
+      			</p>
+      			<div class="collapse" id="examples">
+					<div class="well">
+						<section>
+							<div class="row">
+								<div class="col-sm-6">
+									<p><strong>Example use in HTML with inherited <br />
+										parent font-size and color:</strong></p>
+									<p>&lt;i class="fmgp fmgp-no-funds"&gt;&lt;/i&gt;</p>
+									<h2>H2 Header <i class="fmgp fmgp-no-funds"></i></h2>
+								</div>
+								<div class="col-sm-6">
+									<p><strong>Example Use in CSS</strong>:
+									<p>	
+									  .someClassNameHere:before { <br>
+									   &nbsp; &nbsp; content: "\e601"; <br>
+									   &nbsp; &nbsp; font-family: 'font-mgp' <br>
+										}<br></p>
+								</div>
+							</div><!-- /row -->
+						</section>
+						<div class="row">
+							<div class="col-xs-12">
+								<p><strong>Various Icon Sizing HTML Example:</strong>:
+								<p>
+								  fw: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-fw"&gt;&lt;/i&gt; (Fixed Width)<br>
+								  lg: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-lg"&gt;&lt;/i&gt; <br>
+								  2x: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-2x"&gt;&lt;/i&gt; <br>
+								  3x: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-3x"&gt;&lt;/i&gt; <br>
+								  4x: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-4x"&gt;&lt;/i&gt; <br>
+								  5x: &nbsp; &lt;i class="fmgp fmgp-dollar-vertical fmgp-5x"&gt;&lt;/i&gt; <br>
+								</p>
+								<p>
+								  fw: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-fw"></i> (Fixed Width)<br>	
+								  lg: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-lg"></i> <br>
+								  2x: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-2x"></i> <br>
+								  3x: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-3x"></i> <br>
+								  4x: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-4x"></i> <br>
+								  5x: &nbsp; <i class="fmgp fmgp-dollar-vertical fmgp-5x"></i> <br>
+
+								   </p>
+							</div>
+						</div><!-- /row -->
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="callout callout-secondary">
+							<h4>Note</h4>
+							<p>All icon class names <strong>must be prefixed by "fmgp" </strong> (example - class="fmgp fmgp-supersolve").</p>
+							<p><em>Icon size inherits font-size and color of parent element. Icon above (first example in Example Uses) is wrapped in a h2 tag.</em></p>
+						</div>
+					</div>
+				</div>
+			</div><!-- /Parent col -->
+
+			<div class="col-sm-5 col-md-offset-1">	
+				<section>
+					<h3>Install As System Font</h3>
+					<p>
+						For use with desktop applicatons (Photoshop, Illustrator, PowerPoint, etc.), install font-mgp.ttf to your system font, set it as the font in your application, and copy and paste the specific icon that you want to use (not the unicode) directly from this page into your designs.
+					</p>
+				
+					<p>
+						<a href="/fontmgp/fonts/font-mgp.ttf" class="btn btn-primary">Download the latest Font MGP System Font <i class="fa fa-download fa-fw"></i></a>
+					</p>
+				</section>
+			</div>
+		</div>
+	</section>
+
+	<section>
+		<div class="row">
+    		<div class="col-xs-12">
+				<h3>Grid Size: 20</h3>
+
+				<!-- When updating fonts, copy and paste new icons directly below!!!  -->
+				<!-- _____________________________________________________  -->
+
+
+				
+				<!-- END new icons code here -->
+				<!-- _____________________________________________________  -->
+	    
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe911;  
+              </i>
+              <span class="mls"> fmgp-building</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e911" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Building, City, Town" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe912;  
+              </i>
+              <span class="mls"> fmgp-map-sametown</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e912" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Same Town" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe904;  
+              </i>
+              <span class="mls"> fmgp-map-alaska</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e904" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Alaska" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe90c;  
+              </i>
+              <span class="mls"> fmgp-map-midwest</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e90c" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Midwest Region" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe90d;  
+              </i>
+              <span class="mls"> fmgp-map-northeast</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e90d" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Northeast Region" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe90e;  
+              </i>
+              <span class="mls"> fmgp-map-southeast</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e90e" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Southeast Region" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+               &#xe90f; 
+              </i>
+              <span class="mls"> fmgp-map-southwest</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e90f" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="Southwest Region" class="liga unitRight" />
+          </div>
+      </div>
+      <div class="glyph fs1">
+          <div class="clearfix bshadow0 pbs">
+              <i class="fmgp fmgp-lg">
+              &#xe910;  
+              </i>
+              <span class="mls"> fmgp-map-west</span>
+          </div>
+          <fieldset class="fs0 size1of1 clearfix hidden-false">
+              <input type="text" readonly value="e910" class="unit size1of2" />
+              <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+          </fieldset>
+          <div class="fs0 bshadow0 clearfix hidden-false">
+              <span class="unit pvs fgc1">liga: </span>
+              <input type="text" readonly value="West Region" class="liga unitRight" />
+          </div>
+      </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe902;
+            </i>
+            <span class="mls"> fmgp-special-goal</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e902" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="special goal" class="liga unitRight" />
+        </div>
+    </div>
+
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe903;
+            </i>
+            <span class="mls"> fmgp-smoker</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e903" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="smoker" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe906;
+            </i>
+            <span class="mls"> fmgp-not-smoker</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e906" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="non-smoker, not smoker, no smoking" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe905;
+            </i>
+            <span class="mls"> fmgp-nursing-home</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e905" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="nursing home" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe907;
+            </i>
+            <span class="mls"> fmgp-home-own</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e907" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="own home, homeowner" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe908;
+            </i>
+            <span class="mls"> fmgp-home-rent</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e908" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="rent home, renter, rental" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe909;
+            </i>
+            <span class="mls"> fmgp-financial-freedom</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e909" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="financial freedom" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe90a;
+            </i>
+            <span class="mls"> fmgp-emergency-fund</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e90a" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="emergency fund, piggy bank coins" class="liga unitRight" />
+        </div>
+    </div>
+    <div class="glyph fs1">
+        <div class="clearfix bshadow0 pbs">
+            <i class="fmgp fmgp-lg">
+            &#xe90b; 
+            </i>
+            <span class="mls"> fmgp-assissted-living</span>
+        </div>
+        <fieldset class="fs0 size1of1 clearfix hidden-false">
+            <input type="text" readonly value="e90b" class="unit size1of2" />
+            <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+        </fieldset>
+        <div class="fs0 bshadow0 clearfix hidden-false">
+            <span class="unit pvs fgc1">liga: </span>
+            <input type="text" readonly value="assissted living" class="liga unitRight" />
+        </div>
+    </div>
+
+		<div class="glyph fs1">
+            <div class="clearfix bshadow0 pbs">
+                <i class="fmgp fmgp-lg">
+				&#xe901;
+				</i>
+                <span class="mls"> fmgp-sortable</span>
+            </div>
+            <fieldset class="fs0 size1of1 clearfix hidden-false">
+                <input type="text" readonly value="e901" class="unit size1of2" />
+                <input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+            </fieldset>
+            <div class="fs0 bshadow0 clearfix hidden-false">
+                <span class="unit pvs fgc1">liga: </span>
+                <input type="text" readonly value="sortable, draggable" class="liga unitRight" />
+            </div>
+        </div>
+
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe900;
+				</i>
+				<span class="mls"> fmgp-supersolve</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e900" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="supersolve icon" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+					&#xe80a;
+				</i>
+				<span class="mls"> fmgp-retirement-expenses</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80a" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="retirement expenses, life expenses" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe80b;
+				</i>
+				<span class="mls"> fmgp-car</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80b" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="car, sports car" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe80c;
+				</i>
+				<span class="mls"> fmgp-celebration-wine</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80c" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="wine glasses celebration" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe80d;
+				</i>
+				<span class="mls"> fmgp-college</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80d" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="college graduation cap" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe80e;
+				</i>
+				<span class="mls"> fmgp-gift-package</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80e" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="gift package" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe80f;
+				</i>
+				<span class="mls"> fmgp-healthcare</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e80f" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="healthcare 1, stethoscope" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe810;
+				</i>
+				<span class="mls"> fmgp-tools</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e810" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe811;
+				</i>
+				<span class="mls"> fmgp-leave-bequest</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e811" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="leave bequest" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe812;
+				</i>
+				<span class="mls"> fmgp-sailboat</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e812" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="sailboat" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe813;
+				</i>
+				<span class="mls"> fmgp-house</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e813" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="home house" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe814;
+				</i>
+				<span class="mls"> fmgp-questionmark-circle</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e814" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="question mark encircled" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe815;
+				</i>
+				<span class="mls"> fmgp-school-book</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e815" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="school book and pencil" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe816;
+				</i>
+				<span class="mls"> fmgp-healthcare2</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e816" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="healthcare 2, medical" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe817;
+				</i>
+				<span class="mls"> fmgp-business-briefcase</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e817" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="business briefcase" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe818;
+				</i>
+				<span class="mls"> fmgp-travel-plane</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e818" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="airplane, plane" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="ffmgp fmgp-lg">
+				&#xe819;
+				</i>
+				<span class="mls"> fmgp-wedding-rings</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e819" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="wedding rings" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe81a;
+				</i>
+				<span class="mls"> fmgp-today</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e81a" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe800;
+				</i>
+				<span class="mls"> fmgp-cut-dollar</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e800" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="cut dollar bill" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe801;
+				</i>
+				<span class="mls"> fmgp-tombstone</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e801" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="RIP tombstone" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe802;
+				</i>
+				<span class="mls"> fmgp-onfire-dollar</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e802" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="Dollar on fire, inflation" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe803;
+				</i>
+				<span class="mls"> fmgp-birthday-cake</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e803" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="birthday cake" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe804;
+				</i>
+				<span class="mls"> fmgp-heart-med</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e804" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="heart plus, medical care" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe805;
+				</i>
+				<span class="mls"> fmgp-low-return</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e805" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="descending rate, low return" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe806;
+				</i>
+				<span class="mls"> fmgp-house-user</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e806" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="home user, house, mortgage" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe807;
+				</i>
+				<span class="mls"> fmgp-broken-bank</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e807" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="broken bank" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe808;
+				</i>
+				<span class="mls"> fmgp-clock</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e808" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="clock" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe809;
+				</i>
+				<span class="mls"> fmgp-sinking-stock</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e809" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="sinking stock" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60f;
+				</i>
+				<span class="mls"> fmgp-equals</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60f" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="equals sign" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe610;
+				</i>
+				<span class="mls"> fmgp-piggy-bank</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e610" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="whole piggy bank" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe611;
+				</i>
+				<span class="mls"> fmgp-safe</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e611" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="safe, savings" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe612;
+				</i>
+				<span class="mls"> fmgp-dollars</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e612" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="many dollars" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe613;
+				</i>
+				<span class="mls"> fmgp-dollar2</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e613" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="single dollar 2" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe614;
+				</i>
+				<span class="mls"> fmgp-moneybag</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e614" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="money bag" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe615;
+				</i>
+				<span class="mls"> fmgp-coins</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e615" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="money coins" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe616;
+				</i>
+				<span class="mls"> fmgp-dollar-vertical</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e616" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="vertical dollar" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe617;
+				</i>
+				<span class="mls"> fmgp-no-funds</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e617" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="no funds, out of funds" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe600;
+				</i>
+				<span class="mls"> fmgp-live-logo</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e600" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="Live Logo" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe601;
+				</i>
+				<span class="mls"> fmgp-triangle-logo</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e601" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="Money Guide Pro Triangle Icons" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe602;
+				</i>
+				<span class="mls"> fmgp-pro-logo</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e602" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="Money Guide Pro logo" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe603;
+				</i>
+				<span class="mls"> fmgp-mcmeter</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e603" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="Monte Carlo Meter" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe604;
+				</i>
+				<span class="mls"> fmgp-pin</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e604" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="pin thumbtack" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe605;
+				</i>
+				<span class="mls"> fmgp-new</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e605" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="new" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe606;
+				</i>
+				<span class="mls"> fmgp-easel</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e606" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="easel" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe607;
+				</i>
+				<span class="mls"> fmgp-bucket</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e607" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="bucket" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe944;
+				</i>
+				<span class="mls"> fmgp-address-book</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e944" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="address-book, contact" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe608;
+				</i>
+				<span class="mls"> fmgp-documents</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e608" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="documents" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe609;
+				</i>
+				<span class="mls"> fmgp-tools2</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e609" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="tools" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60a;
+				</i>
+				<span class="mls"> fmgp-money-funds</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60a" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="money funds" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe93b;
+				</i>
+				<span class="mls"> fmgp-coin-dollar</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e93b" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="coin-dollar, money" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe940;
+				</i>
+				<span class="mls"> fmgp-calculator</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e940" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="calculator, compute" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe917;
+				</i>
+				<span class="mls"> fmgp-spades</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e917" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="spades, cards" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe918;
+				</i>
+				<span class="mls"> fmgp-clubs</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e918" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="clubs, cards2" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe919;
+				</i>
+				<span class="mls"> fmgp-diamonds</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e919" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="diamonds, cards3" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60b;
+				</i>
+				<span class="mls"> fmgp-users</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60b" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60c;
+				</i>
+				<span class="mls"> fmgp-users2</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60c" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60d;
+				</i>
+				<span class="mls"> fmgp-user</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60d" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe60e;
+				</i>
+				<span class="mls"> fmgp-user2</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e60e" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe923;
+				</i>
+				<span class="mls"> fmgp-profile</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e923" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="profile, file2" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe973;
+				</i>
+				<span class="mls"> fmgp-user-plus</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e973" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="user-plus, user2" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe974;
+				</i>
+				<span class="mls"> fmgp-user-minus</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e974" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="user-minus, user3" class="liga unitRight" />
+			</div>
+		</div>
+		<div class="glyph fs1">
+			<div class="clearfix bshadow0 pbs">
+				<i class="fmgp fmgp-lg">
+				&#xe975;
+				</i>
+				<span class="mls"> fmgp-user-check</span>
+			</div>
+			<fieldset class="fs0 size1of1 clearfix hidden-false">
+				<input type="text" readonly value="e975" class="unit size1of2" />
+				<input type="text" maxlength="1" readonly value="" class="unitRight size1of2 talign-right" />
+			</fieldset>
+			<div class="fs0 bshadow0 clearfix hidden-false">
+				<span class="unit pvs fgc1">liga: </span>
+				<input type="text" readonly value="user-check, user4" class="liga unitRight" />
+			</div>
+		</div>
+
+
+		<!-- END icons font code here -->
+		<!-- _____________________________________________________  -->
+
+
+			</div><!-- /col -->
+		</div><!-- /row -->
+	</section>
+
+        </div>
+			</div><!-- /container -->
+    </section>
+
+
+  </div>
+
+</div> <!-- /container -->
+
+<footer>
+  <div class="container">
+    <p class="copyright">
+      &copy; <script type="text/javascript">
+      <!--
+        today = new Date();
+        year0 = today.getFullYear();
+        document.write(year0);
+      //-->
+      </script> PIEtech, Inc. All rights reserved.  
+    </p>
+    
+  </div>
+</footer>
+
+    <!-- Core JavaScript
+    ======================================== -->
+    <!-- Placed at the end of the document so our pages load faster -->
+    <script src="../js/min/jquery-1.11.2.min.js"></script>
+    <script src="../js/min/bootstrap.min.js"></script>
+    <script src="../js/min/global.min.js"></script>
+
+  </body>
+</html>

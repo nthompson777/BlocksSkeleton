@@ -1,0 +1,190 @@
+// Highcharts Plugin - Sass Base Styles - Put client styles for charts in:  [  ]
+
+// General Charting Styles
+// -----------------------------------
+.chart-legend, .asset-class-legend {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+// Highcharts Overrides
+// -----------------------------------
+.highcharts-container {
+	margin-top: 10px;
+	margin-left: -10px;  // Offset to align the charts and chart titles to our grid
+	
+  .tab-content & {
+		margin-top: 0;
+	}
+}
+
+.highcharts-title,
+.highcharts-title tspan {
+	color: $brand-primary !important;
+	font-size: 1.1em;
+	fill: $brand-primary !important;
+	font-family: $headings-font-family;
+	line-height: $headings-line-height;
+	text-align: left;
+	margin-top: 40px;
+}
+
+.highcharts-subtitle tspan {
+	color: $gray-light;
+	font-size: 1.3em;
+	font-family: $headings-font-family;
+	fill: $gray-light;
+	line-height: $headings-line-height;
+	text-align: left;
+}
+
+
+// Monte Carlo Meter Styles
+// ---------------------------------
+.meter {
+	margin-top:0;
+	max-width:195px;
+	// margin-top: -25px;
+	min-width:195px; /*125px;*/ 
+  height:100%;
+
+  // Xsmall ONLY!!! Viewport 
+  @media (max-width: $screen-xs-max) {
+	  max-width: 250px;
+  }
+
+	.highcharts-container {
+		margin-top:.5em; 
+		margin-left:0;
+	}
+
+	.confidence-results {
+		margin-top:-4.4em;
+	}
+}
+
+.meter-container {
+  height: 170px;
+  display: inline-block; /*need this to better center Explore button underneath of this*/
+
+  // Breakpoint for Meters
+  @media (max-width: 400px) { 
+    height:200px;
+  }
+}
+
+.probability-of-success {
+  font-size: 1em;
+  text-align: center;
+  color: #666;
+  margin: -.5em 0 .5em 0;
+}
+
+.confidence-results {
+	text-align: center;
+}
+
+.confidenceZoneNum {
+	font-size: 3.15em;
+	font-weight: bold;
+	color: #666;
+}
+
+.confidenceZone {
+	font-size:1.25em;
+	color:#666;
+}
+
+
+// 3D Donut Styles
+// ---------------------------------
+
+// Absolute center the text inside the inner circle of donut chart
+.pieChartInfoText {
+  position: relative;
+  text-align: center;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    top: 0 !important;
+    
+    &:before {
+      content: 'Total: ';
+      margin-right: 5px;
+    }
+  }
+}
+
+// Donut Charts, Net Worth
+.portfolio-donutChart, #net-worth-chart {
+  height: 275px;  // fixed height needed since Highcharts throws in height of 400px by default
+
+  // Xsmall ONLY!!! Viewport 
+  @media (max-width: $screen-xs-max) {
+    height: 225px;  // keep this as fixed height - see reasoning above
+  }
+}
+
+// 3D Donut Chart
+.estate-donutChart {
+  height: 275px;  // fixed height needed since Highcharts throws in height of 400px by default
+  min-width: 150px;
+}
+
+
+.chart-wrapper {
+  // Small ONLY!!! Viewport
+  @media (min-width:$screen-sm-min) and (max-width:$screen-sm-max) {
+    padding-bottom: 100%;
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    padding-bottom: 150%;
+  }
+}
+
+
+// Medium ONLY!!! Viewport
+@media (min-width:$screen-md-min) and (max-width:$screen-md-max) {
+  // Play Zone Affixed Meters
+  .affixed-meters-wrapper .affix .row {
+    width: 566px;
+  }
+}
+
+
+// Small ONLY!!! Viewport 
+@media (min-width:$screen-sm-min) and (max-width:$screen-sm-max) {
+  // Play Zone Affixed Meters
+  .affixed-meters-wrapper .affix .row {
+    width: 750px;
+  }
+}
+
+
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  .chart-inner {
+    position: absolute;
+  }
+}
+
+
+// Xsmall ONLY!!! Viewport 
+@media (max-width: $screen-xs-max) {
+  // Play Zone Affixed Meters
+  .affixed-meters-wrapper .affix .row {
+    width: inherit !important;
+  }
+}
+
+
+// Breakpoint for Donut Chart with text inside inner circle  
+// (Please keep the media query below even though its empty - Thx NT)
+// ----------------------------------------
+// @media (max-width: 35.938em) { 
+// }

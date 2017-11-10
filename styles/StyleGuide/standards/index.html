@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="favicon.ico">
+
+  <title>PIE HTML/Less/CSS Code Standards</title>
+
+  <!-- CSS
+  ======================================== -->
+  <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+  <link href="../css/global.min.css" rel="stylesheet">
+  <!--  <link href="standards.css" type="text/css" rel="stylesheet"> -->
+
+  <!-- Conditional Scripts to keep here, all other scripts on bottom
+  ======================================== -->
+  <!--[if lt IE 9]>
+    <link href="css/ie8-global.min.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Favicons
+  ======================================== -->
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+
+  <!-- Styles Specific ONLY to this page!!!!!!
+  ======================================== -->
+  <style type="text/css">
+    .toc a {
+      padding-right: 2em; 
+      white-space:nowrap;
+    }
+
+    .badcode {
+      background-color: #f2dede;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="/" title="MoneyGuide Pro">
+              <img src="../img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/">Style Guide</a></li>
+            <li><a href="/fontmgp">Font MGP</a></li>
+            <li><a href="/color-palette">MGP Color Palette</a></li>
+            <li><a href="#">Code Standards (Coming Soon)</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <!-- Fixed Position/Sticky Support and Help Box -->  
+  <div id="support-cont">
+    <!-- <div class="support-box"><a href="#"><i class="fa fa-comments-o fa-2x"></i></a> <a href="#"><i class="fa fa-question-circle fa-2x"></i></a> </div> -->
+    <div class="support-box-hover"><a href="#"><i class="fa fa-comments-o fa-fw"></i> Support </a> | <a href="#">Help <i class="fa fa-question-circle fa-fw"></i></a> </div>
+  </div>
+
+  <div class="container">
+    <div class="offcanvas-menu offcanvas-left">
+    
+    <!-- Options Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 options-menu">
+      <h4>Options <button class="btn btn-xs btn-secondary" data-toggle="offcanvasOptions"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h4>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Notes</a>
+        <div class="list-group-item header">Morningstar</div>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Schwab OpenView Gateway<sup>&trade;</sup></div>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <a href="#" class="list-group-item">Schwab Pin</a>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <div class="list-group-item header">SEI</div>
+        <a href="#" class="list-group-item">SEI Sign On</a>
+        <div class="list-group-item header">HiddenLevers</div>
+        <a href="#" class="list-group-item">Portfolio Stress Test</a>
+        <div class="list-group-item header">Fidelity</div>
+        <div class="list-group-item header">LifeYield</div>
+        <a href="#" class="list-group-item">Tax Efficient Implementation Report</a>
+        <div class="list-group-item header">AdvisoryWorld</div>
+        <a href="#" class="list-group-item">SCANalytics Quickstart</a>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Forefield</div>
+        <a href="#" class="list-group-item">ForeField</a>
+
+      </div><!-- /list-group -->
+    </div><!-- /col  END Options Off-canvas Menu -->
+
+    <!-- Financial Calculators LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 calculators-menu">
+      <h4>Calculators <button class="btn btn-xs btn-secondary" data-toggle="offcanvasCalc"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h4>
+      <div class="list-group">
+        <a href="#" class="list-group-item active">Retirement Calculator</a>
+        <a href="#" class="list-group-item">College</a>
+        <a href="#" class="list-group-item">Social Security</a>
+        <a href="#" class="list-group-item">Roth Conversion</a>
+        <a href="#" class="list-group-item">Budget</a>
+        <a href="#" class="list-group-item">Cost of Delay</a>
+        <a href="#" class="list-group-item">Inflation</a>
+        <a href="#" class="list-group-item">IRA Contribution</a>
+        <a href="#" class="list-group-item">Net Worth</a>
+        <a href="#" class="list-group-item">Systematic Investing</a>
+        <a href="#" class="list-group-item">Life Expectancy</a>
+        <a href="#" class="list-group-item">72(t) Distribution</a>
+        <a href="#" class="list-group-item">Net Unrealized Appreciation</a>
+        <a href="#" class="list-group-item">Tax-Deferred vs. Taxable</a>
+        <a href="#" class="list-group-item">IRA Distribution</a>
+        <a href="#" class="list-group-item">RMD</a>
+        <a href="#" class="list-group-item">Beneficiary RMD</a>
+      </div><!-- /list-group -->
+    </div><!-- /col  END Financial Calculators Off-canvas Menu -->
+
+    <!-- Other Features LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 otherfeat-menu">
+      <h4>Other Features <button class="btn btn-xs btn-secondary" data-toggle="offcanvasFeat"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h4>
+      <div class="list-group">
+        <a href="#" class="list-group-item active"><i class="fa fa-camera fa-fw"></i> My Snapshot <i class="fa fa-info-circle fa-fw help-inline" title="My Snapshot is an easy place to view your up-to-date Recommended Plan. It consists of: Overview, Results, Play Zone, What Are You Afraid Of?, and Resources."></i></a> 
+        <a href="#" class="list-group-item" data-toggle="offcanvasCalc"><i class="fa fa-calculator fa-fw"></i> Calculators</a>
+        <a href="#" class="list-group-item"><i class="fa fa-user fa-fw"></i> Profile</a>
+        <a href="#" class="list-group-item"><i class="fa fa-usd fa-fw"></i> Budget</a>
+        <a href="#" class="list-group-item"><i class="fa fa-puzzle-piece fa-fw"></i> Manage Integrations</a>
+        <a href="#" class="list-group-item"><i class="fa fa-angle-double-right fa-fw"></i> Risk Tolerance</a>
+      </div>
+    </div><!-- /col  END Other Features LEFT Off-canvas Menu -->
+
+
+<!-- Begin Unique Body Content -->
+<section>
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>PIE HTML &amp; Less/CSS Code Standards</h1>
+      <h4>updated 10.27.15</h4>
+      <h4>Revision 1.00</h4>
+    </div><!-- /col -->
+  </div><!-- /row -->
+</section>
+
+<!-- <a href="#" class="showhide_button" onclick="javascript:ShowHideAll()" name="show_hide_all_button" id="show_hide_all_button">▶ Toggle all summaries</a> -->
+<section>
+  <div class="row">
+    <div class="col-xs-12">
+      <a name="toc"></a>
+      <h2>TOC</h2>
+      
+      <div class="table-responsive">
+        <table class="table table-default toc">
+          <tbody>
+            <tr>
+              <td width="20%">
+                <a href="#General_Style_Rules" class="page-scroll">General Style Rules</a>
+              </td>
+              <td>
+                <a href="#Protocol" class="page-scroll">Protocol</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#General_Formatting_Rules" class="page-scroll">General Formatting Rules</a>
+              </td>
+              <td>
+                <a href="#Indentation" class="page-scroll">Indentation</a> 
+                <a href="#Capitalization" class="page-scroll">Capitalization</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#General_Meta_Rules" class="page-scroll">General Meta Rules</a>
+              </td>
+              <td>
+                <a href="#Encoding" class="page-scroll">Encoding</a>
+                <a href="#Comments" class="page-scroll">Comments</a>
+                <a href="#Action_Items" class="page-scroll">Action Items</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#HTML_Style_Rules">HTML Style Rules</a>
+              </td>
+              <td>
+                <a href="#Document_Type" class="page-scroll">Document Type</a>
+                <a href="#HTML_Doc_Template" class="page-scroll">HTML5 Document Template</a>
+                <a href="#HTML_Validity" class="page-scroll">HTML Validity</a>
+                <a href="#Semantics" class="page-scroll">Semantics</a>
+                <a href="#Multimedia_Fallback" class="page-scroll">Multimedia Fallback</a>
+                <a href="#Separation_of_Concerns" class="page-scroll">Separation of Concerns</a>
+                <a href="#type_Attributes" class="page-scroll">type Attributes</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#HTML_Formatting_Rules" class="page-scroll">HTML Formatting Rules</a>
+              </td>
+              <td>
+                <a href="#General_Formatting" class="page-scroll">General Formatting</a>
+                <a href="#HTML_Quotation_Marks" class="page-scroll">HTML Quotation Marks</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#CSS_Style_Rules">CSS Style Rules</a>
+              </td>
+              <td>
+                <a href="#CSS_Validity" class="page-scroll">CSS Validity</a>
+                <a href="#ID_and_Class_Naming" class="page-scroll">ID and Class Naming</a>
+                <a href="#ID_and_Class_Name_Style" class="page-scroll">ID and Class Name Style</a>
+                <a href="#Type_Selectors" class="page-scroll">Type Selectors</a>
+                <a href="#Shorthand_Properties" class="page-scroll">Shorthand Properties</a>
+                <a href="#0_and_Units" class="page-scroll">0 and Units</a>
+                <a href="#Leading_0s" class="page-scroll">Leading 0s</a>
+                <a href="#Hexadecimal_Notation" class="page-scroll">Hexadecimal Notation</a>
+                <a href="#Prefixes" class="page-scroll">Prefixes</a>
+                <a href="#ID_and_Class_Name_Delimiters" class="page-scroll">ID and Class Name Delimiters</a>
+                <a href="#Hacks" class="page-scroll">Hacks</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#CSS_Formatting_Rules">CSS Formatting Rules</a>
+              </td>
+              <td>
+                <a href="#Declaration_Order" class="page-scroll">Declaration Order</a>
+                <a href="#Block_Content_Indentation" class="page-scroll">Block Content Indentation</a>
+                <a href="#Declaration_Stops" class="page-scroll">Declaration Stops</a>
+                <a href="#Property_Name_Stops" class="page-scroll">Property Name Stops</a>
+                <a href="#Declaration_Block_Separation" class="page-scroll">Declaration Block Separation</a>
+                <a href="#Selector_and_Declaration_Separation" class="page-scroll">Selector and Declaration Separation</a>
+                <a href="#Rule_Separation" class="page-scroll">Rule Separation</a>
+                <a href="#CSS_Quotation_Marks" class="page-scroll">CSS Quotation Marks</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="#CSS_Meta_Rules" class="page-scroll">CSS Meta Rules</a>
+              </td>
+              <td>
+                <a href="#Section_Comments" class="page-scroll">Section Comments</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- /table-responsive -->
+    </div><!-- /col -->
+  </div><!-- /row -->
+</section>
+
+<section>
+  <h3>Important Note and Background</h3>
+  <h4>Displaying Hidden Details in This Guide</a></h4>
+  <p>
+    This style guide contains many details that are initially hidden from view. They are marked by the "<a class="toggle collapsed"></a>" icon, which when clicked expands.
+  </p>
+
+      <h4>Background</h4>   
+      <p>
+        This document defines formatting and style rules for HTML, Less/CSS. It aims at improving collaboration, code quality, and enabling supporting infrastructure. It applies to raw, working files that use HTML and Less/CSS. For production, all Less files will be compiled and minified to one single CSS global file (not including institution specific stylesheets).  
+      </p>
+
+</section>
+
+<hr>
+
+    
+<section>
+  <a name="General_Style_Rules"></a> 
+  <h3>General Style Rules</h3>
+  <a name="Protocol" id="Protocol"></a>
+  <h4>Protocol</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#protocol" aria-expanded="false" aria-controls="protocol">Omit the protocol from embedded resources</a>
+  </p>
+  <div class="collapse" id="protocol">
+    <p>
+      Omit the protocol portion (<code>http:</code>,
+      <code>https:</code>) from URLs pointing to images and other
+      media files, style sheets, and scripts unless the respective
+      files are not available over both protocols.
+    </p>
+    <p>
+      Omitting the protocol—which makes the URL
+      relative—prevents mixed content issues and results in
+      minor file size savings.
+    </p>
+
+<!-- Code examples -->
+<pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;script src="http://moneyguidepro.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;</pre>
+
+<pre>&lt;!-- Recommended --&gt;
+&lt;script src="//moneyguidepro.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;</pre>
+
+<pre class="badcode">/* Not recommended */
+.example {
+  background: url(http://moneyguidepro.com/images/example);
+}</pre>
+
+<pre>/* Recommended */
+.example {
+  background: url(//moneyguidepro.com/images/example);
+}</pre>
+<!-- /Code examples -->
+
+  </div><!-- /collapse -->
+</section>
+
+<section>   
+  <a name="General_Formatting_Rules"></a>
+  <h3>General Formatting Rules</h3>
+  <a name="Indentation" id="Indentation"></a>
+  <h4>Indentation - Your Code in Visual Studio</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#indentation" aria-expanded="false" aria-controls="indentation">Indent by 1 tab (equivalent to 2 spaces)</a>
+  </p>
+  <div class="collapse" id="indentation">
+    <p>
+      Set <strong>Visual Studio</strong> to the following settings (in VS go to Tools > Options > Text Editor > All Languages > Tabs)
+    </p>
+    <ul>
+      <li>Indenting: 'Smart'</li>
+      <li>Tab > Tab size: 2</li>
+      <li>Tab > Indent size: 2</li>
+      <li>Select 'Insert Spaces'</li>
+    </ul>
+    <p>
+      Don’t mix tabs and spaces for indentation.
+    </p>
+
+<!-- Code examples -->
+      <pre>&lt;ul&gt;
+  &lt;li&gt;Fantastic
+  &lt;li&gt;Great
+&lt;/ul&gt;</pre>
+      <pre>.example {
+  color: blue;
+}</pre>
+<!-- /Code examples -->
+
+  </div><!-- /collapse -->
+
+      <a name="Capitalization" id="Capitalization"></a>
+      <h4>Capitalization</h4>
+      <p>
+        <a class="toggle collapsed" data-toggle="collapse" href="#capitalize" aria-expanded="false" aria-controls="capitalize">Use only lowercase</a>
+      </p>
+
+      <div class="collapse" id="capitalize">
+        <p>
+          All code has to be lowercase: This applies to HTML element names,
+          attributes, attribute values (unless
+          <code>text/CDATA</code>), CSS selectors, properties, and
+          property values (<em>with the exception of strings and CamelCased Less variable names</em>).
+        </p>
+
+<!-- Code examples -->
+        <pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;A HREF="/"&gt;Home&lt;/A&gt;</pre>
+        <pre>&lt;!-- Recommended --&gt;
+&lt;img src="mgp.png" alt="MoneyGuidePro"&gt;</pre>
+        <pre class="badcode">/* Not recommended */
+color: #3A7FC2;</pre>
+        <pre>/* Recommended */
+color: #3a7fc2;</pre>
+<!-- /Code examples -->
+
+  </div><!-- /collapse -->
+</section>
+
+<section>
+  <a name="General_Meta_Rules" id="General_Meta_Rules"></a>
+  <h3>General Meta Rules</h3>
+  <a name="Encoding" id="Encoding"></a>
+  <h4>Encoding</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#encoding" aria-expanded="false" aria-controls="encoding">Use UTF-8 (no BOM).</a>
+  </p>
+      
+  <div class="collapse" id="encoding">
+    <p>
+      Make sure your editor uses UTF-8 as character encoding,
+      without a byte order mark.
+    </p>
+    <p>
+      Specify the encoding in HTML templates and documents via
+      <code>&lt;meta charset="utf-8"&gt;</code>. Do not specify
+      the encoding of style sheets as these assume UTF-8.
+    </p>
+    <p>
+      (More on encodings and when and how to specify them can be
+      found in <a href="http://www.w3.org/International/tutorials/tutorial-char-enc/">Handling
+      character encodings in HTML and CSS</a>.)
+    </p>
+  </div><!-- /collapse -->
+
+  <a name="Comments" id="Comments"></a>
+  <h4>Comments</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#comment" aria-expanded="false" aria-controls="comment">Comment and explain code as needed, where possible.</a>
+  </p>
+
+  <div class="collapse" id="comment">
+    <p>
+      Use comments to explain code: What does it cover, what
+      purpose does it serve, why is respective solution used or
+      preferred?
+    </p>
+    <p>
+      (This item is optional as it is not deemed a realistic
+      expectation to always demand fully documented code. Mileage
+      may vary heavily for HTML and CSS code and depends on the
+      project’s complexity.)
+    </p>
+  </div><!-- /collapse -->
+
+  <a name="Action_Items" id="Action_Items"></a>
+  <h4>Action Items</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#action" aria-expanded="false" aria-controls="action">Mark "todos" and action items with <code>TODO</code>.</a>
+  </p>
+  
+  <div class="collapse" id="action">
+    <p>
+      Highlight todos by using the keyword <code>TODO</code> only,
+      not other common formats like <code>@@</code>.
+    </p>
+    <p>
+      Append a contact (username or mailing list) in parentheses
+      as with the format <code>TODO(contact)</code>.
+    </p>
+    <p>
+      Append action items after a colon as in <code>TODO: action
+      item</code>.
+    </p>
+
+<!-- Code examples -->        
+        <pre>{# TODO(john.doe): revisit centering #}
+&lt;center&gt;Test&lt;/center&gt;</pre>
+        
+        <pre>&lt;!-- TODO: remove optional tags --&gt;
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;</pre>
+
+<pre>@* TODO: remove optional tags *@
+&lt;ul&gt;
+  &lt;li&gt;Apples&lt;/li&gt;
+  &lt;li&gt;Oranges&lt;/li&gt;
+&lt;/ul&gt;</pre>
+<!-- /Code examples -->
+
+  </div><!-- /collapse -->
+</section>
+
+<section>
+  <a name="HTML_Style_Rules" id="HTML_Style_Rules"></a>
+  <h3>HTML Style Rules</h3>
+  <a name="Document_Type" id="Document_Type"></a>
+  <h4>Document Type</a></h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#doctype" aria-expanded="false" aria-controls="doctype">Use HTML5</a>
+  </p>
+  <div class="collapse" id="doctype">
+    <p>
+      HTML5 (HTML syntax) is preferred for all HTML documents:
+      <code>&lt;!DOCTYPE html&gt;</code>.
+    </p>
+    <p>
+      (It’s recommended to use HTML, as <code>text/html</code>. Do not use
+      XHTML. XHTML, as <a href="http://hixie.ch/advocacy/xhtml"><code>application/xhtml+xml</code></a>,
+      lacks both browser and infrastructure support and offers
+      less room for optimization than HTML.)
+    </p>
+  </div><!-- /collapse -->
+
+  <a name="HTML_Doc_Template" id="HTML_Doc_Template"></a>
+  <h4>HTML5 Document Template</a></h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#htmltemplate" aria-expanded="false" aria-controls="htmltemplate">Template</a>
+  </p>
+  <div class="collapse" id="htmltemplate">
+  
+<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"&gt;
+    &lt;meta name="description" content=""&gt;
+    &lt;meta name="author" content=""&gt;
+    &lt;link rel="icon" href="favicon.ico"&gt;
+
+    &lt;title&gt;Example Title for MoneyGuidePro&lt;/title&gt;
+
+    &lt;!-- CSS
+    ======================================== --&gt;
+    &lt;!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all --&gt;
+    &lt;link href="css/global.min.css" rel="stylesheet"&gt;
+
+    &lt;!-- Conditional Scripts to keep here, all other scripts on bottom
+    ======================================== --&gt;
+    &lt;!--[if lt IE 9]&gt;
+      &lt;link href="css/ie8-global.min.css" rel="stylesheet"&gt;
+      &lt;script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"&gt;&lt;/script&gt;
+      &lt;script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"&gt;&lt;/script&gt;
+      &lt;script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;!-- Favicons
+    ======================================== --&gt;
+    &lt;link rel="shortcut icon" href="favicon.ico"&gt;
+    &lt;link rel="apple-touch-icon" href="img/apple-touch-icon.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png"&gt;
+    &lt;link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png"&gt;
+
+  &lt;/head&gt;
+
+  &lt;body&gt;
+  &lt;!-- Begin Unique Body Content --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+
+  </div><!-- /collapse -->
+
+  <a name="HTML_Validity" id="HTML_Validity"></a>
+  <h4>HTML Validity</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#validity" aria-expanded="false" aria-controls="validity">Use valid HTML where possible</a>
+  </p>
+  <div class="collapse" id="validity">    
+    <p>
+      Use valid HTML code unless that is not possible due to
+      otherwise unattainable performance goals regarding file size.
+    </p>
+    <p>
+      Use tools such as the <a href="http://validator.w3.org/nu/">W3C
+      HTML validator</a> to test.
+    </p>
+    <p>
+      Using valid HTML is a measurable baseline quality attribute
+      that contributes to learning about technical requirements
+      and constraints, and that ensures proper HTML usage.
+    </p>
+
+  </div><!-- /collapse -->
+
+  <a name="Semantics" id="Semantics"></a>
+  <h4>Semantics</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#semantics" aria-expanded="false" aria-controls="semantics">Use HTML according to its purpose</a>
+  </p>
+  <div class="collapse" id="semantics"> 
+    <p>
+      Use elements for what
+      they have been created for. For example, use heading
+      elements for headings, <code>p</code> elements for
+      paragraphs, <code>a</code> elements for anchors, etc.
+    </p>
+    <p>
+      Using HTML according to its purpose is important for
+      accessibility, reuse, and code efficiency reasons.
+    </p>
+
+    <pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;div onclick="goToRecommendations();"&gt;All recommendations&lt;/div&gt;</pre>
+    <pre>&lt;!-- Recommended --&gt;
+&lt;a href="recommendations/"&gt;All recommendations&lt;/a&gt;</pre>
+  </div><!-- /collapse -->
+
+  <a name="Multimedia_Fallback" id="Multimedia_Fallback"></a>
+  <h4>Multimedia Fallback</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#multimedia" aria-expanded="false" aria-controls="multimedia">Provide alternative contents for multimedia</a>
+  </p>
+  <div class="collapse" id="multimedia">
+    <p>
+      For multimedia, such as images, videos, animated objects via
+      <code>canvas</code>, make sure to offer alternative
+      access. For images, that means use of meaningful alternative
+      text (<code>alt</code>) and for video and audio transcripts
+      and captions, if available.
+    </p>
+    <p>
+      Providing alternative contents is important for
+      accessibility reasons: A blind user has few cues to tell
+      what an image is about without <code>@alt</code>, and other
+      users may have no way of understanding what video or audio
+      contents are about either.
+    </p>
+    <p>
+      (For images whose <code>alt</code> attributes would
+      introduce redundancy, and for images whose purpose is purely
+      decorative which you cannot immediately use CSS for, use no
+      alternative text, as in <code>alt=""</code>.)
+    </p>
+    <pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;img src="spreadsheet.png"&gt;</pre>
+    <pre>&lt;!-- Recommended --&gt;
+&lt;img src="spreadsheet.png" alt="Spreadsheet screenshot."&gt;</pre>
+  </div><!-- /collapse -->
+
+  <a name="Separation_of_Concerns" id="Separation_of_Concerns"></a>
+  <h4>Separation of Concerns</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#separation" aria-expanded="false" aria-controls="separation">Separate structure from presentation from behavior</a>
+  </p>
+
+  <div class="collapse" id="separation">
+    <p>
+      Strictly keep structure (markup), presentation (styling),
+      and behavior (scripting) apart, and try to keep the
+      interaction between the three to an absolute minimum.
+    </p>
+    <p>
+      That is, make sure documents and templates contain only HTML
+      and HTML that is solely serving structural purposes. Move
+      everything presentational into style sheets, and everything
+      behavioral into scripts.
+    </p>
+    <p>
+      In addition, keep the contact area as small as possible by
+      linking as few style sheets and scripts as possible from
+      documents and templates.
+    </p>
+    <p>
+      Separating structure from presentation from behavior is
+      important for maintenance reasons. It is always more
+      expensive to change HTML documents and templates than it is
+      to update style sheets and scripts.
+    </p>
+        
+<pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;HTML sucks&lt;/title&gt;
+&lt;link rel="stylesheet" href="base.css" media="screen"&gt;
+&lt;link rel="stylesheet" href="grid.css" media="screen"&gt;
+&lt;link rel="stylesheet" href="print.css" media="print"&gt;
+&lt;h1 style="font-size: 1em;"&gt;HTML sucks&lt;/h1&gt;
+&lt;p&gt;I’ve read about this on a few sites but now I’m sure:
+  &lt;u&gt;HTML is stupid!!1&lt;/u&gt;
+&lt;center&gt;I can’t believe there’s no way to control the styling of
+  my website without doing everything all over again!&lt;/center&gt;</pre>
+<pre>&lt;!-- Recommended --&gt;
+&lt;!DOCTYPE html&gt;
+&lt;title&gt;My first CSS-only redesign&lt;/title&gt;
+&lt;link rel="stylesheet" href="default.css"&gt;
+&lt;h1&gt;My first CSS-only redesign&lt;/h1&gt;
+&lt;p&gt;I’ve read about this on a few sites but today I’m actually
+  doing it: separating concerns and avoiding anything in the HTML of
+  my website that is presentational.
+&lt;p&gt;It’s awesome!</pre>
+
+  </div><!-- /collapse -->
+
+  <a name="type_Attributes" id="type_Attributes"></a>
+  <h4>type Attributes</h4>
+  <p>
+    <a class="toggle collapsed" data-toggle="collapse" href="#type_attr" aria-expanded="false" aria-controls="type_attr">Omit <code>type</code> attributes for style sheets and scripts</a>
+  </p>
+
+  <div class="collapse" id="type_attr">
+    <p>
+      Do not use <code>type</code> attributes for style sheets
+      (unless not using CSS) and scripts (unless not using
+      JavaScript).
+    </p>
+    <p>
+      Specifying <code>type</code> attributes in these contexts is
+      not necessary as HTML5 implies
+      <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/semantics.html#attr-style-type"><code>text/css</code></a>
+      and
+      <a href="http://www.whatwg.org/specs/web-apps/current-work/multipage/scripting-1.html#attr-script-type"><code>text/javascript</code></a>
+      as defaults. This can be safely done even for older browsers.
+    </p>
+
+<pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;link rel="stylesheet" href="//www.google.com/css/maia.css"
+  type="text/css"&gt;</pre>
+<pre>&lt;!-- Recommended --&gt;
+&lt;link rel="stylesheet" href="//www.google.com/css/maia.css"&gt;</pre>
+<pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js"
+  type="text/javascript"&gt;&lt;/script&gt;</pre>
+<pre>&lt;!-- Recommended --&gt;
+&lt;script src="//www.google.com/js/gweb/analytics/autotrack.js"&gt;&lt;/script&gt;</pre>
+
+  </div><!-- /collapse -->
+</section>
+
+  <div class="">
+<h3 name="HTML_Formatting_Rules" id="HTML_Formatting_Rules">HTML Formatting Rules</h3>
+    <div class="">
+<h4><a name="General_Formatting" id="General_Formatting">General Formatting</a></h4>
+<span class="link_button" id="link-General_Formatting__button" name="link-General_Formatting__button"><a href="?showone=General_Formatting#General_Formatting">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('General_Formatting')" name="General_Formatting__button" id="General_Formatting__button">▶</span>
+      <div style="display:inline;" class="">
+        Use a new line for every block, list, or table element, and
+        indent every such child element.
+      </div>
+      <div class=""><div class="stylepoint_body" name="General_Formatting__body" id="General_Formatting__body" style="display: none">
+        <p>
+          Independent of the styling of an element (as CSS allows
+          elements to assume a different role per <code>display</code>
+          property), put every block, list, or table element on a new
+          line.
+        </p>
+        <p>
+          Also, indent them if they are child elements of a block,
+          list, or table element.
+        </p>
+        <p>
+          (If you run into issues around whitespace between list items
+          it’s acceptable to put all <code>li</code> elements in one
+          line. A linter is encouraged to throw a warning instead of
+          an error.)
+        </p>
+        <div class=""><pre>&lt;blockquote&gt;
+  &lt;p&gt;&lt;em&gt;Space&lt;/em&gt;, the final frontier.&lt;/p&gt;
+&lt;/blockquote&gt;</pre></div>
+        <div class=""><pre>&lt;ul&gt;
+  &lt;li&gt;Moe
+  &lt;li&gt;Larry
+  &lt;li&gt;Curly
+&lt;/ul&gt;</pre></div>
+        <div class=""><pre>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th scope="col"&gt;Income
+      &lt;th scope="col"&gt;Taxes
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$ 5.00
+      &lt;td&gt;$ 4.50
+&lt;/table&gt;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="HTML_Quotation_Marks" id="HTML_Quotation_Marks">HTML Quotation Marks</a></h4>
+<span class="link_button" id="link-HTML_Quotation_Marks__button" name="link-HTML_Quotation_Marks__button"><a href="?showone=HTML_Quotation_Marks#HTML_Quotation_Marks">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('HTML_Quotation_Marks')" name="HTML_Quotation_Marks__button" id="HTML_Quotation_Marks__button">▶</span>
+      <div style="display:inline;" class="">
+        When quoting attributes values, use double quotation marks.
+      </div>
+      <div class=""><div class="stylepoint_body" name="HTML_Quotation_Marks__body" id="HTML_Quotation_Marks__body" style="display: none">
+        <p>
+          Use double (<code>""</code>) rather than single quotation marks
+          (<code>''</code>) around attribute values.
+        </p>
+        <div class=""><pre class="badcode">&lt;!-- Not recommended --&gt;
+&lt;a class='maia-button maia-button-secondary'&gt;Sign in&lt;/a&gt;</pre></div>
+        <div class=""><pre>&lt;!-- Recommended --&gt;
+&lt;a class="maia-button maia-button-secondary"&gt;Sign in&lt;/a&gt;</pre></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="">
+<h3 name="CSS_Style_Rules" id="CSS_Style_Rules">CSS Style Rules</h3>
+    <div class="">
+<h4><a name="CSS_Validity" id="CSS_Validity">CSS Validity</a></h4>
+<span class="link_button" id="link-CSS_Validity__button" name="link-CSS_Validity__button"><a href="?showone=CSS_Validity#CSS_Validity">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('CSS_Validity')" name="CSS_Validity__button" id="CSS_Validity__button">▶</span>
+      <div style="display:inline;" class="">
+        Use valid CSS where possible.
+      </div>
+      <div class=""><div class="stylepoint_body" name="CSS_Validity__body" id="CSS_Validity__body" style="display: none">
+        <p>
+          Unless dealing with CSS validator bugs or requiring
+          proprietary syntax, use valid CSS code.
+        </p>
+        
+        <p>
+          Use tools such as the <a href="http://jigsaw.w3.org/css-validator/">W3C
+          CSS validator</a> to test.
+        </p>
+        <p>
+          Using valid CSS is a measurable baseline quality attribute
+          that allows to spot CSS code that may not have any effect
+          and can be removed, and that ensures proper CSS usage.
+        </p>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="ID_and_Class_Naming" id="ID_and_Class_Naming">ID and Class Naming</a></h4>
+<span class="link_button" id="link-ID_and_Class_Naming__button" name="link-ID_and_Class_Naming__button"><a href="?showone=ID_and_Class_Naming#ID_and_Class_Naming">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('ID_and_Class_Naming')" name="ID_and_Class_Naming__button" id="ID_and_Class_Naming__button">▶</span>
+      <div style="display:inline;" class="">
+        Use meaningful or generic ID and class names.
+      </div>
+      <div class=""><div class="stylepoint_body" name="ID_and_Class_Naming__body" id="ID_and_Class_Naming__body" style="display: none">
+        <p>
+          Instead of presentational or cryptic names, always use ID
+          and class names that reflect the purpose of the element in
+          question, or that are otherwise generic.
+        </p>
+        <p>
+          Names that are specific and reflect the purpose of the
+          element should be preferred as these are most understandable
+          and the least likely to change.
+        </p>
+        <p>
+          Generic names are simply a fallback for elements that have no
+          particular or no meaning different from their siblings. They are
+          typically needed as “helpers.”
+        </p>
+        <p>
+          Using functional or generic names reduces the probability of
+          unnecessary document or template changes.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended: meaningless */
+#yee-1901 {}
+
+/* Not recommended: presentational */
+.button-green {}
+.clear {}</pre></div>
+        <div class=""><pre>/* Recommended: specific */
+#gallery {}
+#login {}
+.video {}
+
+/* Recommended: generic */
+.aux {}
+.alt {}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="ID_and_Class_Name_Style" id="ID_and_Class_Name_Style">ID and Class Name Style</a></h4>
+<span class="link_button" id="link-ID_and_Class_Name_Style__button" name="link-ID_and_Class_Name_Style__button"><a href="?showone=ID_and_Class_Name_Style#ID_and_Class_Name_Style">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('ID_and_Class_Name_Style')" name="ID_and_Class_Name_Style__button" id="ID_and_Class_Name_Style__button">▶</span>
+      <div style="display:inline;" class="">
+        Use ID and class names that are as short as possible but as long as
+        necessary.
+      </div>
+      <div class=""><div class="stylepoint_body" name="ID_and_Class_Name_Style__body" id="ID_and_Class_Name_Style__body" style="display: none">
+        <p>
+          Try to convey what an ID or class is about while being as
+          brief as possible.
+        </p>
+        <p>
+          Using ID and class names this way contributes to acceptable
+          levels of understandability and code efficiency.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+#navigation {}
+.atr {}</pre></div>
+        <div class=""><pre>/* Recommended */
+#nav {}
+.author {}</pre></div>
+      </div></div>
+    </div>
+
+    <div class="">
+<h4><a name="Type_Selectors" id="Type_Selectors">Type Selectors</a></h4>
+<span class="link_button" id="link-Type_Selectors__button" name="link-Type_Selectors__button"><a href="?showone=Type_Selectors#Type_Selectors">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Type_Selectors')" name="Type_Selectors__button" id="Type_Selectors__button">▶</span>
+      <div style="display:inline;" class="">
+        Avoid qualifying ID and class names with type selectors.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Type_Selectors__body" id="Type_Selectors__body" style="display: none">
+        <p>Unless necessary (for example with helper classes), do not
+          use element names in conjunction with IDs or classes.
+        </p>
+        <p>
+          Avoiding unnecessary ancestor selectors is useful for <a href="http://www.stevesouders.com/blog/2009/06/18/simplifying-css-selectors/">performance
+          reasons</a>.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+ul#example {}
+div.error {}</pre></div>
+        <div class=""><pre>/* Recommended */
+#example {}
+.error {}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Shorthand_Properties" id="Shorthand_Properties">Shorthand Properties</a></h4>
+<span class="link_button" id="link-Shorthand_Properties__button" name="link-Shorthand_Properties__button"><a href="?showone=Shorthand_Properties#Shorthand_Properties">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Shorthand_Properties')" name="Shorthand_Properties__button" id="Shorthand_Properties__button">▶</span>
+      <div style="display:inline;" class="">
+        Use shorthand properties where possible.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Shorthand_Properties__body" id="Shorthand_Properties__body" style="display: none">
+        <p>
+          CSS offers a variety of <a href="http://www.w3.org/TR/CSS21/about.html#shorthand">shorthand</a>
+          properties (like <code>font</code>)
+          that should be used whenever possible, even in cases where
+          only one value is explicitly set.
+        </p>
+        <p>
+          Using shorthand properties is useful for code efficiency and
+          understandability.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;</pre></div>
+        <div class=""><pre>/* Recommended */
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="0_and_Units" id="0_and_Units">0 and Units</a></h4>
+<span class="link_button" id="link-0_and_Units__button" name="link-0_and_Units__button"><a href="?showone=0_and_Units#0_and_Units">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('0_and_Units')" name="0_and_Units__button" id="0_and_Units__button">▶</span>
+      <div style="display:inline;" class="">
+        Omit unit specification after “0” values.
+      </div>
+      <div class=""><div class="stylepoint_body" name="0_and_Units__body" id="0_and_Units__body" style="display: none">
+        <p>
+          Do not use units after <code>0</code> values unless they are
+          required.
+        </p>
+        <div class=""><pre>margin: 0;
+padding: 0;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Leading_0s" id="Leading_0s">Leading 0s</a></h4>
+<span class="link_button" id="link-Leading_0s__button" name="link-Leading_0s__button"><a href="?showone=Leading_0s#Leading_0s">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Leading_0s')" name="Leading_0s__button" id="Leading_0s__button">▶</span>
+      <div style="display:inline;" class="">
+        Omit leading “0”s in values.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Leading_0s__body" id="Leading_0s__body" style="display: none">
+        <p>
+          Do not use put <code>0</code>s in front of values or lengths
+          between -1 and 1.
+        </p>
+        <div class=""><pre>font-size: .8em;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Hexadecimal_Notation" id="Hexadecimal_Notation">Hexadecimal Notation</a></h4>
+<span class="link_button" id="link-Hexadecimal_Notation__button" name="link-Hexadecimal_Notation__button"><a href="?showone=Hexadecimal_Notation#Hexadecimal_Notation">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Hexadecimal_Notation')" name="Hexadecimal_Notation__button" id="Hexadecimal_Notation__button">▶</span>
+      <div style="display:inline;" class="">
+        Use 3 character hexadecimal notation where possible.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Hexadecimal_Notation__body" id="Hexadecimal_Notation__body" style="display: none">
+        <p>
+          For color values that permit it, 3 character hexadecimal
+          notation is shorter and more succinct.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+color: #eebbcc;</pre></div>
+        <div class=""><pre>/* Recommended */
+color: #ebc;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Prefixes" id="Prefixes">Prefixes</a></h4>
+<span class="link_button" id="link-Prefixes__button" name="link-Prefixes__button"><a href="?showone=Prefixes#Prefixes">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Prefixes')" name="Prefixes__button" id="Prefixes__button">▶</span>
+      <div style="display:inline;" class="">
+        Prefix selectors with an application-specific prefix (optional).
+      </div>
+      <div class=""><div class="stylepoint_body" name="Prefixes__body" id="Prefixes__body" style="display: none">
+        <p>
+          In large projects as well as for code that gets embedded in
+          other projects or on external sites use prefixes (as
+          namespaces) for ID and class names. Use short, unique
+          identifiers followed by a dash.
+        </p>
+        
+        
+        <p>
+          Using namespaces helps preventing naming conflicts and can
+          make maintenance easier, for example in search and replace
+          operations.
+        </p>
+        <div class=""><pre>.adw-help {} /* AdWords */
+#maia-note {} /* Maia */</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="ID_and_Class_Name_Delimiters" id="ID_and_Class_Name_Delimiters">ID and Class Name Delimiters</a></h4>
+<span class="link_button" id="link-ID_and_Class_Name_Delimiters__button" name="link-ID_and_Class_Name_Delimiters__button"><a href="?showone=ID_and_Class_Name_Delimiters#ID_and_Class_Name_Delimiters">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('ID_and_Class_Name_Delimiters')" name="ID_and_Class_Name_Delimiters__button" id="ID_and_Class_Name_Delimiters__button">▶</span>
+      <div style="display:inline;" class="">
+        Separate words in ID and class names by a hyphen.
+      </div>
+      <div class=""><div class="stylepoint_body" name="ID_and_Class_Name_Delimiters__body" id="ID_and_Class_Name_Delimiters__body" style="display: none">
+        <p>
+          Do not concatenate words and abbreviations in selectors by
+          any characters (including none at all) other than hyphens,
+          in order to improve understanding and scannability.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended: does not separate the words “demo” and “image” */
+.demoimage {}
+
+/* Not recommended: uses underscore instead of hyphen */
+.error_status {}</pre></div>
+        <div class=""><pre>/* Recommended */
+#video-id {}
+.ads-sample {}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Hacks" id="Hacks">Hacks</a></h4>
+<span class="link_button" id="link-Hacks__button" name="link-Hacks__button"><a href="?showone=Hacks#Hacks">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Hacks')" name="Hacks__button" id="Hacks__button">▶</span>
+      <div style="display:inline;" class="">
+        Avoid user agent detection as well as CSS “hacks”—try a different
+        approach first.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Hacks__body" id="Hacks__body" style="display: none">
+        <p>
+          It’s tempting to address styling differences over user
+          agent detection or special CSS filters, workarounds, and
+          hacks. Both approaches should be considered last resort in
+          order to achieve and maintain an efficient and manageable
+          code base. Put another way, giving detection and hacks a
+          free pass will hurt projects in the long run as projects
+          tend to take the way of least resistance. That is, allowing
+          and making it easy to use detection and hacks means using
+          detection and hacks more frequently—and more frequently
+          is too frequently.
+        </p>
+        
+        
+      </div></div>
+    </div>
+  </div>
+
+  <div class="">
+<h3 name="CSS_Formatting_Rules" id="CSS_Formatting_Rules">CSS Formatting Rules</h3>
+    <div class="">
+<h4><a name="Declaration_Order" id="Declaration_Order">Declaration Order</a></h4>
+<span class="link_button" id="link-Declaration_Order__button" name="link-Declaration_Order__button"><a href="?showone=Declaration_Order#Declaration_Order">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Declaration_Order')" name="Declaration_Order__button" id="Declaration_Order__button">▶</span>
+      <div style="display:inline;" class="">
+        Alphabetize declarations.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Declaration_Order__body" id="Declaration_Order__body" style="display: none">
+        <p>
+          Put declarations in alphabetical order in order to achieve
+          consistent code in a way that is easy to remember and
+          maintain.
+        </p>
+        <p>
+          Ignore vendor-specific prefixes for sorting purposes. However,
+          multiple vendor-specific prefixes for a certain CSS property should
+          be kept sorted (e.g. -moz prefix comes before -webkit).
+        </p>
+        <div class=""><pre>background: fuchsia;
+border: 1px solid;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color: black;
+text-align: center;
+text-indent: 2em;</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Block_Content_Indentation" id="Block_Content_Indentation">Block Content Indentation</a></h4>
+<span class="link_button" id="link-Block_Content_Indentation__button" name="link-Block_Content_Indentation__button"><a href="?showone=Block_Content_Indentation#Block_Content_Indentation">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Block_Content_Indentation')" name="Block_Content_Indentation__button" id="Block_Content_Indentation__button">▶</span>
+      <div style="display:inline;" class="">
+        Indent all block content.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Block_Content_Indentation__body" id="Block_Content_Indentation__body" style="display: none">
+        <p>
+          Indent all <a href="http://www.w3.org/TR/CSS21/syndata.html#block">block
+          content</a>, that is rules within rules as well as declarations, so to
+          reflect hierarchy and improve understanding.
+        </p>
+        <div class=""><pre>@media screen, projection {
+
+  html {
+    background: #fff;
+    color: #444;
+  }
+
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Declaration_Stops" id="Declaration_Stops">Declaration Stops</a></h4>
+<span class="link_button" id="link-Declaration_Stops__button" name="link-Declaration_Stops__button"><a href="?showone=Declaration_Stops#Declaration_Stops">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Declaration_Stops')" name="Declaration_Stops__button" id="Declaration_Stops__button">▶</span>
+      <div style="display:inline;" class="">
+        Use a semicolon after every declaration.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Declaration_Stops__body" id="Declaration_Stops__body" style="display: none">
+        <p>
+          End every declaration with a semicolon for consistency and
+          extensibility reasons.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+.test {
+  display: block;
+  height: 100px
+}</pre></div>
+        <div class=""><pre>/* Recommended */
+.test {
+  display: block;
+  height: 100px;
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Property_Name_Stops" id="Property_Name_Stops">Property Name Stops</a></h4>
+<span class="link_button" id="link-Property_Name_Stops__button" name="link-Property_Name_Stops__button"><a href="?showone=Property_Name_Stops#Property_Name_Stops">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Property_Name_Stops')" name="Property_Name_Stops__button" id="Property_Name_Stops__button">▶</span>
+      <div style="display:inline;" class="">
+        Use a space after a property name’s colon.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Property_Name_Stops__body" id="Property_Name_Stops__body" style="display: none">
+        <p>
+          Always use a single space between property and value (but no
+          space between property and colon) for consistency reasons.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+h4 {
+  font-weight:bold;
+}</pre></div>
+        <div class=""><pre>/* Recommended */
+h4 {
+  font-weight: bold;
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Declaration_Block_Separation" id="Declaration_Block_Separation">Declaration Block Separation</a></h4>
+<span class="link_button" id="link-Declaration_Block_Separation__button" name="link-Declaration_Block_Separation__button"><a href="?showone=Declaration_Block_Separation#Declaration_Block_Separation">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Declaration_Block_Separation')" name="Declaration_Block_Separation__button" id="Declaration_Block_Separation__button">▶</span>
+      <div style="display:inline;" class="">
+        Use a space between the last selector and the declaration block.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Declaration_Block_Separation__body" id="Declaration_Block_Separation__body" style="display: none">
+        <p>
+          Always use a single space between the last selector and the opening
+          brace that begins the <a href="http://www.w3.org/TR/CSS21/syndata.html#rule-sets">declaration
+          block</a>.
+        </p>
+        <p>
+          The opening brace should be on the same line as the last selector in a
+          given rule.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended: missing space */
+#video{
+  margin-top: 1em;
+}
+
+/* Not recommended: unnecessary line break */
+#video
+{
+  margin-top: 1em;
+}</pre></div>
+        <div class=""><pre>/* Recommended */
+#video {
+  margin-top: 1em;
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Selector_and_Declaration_Separation" id="Selector_and_Declaration_Separation">Selector and Declaration Separation</a></h4>
+<span class="link_button" id="link-Selector_and_Declaration_Separation__button" name="link-Selector_and_Declaration_Separation__button"><a href="?showone=Selector_and_Declaration_Separation#Selector_and_Declaration_Separation">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Selector_and_Declaration_Separation')" name="Selector_and_Declaration_Separation__button" id="Selector_and_Declaration_Separation__button">▶</span>
+      <div style="display:inline;" class="">
+        Separate selectors and declarations by new lines.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Selector_and_Declaration_Separation__body" id="Selector_and_Declaration_Separation__body" style="display: none">
+        <p>
+          Always start a new line for each selector and declaration.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+a:focus, a:active {
+  position: relative; top: 1px;
+}</pre></div>
+        <div class=""><pre>/* Recommended */
+h1,
+h3,
+h4 {
+  font-weight: normal;
+  line-height: 1.2;
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="Rule_Separation" id="Rule_Separation">Rule Separation</a></h4>
+<span class="link_button" id="link-Rule_Separation__button" name="link-Rule_Separation__button"><a href="?showone=Rule_Separation#Rule_Separation">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Rule_Separation')" name="Rule_Separation__button" id="Rule_Separation__button">▶</span>
+      <div style="display:inline;" class="">
+        Separate rules by new lines.
+      </div>
+      <div class=""><div class="stylepoint_body" name="Rule_Separation__body" id="Rule_Separation__body" style="display: none">
+        <p>
+          Always put a blank line (two line breaks) between rules.
+        </p>
+        <div class=""><pre>html {
+  background: #fff;
+}
+
+body {
+  margin: auto;
+  width: 50%;
+}</pre></div>
+      </div></div>
+    </div>
+    <div class="">
+<h4><a name="CSS_Quotation_Marks" id="CSS_Quotation_Marks">CSS Quotation Marks</a></h4>
+<span class="link_button" id="link-CSS_Quotation_Marks__button" name="link-CSS_Quotation_Marks__button"><a href="?showone=CSS_Quotation_Marks#CSS_Quotation_Marks">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('CSS_Quotation_Marks')" name="CSS_Quotation_Marks__button" id="CSS_Quotation_Marks__button">▶</span>
+      <div style="display:inline;" class="">
+        Use single quotation marks for attribute selectors and property values.
+      </div>
+      <div class=""><div class="stylepoint_body" name="CSS_Quotation_Marks__body" id="CSS_Quotation_Marks__body" style="display: none">
+        <p>
+          Use single (<code>''</code>) rather than double (<code>""</code>)
+          quotation marks for attribute selectors or property values. Do not
+          use quotation marks in URI values (<code>url()</code>).
+        </p>
+        <p>
+          Exception: If you do need to use the <code>@charset</code> rule,
+          use double quotation marks—<a href="http://www.w3.org/TR/CSS21/syndata.html#charset">single
+          quotation marks are not permitted</a>.
+        </p>
+        <div class=""><pre class="badcode">/* Not recommended */
+@import url("//www.google.com/css/maia.css");
+
+html {
+  font-family: "open sans", arial, sans-serif;
+}</pre></div>
+        <div class=""><pre>/* Recommended */
+@import url(//www.google.com/css/maia.css);
+
+html {
+  font-family: 'open sans', arial, sans-serif;
+}</pre></div>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="">
+<h3 name="CSS_Meta_Rules" id="CSS_Meta_Rules">CSS Meta Rules</h3>
+    
+    <div class="">
+<h4><a name="Section_Comments" id="Section_Comments">Section Comments</a></h4>
+<span class="link_button" id="link-Section_Comments__button" name="link-Section_Comments__button"><a href="?showone=Section_Comments#Section_Comments">
+          link
+        </a></span><span class="showhide_button" onclick="javascript:ShowHideByName('Section_Comments')" name="Section_Comments__button" id="Section_Comments__button">▶</span>
+      <div style="display:inline;" class="">
+        Group sections by a section comment (optional).
+      </div>
+      <div class=""><div class="stylepoint_body" name="Section_Comments__body" id="Section_Comments__body" style="display: none">
+        <p>
+          If possible, group style sheet sections together by using
+          comments. Separate sections with new lines.
+        </p>
+        <div class=""><pre>/* Header */
+
+#adw-header {}
+
+/* Footer */
+
+#adw-footer {}
+
+/* Gallery */
+
+.adw-gallery {}</pre></div>
+      </div></div>
+    </div>
+  </div>
+
+  
+
+  <h3>Parting Words</h3>
+    <p>
+      <em>Be consistent.</em>
+    </p>
+    <p>
+      If you’re editing code, take a few minutes to look at the code
+      around you and determine its style. If they use spaces around
+      all their arithmetic operators, you should too. If their
+      comments have little boxes of hash marks around them, make your
+      comments have little boxes of hash marks around them too.
+    </p>
+    <p>
+      The point of having style guidelines is to have a common vocabulary
+      of coding so people can concentrate on what you’re saying rather
+      than on how you’re saying it. We present global style rules here so
+      people know the vocabulary, but local style is also important. If
+      code you add to a file looks drastically different from the existing
+      code around it, it throws readers out of their rhythm when they go to
+      read it. Avoid this.
+    </p>
+
+</div>
+      </div>
+    </div>
+  </section>
+
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+</div> <!-- /container -->
+
+<footer>
+  <div class="container">
+    <p class="copyright">
+      &copy; <script type="text/javascript">
+      <!--
+        today = new Date();
+        year0 = today.getFullYear();
+        document.write(year0);
+      //-->
+      </script> PIEtech, Inc. All rights reserved.  
+    </p>
+    
+  </div>
+</footer>
+
+<!-- Core JavaScript
+======================================== -->
+<!-- Placed at the end of the document so our pages load faster -->
+<script src="../js/min/jquery-1.11.2.min.js"></script>
+<script src="../js/min/bootstrap.min.js"></script>
+<script src="../js/min/global.min.js"></script>
+<script src="standards.js"></script>
+
+</body>
+</html>

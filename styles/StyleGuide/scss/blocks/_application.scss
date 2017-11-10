@@ -1,0 +1,354 @@
+/************************ 
+BLOCKS Styles 
+************************/
+
+html {  
+  font-size: 14px;
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: #fff; //#f5f5f5;
+  font-size: 14px;
+  color: #666666;
+}
+
+.navbar {
+	margin-bottom: 0;
+	border-bottom: none;
+	background: #fff;
+	border-left: #fff 70px solid;
+  border-right: #fff 70px solid;
+
+	.navbar-default {
+		height: 40px;
+		background-color: #fff;
+		border-bottom: #fff;
+
+		.navbar-nav>li>a {
+			color: #fff;
+
+			&:hover {
+				color: #bbb;
+			}
+		}
+	}
+}
+
+.navbar-brand {
+	padding: 5px 15px;
+	  height: 55px;
+}
+
+.bodybox {
+	background-color: #f5f5f5;
+	min-height: 350px;
+	border-left: #fff 70px solid;
+	border-right: #fff 70px solid;
+	padding: 25px 0;
+	overflow: hidden;
+	margin-bottom: 30px;
+}
+
+.rightcol-nav {
+	position: absolute;
+	right: 0;
+
+	ul {
+		overflow: hidden;
+		position: relative;
+		padding-left: 250px;
+		margin-top: -25px;
+	}
+
+	li:first-child {
+		border-top: solid 5px #f5f5f5;
+		list-style: none;
+		width: 70px;
+		height: 75px;
+	}
+
+	li {
+		border-bottom: solid 5px #f5f5f5;
+		list-style: none;
+		width: 70px; 
+		height: 70px;
+
+		a {
+			text-align: center;
+			display: block;
+			color: #666666;
+			position: relative;
+			width: 70px;
+			height: 65px;
+			z-index: 9999;
+			padding: 15px 0;
+
+			&::after {
+  			content: "\A"attr(data-title);
+  			color: $brand-secondary;
+  			font-size: 15px;
+			  text-align: left;
+			  white-space: pre-wrap;
+			  background-color: #fff;
+			  padding: 4px 10px;
+			  top: 0;
+			  bottom: 0;
+			  right: -250px;
+			  width: 250px;
+			  z-index: -1;
+			  display: block;
+			  position: absolute;
+			  transition: all .3s ease-out;
+			}
+
+			&:hover::after {
+			  right: 70px;
+			}
+		}
+	}
+}
+
+
+// Footer Styles
+// -----------------------------------
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  background: $footer-bg;
+  color: $footer-text-color;
+  font-size: 0.95em;
+  text-align: center;
+  //padding: NOPE!! // DO NOT PUT PADDING/MARGIN ON FOOTER since it will overlap body content, instead put padding/margin ON THE ELEMENTS WITHIN the footer 
+
+  p.copyright-text {
+    max-width: 1140px;
+    vertical-align: middle;
+    color: $footer-text-color;
+    font-size: 0.95em;
+    margin: 8px auto;
+    padding: 20px 0;
+  }
+
+  a {
+    color: $footer-text-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $footer-text-color;
+    }
+  }
+}
+
+
+// Home Card Styles
+// -----------------------------------
+
+.card {
+	width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  border-radius: 3px;
+  background-color: #fff;
+  color: #4F5256;
+  border: 1px solid rgba(0,0,0,.12);
+  margin-bottom: 30px;
+
+  /* &:hover {
+	  background-image: url(http://subtlepatterns.com/patterns/gplaypattern.png);
+		background-color: rgba(255,255,255, 0.5);
+	} */
+
+  .card-overlay {
+  	background-color:rgba(0,0,0,.1);
+  	width:100%;
+  	height:100%;
+	  color: $font-for-darkBG;
+
+	  h4 {
+	  	text-transform: uppercase;
+	  	letter-spacing: 5px;
+	  	font-size: 1.9em;
+	  	font-weight: 400;
+	  	margin-bottom: 10px;
+	  }
+
+	  p {
+	  	font-size: 1.15em;
+	  	font-style: italic;
+	  	letter-spacing: 3px;
+  	  line-height: 1.3em;
+	  }
+
+	  hr {
+	  	width: 16%;
+	  	border-top: solid 2px;
+	  	margin: 15px auto;
+	  }
+
+	  .top-content {
+	  	opacity: 1;
+	  	transition: all 0.4s ease-in-out;
+
+	  }
+
+	  .card-overlay-content {
+  		opacity: 0;
+    	transition: all 0.4s ease-in-out;
+    	width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  overflow: hidden;
+		  top: 0;
+		  left: 0;
+  	}
+  	
+  	/* &:hover {
+
+	  	.card-overlay-content {
+	    	opacity: 1;
+			}
+
+			.top-content {
+				opacity: 0;
+				display: none;
+			}
+		} */
+  }
+
+
+
+  &.card-01 {
+  	background: url('/blocks/img/card01.jpg') no-repeat center top;
+  	height: 366px;
+  	transition: all 0.2s ease-in-out;
+  	//overflow: hidden;
+
+  	/* &:hover {
+	    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+	    filter: gray;
+	    -webkit-filter: grayscale(100%);
+	    transform: scale(1.5);
+		} */
+
+		h4 {
+		  	font-size: 1.9em;
+		  	transition: all 0.2s ease-in-out;
+	  }
+
+	  p {
+	  	font-size: 1.15em;
+  	  line-height: 1.3em;
+  	  transition: all 0.2s linear;
+	  }
+
+  	.card-overlay {
+	  	background-color:rgba(0,0,0,.125);
+		  padding: 135px 5px 0 220px;
+		  text-align: center;
+  	}
+  }
+
+  &.card-02 {
+  	background: url('/blocks/img/card02.jpg') no-repeat center top;
+	}
+
+	&.card-03 {
+  	background: url('/blocks/img/card03.jpg') no-repeat center center;
+  	filter: grayscale(100%);
+	}
+
+	&.card-04 {
+  	background: url('/blocks/img/card04.jpg') no-repeat center center;
+	}
+
+	&.card-05 {
+  	background: url('/blocks/img/card05.jpg') no-repeat center center;
+	}
+
+	&.card-06 {
+  	background: url('/blocks/img/card06.jpg') no-repeat center center;
+	}
+
+	&.card-07 {
+  	background: url('/blocks/img/card07.jpg') no-repeat center center;
+	}
+
+  &.card-02,
+  &.card-03,
+  &.card-04 {
+  	background-size: cover;
+  	height: 168px;
+
+  	.card-overlay {
+	  	background-color:rgba(0,0,0,.55);
+		  padding: 45px 0 0 0;
+		  text-align: center;
+
+		  h4 {
+		  	letter-spacing: 5px;
+		  	font-size: 1.3em;
+		  }
+
+		  p {
+		  	font-size: 0.9em;
+		  	letter-spacing: 2px;
+		  }
+  	}
+  }
+
+  &.card-05,
+  &.card-06,
+  &.card-07 {
+  	background-size: cover;
+  	height: 281px;
+
+  	.card-overlay {
+	  	background-color:rgba(0,0,0,.45);
+		  padding: 145px 0 0 0;
+		  text-align: center;
+
+		  h4 {
+		  	letter-spacing: 5px;
+		  	font-size: 1.7em;
+		  }
+
+		  p {
+		  	font-size: 1em;
+		  	letter-spacing: 2px;
+		  }
+  	}
+  }
+
+  &.card-06 .card-filter {
+  	background-color:rgba(0,0,0,.2);
+	}
+}
+
+
+* {
+	transition:width 1s ease;
+}
+
+// Load BLOCKS Webfonts
+// -----------------------------------
+@font-face {
+  font-family: 'roboto';
+  src: url('../fonts/Roboto-Regular-webfont.woff2') format('woff2'), //  /Content
+       url('../fonts/Roboto-Regular-webfont.woff') format('woff'); //  /Content
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'roboto';
+  src: url('../fonts/Roboto-Medium-webfont.woff2') format('woff2'), //  /Content
+       url('../fonts/Roboto-Medium-webfont.woff') format('woff'); //  /Content
+  font-weight: bold;
+  font-style: bold;
+}

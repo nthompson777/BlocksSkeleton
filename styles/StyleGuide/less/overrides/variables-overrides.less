@@ -1,0 +1,352 @@
+/****************
+Global PIEtech Overrides & Additions to the base VARIABLES ("variables.less") for Bootstrap core & components
+Updated: 04.16.15.1006
+****************/ 
+
+/// <reference path="../../Components/bootstrap/less/variables.less" />
+
+// MGP Default Global Color Palette
+// ------------------------------------
+@gray-base:              #000;
+@gray-darker:            lighten(@gray-base, 13.5%); // #222
+@gray-dark:              lighten(@gray-base, 20%);   // #333
+@gray:                   lighten(@gray-base, 33.5%); // #555
+@gray-light:             lighten(@gray-base, 46.7%); // #777
+@gray-lighter:           lighten(@gray-base, 93.5%); // #eee
+
+@brand-primary:          #3a7fc2; // MGP Primary Dark Blue
+@brand-secondary:        #66bb52; // MGP Secondary Dark Green
+@brand-tertiary:         #643f98; // MGP Tertiary Dark Purple
+
+@brand-primary-light:    lighten(@brand-primary, 42%); 
+
+@brand-yodlee:			     #ecbe2d; // Yodlee Yellow
+@brand-mymoneyguide:	   #48ade2;
+
+@brand-success:          #66bb52; /*@brand-secondary;*/
+@brand-info:             #48ade2;    // 48ADE2 MGP Light Blue
+@brand-warning:          #f0ad4e;
+@brand-danger:           #d9534f;			
+
+
+// Scaffolding Styles
+// ------------------------------------
+// Global text color on <body>.
+@text-color:            @gray-light;
+
+// Background color for <footer>
+@footer-bg:				        @gray;
+@footer-text-color:				#fff;
+
+// Global textual footer link color.
+@link-color:            @brand-primary;
+
+// Link hover color set via `darken()` function.
+@link-hover-color:      		@brand-secondary; // was darken(@link-color, 20%);
+@font-color-for-darkBG:			#fff;
+
+// For use on dark colored backgrounds:
+@bg-light:				#fff;
+
+//** Link hover decoration.
+@link-hover-decoration: underline;
+
+
+// Typography
+// ------------------------------------
+@font-family-sans-serif:		"robotoregular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-medium:	"robotomedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-sans-serif-bold:	"robotobold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+
+// Headers
+// ------------------------------------
+@headings-font-family:    @font-family-sans-serif-medium;
+@headings-font-weight:    500;
+@headings-line-height:    1.1;
+@headings-color:          inherit;
+
+
+// Global Top Navbar Overrides
+// ------------------------------------
+@navbar-height:                    60px;
+@navbar-margin-bottom:             @line-height-computed;
+@navbar-border-radius:             @border-radius-base;
+@navbar-padding-horizontal:        floor((@grid-gutter-width / 2));
+@navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
+@navbar-collapse-max-height:       340px;
+
+@navbar-default-color:             #777;
+@navbar-default-bg:                #f8f8f8;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+
+//** Global color for active items (e.g., navs or dropdowns).
+@component-active-color:    #fff;
+//** Global background color for active items (e.g., navs or dropdowns).
+@component-active-bg:       @brand-primary;
+
+
+// Navbar links
+// ------------------------------------
+@navbar-default-link-color:                @gray-light;
+@navbar-default-link-hover-color:          #333;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         #555;
+@navbar-default-link-active-bg:            transparent;
+@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-bg:          transparent;
+
+
+// Navbar brand label
+// ------------------------------------
+@navbar-default-brand-color:               @navbar-default-link-color;
+@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+
+// Navbar toggle
+// ------------------------------------
+@navbar-default-toggle-hover-bg:           transparent; // puts a box around nav link
+@navbar-default-toggle-icon-bar-bg:        #888;
+@navbar-default-toggle-border-color:       #ddd;
+
+
+// Grid system
+// ------------------------------------
+// Navbar collapse - Point at which the navbar becomes uncollapsed.
+@grid-float-breakpoint:     @screen-md-min;
+
+
+// Breadcrumbs
+// ------------------------------------
+@breadcrumb-bg:										#f5f5f5;
+@breadcrumb-color:                @text-color;
+@breadcrumb-active-color:         @text-color;
+@breadcrumb-link-color:           @link-color; //custom variable for links
+//@breadcumb-client-font:					@font-family-sans-serif-medium;
+
+// Button Styles
+// ------------------------------------
+@btn-primary-color:              @font-color-for-darkBG;
+@btn-primary-bg:                 @brand-primary;
+@btn-primary-border:             darken(@btn-primary-bg, 5%);
+
+@btn-secondary-color:            @font-color-for-darkBG;
+@btn-secondary-bg:               @brand-secondary;
+@btn-secondary-border:           darken(@btn-secondary-bg, 5%);
+
+@btn-tertiary-color:             @font-color-for-darkBG;
+@btn-tertiary-bg:                @brand-tertiary;
+@btn-tertiary-border:            darken(@btn-tertiary-bg, 5%);
+
+@btn-default-color:              @btn-primary-color;
+@btn-default-bg:                 @btn-primary-bg;
+@btn-default-border:             @btn-primary-border;
+
+@btn-positive-action-color:      @font-color-for-darkBG;
+@btn-positive-action-bg:         @brand-secondary;
+@btn-positive-action-border:     darken(@btn-positive-action-bg, 5%);
+
+@btn-negative-action-color:      @font-color-for-darkBG;
+@btn-negative-action-bg:         @brand-primary;
+@btn-negative-action-border:     darken(@btn-negative-action-bg, 5%);
+
+@btn-yodlee-color:				       @font-color-for-darkBG;
+@btn-yodlee-bg:                  @brand-yodlee;
+@btn-yodlee-border:              darken(@btn-yodlee-bg, 5%);
+
+@btn-light-color:								 @gray-light;
+@btn-light-bg:									 @bg-light;
+@btn-light-border:               darken(@bg-light, 5%);
+
+@btn-success-color:              @font-color-for-darkBG;
+@btn-success-bg:                 @brand-success;
+@btn-success-border:             darken(@btn-success-bg, 5%);
+
+@btn-info-color:                 @font-color-for-darkBG;
+@btn-info-bg:                    @brand-info;
+@btn-info-border:                darken(@btn-info-bg, 5%);
+
+@btn-warning-color:              @font-color-for-darkBG;
+@btn-warning-bg:                 @brand-warning;
+@btn-warning-border:             darken(@btn-warning-bg, 5%);
+
+@btn-danger-color:               @font-color-for-darkBG;
+@btn-danger-bg:                  @brand-danger;
+@btn-danger-border:              darken(@btn-danger-bg, 5%);
+
+@btn-link-disabled-color:        @gray-light;
+
+
+// Tooltips
+// ------------------------------------
+
+//** Tooltip max width
+@tooltip-max-width:           350px;
+//** Tooltip text color
+@tooltip-color:               @gray-dark;
+//** Tooltip background color
+@tooltip-bg:                  #fff;
+@tooltip-opacity:             .85;
+@tooltip-font-size:						1.15em;
+
+@tooltip-border-radius:				5px;
+@tooltip-padding:							15px;
+@tooltip-shadow:							2px 2px 6px rgba(0,0,0,0.6);
+//** Tooltip arrow width
+@tooltip-arrow-width:         5px;
+//** Tooltip arrow color
+@tooltip-arrow-color:         @tooltip-bg;
+
+
+// List-groups
+// ------------------------------------
+//** Background color on `.list-group-item`
+@list-group-bg:                 #fff;
+//** `.list-group-item` border color
+@list-group-border:             #ddd;
+//** List group border radius
+@list-group-border-radius:      @border-radius-base;
+
+//** Background color of single list items on hover
+@list-group-hover-bg:           #e7f3f9;
+//** Text color of active list items
+@list-group-active-color:       @component-active-color;
+//** Background color of active list items
+@list-group-active-bg:          @component-active-bg;
+//** Border color of active list elements
+@list-group-active-border:      @list-group-active-bg;
+//** Text color for content within active list items
+@list-group-active-text-color:  lighten(@list-group-active-bg, 40%);
+
+//** Text color of disabled list items
+@list-group-disabled-color:      @gray-light;
+//** Background color of disabled list items
+@list-group-disabled-bg:         @gray-lighter;
+//** Text color for content within disabled list items
+@list-group-disabled-text-color: @list-group-disabled-color;
+
+@list-group-link-color:         #555;
+@list-group-link-hover-color:   @list-group-link-color;
+@list-group-link-heading-color: #333;
+
+
+// Labels/Tags
+// ------------------------------------
+//** Default label background color
+@label-default-bg:            @gray-light;
+//** Primary label background color
+@label-primary-bg:            @brand-primary;
+//** Primary label background color
+@label-secondary-bg:          @brand-secondary;
+//** Primary label background color
+@label-tertiary-bg:            @brand-tertiary;
+
+//** Success label background color
+@label-success-bg:            @brand-success;
+//** Info label background color
+@label-info-bg:               @brand-info;
+//** Warning label background color
+@label-warning-bg:            @brand-warning;
+//** Danger label background color
+@label-danger-bg:             @brand-danger;
+
+// Give tags/labels an appearance less like our buttons
+@label-border-radius:		  .10em;
+
+//** Default label text color
+@label-color:                 #fff;
+//** Default text color of a linked label
+@label-link-hover-color:      #fff;
+
+
+// Panel Styles
+// ------------------------------------
+@panel-default-text:          @gray-dark;
+@panel-default-border:        #ddd;
+@panel-default-heading-bg:    #f5f5f5;
+
+@panel-primary-text:          #fff;
+@panel-primary-border:        @brand-primary;
+@panel-primary-heading-bg:    @brand-primary;
+
+@panel-secondary-text:          #fff;
+@panel-secondary-border:        @brand-secondary;
+@panel-secondary-heading-bg:    @brand-secondary;
+
+@panel-tertiary-text:          #fff;
+@panel-tertiary-border:        @brand-tertiary;
+@panel-tertiary-heading-bg:    @brand-tertiary;
+
+
+// Callout Styles 
+//-------------------------
+@callout-border-left-width: 	5px;
+@callout-border-radius:			3px;
+@callout-padding:				15px;
+
+
+// Table Styles
+// ------------------------------------
+//## Customizes the `.table` component with basic values, each used across all table variations.
+
+//** Padding for `<th>`s and `<td>`s.
+@table-cell-padding:            8px;
+
+//** Padding for cells in `.table-condensed`.
+@table-condensed-cell-padding:  5px;
+
+//** Default background color used for all tables.
+@table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+@table-bg-accent:               #f9f9f9;
+//** Background color used for `.table-hover`.
+@table-bg-hover:                #e7f3f9;
+@table-bg-active:               @table-bg-hover;
+
+//** Border color for table and cell borders.
+@table-border-color:            #ddd;
+
+@table-heading-text-color:      #444;
+@table-heading-bg-color:        rgba(195, 195, 195, 0.3); //#efefef;
+
+
+// Progress bar styles
+
+//** Background color of the whole progress component
+@progress-bg:                 #f5f5f5;
+//** Progress bar text color
+@progress-bar-color:          #fff;
+//** Variable for setting rounded corners on progress bar.
+@progress-border-radius:      @border-radius-base;
+
+//** Default progress bar color
+@progress-bar-bg:             @brand-primary;
+//** Secondary progress bar color
+@progress-bar-secondary-bg:             @brand-secondary;
+//** Tertiary progress bar color
+@progress-bar-tertiary-bg:             @brand-tertiary;
+
+//** Success progress bar color
+@progress-bar-success-bg:     @brand-success;
+//** Warning progress bar color
+@progress-bar-warning-bg:     @brand-warning;
+//** Danger progress bar color
+@progress-bar-danger-bg:      @brand-danger;
+//** Info progress bar color
+@progress-bar-info-bg:        @brand-info;
+
+// Carousel Styles
+@carousel-indicator-active-bg:                @brand-primary;
+@carousel-indicator-border-color:             @gray-light;
+@carousel-caption-color:                      @gray-light;
+
+// Goals Styles
+@needs-goal-bg:     @brand-tertiary;
+@wants-goal-bg:     @brand-secondary;
+@wishes-goal-bg:    @brand-primary;
+
+@goal-text:         @font-color-for-darkBG;
+
+//Slider Styles
+@slider-bar-bg:     @brand-primary;

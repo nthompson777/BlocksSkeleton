@@ -1,0 +1,3637 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Style Guide for MoneyGuide Pro</title>
+
+    <!-- CSS
+    ======================================== -->
+    <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+    <link href="css/global.min.css" rel="stylesheet">
+  
+
+    <!-- Conditional Scripts to keep here, all scripts on bottom
+    ======================================== -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons
+    ======================================== -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+
+
+    <!-- Google Code Prettify for Code Snippets - Load this page ONLY!
+    ======================================== -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.js"></script>
+    <link href="css/overrides/prettify-sunburst.css" rel="stylesheet">
+
+    <!-- Styles for Style Guide THIS PAGE ONLY -->
+    <style>
+      .btn{
+        position: relative;
+        display: inline-block;
+        overflow:hidden;
+        outline:none;
+        transition: background-color 1s ease-in-out;
+        border: none;
+      }
+
+      .btn:focus, .btn:active {
+          outline:none;
+          border: none;  
+        }
+
+      .ripple-effect{
+        position: absolute;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        background: white; 
+        animation: ripple-animation 2s;
+      }
+
+
+      @keyframes ripple-animation {
+          from {
+            transform: scale(1);
+            opacity: 0.4;
+          }
+          to {
+            transform: scale(100);
+            opacity: 0;
+          }
+      }
+
+      .typography { 
+        word-wrap: break-word;
+      }
+      .medium-font {
+        font-family: 'robotomedium';
+      }
+      .bold-font {
+        font-family: 'robotobold';
+      }
+      a[name] {
+        display: block;
+        position: relative;
+        top: -80px;
+        visibility: hidden;
+      }
+      .backtotop {
+        font-size: .5em;
+        float: right;
+      }
+      .modal-backdrop {
+        z-index: 1000;
+      }
+      .btn-multiselect {
+        border: 1px solid #ccc !important;  
+      }
+    </style>
+  </head>
+
+  <body id="Style-Guide">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="/" title="MoneyGuide Pro">
+              <img src="img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="/fontmgp">Font MGP</a></li>
+            <li><a href="/color-palette">MGP Color Palette</a></li>
+            <li><a href="/snippets">MGP Code Snippets &amp; JavaScript Reference</a></li>
+            <li class="tutorial"><a href="#" class="tutorial_start"><i class="fa fa-book fa-fw"></i> Tutorial Example</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <!-- Fixed Position/Sticky Support and Help Box -->  
+  <div id="support-cont">
+    <!-- <div class="support-box"><a href="#"><i class="fa fa-comments-o fa-2x"></i></a> <a href="#"><i class="fa fa-question-circle fa-2x"></i></a> </div> -->
+    <div class="support-box-hover"><a href="#"><i class="fa fa-comments-o fa-fw"></i> Support </a> | <a href="#">Help <i class="fa fa-question-circle fa-fw"></i></a> </div>
+  </div>
+
+  <div class="container">
+    <div class="offcanvas-menu offcanvas-left">
+    
+    <!-- Options Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 options-menu" data-toggle="offcanvasOptions">
+      <h3>Options <button class="btn btn-xs btn-secondary" data-toggle="offcanvasOptions"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Notes</a>
+        <div class="list-group-item header">Morningstar</div>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Schwab OpenView Gateway<sup>&trade;</sup></div>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <a href="#" class="list-group-item">Schwab Pin</a>
+        <div class="list-group-item header">Integrated Office</div>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <div class="list-group-item header">SEI</div>
+        <a href="#" class="list-group-item">SEI Sign On</a>
+        <div class="list-group-item header">HiddenLevers</div>
+        <a href="#" class="list-group-item">Portfolio Stress Test</a>
+        <div class="list-group-item header">Fidelity</div>
+        <div class="list-group-item header">LifeYield</div>
+        <div class="list-group-item header">AdvisoryWorld</div>
+        <a href="#" class="list-group-item">SCANalytics Quickstart</a>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Forefield</div>
+        <a href="#" class="list-group-item">ForeField</a>
+
+      </div><!-- /list-group -->
+    </div><!-- /col  END Options Off-canvas Menu -->
+
+    <!-- Financial Calculators LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 calculators-menu">
+      <h3>Calculators <button class="btn btn-xs btn-secondary" data-toggle="offcanvasCalc"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item active">Retirement Calculator</a>
+        <a href="#" class="list-group-item">College</a>
+        <a href="#" class="list-group-item">Social Security</a>
+        <a href="#" class="list-group-item">Roth Conversion</a>
+        <a href="#" class="list-group-item">Budget</a>
+        <a href="#" class="list-group-item">Cost of Delay</a>
+        <a href="#" class="list-group-item">Inflation</a>
+        <a href="#" class="list-group-item">IRA Contribution</a>
+        <a href="#" class="list-group-item">Net Worth</a>
+        <a href="#" class="list-group-item">Systematic Investing</a>
+        <a href="#" class="list-group-item">Life Expectancy</a>
+        <a href="#" class="list-group-item">72(t) Distribution</a>
+        <a href="#" class="list-group-item">Net Unrealized Appreciation</a>
+        <a href="#" class="list-group-item">Tax-Deferred vs. Taxable</a>
+        <a href="#" class="list-group-item">IRA Distribution</a>
+        <a href="#" class="list-group-item">RMD</a>
+        <a href="#" class="list-group-item">Beneficiary RMD</a>
+      </div><!-- /list-group -->
+    </div><!-- /col  END Financial Calculators Off-canvas Menu -->
+
+    <!-- Other Features LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 otherfeat-menu">
+      <h3>Other Features <button class="btn btn-xs btn-secondary" data-toggle="offcanvasFeat"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item active"><i class="fa fa-camera fa-fw"></i> My Snapshot <span class="help-tooltip" title="My Snapshot is an easy place to view your up-to-date Recommended Plan. It consists of: Overview, Results, Play Zone, What Are You Afraid Of?, and Resources."></span></a> 
+        <a href="#" class="list-group-item" data-toggle="offcanvasCalc"><i class="fa fa-calculator fa-fw"></i> Calculators</a>
+        <a href="#" class="list-group-item"><i class="fa fa-user fa-fw"></i> Profile</a>
+        <a href="#" class="list-group-item"><i class="fa fa-usd fa-fw"></i> Budget</a>
+        <a href="#" class="list-group-item"><i class="fa fa-puzzle-piece fa-fw"></i> Manage Integrations</a>
+        <a href="#" class="list-group-item"><i class="fa fa-angle-double-right fa-fw"></i> Risk Tolerance</a>
+      </div>
+    </div><!-- /col  END Other Features LEFT Off-canvas Menu -->
+
+
+    <!-- Begin Unique Body Content -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <h1>MoneyGuide Pro Style Guide</h1>
+          <h4>updated 04.25.2017</h4>
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </section>
+
+    <section>
+      <a name="top"></a>
+      <h2>TOC</h2>
+        <p>
+          Click below to jump to a specific section of the Style Guide:
+        </p>
+        <div class="row">
+          <div class="col-sm-4">
+            <ul>
+              <li><a href="#accordions" class="page-scroll">Accordions &amp; Collapsible Panels</a></li>
+              <li><a href="#tabs" class="page-scroll">AJAX Tabs</a></li>
+              <li><a href="#alerts" class="page-scroll">Alerts</a></li>
+              <li><a href="#buttons" class="page-scroll">Buttons</a></li>
+              <li><a href="#button-containers" class="page-scroll">Button Containers</a></li>
+              <li><a href="#callouts" class="page-scroll">Callouts</a></li>
+              <li><a href="#charts" class="page-scroll">Charts &amp; Graphs - Interactive</a></li>
+            </ul>
+          </div><!-- /col -->
+          <div class="col-sm-4">
+            <ul>
+              <li><a href="#colors" class="page-scroll">Color Palette (Default MGP)</a></li>
+              <li><a href="#experimental" class="page-scroll">Experimental &amp; Playground</a></li>
+              <li><a href="#font" class="page-scroll">Font MGP</a></li>
+              <li><a href="#forms" class="page-scroll">Forms and Yes/No Toggle</a></li>
+              <li><a href="#last-updated" class="page-scroll">Last Updated - Date Format</a></li>
+              <li><a href="#list-groups" class="page-scroll">List Groups</a></li>
+              <li><a href="#modals" class="page-scroll">Modal Windows</a></li>
+            </ul>
+          </div><!-- /col -->
+          <div class="col-sm-4">
+            <ul>
+              <li><a href="#panels" class="page-scroll">Panels</a></li>
+              <li><a href="#progress-bars" class="page-scroll">Progress bars</a></li>
+              <li><a href="#sliders" class="page-scroll">Sliders</a></li>
+              <li><a href="#tables" class="page-scroll">Tables</a></li>
+              <li><a href="#tags" class="page-scroll">Tags/Labels</a></li>
+              <li><a href="#typography" class="page-scroll">Typography</a></li>
+              <li><a href="#wells" class="page-scroll">Wells</a></li>
+            </ul>
+          </div><!-- /col -->
+        </div><!-- /row -->
+    </section>
+
+    <section>
+      <hr>
+    </section>
+
+    <section>
+      <a name="colors"></a>
+      <h2>Default MGP Color Palette <a class="help-tooltip" title="Color Palette follows 2014 MGP Mkt Branding Guidelines - Logo_Guide_Rev2.pdf"></a> <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+      <p>Note: Color Palette follows MGP Mkt Branding Guidelines. <em>Hover over colors for more info.</em></p>
+      <div class="row" id="tutorial_A01">
+        <div class="col-xs-12">
+          
+          <div class="tile-block cont">
+            <div class="tile-block primary-color-bg help-tooltip" title="Primary Blue: <strong> #3A7FC2 </strong><br /> (@brand-primary)">
+            </div>
+          </div>
+
+          <div class="tile-block cont">
+            <div class="tile-block secondary-color-bg help-tooltip" title="Secondary Green: <strong> #66BB52 </strong><br /> (@brand-secondary)">
+            </div>
+          </div>
+
+          <div class="tile-block cont">
+            <div class="tile-block tertiary-color-bg help-tooltip" title="Tertiary Purple: <strong> #643F98 </strong><br /> (@brand-tertiary)">
+            </div>
+          </div>
+
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a href="/color-palette"><i class="fa fa-external-link fa-fw"></i> See the MGP Default/General Color Palette page for a complete list of our Complimentary Colors and for more info.</a>
+        </div>
+      </div>
+      
+      <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseExample" aria-expanded="true" aria-controls="collapseExample"  id="tutorial_A02">
+      code snippet
+      </a>
+      <div class="collapse" id="collapseExample">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+<!--  CODE SNIPPET  -->
+<pre rel="Less" class="prettyprint">
+// Code from: variables-overrides.less
+
+@brand-primary:         #3A7FC2; // MGP Primary Dark Blue
+@brand-secondary:       #66BB52; // MGP Secondary Dark Green
+@brand-tertiary:        #643F98; // MGP Tertiary Dark Purple
+</pre>
+<!--  /CODE SNIPPET for Color Palette -->
+
+
+            </div>
+          </div>
+      </div>
+
+    </section>
+
+    <section>
+      <a name="font"></a>
+      <h2>Font MGP <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+      <p>
+        <strong>Updated: 05.10.17 &nbsp; &nbsp; Total Icons: 80 &nbsp; (v 1.62 - Added 2 New Icons for Bliss)</strong>
+      </p>
+      <p>Font MGP is PIE's very own custom icon font which gives you scalable vector icons that can instantly be customized — color, size, animation, drop shadows, etc. and practically anything that can be done with Sass/CSS.</p>
+      
+      <div class="row">
+        <div class="col-xs-12">
+          <a href="/fontmgp"><i class="fa fa-external-link fa-fw"></i> Go to the Font MGP icon page</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="typography">
+      <a name="typography"></a>
+      <h2>Typography <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+      <section>
+        <div class="row">
+          <div class="col-xs-12">
+            <h5>Roboto <u>Regular</u> webfont - "normal" weight for body text (below)</h5>
+            <p>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789</p>
+          </div>
+        </div>
+      </section>
+      
+      <section>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3>Roboto <u>Medium</u> webfont</h3>
+            <p class="medium-font">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+            </p>
+            <h3>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+            </h3>
+            <h2>abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+            </h2>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="bold-font">Roboto <u>Bold</u> webfont</h3>
+            <p class="bold-font">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+            </p>
+            <h3 class="bold-font">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
+            </h3>
+            <h2 class="bold-font">abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
+            </h2>
+          </div>
+        </div>
+      </section>
+
+    </section>
+
+    <section>
+      <a name="buttons"></a>
+      <h2>Buttons <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+      <p><em>Note: use &lt;button&gt; tags in forms or within the application. For pre-login pages, use anchor tags with: class="btn btn-primary" for SEO purposes.</em>
+      </p>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Standard/Default Buttons</h3>
+        </div>
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-sm-5" id="tutorial_A03">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-primary">Primary</button>
+            <button type="button" class="btn btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-tertiary">Tertiary</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+        
+        <div class="col-sm-3">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-back">Back</button>
+            <button type="button" class="btn btn-forward">Continue</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+
+        <div class="col-sm-4">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-info">Info</button>
+            <button type="button" class="btn btn-warning">Warning</button>
+            <button type="button" class="btn btn-danger">Danger</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+      </div><!-- /row -->
+
+      <hr>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3><em>Alternate Sized Buttons</em></h3>
+          <h3>Xtra-Small Buttons</h3>
+        </div>
+      </div><!-- /row -->
+      
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-xs btn-primary">Primary</button>
+            <button type="button" class="btn btn-xs btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-xs btn-tertiary">Tertiary</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+
+        <div class="col-sm-3">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-xs btn-back">Back</button>
+            <button type="button" class="btn btn-xs btn-forward">Continue</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+
+        <div class="col-sm-4">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-xs btn-info">Info</button>
+            <button type="button" class="btn btn-xs btn-warning">Warning</button>
+            <button type="button" class="btn btn-xs btn-danger">Danger</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Large Buttons</h3>
+        </div>
+      </div><!-- /row -->
+      
+      <div class="row">
+        <div class="col-sm-5">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-lg btn-primary">Primary</button>
+            <button type="button" class="btn btn-lg btn-secondary">Secondary</button>
+            <button type="button" class="btn btn-lg btn-tertiary">Tertiary</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+
+        <div class="col-sm-3">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-lg btn-back">Back</button>
+            <button type="button" class="btn btn-lg btn-forward">Continue</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+
+        <div class="col-sm-4">
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-lg btn-info">Info</button>
+            <button type="button" class="btn btn-lg btn-warning">Warning</button>
+            <button type="button" class="btn btn-lg btn-danger">Danger</button>
+          </div><!-- /btn-cont-alt -->
+        </div>
+      </div><!-- /row -->
+
+          <p>
+            <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseButtons" aria-expanded="false" aria-controls="collapseButtons">
+            code snippet
+            </a>
+          </p>
+      <div class="collapse" id="collapseButtons">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Buttons -->
+<pre rel="HTML" class="prettyprint">
+// Standard/Default Size Buttons
+&lt;button type="button" class="btn btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-tertiary"&gt;Tertiary&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-back"&gt;Back&lt;/button&gt;
+&lt;button type="button" class="btn btn-forward"&gt;Continue&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-danger"&gt;Danger&lt;/button&gt;
+
+// Xtra-Small Size Buttons
+&lt;button type="button" class="btn btn-xs btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-xs btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-xs btn-tertiary"&gt;Tertiary&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-xs btn-back"&gt;Back&lt;/button&gt;
+&lt;button type="button" class="btn btn-xs btn-forward"&gt;Continue&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-xs btn-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-xs btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-xs btn-danger"&gt;Danger&lt;/button&gt;
+
+//Large Size Buttons
+&lt;button type="button" class="btn btn-lg btn-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-lg btn-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-lg btn-tertiary"&gt;Tertiary&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-lg btn-back"&gt;Back&lt;/button&gt;
+&lt;button type="button" class="btn btn-lg btn-forward"&gt;Continue&lt;/button&gt;
+
+&lt;button type="button" class="btn btn-lg btn-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-lg btn-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-lg btn-danger"&gt;Danger&lt;/button&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div>
+          </div>
+      </div>
+
+    </section>
+
+    <section>
+      <a name="button-containers"></a>
+      <h2>Button Containers <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+      <p>
+        Use button containers for consistent button alignment and spacing. Button containers also aid with button stacking on smaller viewport sizes.
+      </p>
+
+      <!-- Right Aligned Button Container -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Right Aligned Button Container ("btn-cont")</h4>
+          <p>
+            For use in form controls/navigation (i.e.- Back, Next, Continue, and Done buttons) and on Info and Helpful Tip boxes.
+          </p>
+
+          <h5>Note: our application will have consistent form navigation globally. See button container (class="btn-cont") positioning below.</h5>
+          <div class="btn-cont">
+            <button type="button" class="btn btn-back">Back</button>
+            <button type="button" class="btn btn-forward">Continue</button>
+          </div>
+        </div>
+      </div><!-- /row -->
+
+      <!-- Left Aligned Button Container -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Left Aligned Alternate Button Container ("btn-cont-alt")</h4>
+          <p>
+            For use with asset control buttons  (i.e.- buttons below or within tables "Add Retirement Income", "Add Linked Other Asset" buttons) and various locations throughout our application. 
+          </p>
+
+          <h5>Note: For main form control (Back, Next, etc.) and on Info and Helpful Tip boxes, please use "btn-cont" for consistency (see example above).</h5>
+          <div class="btn-cont-alt">
+            <button type="button" class="btn btn-primary">Add Retirement Income</button>
+            <button type="button" class="btn btn-primary">Add Linked Other Asset</button>
+          </div>
+        </div>
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseButtonCont" aria-expanded="false" aria-controls="collapseButtonCont">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseButtonCont">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Buttons -->
+<pre rel="HTML" class="prettyprint">
+// Right Aligned Button Container ("btn-cont")
+&lt;div class="btn-cont"&gt;
+  &lt;button type="button" class="btn btn-back">Back&lt;/button&gt;
+  &lt;button type="button" class="btn btn-forward">Continue&lt;/button&gt;
+&lt;/div&gt;
+
+// Left Aligned Alternate Button Container ("btn-cont-alt")
+&lt;div class="btn-cont-alt"&gt;
+  &lt;button type="button" class="btn btn-primary">Add Retirement Income&lt;/button&gt;
+  &lt;button type="button" class="btn btn-primary">Add Linked Other Asset&lt;/button&gt;
+&lt;/div&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="sliders"></a>
+          <h2>Sliders <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <p>Ion RangeSlider using the "HTML5 Skin" style (below)<a href="http://ionden.com/a/plugins/ion.rangeSlider/demo_interactions.html" target="_blank"> - Optional configurations can be viewed here </a></p>
+        </div>
+      </div><!-- /row -->
+        
+      <div class="row"> <!-- Parent row -->
+        <div class="col-sm-5"><!-- Parent col for Client -->
+          <h4>Client</h4>
+          <div class="client-slider">
+            <input type="text" id="clientA" value="" name="range" />
+          </div>
+          <!-- <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Retire at age:</label>
+                <div class="input-group">
+                  <span class="input-group-addon">#</span>
+                  <input id="clientA-result" class="form-control" />
+                </div><!-- /input-group 
+              </div><!-- /col 
+              <div class="col-sm-6">
+                <label>Live to age:</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-heartbeat fa-fw"></i></span>
+                  <input type="number" id="client-input-number" class="form-control">
+                </div><!-- /input-group 
+              </div><!-- /col 
+            </div><!-- /row 
+          </div><!-- /form-group -->
+        </div>
+
+        <div class="col-sm-5 col-sm-offset-1">
+          <h4>Co-client</h4>
+          <div class="coclient-slider">
+            <input type="text" id="coclientA" value="" name="range" />
+          </div>
+          <!-- <div class="form-group">
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Retire at age:</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-trophy fa-fw"></i></span>
+                  <select id="coclient-input-select" class="form-control"></select>
+                </div><!-- /input-group 
+              </div><!-- /col 
+              <div class="col-sm-6">
+                <label>Live to age:</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-heartbeat fa-fw"></i></span> 
+                  <input type="number" id="coclient-input-number" class="form-control">
+                </div><!-- /input-group
+              </div><!-- /col 
+            </div><!-- /row 
+          </div><!-- /form-group -->
+        </div><!-- /Parent col for Co-client -->
+    </div><!-- /Parent row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseSliders" aria-expanded="false" aria-controls="collapseSliders">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseSliders">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Sliders -->
+<pre rel="HTML" class="prettyprint">
+// Responsive Sliders 
+// Client Slider
+&lt;div class="client-slider"&gt;
+  &lt;input type="text" id="clientA" value="" name="range" /&gt;
+&lt;/div&gt;
+
+// Coclient Slider
+&lt;div class="client-slider"&gt;
+  &lt;input type="text" id="clientA" value="" name="range" /&gt;
+&lt;/div&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+
+    <!-- Interactive Charts and Graphs Section -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="charts"></a>
+          <h2>Interactive Charts &amp; Graphs <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <h4>Lightweight, Responsive, &amp; Printable Charts (we can include these in our reports) </h4>
+            <p><a href="http://api.highcharts.com/highcharts#global" target="_blank">See the API for more options</a></p>
+        </div>
+      </div>
+
+      <div class="row"> 
+        <div class="col-md-6" id="tutorial_A04">
+          <div id="barGrouping"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="donutChart"></div>
+        </div>
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <div id="scatterChart"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="areaSpline"></div>
+        </div>
+      </div><!-- /row -->
+
+
+      <!-- More examples of charts and graphs -->
+      <p>
+        <a class="collapsed" data-toggle="collapse" href="#collapseMoreCharts" aria-expanded="false" aria-controls="collapseMoreCharts">
+        See more chart and graph examples <i class="fa fa-pie-chart fa-fw"></i> 
+        </a>
+      </p>
+      <div class="collapse" id="collapseMoreCharts">
+        <div class="row"> 
+          <div class="col-md-6">
+            <div id="pieChart"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="basicColumnChart"></div>
+          </div>
+        </div><!-- /row -->
+
+      </div>
+
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseCharts" aria-expanded="false" aria-controls="collapseCharts">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseCharts">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Charts -->
+<pre rel="HTML" class="prettyprint">
+// Charts and Graphs inherit the max-width (responsively) of the parent col,  
+// and height is proportional to the width of parent column
+&lt;div class="row"&gt; 
+  &lt;div class="col-md-6"&gt;
+    &lt;div id="barGrouping"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;div id="pieChart"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;div id="scatterChart"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;div id="areaSpline"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+    </section>
+    
+
+    <!-- Forms Section -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="forms"></a>
+          <h2>Forms <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <h4>Responsive Forms with Tooltips, Datepicker, Auto Added Commas &amp; Decimals, Input Masking, and Multi-Select</h4>
+        </div>
+      </div><!-- /row -->
+
+    <section>
+     <h3>Vertical Labels</h3>
+      <div class="row"> 
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" class="form-control" placeholder="Your Name Here">
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          
+          <div class="form-group">
+            <label>Gender</label>
+            <select class="form-control" name="searchType" id="id57">
+              <option selected="selected" value="-1">Select Here</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Female">Confused, Ewok?</option>
+            </select>
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <label>Disabled Field w/ Tooltip</label>
+          <div class="input-group">
+            <input type="text" class="form-control date" placeholder="mm/dd/yyyy" disabled>
+            <div class="input-group-addon"><a class="help-tooltip" title="Help popover with html/image added.<br /> <p style='margin: 0 auto; text-align:center;'><img src='/img/calendar-example.png'></p> "></a></div>
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <label>Masking Example</label>
+          <div class="input-group">
+            <span class="input-group-addon required"><i class="fa fa-phone fa-fw"></i></span>
+            <input type="text" class="form-control phone" placeholder="Your Phone Number">
+            <div class="input-group-addon"><a class="help-tooltip" title="Start with 3 Digit Area Code, only input numbers please"></a></div>
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <label>Datepicker</label>
+          <div class="input-group">
+            <span class="input-group-addon required"><i class="fa fa-calendar fa-fw"></i></span>
+            <input type="text" class="form-control date datepicker" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy">
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="form-group">
+            <label>Whole # - Auto Added Commas</label>
+            <input type="text" class="form-control onlywholenum" placeholder="e.g.- 1,000">
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+        
+        <div class="clearfix visible-md-block visible-sm-block"></div>
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <div class="form-group">
+            <label class="required">Auto Add Decimal &amp; Required Field</label>
+            <input type="text" class="form-control decimalnum" placeholder="e.g.- 1,000">
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+
+        <div class="col-sm-6 col-md-4 col-lg-3">
+          <label class="required">Mobile Friendly Multi-Select</label>
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-list fa-fw"></i></span>
+            <select class="form-control multiselect" multiple="multiple">
+              <option value="Choice 1">Choice 1</option>
+              <option value="Choice 2">Choice 2</option>
+              <option value="Choice 3">Choice 3 is Here</option>
+              <option value="Choice 4">Choice 4 is longer than others</option>
+              <option value="Choice 5">Choice 5</option>
+              <option value="Choice 6">Choice 6</option>
+            </select>
+          </div><!-- /input-group -->
+        </div><!-- /col -->
+      </div><!-- /row -->       
+    </section>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Right Aligned Horizontal Labels</h3>
+        </div>
+      </div><!-- /row -->
+
+      <div class="form-horizontal">
+        <div class="row">
+          <div class="col-md-6"><!-- Parent col -->
+            
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Solve Method</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="searchType" id="id57">
+                  <option value="-1" selected="selected">Select Here</option>
+                  <option value="Solve for Income and Investment">Solve for Income and Investment</option>
+                  <option value="Enter Investment Amount - Solve for Income Provided">Enter Investment Amount - Solve for Income Provided</option>
+                  <option value="Enter Investment Amount - Solve for Income Provided">Enter Income Amount - Solve for Investment Required</option>
+                </select>
+              </div>
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Select a Product</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="searchType" id="id57">
+                  <option value="-1">Select Here</option>
+                  <option value="Hypothetical - Single">Hypothetical - Single</option>
+                  <option value="Hypothetical - Joint">Hypothetical - Joint</option>
+                  <option value="Met GMIB MAX V" selected="selected">Met GMIB MAX V</option>
+                </select>
+              </div>
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Annuity Investment Required</label>
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" value="100,000">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Additional Annual Income Needed From Annuity</label>
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control" value="8,000" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /form-group -->
+          
+          </div><!-- / Parent col -->
+
+          <div class="col-md-6"><!-- Parent col -->
+            
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Amount required in Cash Account to cover shortfall for</label>
+              <div class="col-sm-6">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control" value="150,000" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Begin Basic Living Expense at</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="searchType">
+                  <option value="-1">Select Here</option>
+                  <option value="Bob's Retirement" selected="selected">Bob's Retirement</option>
+                  <option value="Karla's Retirement">Karla's Retirement</option>
+                </select>
+              </div>
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Year to Begin Annuity Income</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="searchType" id="id57">
+                  <option value="-1">Select Here</option>
+                  <option value="Bob's Retirement" selected="selected">Bob's Retirement</option>
+                  <option value="Karla's Retirement">Karla's Retirement</option>
+                </select>
+              </div>
+            </div><!-- /form-group -->
+
+            <div class="form-group">
+              <label class="col-sm-6 control-label">Years to Cover Shortfall</label>
+              <div class="col-sm-6">
+                <select class="form-control" name="searchType" id="id57">
+                  <option value="-1">Select Here</option>
+                  <option value="Lifetime" selected="selected">Lifetime</option>
+                  <option value="5 Years">5 Years</option>
+                  <option value="10 Years">10 Years</option>
+                  <option value="15 Years">15 Years</option>
+                </select>
+              </div>
+            </div><!-- /form-group -->
+          
+          </div><!-- / Parent col -->
+        </div><!-- /row -->
+        
+      </div><!-- /form-horizontal -->
+
+      <div class="row">
+        <div class="col-xs-12">
+          <p><span class="required"></span> required fields</p><br />
+        </div>
+      </div><!-- /row -->
+
+
+      <div class="row">
+        <div class="col-md-6">
+          <h4>Radio Buttons</h4>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                Radio button one is here and contains this text.
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                Check box two is here and contains this text. Lorem ipsum dolor sit emet. 
+            </label>
+          </div>
+          <div class="radio disabled">
+            <label>
+              <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+              Option three is disabled
+            </label>
+          </div>
+        </div><!-- /col -->
+
+        <div class="col-md-6">
+          <h4>Check Boxes</h4>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+                Check box one is here and contains this text. Lorem ipsum dolor sit emet.
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="">
+                Check box two is here and contains this text.
+            </label>
+          </div>
+          <div class="checkbox disabled">
+            <label>
+              <input type="checkbox" value="" disabled>
+              Option three is disabled
+            </label>
+          </div>
+        </div><!-- /col -->
+      </div><!-- /row -->
+      
+      <!-- Form Navigation Button Container -->
+      <div class="row">
+        <div class="col-xs-12">
+          <h4>Form Navigation</h4>
+          <h5>Note: our application will have consistent form navigation globally. See button container (class="btn-cont") positioning below.</h5>
+          <div class="btn-cont">
+            <button type="button" class="btn btn-back">Back</button>
+            <button type="button" class="btn btn-forward">Continue</button>
+          </div>
+        </div>
+      </div><!-- /row -->
+
+     <!-- <div class="row">
+        <div class="col-xs-12">
+        <h4>Yes/No Toggle Switch <br />
+            <small><em>Note: uses current code from G3. Non-operational for this style guide.</em></small></h4>
+             
+          <span class="btn-group yes-no-toggle ko-toggle" data-bind="yesNoToggle: IsEligible" data-toggle="buttons">
+            <span class="btn-default btn btn-xs" data-value="No"><input data-bind="disable: Settings.ViewOnly, checked: IsEligible" id="AllIncludedAccounts_0__IsEligible" name="AllIncludedAccounts[0].IsEligible" type="radio" value="No">
+              No
+            </span> 
+            <span class="btn-primary btn btn-xs active" data-value="Yes">
+              <input data-bind="disable: Settings.ViewOnly, checked: IsEligible" checked="checked" id="AllIncludedAccounts_0__IsEligible" name="AllIncludedAccounts[0].IsEligible" type="radio" value="Yes">
+              Yes
+            </span>
+          </span>
+        </div>
+      </div>-->
+
+
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseForms" aria-expanded="false" aria-controls="collapseForms">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseForms">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Forms -->
+<pre rel="HTML" class="prettyprint">
+// Forms with Vertical Labels and Tooltips
+&lt;div class="row"&gt;     
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;First Name&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;&lt;i class="fa fa-user fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;input type="text" class="form-control" placeholder="Your Name Here"&gt;
+      &lt;div class="input-group-addon"&gt;&lt;a class="help-tooltip" title="This is a help popover for form fields"&gt;&lt;i class="fa fa-info-circle fa-fw"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Gender&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;&lt;i class="fa fa-male fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;select class="form-control" name="searchType" id="id57"&gt;
+        &lt;option selected="selected" value="-1"&gt;Select Here&lt;/option&gt;
+        &lt;option value="Male"&gt;Male&lt;/option&gt;
+        &lt;option value="Female"&gt;Female&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Disabled Field&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;#&lt;/span&gt;
+      &lt;input type="text" class="form-control date" placeholder="mm/dd/yyyy" disabled&gt;
+      &lt;div class="input-group-addon"&gt;&lt;a class="help-tooltip" title="Help popover with html/image added.&lt;br /&gt; &lt;p style='margin: 0 auto; text-align:center;'&gt;&lt;img src='/img/calendar-example.png'&gt;&lt;/p&gt; "&gt;&lt;i class="fa color fa-info-circle fa-fw"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Masking Example&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;#&lt;/span&gt;
+      &lt;input type="text" class="form-control phone" placeholder="Your Phone Number"&gt;
+      &lt;div class="input-group-addon"&gt;&lt;a class="help-tooltip" title="Start with 3 Digit Area Code, only input numbers please"&gt;&lt;i class="fa color fa-info-circle fa-fw"&gt;&lt;/i&gt;&lt;/a&gt;&lt;/div&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Datepicker&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;&lt;i class="fa fa-calendar fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;input type="text" class="form-control date datepicker" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy"&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Whole # - Auto Added Commas&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;#&lt;/span&gt;
+      &lt;input type="text" class="form-control onlywholenum" placeholder="e.g.- 1,000"&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Numeric - Auto Add Decimal&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;#&lt;/span&gt;
+      &lt;input type="text" class="form-control decimalnum" placeholder="e.g.- 1,000"&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-6 col-md-4 col-lg-3"&gt;
+    &lt;label&gt;Multi-Select (mobile friendly)&lt;/label&gt;
+    &lt;div class="input-group"&gt;
+      &lt;span class="input-group-addon required"&gt;&lt;i class="fa fa-list fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+      &lt;select class="form-control multiselect" multiple="multiple"&gt;
+        &lt;option value="Choice 1"&gt;Choice 1&lt;/option&gt;
+        &lt;option value="Choice 2"&gt;Choice 2&lt;/option&gt;
+        &lt;option value="Choice 3"&gt;Choice 3 is Here&lt;/option&gt;
+        &lt;option value="Choice 4"&gt;Choice 4 is longer than others&lt;/option&gt;
+        &lt;option value="Choice 5"&gt;Choice 5&lt;/option&gt;
+        &lt;option value="Choice 6"&gt;Choice 6&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/div&gt;&lt;!-- /input-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+// Right aligned horizontal forms
+&lt;div class="row"&gt;
+        &lt;div class="col-xs-12"&gt;
+          &lt;h3&gt;Right Aligned Horizontal Labels&lt;/h3&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;&lt;!-- /row --&gt;
+
+      &lt;div class="form-horizontal"&gt;
+        &lt;div class="row"&gt;
+          &lt;div class="col-md-6"&gt;&lt;!-- Parent col --&gt;
+            
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Solve Method&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;select class="form-control" name="searchType" id="id57"&gt;
+                  &lt;option value="-1" selected="selected"&gt;Select Here&lt;/option&gt;
+                  &lt;option value="Solve for Income and Investment"&gt;Solve for Income and Investment&lt;/option&gt;
+                  &lt;option value="Enter Investment Amount - Solve for Income Provided"&gt;Enter Investment Amount - Solve for Income Provided&lt;/option&gt;
+                  &lt;option value="Enter Investment Amount - Solve for Income Provided"&gt;Enter Income Amount - Solve for Investment Required&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Select a Product&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;select class="form-control" name="searchType" id="id57"&gt;
+                  &lt;option value="-1"&gt;Select Here&lt;/option&gt;
+                  &lt;option value="Hypothetical - Single"&gt;Hypothetical - Single&lt;/option&gt;
+                  &lt;option value="Hypothetical - Joint"&gt;Hypothetical - Joint&lt;/option&gt;
+                  &lt;option value="Met GMIB MAX V" selected="selected"&gt;Met GMIB MAX V&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Annuity Investment Required&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;&lt;i class="fa fa-dollar fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+                  &lt;input type="text" class="form-control onlywholenum" value="100,000"&gt;
+                &lt;/div&gt;&lt;!-- /input-group --&gt;
+              &lt;/div&gt;&lt;!-- /col --&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Additional Annual Income Needed From Annuity&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;&lt;i class="fa fa-dollar fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+                  &lt;input type="text" class="form-control" value="8,000" disabled&gt;
+                &lt;/div&gt;&lt;!-- /input-group --&gt;
+              &lt;/div&gt;&lt;!-- /col --&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+          
+          &lt;/div&gt;&lt;!-- / Parent col --&gt;
+
+          &lt;div class="col-md-6"&gt;&lt;!-- Parent col --&gt;
+            
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Amount required in Cash Account to cover shortfall for&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;div class="input-group"&gt;
+                  &lt;span class="input-group-addon"&gt;&lt;i class="fa fa-dollar fa-fw"&gt;&lt;/i&gt;&lt;/span&gt;
+                  &lt;input type="text" class="form-control" value="150,000" disabled&gt;
+                &lt;/div&gt;&lt;!-- /input-group --&gt;
+              &lt;/div&gt;&lt;!-- /col --&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Begin Basic Living Expense at&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;select class="form-control" name="searchType"&gt;
+                  &lt;option value="-1"&gt;Select Here&lt;/option&gt;
+                  &lt;option value="Bobs Retirement" selected="selected"&gt;Bobs Retirement&lt;/option&gt;
+                  &lt;option value="Karlas Retirement"&gt;Karlas Retirement&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Year to Begin Annuity Income&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;select class="form-control" name="searchType" id="id57"&gt;
+                  &lt;option value="-1"&gt;Select Here&lt;/option&gt;
+                  &lt;option value="Bobs Retirement" selected="selected"&gt;Bobs Retirement&lt;/option&gt;
+                  &lt;option value="Karlas Retirement"&gt;Karlas Retirement&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+
+            &lt;div class="form-group"&gt;
+              &lt;label class="col-sm-6 control-label"&gt;Years to Cover Shortfall&lt;/label&gt;
+              &lt;div class="col-sm-6"&gt;
+                &lt;select class="form-control" name="searchType" id="id57"&gt;
+                  &lt;option value="-1"&gt;Select Here&lt;/option&gt;
+                  &lt;option value="Lifetime" selected="selected"&gt;Lifetime&lt;/option&gt;
+                  &lt;option value="5 Years"&gt;5 Years&lt;/option&gt;
+                  &lt;option value="10 Years"&gt;10 Years&lt;/option&gt;
+                  &lt;option value="15 Years"&gt;15 Years&lt;/option&gt;
+                &lt;/select&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;&lt;!-- /form-group --&gt;
+          
+          &lt;/div&gt;&lt;!-- / Parent col --&gt;
+        &lt;/div&gt;&lt;!-- /row --&gt;
+        
+      &lt;/div&gt;&lt;!-- /form-horizontal --&gt;
+
+      // Required Symbol - give class "required" to any element and it will come after that block or inline item.
+      &lt;div class="row"&gt;
+        &lt;div class="col-xs-12"&gt;
+          &lt;p&gt;&lt;span class="required"&gt;&lt;/span&gt; required fields&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;&lt;!-- /row --&gt;
+
+// Radio Buttons
+&lt;div class="row"&gt;
+  &lt;div class="col-md-6"&gt;
+    &lt;h4&gt;Radio Buttons&lt;/h4&gt;
+    &lt;div class="radio"&gt;
+      &lt;label&gt;
+        &lt;input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked&gt;
+          Radio button one is here and contains this text.
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="radio"&gt;
+      &lt;label&gt;
+        &lt;input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"&gt;
+          Check box two is here and contains this text. Lorem ipsum dolor sit emet. 
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="radio disabled"&gt;
+      &lt;label&gt;
+        &lt;input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled&gt;
+        Option three is disabled
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  // Check Boxes
+  &lt;div class="col-md-6"&gt;
+    &lt;h4&gt;Check Boxes&lt;/h4&gt;
+    &lt;div class="checkbox"&gt;
+      &lt;label&gt;
+        &lt;input type="checkbox" value=""&gt;
+          Check box one is here and contains this text. Lorem ipsum dolor sit emet.
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="checkbox"&gt;
+      &lt;label&gt;
+        &lt;input type="checkbox" value=""&gt;
+          Check box two is here and contains this text.
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="checkbox disabled"&gt;
+      &lt;label&gt;
+        &lt;input type="checkbox" value="" disabled&gt;
+        Option three is disabled
+      &lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+// Form Navigation Button Container for application consistency
+&lt;!-- Form Navigation Button Container --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;h4&gt;Form Navigation&lt;/h4&gt;
+    &lt;h5&gt;Note: our application will have consistent form navigation globally. See positioning below.&lt;/h5&gt;
+    &lt;div class="btn-cont"&gt;
+      &lt;button type="button" class="btn btn-back"&gt;Back&lt;/button&gt;
+      &lt;button type="button" class="btn btn-forward"&gt;Continue&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+// Yes/No Toggle Switch
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+  &lt;h4&gt;Yes/No Toggle Switch &lt;br /&gt;
+      &lt;small&gt;&lt;em&gt;Note: uses current code from G3&lt;/em&gt;&lt;/small&gt;&lt;/h4&gt;
+       
+    &lt;span class="btn-group yes-no-toggle ko-toggle" data-bind="" data-toggle="buttons"&gt;
+      
+      &lt;span class="btn btn-toggle active" data-value="No"&gt;
+        &lt;input checked="checked" data-bind="" data-val="true" data-val-required="" id="" name="" type="radio" value="No"&gt; No
+      &lt;/span&gt;
+
+      &lt;span class="btn btn-primary" data-value="Yes"&gt;
+        &lt;input data-bind="" id="" name="" type="radio" value="Yes"&gt; Yes
+      &lt;/span&gt;
+
+    &lt;/span&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse --> 
+    </section>
+
+
+    <!-- Last Updated Section -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="last-updated"></a>
+          <h2>Last Updated - Date Format <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <p>Note: Use this format for the "Last Updated" dates within MGP for global consistency.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="last-updated">
+            <p>
+              Last Updated: <span class="date">8/15/2015<!-- @Model.DateUpdated.ToShortDateString() --></span>
+            </p>
+          </div><!-- /last-updated -->
+        </div><!-- /col -->
+      </div><!-- /row -->
+    
+
+          <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseLastUpdated" aria-expanded="false" aria-controls="collapseLastUpdated">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseLastUpdated">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+<!--  CODE SNIPPET for Last Updated -->
+<pre rel="HTML" class="prettyprint">
+&lt;div class="last-updated"&gt;
+  &lt;p&gt;
+    Last Updated: &lt;span class="date"&gt;8/15/2015&lt;!-- @Model.DateUpdated.ToShortDateString() --&gt;&lt;/span&gt;
+  &lt;/p&gt;
+&lt;/div&gt;&lt;!-- /last-updated --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    <!-- Tables Section -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="tables"></a>
+          <h2>Tables <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <h4><em>Note: tables WILL NOT exceed the main/parent container and viewport on mobile devices. See Responsive Table example below for large width tables.</em></h4>
+        </div>
+      </div>
+
+      <div class="row"> <!-- Parent row -->
+        
+        <div class="col-md-6">
+          <h3>Default Table</h3>
+          <table class="table table-default">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Bob</td>
+                <td>Curtis</td>
+                <td>@breakdancinbob</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Tony</td>
+                <td>Leal</td>
+                <td>@thelealinator</td>
+              </tr>
+              <tr class="totals">
+                <td>3</td>
+                <td>Given the class "totals" on the tr</td>
+                <td>Name</td>
+                <td>@somename</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /col -->
+
+      <div class="col-md-6">
+          <h3>Condensed Table <br /><small>For use when there is an overwhelming amount of data</small></h3>
+          <table class="table table-condensed">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Bob</td>
+                <td>Curtis</td>
+                <td>@breakdancinbob</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Tony</td>
+                <td>Leal</td>
+                <td>@thelealinator</td>
+              </tr>
+              <tr class="info">
+                <td>3</td>
+                <td>Given class "info" on the tr</td>
+                <td>Name</td>
+                <td>@somename</td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /col -->
+      </div><!-- /Parent row -->
+
+      <div class="row">
+        <div class="col-xs-12">
+            <h3>Responsive Table <br /><small><em>Note: Breakpoint at Med Viewport Size</em></small></h3>
+            <div class="table-responsive">
+              <table class="table table-default">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Username</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                    <th>AnCol</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Bob</td>
+                    <td>Curtis</td>
+                    <td>@breakdancinbob</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Tony</td>
+                    <td>Leal</td>
+                    <td>@thelealinator</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                  </tr>
+                  <tr class="warning">
+                    <td>3</td>
+                    <td>Given the class "warning" on the tr</td>
+                    <td>LongLastName</td>
+                    <td>@somename</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                    <td>Some info here</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /responsive-table -->
+          </div><!-- /col -->
+      </div><!-- /Parent row -->
+
+      <div class="row">
+        <div class="col-xs-12">
+            <h3>Table w/ Colgroup Highlighting <br />
+              <small>See example use on Social Security Max page</small></h3>
+            <div class="table-responsive">
+              <table class="table table-default">
+                <colgroup>
+                  <col></col>
+                  <col class="selected"></col>
+                  <col></col>
+                  <col class="secondary"></col>
+                  <col></col>
+                  <col class="error"></col>
+                  <col></col>
+                  <col class="warning"></col>
+                  <col></col>
+                  <col class="info"></col>
+                  <col></col>
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Selected/Primary Class</th>
+                    <th>Col</th>
+                    <th>Secondary Class</th>
+                    <th>Col</th>
+                    <th>Error Class</th>
+                    <th>Col</th>
+                    <th>Warning Class</th>
+                    <th>Col</th>
+                    <th>Info Class</th>
+                    <th>Col</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Rollo</td>
+                    <td>Tony</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Brown</td>
+                    <td>Town</td>
+                    <td>@thelealinator</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                    <td>Some info</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Check yourself <br />at the door</td>
+                    <td>Gimme some more <br />of your Rollo's</td>
+                    <td>@somename</td>
+                    <td>Some info</td>
+                    <td>Some info here</td>
+                    <td>Some info</td>
+                    <td>Some info here</td>
+                    <td>Some info</td>
+                    <td>Some info here</td>
+                    <td>Some info</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div><!-- /responsive-table -->
+          </div><!-- /col -->
+      </div><!-- /Parent row -->
+
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseTables" aria-expanded="false" aria-controls="collapseTables">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseTables">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Tables -->
+<pre rel="HTML" class="prettyprint">
+&lt;div class="row"&gt; &lt;!-- Parent row --&gt;
+
+// Default Table
+&lt;div class="col-md-6"&gt;
+  &lt;h3&gt;Default Table - w/ borders&lt;/h3&gt;
+    &lt;table class="table table-default"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;#&lt;/th&gt;
+          &lt;th&gt;First Name&lt;/th&gt;
+          &lt;th&gt;Last Name&lt;/th&gt;
+          &lt;th&gt;Username&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;Bob&lt;/td&gt;
+          &lt;td&gt;Leal&lt;/td&gt;
+          &lt;td&gt;@breakdancinbob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;Tony&lt;/td&gt;
+          &lt;td&gt;Leal&lt;/td&gt;
+          &lt;td&gt;@thelealinator&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="totals"&gt;
+          &lt;td&gt;3&lt;/td&gt;
+          &lt;td&gt;Given the class "totals" on the tr&lt;/td&gt;
+          &lt;td&gt;Name&lt;/td&gt;
+          &lt;td&gt;@somename&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  // Condensed Table
+  &lt;div class="col-md-6"&gt;
+    &lt;h3&gt;Condensed Table - w/out table body borders&lt;/h3&gt;
+    &lt;table class="table table-condensed"&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;#&lt;/th&gt;
+          &lt;th&gt;First Name&lt;/th&gt;
+          &lt;th&gt;Last Name&lt;/th&gt;
+          &lt;th&gt;Username&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;td&gt;1&lt;/td&gt;
+          &lt;td&gt;Bob&lt;/td&gt;
+          &lt;td&gt;Curtis&lt;/td&gt;
+          &lt;td&gt;@breakdancinbob&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;td&gt;2&lt;/td&gt;
+          &lt;td&gt;Tony&lt;/td&gt;
+          &lt;td&gt;Leal&lt;/td&gt;
+          &lt;td&gt;@thelealinator&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="info"&gt;
+          &lt;td&gt;3&lt;/td&gt;
+          &lt;td&gt;Given the class "info" on the tr&lt;/td&gt;
+          &lt;td&gt;Name&lt;/td&gt;
+          &lt;td&gt;@somename&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+&lt;/div&gt;&lt;!-- /Parent row --&gt;
+
+// Responsive Table - Standard w/ borders
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;h3&gt;Responsive Table - Standard w/ borders &lt;br /&gt;&lt;small&gt;&lt;em&gt;Note: Breakpoint at Med Viewport Size&lt;/em&gt;&lt;/small&gt;&lt;/h3&gt;
+    &lt;div class="table-responsive"&gt;
+      &lt;table class="table table-default"&gt;
+        &lt;thead&gt;
+          &lt;tr&gt;
+            &lt;th&gt;#&lt;/th&gt;
+            &lt;th&gt;First Name&lt;/th&gt;
+            &lt;th&gt;Last Name&lt;/th&gt;
+            &lt;th&gt;Username&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+            &lt;th&gt;AnCol&lt;/th&gt;
+          &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+          &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Bob&lt;/td&gt;
+            &lt;td&gt;Curtis&lt;/td&gt;
+            &lt;td&gt;@breakdancinbob&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;Tony&lt;/td&gt;
+            &lt;td&gt;Leal&lt;/td&gt;
+            &lt;td&gt;@thelealinator&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+          &lt;/tr&gt;
+          &lt;tr class="warning"&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;Given the class "warning" on the tr&lt;/td&gt;
+            &lt;td&gt;Long Last Name&lt;/td&gt;
+            &lt;td&gt;@somename&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+            &lt;td&gt;Some info here&lt;/td&gt;
+          &lt;/tr&gt;
+        &lt;/tbody&gt;
+      &lt;/table&gt;
+    &lt;/div&gt;&lt;!-- /responsive-table --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /Parent row --&gt;
+
+// Table w/ Colgroup Highlighting
+&lt;div class="row"&gt;
+        &lt;div class="col-xs-12"&gt;
+            &lt;h3&gt;Table w/ Colgroup Highlighting &lt;br /&gt;
+              &lt;small&gt;See example use on Social Security Max page&lt;/h3&gt;
+            &lt;div class="table-responsive"&gt;
+              &lt;table class="table table-default"&gt;
+                &lt;colgroup&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                  &lt;col class="selected"&gt;&lt;/col&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                  &lt;col class="secondary"&gt;&lt;/col&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                  &lt;col class="error"&gt;&lt;/col&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                  &lt;col class="warning"&gt;&lt;/col&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                  &lt;col class="info"&gt;&lt;/col&gt;
+                  &lt;col&gt;&lt;/col&gt;
+                &lt;/colgroup&gt;
+                &lt;thead&gt;
+                  &lt;tr&gt;
+                    &lt;th&gt;#&lt;/th&gt;
+                    &lt;th&gt;Selected/Primary Class&lt;/th&gt;
+                    &lt;th&gt;Col&lt;/th&gt;
+                    &lt;th&gt;Secondary Class&lt;/th&gt;
+                    &lt;th&gt;Col&lt;/th&gt;
+                    &lt;th&gt;Error Class&lt;/th&gt;
+                    &lt;th&gt;Col&lt;/th&gt;
+                    &lt;th&gt;Warning Class&lt;/th&gt;
+                    &lt;th&gt;Col&lt;/th&gt;
+                    &lt;th&gt;Info Class&lt;/th&gt;
+                    &lt;th&gt;Col&lt;/th&gt;
+                  &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                    &lt;td&gt;Rollo&lt;/td&gt;
+                    &lt;td&gt;Tony&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;2&lt;/td&gt;
+                    &lt;td&gt;Brown&lt;/td&gt;
+                    &lt;td&gt;Town&lt;/td&gt;
+                    &lt;td&gt;@thelealinator&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                  &lt;/tr&gt;
+                  &lt;tr&gt;
+                    &lt;td&gt;3&lt;/td&gt;
+                    &lt;td&gt;Check yourself &lt;br /&gt;at the door&lt;/td&gt;
+                    &lt;td&gt;Gimme some more &lt;br /&gt;of your Rollo's&lt;/td&gt;
+                    &lt;td&gt;@somename&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info here&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info here&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                    &lt;td&gt;Some info here&lt;/td&gt;
+                    &lt;td&gt;Some info&lt;/td&gt;
+                  &lt;/tr&gt;
+                &lt;/tbody&gt;
+              &lt;/table&gt;
+            &lt;/div&gt;&lt;!-- /responsive-table --&gt;
+          &lt;/div&gt;&lt;!-- /col --&gt;
+      &lt;/div&gt;&lt;!-- /Parent row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+  
+
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="tags"></a>
+          <h2>Tags/Labels <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+      
+      <!-- Labels inherit size of parent header/text tag (i.e.- h1, h2, h3, etc.) -->
+      <div class="row">
+        <div class="col-sm-4">
+          <h4>
+            <span class="label label-default">Default</span>
+            <span class="label label-primary">Primary</span>
+            <span class="label label-secondary">Secondary</span>
+            <span class="label label-tertiary">Tertiary</span>
+          </h4>
+        </div><!-- /col -->
+
+        <div class="col-sm-4">
+          <h4>
+            <span class="label label-success">Success</span>
+            <span class="label label-info">Info</span>
+            <span class="label label-warning">Warning</span>
+            <span class="label label-danger">Danger</span>
+          </h4>
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-sm-4">
+          <p>
+            <span class="label label-default">Default</span>
+            <span class="label label-primary">Primary</span>
+            <span class="label label-secondary">Secondary</span>
+            <span class="label label-tertiary">Tertiary</span>
+          </p>
+        </div><!-- /col -->
+
+        <div class="col-sm-4">
+          <p>
+            <span class="label label-success">Success</span>
+            <span class="label label-info">Info</span>
+            <span class="label label-warning">Warning</span>
+            <span class="label label-danger">Danger</span>
+          </p>
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseLabels" aria-expanded="false" aria-controls="collapseLabels">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseLabels">
+          <div class="row">
+            <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Tags/Labels -->
+<pre rel="HTML" class="prettyprint">
+&lt;!-- Labels inherit size of parent header/text tag (i.e.- h1, h2, h3, etc.) --&gt;
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-4"&gt;
+    &lt;h4&gt;
+      &lt;span class="label label-default"&gt;Default&lt;/span&gt;
+      &lt;span class="label label-primary"&gt;Primary&lt;/span&gt;
+      &lt;span class="label label-secondary"&gt;Secondary&lt;/span&gt;
+      &lt;span class="label label-tertiary"&gt;Tertiary&lt;/span&gt;
+    &lt;/h4&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-4"&gt;
+    &lt;h4&gt;
+      &lt;span class="label label-success"&gt;Success&lt;/span&gt;
+      &lt;span class="label label-info"&gt;Info&lt;/span&gt;
+      &lt;span class="label label-warning"&gt;Warning&lt;/span&gt;
+      &lt;span class="label label-danger"&gt;Danger&lt;/span&gt;
+    &lt;/h4&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-4"&gt;
+    &lt;p&gt;
+      &lt;span class="label label-default"&gt;Default&lt;/span&gt;
+      &lt;span class="label label-primary"&gt;Primary&lt;/span&gt;
+      &lt;span class="label label-secondary"&gt;Secondary&lt;/span&gt;
+      &lt;span class="label label-tertiary"&gt;Tertiary&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-4"&gt;
+    &lt;p&gt;
+      &lt;span class="label label-success"&gt;Success&lt;/span&gt;
+      &lt;span class="label label-info"&gt;Info&lt;/span&gt;
+      &lt;span class="label label-warning"&gt;Warning&lt;/span&gt;
+      &lt;span class="label label-danger"&gt;Danger&lt;/span&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="tabs"></a>
+          <h2>AJAX Tabs <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div role="tabpanel">
+
+            <!-- Nav Tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Tab 1</a></li>
+              <li role="presentation"><a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Tab 2</a></li>
+              <li role="presentation"><a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Tab 3</a></li>
+              <li role="presentation"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Tab 4</a></li>
+            </ul>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+
+              <div role="tabpanel" class="tab-pane fade in active" id="tab1">
+                <p><strong>Tab 1 text here </strong>- lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab2">
+                <p><strong>Tab 2 stuff here </strong>- adipiscing elit fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab3">
+                <p><strong>Tab 3 text here </strong>- dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+              </div>
+              <div role="tabpanel" class="tab-pane fade" id="tab4">
+                <p><strong>Tab 4 text here </strong>- lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+              </div>
+
+            </div><!-- /tab-content -->
+
+          </div><!-- /tabpanel -->
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseTabs" aria-expanded="false" aria-controls="collapseTabs">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseTabs">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Tabs -->
+<pre rel="HTML" class="prettyprint">
+// AJAX Tabs w/ Fade In Effect
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;div role="tabpanel"&gt;
+
+      &lt;!-- Nav Tabs --&gt;
+      &lt;ul class="nav nav-tabs" role="tablist"&gt;
+        &lt;li role="presentation" class="active"&gt;&lt;a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab"&gt;Tab 1&lt;/a&gt;&lt;/li&gt;
+        &lt;li role="presentation"&gt;&lt;a href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab"&gt;Tab 2&lt;/a&gt;&lt;/li&gt;
+        &lt;li role="presentation"&gt;&lt;a href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab"&gt;Tab 3&lt;/a&gt;&lt;/li&gt;
+        &lt;li role="presentation"&gt;&lt;a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab"&gt;Tab 4&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- Tab Content --&gt;
+      &lt;div class="tab-content"&gt;
+
+        &lt;div role="tabpanel" class="tab-pane fade in active" id="tab1"&gt;
+          &lt;p&gt;Tab 1 text here - lorem ipsum dolor...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div role="tabpanel" class="tab-pane fade" id="tab2"&gt;
+          &lt;p&gt;Tab 2 stuff here - lorem ipsum dolor...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div role="tabpanel" class="tab-pane fade" id="tab3"&gt;
+          &lt;p&gt;Tab 3 text here - lorem ipsum dolor...&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div role="tabpanel" class="tab-pane fade" id="tab4"&gt;
+          &lt;p&gt;Tab 4 text here - lorem ipsum dolor...&lt;/p&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;&lt;!-- /tab-content --&gt;
+
+    &lt;/div&gt;&lt;!-- /tabpanel --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="modals"></a>
+          <h2>Modal Windows <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2><br />
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-md-3">
+          <!-- Button trigger modal -->
+          <p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBtn">
+            Standard Modal
+          </button></p>
+
+          <!-- Modal from Button -->
+          <div class="modal fade" id="modalBtn" tabindex="-1" role="dialog" aria-labelledby="modalBtn" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro Modal Title</h4>
+                </div>
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-forward">Save changes</button>
+                </div><!-- /modal-footer -->
+              </div><!-- /modal-content -->
+            </div><!-- /modal-dialog -->
+          </div><!-- /modal fade -->
+        </div><!-- /col -->
+
+        <!-- Modal from Link -->
+          <div class="col-md-3">
+            <p><a href="#" data-toggle="modal" data-target="#modalLink">
+                Launch modal from a link
+              </a></p>
+            <div class="modal fade" id="modalLink" tabindex="-1" role="dialog" aria-labelledby="modalLink" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro Modal From A Link</h4>
+                  </div><!-- /modal-header -->
+                  <div class="modal-body">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+                  </div><!-- /modal-body -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-forward">Save changes</button>
+                </div><!-- /modal-footer -->
+              </div><!-- /modal-content -->
+            </div><!-- /modal-dialog -->
+          </div><!-- /modal fade -->
+        </div><!-- /col -->
+
+        <!-- Large Big-ass modal -->
+        <div class="col-md-3">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".example-modal-lg">Large/Double-wide modal</button>
+
+          <div class="modal fade example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro - Park Yer Double-wide Modal Here</h4>
+                </div><!-- /modal-header -->
+                <div class="modal-body">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+                </div><!-- /modal-body -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-forward">Save changes</button>
+                </div><!-- /modal-footer -->
+              </div><!-- /modal-content -->
+            </div><!-- /modal-dialog modal-lg -->
+          </div><!-- /modal -->
+        </div><!-- /col -->
+
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseModal" aria-expanded="false" aria-controls="collapseModal">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseModal">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Modals -->
+<pre rel="HTML" class="prettyprint">
+// Modal Triggers Below 
+
+// Standard Button Modal 
+&lt;div class="row"&gt;
+  &lt;div class="col-md-3"&gt;
+    &lt;!-- Standard Button triggered modal --&gt;
+    &lt;p&gt;&lt;button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBtn"&gt;
+      Standard Modal
+    &lt;/button&gt;&lt;/p&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  // Modal from Link
+  &lt;div class="col-md-3"&gt;
+    &lt;p&gt;&lt;a href="#" data-toggle="modal" data-target="#modalLink"&gt;
+        Launch modal from a link
+    &lt;/a&gt;&lt;/p&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  // Large Big-ass modal
+  &lt;div class="col-md-3"&gt;
+    &lt;button type="button" class="btn btn-primary" data-toggle="modal" data-target="#example-modal-lg"&gt;Large/Double-wide modal&lt;/button&gt;   
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+
+&lt;!-- Modal Content - Bootstrap Modals Go OUTSIDE ALL positioned elements!! --&gt;
+================================= --&gt;
+
+&lt;!-- Modal from Button --&gt;
+&lt;div class="modal fade" id="modalBtn" tabindex="-1" role="dialog" aria-labelledby="modalBtn" aria-hidden="true"&gt;
+  &lt;div class="modal-dialog"&gt;
+    &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+        &lt;h4 class="modal-title" id="myModalLabel"&gt;MoneyGuide Pro Modal Title&lt;/h4&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.&lt;/p&gt;
+      &lt;/div&gt;
+      &lt;div class="modal-footer"&gt;
+        &lt;button type="button" class="btn btn-close" data-dismiss="modal"&gt;Close&lt;/button&gt;
+        &lt;button type="button" class="btn btn-forward"&gt;Save changes&lt;/button&gt;
+      &lt;/div&gt;&lt;!-- /modal-footer --&gt;
+    &lt;/div&gt;&lt;!-- /modal-content --&gt;
+  &lt;/div&gt;&lt;!-- /modal-dialog --&gt;
+&lt;/div&gt;&lt;!-- /modal fade --&gt;
+
+&lt;!-- Modal from Link --&gt;
+&lt;div class="modal fade" id="modalLink" tabindex="-1" role="dialog" aria-labelledby="modalLink" aria-hidden="true"&gt;
+&lt;div class="modal-dialog"&gt;
+  &lt;div class="modal-content"&gt;
+      &lt;div class="modal-header"&gt;
+        &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+        &lt;h4 class="modal-title" id="myModalLabel"&gt;MoneyGuide Pro Modal From A Link&lt;/h4&gt;
+      &lt;/div&gt;&lt;!-- /modal-header --&gt;
+      &lt;div class="modal-body"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.&lt;/p&gt;
+      &lt;/div&gt;&lt;!-- /modal-body --&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button type="button" class="btn btn-close" data-dismiss="modal"&gt;Close&lt;/button&gt;
+      &lt;button type="button" class="btn btn-forward"&gt;Save changes&lt;/button&gt;
+    &lt;/div&gt;&lt;!-- /modal-footer --&gt;
+  &lt;/div&gt;&lt;!-- /modal-content --&gt;
+&lt;/div&gt;&lt;!-- /modal-dialog --&gt;
+&lt;/div&gt;&lt;!-- /modal fade --&gt;
+
+&lt;!-- Large/Double-wide Modal --&gt;
+&lt;div class="modal fade" id="example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="example-modal-lg" aria-hidden="true"&gt;
+&lt;div class="modal-dialog modal-lg"&gt;
+  &lt;div class="modal-content"&gt;
+    &lt;div class="modal-header"&gt;
+      &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+      &lt;h4 class="modal-title" id="myModalLabel"&gt;MoneyGuide Pro Modal From A Link&lt;/h4&gt;
+    &lt;/div&gt;&lt;!-- /modal-header --&gt;
+    &lt;div class="modal-body"&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.&lt;/p&gt;
+    &lt;/div&gt;&lt;!-- /modal-body --&gt;
+    &lt;div class="modal-footer"&gt;
+      &lt;button type="button" class="btn btn-close" data-dismiss="modal"&gt;Close&lt;/button&gt;
+      &lt;button type="button" class="btn btn-forward"&gt;Save changes&lt;/button&gt;
+    &lt;/div&gt;&lt;!-- /modal-footer --&gt;
+  &lt;/div&gt;&lt;!-- /modal-content --&gt;
+&lt;/div&gt;&lt;!-- /modal-dialog modal-lg --&gt;
+&lt;/div&gt;&lt;!-- /modal --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+          </div><!-- /col -->
+        </div><!-- /row -->
+      </div><!-- /collapse -->
+    </section>
+
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="callouts"></a>
+          <h2>Callouts <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-8">
+          <div class="callout callout-primary">
+            <h4>Callout Primary</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them. <br /><em>Note: Callouts inherit the width of the parent container.</em></p>
+          </div>
+          <div class="callout callout-secondary">
+            <h4>Callout Secondary</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them.</p>
+          </div>
+          <div class="callout callout-tertiary">
+            <h4>Callout Tertiary</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them.</p>
+          </div>
+          <div class="callout callout-info">
+            <h4>Callout Info</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them.</p>
+          </div>
+          <div class="callout callout-warning">
+            <h4>Callout Warning</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them.</p>
+          </div>
+          <div class="callout callout-danger">
+            <h4>Callout Danger</h4>
+            <p>Use Callouts to get the user's attention to callout something important or to give info to him/her/them. Danger! Watch Yourself!</p>
+          </div>
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseCallouts" aria-expanded="false" aria-controls="collapseCallouts">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseCallouts">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+<!--  CODE SNIPPET for Callouts -->
+<pre rel="HTML" class="prettyprint">
+// Callout Boxes 
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-8"&gt;
+    &lt;div class="callout callout-primary"&gt;
+      &lt;h4&gt;Callout Primary&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them. &lt;br /&gt;&lt;em&gt;Note: Callouts inherit the width of the parent container.&lt;/em&gt;&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="callout callout-secondary"&gt;
+      &lt;h4&gt;Callout Secondary&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="callout callout-tertiary"&gt;
+      &lt;h4&gt;Callout Tertiary&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="callout callout-info"&gt;
+      &lt;h4&gt;Callout Info&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="callout callout-warning"&gt;
+      &lt;h4&gt;Callout Warning&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="callout callout-danger"&gt;
+      &lt;h4&gt;Callout Danger&lt;/h4&gt;
+      &lt;p&gt;Use Callouts to get the users attention to callout something important or to give info to him/her/them. Danger! Watch Yourself!&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="alerts"></a>
+          <h2>Alerts <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <h4>User Closable</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Congratulations!</strong> You successfully completed Zoomer within 20 Hours.
+          </div>
+          <div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Info Type Warning!</strong> This alert needs your attention, but its not super important.
+          </div>
+          <div class="alert alert-warning alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Warning!</strong> Check yo self, before you wreck yo self.
+          </div>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Alert!</strong> Change a few things up and try submitting again.
+          </div>
+        </div> <!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseAlerts" aria-expanded="false" aria-controls="collapseAlerts">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseAlerts">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Alerts -->
+<pre rel="HTML" class="prettyprint">
+// Alert Boxes with close dialog
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;div class="alert alert-success alert-dismissible" role="alert"&gt;
+      &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+      &lt;strong&gt;Congratulations!&lt;/strong&gt; You successfully completed Zoomer within 20 Hours.
+    &lt;/div&gt;
+    &lt;div class="alert alert-info alert-dismissible" role="alert"&gt;
+      &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+      &lt;strong&gt;Info Type Warning!&lt;/strong&gt; This alert needs your attention, but its not super important.
+    &lt;/div&gt;
+    &lt;div class="alert alert-warning alert-dismissible" role="alert"&gt;
+      &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+      &lt;strong&gt;Warning!&lt;/strong&gt; Check yo self, before you wreck yo self.
+    &lt;/div&gt;
+    &lt;div class="alert alert-danger alert-dismissible" role="alert"&gt;
+      &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;&lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;&lt;/button&gt;
+      &lt;strong&gt;Alert!&lt;/strong&gt; Change a few things up and try submitting again.
+    &lt;/div&gt;
+  &lt;/div&gt; &lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="accordions"></a>
+          <h2>Accordions &amp; Collapsible Panels <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <h4>Collapsed and Expanded State</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-sm-6">
+          <p>
+            <a class="btn btn-primary toggle" data-toggle="collapse" href="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded">
+              Accordion Button (Expanded)
+            </a>
+          </p>
+          <div class="collapse in" id="collapseExpanded">
+            <div class="row">
+              <div class="col-xs-12">
+                <p>Accordion already expanded on page load. The user can collapse this by clicking the button above. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget.<p>
+              </div><!-- /col -->
+            </div><!-- /row -->
+          </div><!-- /collapse -->
+        </div><!--/col -->
+
+        <div class="col-sm-6">
+          <p>
+            <a class="toggle collapsed" data-toggle="collapse" href="#collapseClosed" aria-expanded="false" aria-controls="collapseClosed">
+              Accordion Link (Collapsed)
+            </a>
+          </p>
+          <div class="collapse" id="collapseClosed">
+            <div class="row">
+              <div class="col-xs-12">
+                <p>Accordion collapsed on page load. This accordion pushes down the Collapsible panels below due to them being in their own row/block. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.  Risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.<p>
+              </div><!-- /col -->
+            </div><!-- /row -->
+          </div><!-- /collapse -->
+        </div><!--/col -->
+        
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingOne">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" class="toggle" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Collapsible Panel #1
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  Panel #1 is expanded on page load. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingTwo">
+                <h4 class="panel-title">
+                  <a class="collapsed toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Collapsible Panel #2
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                <div class="panel-body">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading" role="tab" id="headingThree">
+                <h4 class="panel-title">
+                  <a class="collapsed toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Collapsible Panel #3
+                  </a>
+                </h4>
+              </div>
+              <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                <div class="panel-body">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseAccordions" aria-expanded="false" aria-controls="collapseAccordions">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseAccordions">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Accordions -->
+<pre rel="HTML" class="prettyprint">
+// Accordion Button Expanded on Page Load
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-6"&gt;
+    &lt;p&gt;
+      &lt;a class="btn btn-primary toggle" data-toggle="collapse" href="#collapseExpanded" aria-expanded="true" aria-controls="collapseExpanded"&gt;
+        Accordion Button (Expanded)
+      &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;div class="collapse in" id="collapseExpanded"&gt;
+      &lt;div class="row"&gt;
+        &lt;div class="col-xs-12"&gt;
+          &lt;p&gt;Accordion already expanded on page load. The user can collapse this by clicking the button above. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget.&lt;p&gt;
+        &lt;/div&gt;&lt;!-- /col --&gt;
+      &lt;/div&gt;&lt;!-- /row --&gt;
+    &lt;/div&gt;&lt;!-- /collapse --&gt;
+  &lt;/div&gt;&lt;!--/col --&gt;
+
+// Accordion Link Collapsed (default state)
+  &lt;div class="col-sm-6"&gt;
+    &lt;p&gt;
+      &lt;a class="toggle collapsed" data-toggle="collapse" href="#collapseClosed" aria-expanded="false" aria-controls="collapseClosed"&gt;
+        Accordion Link (Collapsed)
+      &lt;/a&gt;
+    &lt;/p&gt;
+    &lt;div class="collapse" id="collapseClosed"&gt;
+      &lt;div class="row"&gt;
+        &lt;div class="col-xs-12"&gt;
+          &lt;p&gt;Accordion collapsed on page load. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.  Risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.&lt;p&gt;
+        &lt;/div&gt;&lt;!-- /col --&gt;
+      &lt;/div&gt;&lt;!-- /row --&gt;
+    &lt;/div&gt;&lt;!-- /collapse --&gt;
+  &lt;/div&gt;&lt;!--/col --&gt;
+  
+&lt;/div&gt;&lt;!-- /row --&gt;
+
+// Collapsible/Accordion Panels
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-6"&gt;
+    &lt;div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"&gt;
+      &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading" role="tab" id="headingOne"&gt;
+          &lt;h4 class="panel-title"&gt;
+            &lt;a data-toggle="collapse" class="toggle" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"&gt;
+              Collapsible Panel #1
+            &lt;/a&gt;
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne"&gt;
+          &lt;div class="panel-body"&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading" role="tab" id="headingTwo"&gt;
+          &lt;h4 class="panel-title"&gt;
+            &lt;a class="collapsed toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"&gt;
+              Collapsible Panel #2
+            &lt;/a&gt;
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo"&gt;
+          &lt;div class="panel-body"&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="panel panel-default"&gt;
+        &lt;div class="panel-heading" role="tab" id="headingThree"&gt;
+          &lt;h4 class="panel-title"&gt;
+            &lt;a class="collapsed toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree"&gt;
+              Collapsible Panel #3
+            &lt;/a&gt;
+          &lt;/h4&gt;
+        &lt;/div&gt;
+        &lt;div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree"&gt;
+          &lt;div class="panel-body"&gt;
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna.
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="progress-bars"></a>
+          <h2>Progress bars <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-8">
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">60%</div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">40%</div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">20%</div>
+          </div>
+          <div class="progress">
+            <div class="progress-bar" style="width: 35%">35%</div>
+            <div class="progress-bar progress-bar-secondary" style="width: 20%">20%</div>
+            <div class="progress-bar progress-bar-tertiary" style="width: 10%">10%</div>
+          </div>
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseProgressBars" aria-expanded="false" aria-controls="collapseProgressBars">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseProgressBars">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Progress Bars -->
+<pre rel="HTML" class="prettyprint">
+// Progress Bars
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;div class="progress"&gt;
+      &lt;div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"&gt;60%&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="progress"&gt;
+      &lt;div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%"&gt;40%&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="progress"&gt;
+      &lt;div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%"&gt;20%&lt;/div&gt;
+    &lt;/div&gt;
+
+    // Stacked/Multi Progress Bars
+    &lt;div class="progress"&gt;
+      &lt;div class="progress-bar" style="width: 35%"&gt;35%&lt;/div&gt;
+      &lt;div class="progress-bar progress-bar-secondary" style="width: 20%"&gt;20%&lt;/div&gt;
+      &lt;div class="progress-bar progress-bar-tertiary" style="width: 10%"&gt;10%&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="list-groups"></a>
+          <h2>List Groups <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div><!-- /col-->
+
+        <div class="col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              Cras justo odio
+            </a>
+            <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+            <a href="#" class="list-group-item">Morbi leo risus</a>
+            <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item">Vestibulum at eros</a>
+          </div>
+        </div><!-- /col -->
+
+        <div class="col-sm-4">
+          <div class="list-group">
+            <a href="#" class="list-group-item active">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+            </a>
+          </div><!-- /list-group -->
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseListgroups" aria-expanded="false" aria-controls="collapseListgroups">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseListgroups">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for List Groups -->
+<pre rel="HTML" class="prettyprint">
+// List Groups
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-4"&gt;
+    &lt;ul class="list-group"&gt;
+      &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+      &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+      &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+      &lt;li class="list-group-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+      &lt;li class="list-group-item"&gt;Vestibulum at eros&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/div&gt;&lt;!-- /col--&gt;
+
+  &lt;div class="col-sm-4"&gt;
+    &lt;div class="list-group"&gt;
+      &lt;a href="#" class="list-group-item active"&gt;
+        Cras justo odio
+      &lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;Dapibus ac facilisis in&lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;Morbi leo risus&lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;Porta ac consectetur ac&lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;Vestibulum at eros&lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+
+  &lt;div class="col-sm-4"&gt;
+    &lt;div class="list-group"&gt;
+      &lt;a href="#" class="list-group-item active"&gt;
+        &lt;h4 class="list-group-item-heading"&gt;List group item heading&lt;/h4&gt;
+        &lt;p class="list-group-item-text"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+      &lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;
+        &lt;h4 class="list-group-item-heading"&gt;List group item heading&lt;/h4&gt;
+        &lt;p class="list-group-item-text"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+      &lt;/a&gt;
+      &lt;a href="#" class="list-group-item"&gt;
+        &lt;h4 class="list-group-item-heading"&gt;List group item heading&lt;/h4&gt;
+        &lt;p class="list-group-item-text"&gt;Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.&lt;/p&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;&lt;!-- /list-group --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="panels"></a>
+          <h2>Panels <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- <div class="col-sm-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Primary</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+          <div class="panel panel-secondary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Secondary</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+          <div class="panel panel-tertiary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Tertiary</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Info</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Default</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+          <div class="panel panel-success">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Success</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+          
+        </div><!-- /.col-sm-4 -->
+        <div class="col-sm-4">
+          <div class="panel panel-warning">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Warning</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+          <div class="panel panel-danger">
+            <div class="panel-heading">
+              <h3 class="panel-title">Panel Danger</h3>
+            </div>
+            <div class="panel-body">
+              Panel content
+            </div>
+          </div>
+        </div><!-- /.col-sm-4 -->
+      </div>
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapsePanels" aria-expanded="false" aria-controls="collapsePanels">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapsePanels">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Panels -->
+<pre rel="HTML" class="prettyprint">
+// Panels
+&lt;div class="row"&gt;
+  &lt;div class="col-sm-4"&gt;
+    &lt;div class="panel panel-info"&gt;
+      &lt;div class="panel-heading"&gt;
+        &lt;h3 class="panel-title"&gt;Panel Info&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class="panel-body"&gt;
+        Panel content
+      &lt;/div&gt;
+    &lt;div class="panel panel-default"&gt;
+      &lt;div class="panel-heading"&gt;
+        &lt;h3 class="panel-title"&gt;Panel Default&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class="panel-body"&gt;
+        Panel content
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel panel-success"&gt;
+      &lt;div class="panel-heading"&gt;
+        &lt;h3 class="panel-title"&gt;Panel Success&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class="panel-body"&gt;
+        Panel content
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div class="col-sm-4"&gt;
+    &lt;div class="panel panel-warning"&gt;
+      &lt;div class="panel-heading"&gt;
+        &lt;h3 class="panel-title"&gt;Panel Warning&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class="panel-body"&gt;
+        Panel content
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="panel panel-danger"&gt;
+      &lt;div class="panel-heading"&gt;
+        &lt;h3 class="panel-title"&gt;Panel Danger&lt;/h3&gt;
+      &lt;/div&gt;
+      &lt;div class="panel-body"&gt;
+        Panel content
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="wells"></a>
+          <h2>Wells <small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="well">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+          </div><!-- /well -->
+        </div><!-- /col -->
+      </div><!-- /row -->
+
+      <p>
+        <a class="btn btn-xs btn-primary code-snippet toggle collapsed" data-toggle="collapse" href="#collapseWells" aria-expanded="false" aria-controls="collapseWells">
+        code snippet
+        </a>
+      </p>
+      <div class="collapse" id="collapseWells">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10">
+
+
+
+<!--  CODE SNIPPET for Wells -->
+<pre rel="HTML" class="prettyprint">
+// Wells
+&lt;div class="row"&gt;
+  &lt;div class="col-xs-12"&gt;
+    &lt;div class="well"&gt;
+      &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Cras mattis consectetur purus sit amet fermentum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
+    &lt;/div&gt;&lt;!-- /well --&gt;
+  &lt;/div&gt;&lt;!-- /col --&gt;
+&lt;/div&gt;&lt;!-- /row --&gt;
+</pre>
+<!--  /CODE SNIPPET  -->
+
+            </div><!-- /col -->
+          </div><!-- /row -->
+      </div><!-- /collapse -->
+
+    </section>
+
+    <section>
+      <hr>
+    </section>
+
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <a name="experimental"></a>
+          <h2>Experimental &amp; Playground<small class="backtotop"><a href="#top" class="page-scroll"><i class="fa fa-arrow-up fa-fw"></i> Back to TOC</a></small></h2>
+          <!-- <p><em>Nothing to see here right now.</em></p> -->
+
+          <section>
+            <label class="text-primary"><input type="checkbox" data-bind="checked: Worksheet.Model.ViewConfiguration.FearNameMappings[$root.SelectedFear()].KeepValue" class="saved"> Save this value </label>
+            <div class="alert alert-success saved-alert">
+              The values you entered have been saved.
+            </div>
+          </section>
+            <p>
+              Further experimental development is on the <a href="/experimental">expermental and playground page</a>.
+            </p>
+        </div><!-- /col -->
+      </div><!-- /row -->
+    </section>
+    <br /> <br />
+  </div>
+</div>
+</div> <!-- /container -->
+
+<footer>
+  <div class="container">
+    <br />
+    <p class="copyright">
+      &copy; <script type="text/javascript">
+      <!--
+        today = new Date();
+        year0 = today.getFullYear();
+        document.write(year0);
+      //-->
+      </script> PIEtech, Inc. All rights reserved.  
+    </p>
+    
+  </div>
+</footer>
+
+<!-- Modals - Bootstrap Modals Go OUTSIDE all positioned elements
+================================= -->
+
+<!-- Modal from Button -->
+<div class="modal fade" id="modalBtn" tabindex="-1" role="dialog" aria-labelledby="modalBtn" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro Modal Title</h4>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-forward">Save changes</button>
+      </div><!-- /modal-footer -->
+    </div><!-- /modal-content -->
+  </div><!-- /modal-dialog -->
+</div><!-- /modal fade -->
+
+<!-- Modal from Link -->
+<div class="modal fade" id="modalLink" tabindex="-1" role="dialog" aria-labelledby="modalLink" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro Modal From A Link</h4>
+        </div><!-- /modal-header -->
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+        </div><!-- /modal-body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-forward">Save changes</button>
+      </div><!-- /modal-footer -->
+    </div><!-- /modal-content -->
+  </div><!-- /modal-dialog -->
+</div><!-- /modal fade -->
+
+<!-- Large/Double-wide Modal -->
+<div class="modal fade" id="example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="example-modal-lg" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">MoneyGuide Pro Modal From A Link</h4>
+      </div><!-- /modal-header -->
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce risus purus, euismod a congue ac, posuere vitae quam. Duis volutpat nisi vitae magna lacinia fermentum. Nullam rutrum elit sem, nec posuere sem molestie ornare. Maecenas maximus nunc sit amet malesuada blandit. Cras sed blandit lectus. Sed orci urna, vehicula vel dolor at, viverra porta nisl. Suspendisse pretium magna eget ante tristique, ut tincidunt tortor dictum.</p>
+      </div><!-- /modal-body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-forward">Save changes</button>
+      </div><!-- /modal-footer -->
+    </div><!-- /modal-content -->
+  </div><!-- /modal-dialog modal-lg -->
+</div><!-- /modal -->
+
+
+    <!-- Core JavaScript
+    ======================================== -->
+    <!-- Placed at the end of the document so our pages load faster -->
+    <script src="js/min/jquery-1.11.2.min.js"></script>
+    <script src="js/min/bootstrap.min.js"></script>
+    <script src="js/min/global.min.js"></script>
+    
+    <!-- Only Load on Pages with Sliders -->
+    <script src="js/min/ion.rangeSlider.min.js"></script>
+
+    <!-- Only Load on Pages with Charts and Graphs -->
+    <script src="js/min/highcharts.min.js"></script>
+
+    <!-- Slider Scripts -->
+    <script type="text/javascript">
+      // Global BLOCKS Scripts
+
+// Material Design Button Ripple Effect
+(function (window, $) {
+
+  $(function () {
+
+    $('.btn').on('click', function (event) {
+      event.preventDefault();
+
+      var $div = $('<div/>'),
+          btnOffset = $(this).offset(),
+          xPos = event.pageX - btnOffset.left,
+          yPos = event.pageY - btnOffset.top;
+
+      $div.addClass('ripple-effect');
+      console.log('Added class!');
+      var $ripple = $(".ripple-effect");
+
+      $ripple.css("height", $(this).height());
+      $ripple.css("width", $(this).height());
+      $div
+        .css({
+          top: yPos - ($ripple.height() / 2),
+          left: xPos - ($ripple.width() / 2),
+          background: $(this).data("ripple-color")
+        })
+        .appendTo($(this));
+
+      window.setTimeout(function () {
+        $div.remove();
+      }, 2000);
+    });
+    
+
+  });
+
+})(window, jQuery);
+
+
+      // Client Slider
+      $("#clientA").ionRangeSlider({
+        type: "double",
+        min: 0,
+        max: 100,
+        from: 30,
+        to: 70,
+        keyboard: true,
+        keyboard_step: 20
+      });
+
+      $("#coclientA").ionRangeSlider({
+        grid: true,
+        min: 18,
+        max: 70,
+        from: 30,
+        prefix: "Age ",
+        max_postfix: "+"
+      });
+    </script>
+
+    <!-- Highcharts Options -->
+    <script type="text/javascript">
+      // 3D Column Stacking Grouping Chart
+      $(function () {
+        $('#barGrouping').highcharts({
+
+            chart: {
+                type: 'column',
+                options3d: {
+                    enabled: true,
+                    alpha: 10,
+                    beta: 15,
+                    viewDistance: 25,
+                    depth: 40
+                },
+                marginTop: 90,
+                marginRight: 40
+            },
+
+            title: {
+                text: '3D Column Stacked Grouping Chart'
+            },
+              subtitle: {
+                  text: 'Click Names Below to Disable Their Values'
+              },
+
+            xAxis: {
+                categories: ['1st Quarter', '2nd Quarter', '3rd Quarter', '4th Quarter']
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                title: {
+                    text: 'Money Saved (per quarter)'
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<b>{point.key}</b><br>',
+                pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+            },
+
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    depth: 40
+                }
+            },
+
+            series: [{
+                name: 'Bob',
+                data: [452, 750, 1000, 200],
+                stack: 'male'
+            }, {
+                name: 'Karla',
+                data: [253, 650, 700, 1200],
+                stack: 'male'
+            }, {
+                name: 'Tony',
+                data: [400, 1200, 150, 255],
+                stack: 'female'
+            }, {
+                name: 'Laura',
+                data: [150, 800, 1800, 700],
+                stack: 'female'
+            }]
+        });
+    });
+    
+    // 3D Donut Chart
+      $(function () {
+          $('#donutChart').highcharts({
+              chart: {
+                  type: 'pie',
+                  marginTop: 90,
+                  options3d: {
+                      enabled: true,
+                      alpha: 55
+                  }
+              },
+              title: {
+                  text: '3D Donut Chart'
+              },
+              subtitle: {
+                  text: 'Hover over areas for interactive labeling'
+              },
+              plotOptions: {
+                  pie: {
+                      innerSize: 100,
+                      depth: 45
+                  }
+              },
+              series: [{
+                  name: 'Retirement Expectations',
+                  data: [
+                      ['Active Lifestyle', 8],
+                      ['Less Stress', 3],
+                      ['Moving to New Home', 1],
+                      ['Quiet Lifestyle', 6],
+                      ['Time w/ Friends & Family', 8],
+                      ['More Time w/ Spouse', 4],
+                      ['Helping Others', 4],
+                      ['Set Own Schedule', 1],
+                      ['Something Else', 1]
+                  ]
+              }]
+          });
+      });
+      
+      // 3D Scatter Chart
+      $(function () {
+
+          // Give the points a 3D feel by adding a radial gradient
+          Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function (color) {
+              return {
+                  radialGradient: {
+                      cx: 0.4,
+                      cy: 0.3,
+                      r: 0.5
+                  },
+                  stops: [
+                      [0, color],
+                      [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
+                  ]
+              };
+          });
+
+          var chart = new Highcharts.Chart({
+              chart: {
+                  renderTo: 'scatterChart',
+                  margin: 100,
+                  type: 'scatter',
+                  options3d: {
+                      enabled: true,
+                      alpha: 10,
+                      beta: 30,
+                      depth: 150,
+                      viewDistance: 5,
+
+                      frame: {
+                          bottom: { size: 1, color: 'rgba(0,0,0,0.02)' },
+                          back: { size: 1, color: 'rgba(0,0,0,0.04)' },
+                          side: { size: 1, color: 'rgba(0,0,0,0.06)' }
+                      }
+                  }
+              },
+              title: {
+                  text: '3D Scatter Chart'
+              },
+              subtitle: {
+                  text: 'Click and drag the plot area to rotate in space'
+              },
+              plotOptions: {
+                  scatter: {
+                      width: 10,
+                      height: 10,
+                      depth: 10
+                  }
+              },
+              yAxis: {
+                  min: 0,
+                  max: 10,
+                  title: null
+              },
+              xAxis: {
+                  min: 0,
+                  max: 10,
+                  gridLineWidth: 1
+              },
+              zAxis: {
+                  min: 0,
+                  max: 10
+              },
+              legend: {
+                  enabled: false
+              },
+              series: [{
+                  name: 'Reading',
+                  colorByPoint: true,
+                  data: [[1, 6, 5], [8, 7, 9], [1, 3, 4], [4, 6, 8], [5, 7, 7], [6, 9, 6], [7, 0, 5], [2, 3, 3], [3, 9, 8], [3, 6, 5], [4, 9, 4], [2, 3, 3], [6, 9, 9], [0, 7, 0], [7, 7, 9], [7, 2, 9], [0, 6, 2], [4, 6, 7], [3, 7, 7], [0, 1, 7], [2, 8, 6], [2, 3, 7], [6, 4, 8], [3, 5, 9], [7, 9, 5], [3, 1, 7], [4, 4, 2], [3, 6, 2], [3, 1, 6], [6, 8, 5], [6, 6, 7], [4, 1, 1], [7, 2, 7], [7, 7, 0], [8, 8, 9], [9, 4, 1], [8, 3, 4], [9, 8, 9], [3, 5, 3], [0, 2, 4], [6, 0, 2], [2, 1, 3], [5, 8, 9], [2, 1, 1], [9, 7, 6], [3, 0, 2], [9, 9, 0], [3, 4, 8], [2, 6, 1], [8, 9, 2], [7, 6, 5], [6, 3, 1], [9, 3, 1], [8, 9, 3], [9, 1, 0], [3, 8, 7], [8, 0, 0], [4, 9, 7], [8, 6, 2], [4, 3, 0], [2, 3, 5], [9, 1, 4], [1, 1, 4], [6, 0, 2], [6, 1, 6], [3, 8, 8], [8, 8, 7], [5, 5, 0], [3, 9, 6], [5, 4, 3], [6, 8, 3], [0, 1, 5], [6, 7, 3], [8, 3, 2], [3, 8, 3], [2, 1, 6], [4, 6, 7], [8, 9, 9], [5, 4, 2], [6, 1, 3], [6, 9, 5], [4, 8, 2], [9, 7, 4], [5, 4, 2], [9, 6, 1], [2, 7, 3], [4, 5, 4], [6, 8, 1], [3, 4, 0], [2, 2, 6], [5, 1, 2], [9, 9, 7], [6, 9, 9], [8, 4, 3], [4, 1, 7], [6, 2, 5], [0, 4, 9], [3, 5, 9], [6, 9, 1], [1, 9, 2]]
+              }]
+          });
+
+
+          // Add mouse events for rotation
+          $(chart.container).bind('mousedown.hc touchstart.hc', function (e) {
+              e = chart.pointer.normalize(e);
+
+              var posX = e.pageX,
+                  posY = e.pageY,
+                  alpha = chart.options.chart.options3d.alpha,
+                  beta = chart.options.chart.options3d.beta,
+                  newAlpha,
+                  newBeta,
+                  sensitivity = 5; // lower is more sensitive
+
+              $(document).bind({
+                  'mousemove.hc touchdrag.hc': function (e) {
+                      // Run beta
+                      newBeta = beta + (posX - e.pageX) / sensitivity;
+                      newBeta = Math.min(100, Math.max(-100, newBeta));
+                      chart.options.chart.options3d.beta = newBeta;
+
+                      // Run alpha
+                      newAlpha = alpha + (e.pageY - posY) / sensitivity;
+                      newAlpha = Math.min(100, Math.max(-100, newAlpha));
+                      chart.options.chart.options3d.alpha = newAlpha;
+
+                      chart.redraw(false);
+                  },
+                  'mouseup touchend': function () {
+                      $(document).unbind('.hc');
+                  }
+              });
+          });
+
+      });
+
+  // Area Spline Chart
+  $(function () {
+    $('#areaSpline').highcharts({
+        chart: {
+            type: 'areaspline',
+            marginTop: 90
+        },
+        title: {
+            text: 'Area Spline Chart'
+        },
+        subtitle: {
+            text: 'w/ Highlighted Months - Enable/Disable Client or Co-Client View'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 80,
+            y: 130,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        xAxis: {
+            categories: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July'
+            ],
+            plotBands: [{ // visualize/highlight important months
+                from: 4.5,
+                to: 6.5,
+                color: 'rgba(68, 170, 213, .2)'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: 'Savings Per Thousand $'
+            }
+        },
+        tooltip: {
+            shared: true,
+            valueSuffix: ' units'
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            areaspline: {
+                fillOpacity: 0.5
+            }
+        },
+        series: [{
+            name: 'Traditional IRA*',
+            data: [4, 5, 6, 7, 10, 15, 20]
+        }, {
+            name: 'Taxable Investment',
+            data: [1, 2, 3, 4, 5, 7, 10]
+        }]
+    });
+});
+
+// 3D Pie Chart
+      $(function () {
+    $('#pieChart').highcharts({
+        chart: {
+            type: 'pie',
+            marginTop: 90,
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '3D Pie Chart'
+        },
+        subtitle: {
+            text: 'Retirement Goals'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Retirement Activities',
+            data: [
+                ['Lounging',   45.0],
+                ['Constantly Brushing Teeth',       26.8],
+                {
+                    name: 'Ring & Run Neighborhood Doorbells',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Golf',    8.5],
+                ['Spending Time w/ Spouse',     6.2],
+                ['Twerking',   0.7]
+            ]
+        }]
+    });
+});
+
+// Basic Column Chart
+$(function () {
+    $('#basicColumnChart').highcharts({
+        chart: {
+            type: 'column',
+            marginTop: 90
+        },
+        title: {
+            text: 'Basic Bar Chart'
+        },
+        subtitle: {
+            text: 'Monthly Savings Totals'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Total Dollars Saved (per thousand)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} k</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Bob',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        }, {
+            name: 'Karla',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+        }, {
+            name: 'Tony',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        }, {
+            name: 'Laura',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+        }]
+    });
+});
+    </script> <!-- End Chart & Graph scripts -->
+
+
+<!-- //////////////// Experimental Section //////////////////////////////////////////// -->
+<!-- Not in use right now -->
+
+  </body>
+</html>

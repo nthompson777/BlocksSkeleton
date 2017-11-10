@@ -1,0 +1,145 @@
+/****************
+Global PIETech Mixins
+Updated: 04.16.15.1227
+- Define mixins that can be used in MGP styles
+****************/
+
+/// <reference path="global.less" />
+/// <reference path="variables.less" />
+
+/****************
+Global PIETech Mixins
+Updated: 04.16.15.1227
+- Define mixins that can be used in MGP styles
+****************/
+
+/// <reference path="global.less" />
+/// <reference path="variables.less" />
+
+.fa-icon-standard(@content; @color) {
+  font-family: 'FontAwesome';
+	margin: 0 .3em 0 .3em;
+	cursor: pointer;
+  color: @color;
+  content: @content;
+}
+/* makes the font 33% larger relative to the icon container */
+.fa-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+
+.plans-icon {
+  position: absolute;
+  top: 10px;
+  left: 55px;
+  font-family: 'FontAwesome';
+  font-size: 2.5em;
+  display: block;
+}
+
+.colgroup-highlight(@colstyle; @colgroup-color) {
+  colgroup col.@{colstyle} {
+    border: solid 3px @colgroup-color;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+// Outlined Buttons
+.button-outline-variant(@color) {
+  color: @color;
+  background-image: none;
+  background-color: transparent;
+  border-color: @color;
+  .transition(~"background-color .25s ease-in-out, color .25s ease-in-out");
+
+  &:focus,
+  &.focus,
+  &:active,
+  &.active,
+  .open > &.dropdown-toggle {
+    color: #fff;
+    background-color: @color;
+        border-color: @color;
+  }
+  &:hover, &.hover {
+    color: #fff;
+    background-color: @color;
+        border-color: @color;
+  }
+
+  &.disabled,
+  &:disabled {
+    &:focus,
+    &.focus {
+      border-color: lighten(@color, 20%);
+    }
+    &:hover, &.hover {
+      border-color: lighten(@color, 20%);
+    }
+  }
+}
+
+// Remove all backgrounds
+.btn.btn-primary-outline {
+  .button-outline-variant(@btn-primary-bg);
+}
+.btn.btn-secondary-outline {
+  .button-outline-variant(@btn-secondary-border);
+}
+.btn.btn-info-outline {
+  .button-outline-variant(@btn-info-bg);
+}
+.btn.btn-success-outline {
+  .button-outline-variant(@btn-success-bg);
+}
+.btn.btn-warning-outline {
+  .button-outline-variant(@btn-warning-bg);
+}
+.btn.btn-danger-outline {
+  .button-outline-variant(@btn-danger-bg);
+}
+
+.btn[class*="-outline"] {
+  &:hover {
+    .explain-icon:after {
+      color: #FFF;
+    }
+  }
+}
+
+.button-scroll {
+	border: none;
+	position: absolute;
+	cursor: pointer;
+	border-radius: 100%;
+	z-index: 100;
+	color: #fff;
+	opacity: .9;
+	//.animated();
+	//.bounceInUp();
+	&:before {
+		content: "\f103";
+		font-family: FontAwesome;
+		font-size: 30px;
+		line-height: 20px;
+		text-align: center;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    border: none;
+  }
+}
+
+/* from: http://lea.verou.me/2011/01/styling-children-based-on-their-number-with-css3/*/
+/*.nav-steps-loop (@i) when (@i > 0) {
+    &:first-child:nth-last-child(@{i}),
+  	&:first-child:nth-last-child(@{i}) ~ li {
+    width: 100% / @i;
+}}*/
+
+

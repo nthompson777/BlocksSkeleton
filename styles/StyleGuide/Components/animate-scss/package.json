@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "animate-scss@^3.2.1",
+        "scope": null,
+        "escapedName": "animate-scss",
+        "name": "animate-scss",
+        "rawSpec": "^3.2.1",
+        "spec": ">=3.2.1 <4.0.0",
+        "type": "range"
+      },
+      "C:\\Dev\\MGPro.Net\\Www"
+    ]
+  ],
+  "_from": "animate-scss@>=3.2.1 <4.0.0",
+  "_id": "animate-scss@3.2.1",
+  "_inCache": true,
+  "_location": "/animate-scss",
+  "_nodeVersion": "0.12.5",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/animate-scss-3.2.1.tgz_1469400166130_0.3180660658981651"
+  },
+  "_npmUser": {
+    "name": "drmartin",
+    "email": "drmartinkf@gmail.com"
+  },
+  "_npmVersion": "3.9.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "animate-scss@^3.2.1",
+    "scope": null,
+    "escapedName": "animate-scss",
+    "name": "animate-scss",
+    "rawSpec": "^3.2.1",
+    "spec": ">=3.2.1 <4.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/animate-scss/-/animate-scss-3.2.1.tgz",
+  "_shasum": "1bb32331ea1233407f22007c8815011d2e342b03",
+  "_shrinkwrap": null,
+  "_spec": "animate-scss@^3.2.1",
+  "_where": "C:\\Dev\\MGPro.Net\\Www",
+  "author": {
+    "name": "geoffgraham",
+    "email": "@geoffreygraham"
+  },
+  "bugs": {
+    "url": "https://github.com/geoffgraham/animate.scss/issues"
+  },
+  "dependencies": {},
+  "description": "A SASS port of Dan Eden's Animate.css",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "1bb32331ea1233407f22007c8815011d2e342b03",
+    "tarball": "https://registry.npmjs.org/animate-scss/-/animate-scss-3.2.1.tgz"
+  },
+  "gitHead": "4e59b638a75cb06e2a4c73526b9f0436595aca3b",
+  "homepage": "https://github.com/geoffgraham/animate.scss#readme",
+  "keywords": [
+    "animate.scss",
+    "animate.css",
+    "animate"
+  ],
+  "license": "MIT",
+  "main": "animate.scss",
+  "maintainers": [
+    {
+      "name": "drmartin",
+      "email": "drmartinkf@gmail.com"
+    }
+  ],
+  "name": "animate-scss",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geoffgraham/animate.scss.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "3.2.1"
+}

@@ -1,0 +1,57 @@
+// Font MGP Sass Version - PIE's Very Own Icon Font
+// Updated 11.29.16 - NT  v1.43
+// -----------------------------------
+
+@import "variables";
+@import "icons";
+
+// -----------------------------------
+
+@font-face {
+	font-family: 'font-mgp';
+	src:url('#{$fmgp-filePath}/font-mgp.eot?-wivi9');
+	src:url('#{$fmgp-filePath}/font-mgp.eot?#iefix-wivi9') format('embedded-opentype'),
+		url('#{$fmgp-filePath}/font-mgp.woff?-wivi9') format('woff'),
+		url('#{$fmgp-filePath}/font-mgp.ttf?-wivi9') format('truetype'),
+		url('#{$fmgp-filePath}/font-mgp.svg?-wivi9#font-mgp') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+i.fmgp,
+.fmgp {
+	font-family: 'font-mgp';
+	display: inline-block;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Icon Sizes
+// -------------------------
+// makes the font 33% larger relative to the icon container
+.#{$fmgp-prefix}-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+
+.#{$fmgp-prefix}-2x { font-size: 2em; }
+.#{$fmgp-prefix}-3x { font-size: 3em; }
+.#{$fmgp-prefix}-4x { font-size: 4em; }
+.#{$fmgp-prefix}-5x { font-size: 5em; }
+
+
+// Fixed Width Icons
+// -------------------------
+.#{$fmgp-prefix}-fw {
+  width: (18em / 14);
+  text-align: center;
+}

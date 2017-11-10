@@ -1,0 +1,125 @@
+// Highcharts Plugin - Less Base Styles - Put client styles for charts in:  [  ]
+
+.highcharts-container {
+	margin-top: 10px;
+	margin-left: -10px;  // Offset to align the charts and chart titles to our grid
+	
+  .tab-content & {
+		margin-top: 0;
+	}
+}
+
+.highcharts-title,
+.highcharts-title tspan {
+	color: @brand-primary !important;
+	font-size: 1.2em;
+	fill: @brand-primary !important;
+	font-family: @headings-font-family;
+	line-height: @headings-line-height;
+	text-align: left;
+	margin-top: 40px;
+}
+
+.highcharts-subtitle tspan {
+	color: @gray-light;
+	font-size: 1.3em;
+	font-family: @headings-font-family;
+	fill: @gray-light;
+	line-height: @headings-line-height;
+	text-align: left;
+}
+
+
+// Monte Carlo Meter Styles
+// ---------------------------------
+.meter {
+	margin-top:0;
+	max-width:195px;
+	// margin-top: -25px;
+	min-width:195px; /*125px;*/ 
+  height:100%;
+
+	.highcharts-container {
+		margin-top:.5em; 
+		margin-left:0;
+	}
+
+	.confidence-results {
+		margin-top:-4.4em;
+	}
+}
+
+.meter-container {
+  height: 170px;
+  display: inline-block; /*need this to better center Explore button underneath of this*/
+}
+
+.probability-of-success {
+  font-size: 1em;
+  text-align: center;
+  color: #666;
+  margin: -.5em 0 .5em 0;
+}
+
+.confidence-results {
+	text-align: center;
+}
+
+.confidenceZoneNum {
+	font-size: 3.15em;
+	font-weight: bold;
+	color: #666;
+}
+
+.confidenceZone {
+	font-size:1.25em;
+	color:#666;
+}
+
+
+// 3D Donut Styles
+// ---------------------------------
+  // Absolute center the text inside the inner circle of donut chart
+.pieChartInfoText {
+  position: relative;
+  text-align: center;
+}
+
+/* <= Small Viewport 
+************************/
+@media (max-width: @screen-sm-max) {
+    .pieChartInfoText {
+    top: 0 !important;
+    
+    &:before {
+      content: 'Total: ';
+      margin-right: 5px;
+    }
+  }
+}
+
+
+/* Xsmall ONLY!!! Viewport 
+************************/
+@media (max-width: @screen-xs-max) {
+  .meter {
+	  max-width: 250px;
+  }
+
+  .affixed-meters-wrapper .affix .row {
+    width: inherit !important;
+  }
+}
+
+// Breakpoint for Meters
+@media (max-width: 400px) { 
+
+
+  .meter-container {
+    height:200px; /*180px;*/
+  }
+}
+
+// Breakpoint for Donut Chart with text inside inner circle
+@media (max-width: 35.938em) { 
+}

@@ -1,0 +1,158 @@
+﻿.fmgp-home-calendar-alt:before {
+  content: "\e922";
+}
+.fmgp-home-contact-book:before {
+  content: "\e923";
+}
+.fmgp-home-pencil-doc:before {
+  content: "\e924";
+}
+.fmgp-home-comments:before {
+  content: "\e921";
+}
+.fmgp-home-college-cap:before {
+  content: "\e920";
+}
+.fmgp-home-calendar:before {
+  content: "\e900";
+}
+.fmgp-home-chain-link:before {
+  content: "\e917";
+}
+.fmgp-home-leaf:before {
+  content: "\e918";
+}
+.fmgp-home-paw:before {
+  content: "\e919";
+}
+.fmgp-home-piggy-bank:before {
+  content: "\e91a";
+}
+.fmgp-home-plus:before {
+  content: "\e91b";
+}
+.fmgp-home-utensils:before {
+  content: "\e91c";
+}
+.fmgp-home-stethoscope:before {
+  content: "\e91d";
+}
+.fmgp-home-exclamation-triangle-o:before {
+  content: "\e91e";
+}
+.fmgp-home-shirt:before {
+  content: "\e91f";
+}
+.fmgp-home-shirt-o:before {
+  content: "\e915";
+}
+.fmgp-home-tennis-ball:before {
+  content: "\e916";
+}
+.fmgp-home-easel-live:before {
+  content: "\e913";
+}
+.fmgp-home-monitor-headset:before {
+  content: "\e914";
+}
+.fmgp-home-beach-ball:before {
+  content: "\e90b";
+}
+.fmgp-home-ghost:before {
+  content: "\e90c";
+}
+.fmgp-home-shield-user:before {
+  content: "\e90d";
+}
+.fmgp-home-user-circle-arrow:before {
+  content: "\e90e";
+}
+.fmgp-home-bar-graph-circle-o:before {
+  content: "\e901";
+}
+.fmgp-home-bar-graph-circle:before {
+  content: "\e90f";
+}
+.fmgp-home-bar-graph-o:before {
+  content: "\e902";
+}
+.fmgp-home-bar-graph-check:before {
+  content: "\e910";
+}
+.fmgp-home-bullhorn-o:before {
+  content: "\e903";
+}
+.fmgp-home-bullhorn-circle-arrow:before {
+  content: "\e911";
+}
+.fmgp-home-check-circle-o:before {
+  content: "\e904";
+}
+.fmgp-home-easel-gear-o:before {
+  content: "\e905";
+}
+.fmgp-home-easel-gear:before {
+  content: "\e912";
+}
+.fmgp-home-light-bulb-o:before {
+  content: "\e906";
+}
+.fmgp-home-line-chart-square-o:before {
+  content: "\e907";
+}
+.fmgp-home-play-circle-o:before {
+  content: "\e908";
+}
+.fmgp-home-tools-o:before {
+  content: "\e909";
+}
+.fmgp-home-touch-screen-o:before {
+  content: "\e90a";
+  margin-bottom: -0.5em;
+}
+@font-face {
+  font-family: 'font-mgp-home';
+  src: url('../fonts/font-mgp-home.eot?4prn2t');
+  src: url('../fonts/font-mgp-home.eot?4prn2t#iefix') format('embedded-opentype'), url('../fonts/font-mgp-home.ttf?4prn2t') format('truetype'), url('../fonts/font-mgp-home.woff?4prn2t') format('woff'), url('../fonts/font-mgp-home.svg?4prn2t#font-mgp-home') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="fmgp-home-"],
+[class*=" fmgp-home-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  display: inline-block;
+  font-family: 'font-mgp-home' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fmgp-home-lg {
+  font-size: 1.33333333em;
+  line-height: 0.75em;
+  vertical-align: -15%;
+}
+.fmgp-home-2x {
+  font-size: 2em;
+}
+.fmgp-home-3x {
+  font-size: 3em;
+}
+.fmgp-home-4x {
+  font-size: 4em;
+}
+.fmgp-home-5x {
+  font-size: 5em;
+}
+.fmgp-home-6x {
+  font-size: 6em;
+}
+.fmgp-home-fw {
+  width: 1.28571429em;
+  text-align: center;
+}

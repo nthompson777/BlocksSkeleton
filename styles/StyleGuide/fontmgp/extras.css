@@ -1,0 +1,19 @@
+/* Icon Sizes */
+/* ------------------------- */
+/* makes the font 33% larger relative to the icon container */
+.fmgp-lg {
+  font-size: (4em / 3);
+  line-height: (3em / 4);
+  vertical-align: -15%;
+}
+.fmgp-2x { font-size: 2em; }
+.fmgp-3x { font-size: 3em; }
+.fmgp-4x { font-size: 4em; }
+.fmgp-5x { font-size: 5em; }
+
+/* Fixed Width Icons */
+/* ------------------------- */
+.fmgp-fw {
+  width: (18em / 14);
+  text-align: center;
+}

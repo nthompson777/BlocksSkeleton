@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>MoneyGuide Pro Demo</title>
+
+    <!-- CSS
+    ======================================== -->
+    <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+    <link href="../css/global.min.css" rel="stylesheet">
+   
+    <!-- Custom styles for Client Template -->
+    <link href="#" rel="stylesheet">
+
+
+    <!-- Conditional Scripts to keep here, all other scripts on bottom
+    ======================================== -->
+    <!--[if lt IE 9]>
+      <link href="../css/ie8-global.min.css" rel="stylesheet">
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://html5shiv-printshiv.googlecode.com/svn/trunk/html5shiv-printshiv.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons
+    ======================================== -->
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-touch-icon-152x152.png">
+
+  </head>
+
+  <body id="Demo-page1">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="/" title="MoneyGuide Pro">
+              <img src="../img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="tutorial"><a href="#" class="tutorial_start"><i class="fa fa-book fa-fw"></i> Tutorial Example</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Advisor Menu <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Main Menu</a></li>
+                <li><a href="#">My Clients</a></li>
+                <li><a href="#">My Analyses</a></li>
+              </ul>
+            </li>
+            <li class="trigger-collapse"><a href="#" data-toggle="offcanvasOptions">Options</a>
+            </li>
+            <li class="trigger-collapse"><a href="#" data-toggle="offcanvasCalc">Calculators</a></li>
+            <li class="trigger-collapse"><a href="#" data-toggle="offcanvasFeat">Other Features</a></li>
+            <!-- <li><a href="#">Support</a></li> 
+            <li><a href="#">Help</a></li> -->
+            <li><a href="#"><i class="fa fa-unlock fa-fw"></i> Logout</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <!-- Fixed Position/Sticky Support and Help Box -->  
+  <div id="support-cont">
+    <!-- <div class="support-box"><a href="#"><i class="fa fa-comments-o fa-2x"></i></a> <a href="#"><i class="fa fa-question-circle fa-2x"></i></a> </div> -->
+    <div class="support-box-hover"><a href="#"><i class="fa fa-comments-o fa-fw"></i> Support </a> | <a href="#">Help <i class="fa fa-question-circle fa-fw"></i></a> </div>
+  </div>
+
+  <div class="container">
+    <div class="offcanvas-menu offcanvas-left">
+    
+    <!-- Options Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 options-menu">
+      <h3>Options <button class="btn btn-xs btn-secondary" data-toggle="offcanvasOptions"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item">Notes</a>
+        <div class="list-group-item header">Morningstar</div>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Schwab OpenView Gateway<sup>&trade;</sup> Custody Data</div>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <a href="#" class="list-group-item">Schwab Pin</a>
+        <div class="list-group-item header">Integrated Office &amp; PortfolioCenter<sup>&trade;</sup> Hosted Data</div>
+        <a href="#" class="list-group-item">Enrollment</a>
+        <div class="list-group-item header">SEI</div>
+        <a href="#" class="list-group-item">SEI Sign On</a>
+        <div class="list-group-item header">HiddenLevers</div>
+        <a href="#" class="list-group-item">Portfolio Stress Test</a>
+        <div class="list-group-item header">Fidelity</div>
+        <a href="#" class="list-group-item">Request National Financial Streetscape Authorization</a>
+        <a href="#" class="list-group-item">Request Fidelity WealthCentral Authorization</a>
+        <div class="list-group-item header">LifeYield</div>
+        <a href="#" class="list-group-item">Tax Efficient Implementation Report</a>
+        <div class="list-group-item header">AdvisoryWorld</div>
+        <a href="#" class="list-group-item">SCANalytics Quickstart</a>
+        <a href="#" class="list-group-item">Reporting</a>
+        <div class="list-group-item header">Forefield</div>
+        <a href="#" class="list-group-item">ForeField</a>
+
+      </div><!-- /list-group -->
+    </div><!-- /col  END Options Off-canvas Menu -->
+
+    <!-- Financial Calculators LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 calculators-menu">
+      <h3>Calculators <button class="btn btn-xs btn-secondary" data-toggle="offcanvasCalc"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item active">Retirement Calculator</a>
+        <a href="#" class="list-group-item">College</a>
+        <a href="#" class="list-group-item">Social Security</a>
+        <a href="#" class="list-group-item">Roth Conversion</a>
+        <a href="#" class="list-group-item">Budget</a>
+        <a href="#" class="list-group-item">Cost of Delay</a>
+        <a href="#" class="list-group-item">Inflation</a>
+        <a href="#" class="list-group-item">IRA Contribution</a>
+        <a href="#" class="list-group-item">Net Worth</a>
+        <a href="#" class="list-group-item">Systematic Investing</a>
+        <a href="#" class="list-group-item">Life Expectancy</a>
+        <a href="#" class="list-group-item">72(t) Distribution</a>
+        <a href="#" class="list-group-item">Net Unrealized Appreciation</a>
+        <a href="#" class="list-group-item">Tax-Deferred vs. Taxable</a>
+        <a href="#" class="list-group-item">IRA Distribution</a>
+        <a href="#" class="list-group-item">RMD</a>
+        <a href="#" class="list-group-item">Beneficiary RMD</a>
+      </div><!-- /list-group -->
+    </div><!-- /col  END Financial Calculators Off-canvas Menu -->
+
+    <!-- Other Features LEFT Off-canvas Menu -->
+    <div class="col-xs-6 col-sm-3 otherfeat-menu">
+      <h3>Other Features <button class="btn btn-xs btn-secondary" data-toggle="offcanvasFeat"><i class="fa fa-long-arrow-left fa-fw"></i> Close</button></h3>
+      <div class="list-group">
+        <a href="#" class="list-group-item active"><i class="fa fa-camera fa-fw"></i> My Snapshot <i class="fa fa-info-circle fa-fw help-inline" title="My Snapshot is an easy place to view your up-to-date Recommended Plan. It consists of: Overview, Results, Play Zone, What Are You Afraid Of?, and Resources."></i></a> 
+        <a href="#" class="list-group-item" data-toggle="offcanvasCalc"><i class="fa fa-calculator fa-fw"></i> Calculators</a>
+        <a href="#" class="list-group-item"><i class="fa fa-user fa-fw"></i> Profile</a>
+        <a href="#" class="list-group-item"><i class="fa fa-usd fa-fw"></i> Budget</a>
+        <a href="#" class="list-group-item"><i class="fa fa-puzzle-piece fa-fw"></i> Manage Integrations</a>
+        <a href="#" class="list-group-item"><i class="fa fa-angle-double-right fa-fw"></i> Risk Tolerance</a>
+      </div>
+    </div><!-- /col  END Other Features LEFT Off-canvas Menu-->
+
+
+    <!-- Begin Unique Body Content -->
+    <div class="row">
+      <div class="col-xs-12">
+        <h1>Guaranteed Income Plan<h1>
+        <h2>Bob &amp; Karla Curtis</h2>
+      </div><!-- /col -->
+    </div><!-- /row -->
+
+    <section> <!-- Parent section -->
+      <div role="tabpanel">
+
+        <!-- Nav Tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation"><a href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab">Start</a></li>
+          <li role="presentation"><a href="/#tab2" aria-controls="tab2" role="tab" data-toggle="tab">Goal</a></li>
+          <li role="presentation"><a href="/#tab3" aria-controls="tab3" role="tab" data-toggle="tab">Income</a></li>
+          <li role="presentation" class="active"><a href="#tab4" aria-controls="tab4" role="tab" data-toggle="tab">Results</a></li>
+          <li role="presentation"><a href="#tab5" aria-controls="tab5" role="tab" data-toggle="tab">Reports</a></li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          
+          <div role="tabpanel" class="tab-pane" id="tab1">
+            <h3>Personal Information</h3>
+            
+            <div class="row">
+              <div class="col-sm-6">
+                <label>Description</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-file-text fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="The name of your plan here" value="Guaranteed Income Plan">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /row -->
+
+            <hr>
+
+            <h4>Client</h4>
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Client First Name</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-user fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your Name Here" value="Bob">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+              
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Gender</label>
+                <div class="input-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions1" id="inlineRadio1" value="Male" checked> Male
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions2" id="inlineRadio2" value="Female"> Female
+                  </label>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Date of Birth</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-calendar fa-fw"></i></span>
+                  <input type="text" class="form-control date" placeholder="mm/dd/yyyy">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Marital Status</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-heart fa-fw"></i></span>
+                  <input type="text" class="form-control" value="Married" disabled>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Employment Status</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-briefcase fa-fw"></i></span>
+                  <select class="form-control" name="searchType">
+                    <option value="-1">Select Here</option>
+                    <option value="Employed" selected="selected">Employed</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Not Currently Employed">Not Currently Employed</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Employment Income</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" placeholder="ex- 90,000" value="1,000,000">
+                  <div class="input-group-addon"><a class="help-inline" title="Total of all sources of income."><i class="fa fa-info-circle fa-fw"></i></a></div>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>State Where You Live</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-globe fa-fw"></i></span>
+                  <select class="form-control" name="searchType">
+                    <option value="-1">Select Here</option>
+                    <option value="Employed" selected="selected">Virginia</option>
+                    <option value="OtherState">You Get the Idea</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /row --> 
+            
+            <hr>
+
+            <h4>Co-Client</h4>
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Co-Client First Name</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-user fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your Name Here" value="Karla">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+              
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Gender</label>
+                <div class="input-group">
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions3" id="inlineRadio3" value="Male"> Male
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions4" id="inlineRadio4" value="Female" checked> Female
+                  </label>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Date of Birth</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-calendar fa-fw"></i></span>
+                  <input type="text" class="form-control date" placeholder="mm/dd/yyyy">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Marital Status</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-heart fa-fw"></i></span>
+                  <input type="text" class="form-control" value="Married" disabled>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Employment Status</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-briefcase fa-fw"></i></span>
+                  <select class="form-control" name="searchType">
+                    <option value="-1">Select Here</option>
+                    <option value="Employed" selected="selected">Employed</option>
+                    <option value="Retired">Retired</option>
+                    <option value="Not Currently Employed">Not Currently Employed</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Employment Income</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" placeholder="Your Name Here">
+                  <div class="input-group-addon"><a class="help-inline" title="Total of all sources of income."><i class="fa fa-info-circle fa-fw"></i></a></div>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>State Where You Live</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-globe fa-fw"></i></span>
+                  <select class="form-control" name="searchType">
+                    <option value="-1">Select Here</option>
+                    <option value="Employed" selected="selected">Virginia</option>
+                    <option value="OtherState">You Get the Idea</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /row -->   
+
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="btn-cont">
+                  <a href="/demo/#tab2" class="btn btn-forward">Save &amp; Continue</a>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- ///////////////// #tab1 //////////////////-->
+
+          <div role="tabpanel" class="tab-pane" id="tab2">
+            <h4>Bob</h4>
+            <div class="row">
+              
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Current Age</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-user fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your age" value="55" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Age to Retire</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-trophy fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" placeholder="Your retirement age" value="75" maxlength="3">
+                  <span class="input-group-addon">in 2045</span>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Planning Age</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"># </span>
+                  <input type="text" class="form-control onlywholenum" placeholder="Your planning age" value="100" maxlength="3">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Assumed Year of Death</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-bed fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your planning age" value="2060" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+            </div><!-- /row -->
+
+            <hr>
+
+            <h4>Karla</h4>
+            <div class="row">
+              
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Current Age</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-user fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your age" value="45" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Age to Retire</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-trophy fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" placeholder="Your retirement age" value="75" maxlength="3">
+                  <span class="input-group-addon">in 2055</span>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Planning Age</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"># </span>
+                  <input type="text" class="form-control onlywholenum" placeholder="Your planning age" value="100" maxlength="3">
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Assumed Year of Death</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-bed fa-fw"></i></span>
+                  <input type="text" class="form-control" placeholder="Your planning age" value="2070" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+            </div><!-- /row -->
+
+            <hr>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <h3>Basic Living Expense</h3>
+                <div class="callout callout-info">
+                  <h4>After-Tax Cash</h4>
+                  <p>Enter the amount of after-tax cash you require to pay for Basic Living Expenses below.</p>
+                </div><!-- /callout -->
+              </div><!-- /col -->
+            </div><!-- /row -->
+            
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Basic Living Expense Goal</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" value="35,000">
+                  <span class="input-group-addon">per year <i class="fa fa-info-circle fa-fw help-inline color" title="Enter your basic living expense goal in 'today's dollars'."></i></span>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Budget Worksheet Amount</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                  <input type="text" class="form-control onlywholenum" value="15,000" readonly>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Begin Basic Living Expense at</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                  <select class="form-control" name="searchType" id="id57">
+                    <option value="-1">Select Here</option>
+                    <option value="Bob's Retirement" selected="selected">Bob's Retirement</option>
+                    <option value="Karla's Retirement">Karla's Retirement</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+
+            </div><!-- /row -->
+
+            <div class="row">
+              <div class="col-xs-12">
+                <h3>Adjustments to Basic Living Expense Amount</h3>
+                <div class="callout callout-warning">
+                  <h4>Important</h4>
+                  <p>This section is important for Mortgage Loans and Fixed Expenses <a href="#" data-toggle="modal" data-target="#mortgageLoan-modal"><i class="fa fa-angle-double-right fa-fw"></i>Learn More</a></p>
+                  <p>Use this section to reduce the Basic Living Expense Goal amount for mortgage payments and fixed expenses that end during retirement. Also, you can reduce this amount at the death of the first co-client.</p>
+                </div><!-- /callout -->
+              </div><!-- /col -->
+            </div><!-- /row -->
+
+            <div class="row">
+              <div class="col-sm-6 col-md-4 col-lg-3">
+                <label>Begin Basic Living Expense at</label>
+                <div class="input-group">
+                  <span class="input-group-addon required"><i class="fa fa-angle-double-right fa-fw"></i></span>
+                  <select class="form-control" name="searchType" id="id57">
+                    <option value="-1">Select Here</option>
+                    <option value="Mortgage" selected="selected">Mortgage</option>
+                    <option value="Second Mortgage">Second Mortgage</option>
+                    <option value="Equity Line">Equity Line</option>
+                    <option value="Loans">Loans</option>
+                    <option value="Alimony">Alimony</option>
+                    <option value="Child Care">Child Care</option>
+                  </select>
+                </div><!-- /input-group -->
+              </div><!-- /col -->
+            </div><!-- /row -->
+          </div><!-- ///////////////// #tab2 //////////////////-->
+          
+          <div role="tabpanel" class="tab-pane" id="tab3">
+            <h3>Guaranteed Retirement Income</h3>
+            <h4>Bob - Social Security Benefit</h4>
+            <fieldset disabled="">
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Annual Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="71,000" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Start Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2045" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" checked="checked"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+            </fieldset>
+
+            <hr>
+
+            <h4>Karla - Social Security Benefit</h4>
+            <fieldset disabled="">
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Annual Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="68,520" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Start Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2055" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" checked="checked"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+            </fieldset>
+
+            <div class="row">
+              <div class="col-xs-12">
+                <div class="callout callout-info">
+                  <p>The Social Security Benefits shown here will automatically be included in the analysis. Click here to modify the default assumptions.</p>
+                </div><!-- /callout -->
+              </div><!-- /col -->
+            </div><!-- /row -->
+
+            <h4>Bob - Pension</h4>
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="125,000">
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2055" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+
+              <h4>Bob - Other (e.g., Annuity Income)</h4>
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="15,000">
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2065" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+
+              <hr>
+
+              <h3>Karla</h3>
+              <h4>Pension</h4>
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="68,520">
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2070" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+
+              <h4>Other (e.g., Annuity Income)</h4>
+              <div class="row">
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Ammount</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Annual Ammount" value="18,520">
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Year</label>
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-calendar fa-fw"></i></span>
+                    <input type="text" class="form-control" placeholder="Your Start Year" value="2055" readonly>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                  <label>Inflate?</label>
+                  <div class="input-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox"> 
+                      </label>
+                    </div>
+                  </div><!-- /input-group -->
+                </div><!-- /col -->
+              </div><!-- /row -->
+
+          </div><!-- ///////////////// #tab3 //////////////////-->
+          
+          <div role="tabpanel" class="tab-pane active" id="tab4">
+            <section>
+              <div class="row">
+                <div class="col-md-6"> 
+                  <div id="stackedColumnChart-Left"></div>
+                </div><!-- /col -->
+
+                <div class="col-md-6"> 
+                  <div id="stackedColumnChart-Right"></div>
+                </div><!-- /col -->
+              </div><!-- /row -->
+            </section>
+
+            <section>
+              <h3>Retirement</h3>
+
+              <div class="row">
+                <div class="col-md-4"><!-- Parent col -->
+                  <h4>Bob's Retirement Age <i class="fa fa-info-circle fa-fw help-inline" title="Move the slider below or manually enter in your retirement age in the provided space below."></i></h4>
+                  <div id="clientSlider" class="client-slider"></div>
+                  <label>Or Enter Any Value:</label>
+                  <div class="row">
+                    <div class="col-xs-8 col-md-6">
+                      <div class="input-group">
+                        <span class="input-group-addon required"><i class="fa fa-trophy fa-fw"></i></span>
+                        <input type="number" id="client-input-number" class="form-control">
+                      </div><!-- /input-group -->
+                    </div><!-- col -->
+                  </div><!-- /row -->
+
+                </div><!-- / Parent col -->
+                
+                <div class="col-md-4"><!-- Parent col -->
+                  <h4>Karla's Retirement Age <i class="fa fa-info-circle fa-fw help-inline" title="Move the slider below or manually enter in your retirement age in the provided space below."></i></h4>
+                  <div id="coclientSlider" class="coclient-slider"></div>
+                  <label>Or Enter Any Value:</label>
+                  <div class="row">
+                    <div class="col-xs-8 col-md-6">
+                      <div class="input-group">
+                        <span class="input-group-addon required"><i class="fa fa-trophy fa-fw"></i></span>
+                        <input type="number" id="coclient-input-number" class="form-control">
+                      </div><!-- /input-group -->
+                    </div><!-- /col -->
+                  </div><!-- /row -->
+                </div><!-- / Parent col -->
+
+                <div class="col-md-4"><!-- Parent col -->
+                  <h4>Basic Living Expense (per year) <i class="fa fa-info-circle fa-fw help-inline" title="Move the slider below or manually enter your estimated Living Expense in the provided space below."></i></h4>
+                  <div id="livingExpense-slider"></div>
+                  <label>Yearly Living Expense:</label>
+                  <div class="row">
+                    <div class="col-xs-8 col-md-6">
+                      <div class="input-group">
+                        <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                        <input type="number" id="livingExpense-input-number" class="form-control">
+                      </div><!-- /input-group -->
+                    </div><!-- /col -->
+                  </div><!-- /row -->
+                </div><!-- / Parent col -->
+
+              </div><!-- /row -->
+            </section>
+
+            <section>
+              <h3>Annuity</h3>
+              <p><span class="required"></span> required field</p>
+              <div class="form-horizontal">
+                <div class="row">
+                  <div class="col-md-6"><!-- Parent col -->
+                    
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Solve Method</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-dollar fa-fw"></i></span>
+                          <select class="form-control" name="searchType" id="id57">
+                            <option value="-1" selected="selected">Select Here</option>
+                            <option value="Solve for Income and Investment">Solve for Income and Investment</option>
+                            <option value="Enter Investment Amount - Solve for Income Provided">Enter Investment Amount - Solve for Income Provided</option>
+                            <option value="Enter Investment Amount - Solve for Income Provided">Enter Income Amount - Solve for Investment Required</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Select a Product</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-bank fa-fw"></i></span>
+                          <select class="form-control" name="searchType" id="id57">
+                            <option value="-1">Select Here</option>
+                            <option value="Hypothetical - Single">Hypothetical - Single</option>
+                            <option value="Hypothetical - Joint">Hypothetical - Joint</option>
+                            <option value="Met GMIB MAX V" selected="selected">Met GMIB MAX V</option>
+                          </select>
+                          <div class="input-group-addon"><a class="help-inline" title="This is a help popover for form fields"><i class="fa fa-info-circle fa-fw"></i></a></div>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Annuity Investment Required</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                          <input type="text" class="form-control" value="100,000" readonly>
+                        </div><!-- /input-group -->
+                      </div><!-- /col -->
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Additional Annual Income Needed From Annuity</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                          <input type="text" class="form-control" value="8,000" readonly>
+                        </div><!-- /input-group -->
+                      </div><!-- /col -->
+                    </div><!-- /form-group -->
+                  
+                  </div><!-- / Parent col -->
+
+                  <div class="col-md-6"><!-- Parent col -->
+                    
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Amount required in Cash Account to cover shortfall for</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="fa fa-dollar fa-fw"></i></span>
+                          <input type="text" class="form-control" value="150,000" readonly>
+                        </div><!-- /input-group -->
+                      </div><!-- /col -->
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Begin Basic Living Expense at</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-home fa-fw"></i></span>
+                          <select class="form-control" name="searchType">
+                            <option value="-1">Select Here</option>
+                            <option value="Bob's Retirement" selected="selected">Bob's Retirement</option>
+                            <option value="Karla's Retirement">Karla's Retirement</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Year to Begin Annuity Income</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-calendar fa-fw"></i></span>
+                          <select class="form-control" name="searchType" id="id57">
+                            <option value="-1">Select Here</option>
+                            <option value="Bob's Retirement" selected="selected">Bob's Retirement</option>
+                            <option value="Karla's Retirement">Karla's Retirement</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 control-label">Years to Cover Shortfall</label>
+                      <div class="col-sm-6">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-arrow-down fa-fw"></i></span>
+                          <select class="form-control" name="searchType" id="id57">
+                            <option value="-1">Select Here</option>
+                            <option value="Lifetime" selected="selected">Lifetime</option>
+                            <option value="5 Years">5 Years</option>
+                            <option value="10 Years">10 Years</option>
+                            <option value="15 Years">15 Years</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+                  
+                  </div><!-- / Parent col -->
+                </div><!-- /row -->
+                
+
+              </div><!-- /form-horizontal -->
+            </section>
+            
+            <section>
+              <h3>How to Fund the Annuity</h3>
+              <div class="form-horizontal">
+                <div class="row">
+                  <div class="col-xs-12"> <!-- Parent col -->
+
+                    <div class="form-group">
+                      <label class="col-sm-6 col-md-3 control-label">Tax Category</label>
+                      <div class="col-sm-6 col-md-3">
+                        <div class="input-group">
+                          <span class="input-group-addon required"><i class="fa fa-money fa-fw"></i></span>
+                          <select class="form-control" name="searchType" id="id57">
+                            <option value="-1">Select Here</option>
+                            <option value="Qualified" selected="selected">Qualified</option>
+                            <option value="Not Qualified">Not Qualified</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div><!-- /form-group -->
+                  </div><!-- /col -->
+                </div><!-- /row -->
+              </div><!-- /form-horizontal -->
+            </section>
+                                
+          </div><!-- ///////////////// #tab4 //////////////////-->
+          
+          <div role="tabpanel" class="tab-pane" id="tab5">
+            <h3>Reports</h3>
+            <h4>Report Templates</h4>
+            <p>No report templates are available since this is a demo.</p>
+          </div><!-- ///////////////// #tab5 //////////////////-->
+
+        </div><!-- /tab-content -->
+      </div><!-- /tabpanel -->
+    </section><!-- / Parent section -->
+    
+
+
+    <!-- END Unique Body Content -->
+
+  </div><!-- /offcanvas-menu -->  
+</div> <!-- /container -->
+
+<footer>
+  <div class="container">
+    <p class="copyright">
+      &copy; <script type="text/javascript">
+      <!--
+        today = new Date();
+        year0 = today.getFullYear();
+        document.write(year0);
+      //-->
+      </script> PIEtech, Inc. All rights reserved.  
+    </p>
+    
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal fade" id="mortgageLoan-modal" tabindex="-1" role="dialog" aria-labelledby="mortgageLoan-modal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+        <h4 class="modal-title" id="mortgageLoan-modal">Adjustments to Living Expense Amount(s)</h4>
+      </div><!-- /modal-header -->
+      <div class="modal-body">
+        <p>This section allows you to create varying expense streams in the Retirement period. You would use this section if you have:</p>
+        <ul>
+          <li>A significant portion of your Living Expenses that are fixed (versus inflating) expenses.</li>
+          <li>Expenses that will end during retirement.</li>
+        </ul>
+        <p>Indicate an expense that is "fixed" by entering the appropriate monthly amount and leaving Inflation set to No. If this fixed expense will end during retirement, enter the year the expense will end. If this fixed expense will continue throughout the Analysis, enter any year that is later than the End of the Analysis.</p>
+        <p>Indicate an expense that will end during retirement by entering the appropriate monthly amount and entering the year the expense will end. If this expense is fixed, leave Inflation set to No. If this expense will inflate, select Yes.</p>
+
+        <p>One common fixed expense is a mortgage. The two examples below show the input and the results for, first, a mortgage that ends during retirement, and, second, a mortgage that continues through the end of the Analysis. The Annual Living Expense column shows the value that would be displayed in the Combined Details Chart.</p>
+
+        <p>Example 1 - Client retired; Living Expense (LE) of $5,000 per month; inflation is 5%; Client Life is 2016; mortgage is $1,000 per month and will end in 2014.</p>
+      </div><!-- /modal-body -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
+        
+      </div><!-- /modal-footer -->
+    </div><!-- /modal-content -->
+  </div><!-- /modal-dialog modal-lg -->
+</div><!-- /modal -->
+
+    <!-- Core JavaScript
+    ======================================== -->
+    <script src="../js/min/jquery-1.11.2.min.js"></script>
+    <script src="../js/min/bootstrap.min.js"></script>
+    <script src="../js/min/global.min.js"></script>
+    
+    <!-- Only Load on Pages with Sliders -->
+    <script src="../js/min/jquery.nouislider.all.min.js"></script>
+
+    <!-- Only Load on Pages with Charts and Graphs -->
+    <script src="../js/min/highcharts.min.js"></script>
+    
+    <!-- Script DISABLED FOR DEMO - jQuery location.hash for going to specific tabs within URL 
+    <script type="text/javascript">
+    $(function () {
+       var activeTab = $('[href=' + location.hash + ']');
+       activeTab && activeTab.tab('show');
+    });
+    </script> -->
+
+    <!-- Highcharts Options -->
+    <script type="text/javascript">
+      // Stacked Column Chart Left
+      $(function () {
+          $('#stackedColumnChart-Left').highcharts({
+              chart: {
+                  type: 'column',
+                  marginTop: 90
+              },
+              title: {
+                  text: 'Current '
+              },
+              subtitle: {
+                  text: 'Lifetime Shortfall $15,000'
+              },
+              xAxis: {
+                  categories: ['2040', '2041', '2042', '2043', '2044', '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', '2055', '2056', '2057', '2058', '2059', '2060', '2061', '2062', '2063', '2064', '2065', '2066', '2067', '2068', '2069', '2070', '2071', '2072', '2073'],
+                  labels: {
+                    step: 5
+                }
+              },
+              yAxis: {
+                  min: 0,
+                  title: {
+                      text: 'Income '
+                  },
+                  labels: {
+                    format: '${value}',
+                  }
+              },
+              legend: {
+                  backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                  borderColor: '#CCC',
+                  borderWidth: 1,
+              },
+              tooltip: {
+                  formatter: function () {
+                      return '<b>' + this.x + '</b><br/>' +
+                          this.series.name + ': ' + this.y + '<br/>' +
+                          'Total: ' + this.point.stackTotal;
+                  }
+              },
+              plotOptions: {
+                  column: {
+                      stacking: 'normal',
+                      
+                  }
+              },
+              series: [{
+                name: 'Income',
+                data: [80000, 81000, 81500, 81550, 82000, 82500, 83000, 83500, 84000, 85000, 86000, 86500, 87000, 88000, 88500, 89000, 89500, 90000, 91000, 91000, 91200, 91350, 93000, 95000, 95600, 96000, 96500, 96800, 96900, 97000, 97500, 98000, 98300, 98350]
+
+                }, {
+                    name: 'Cash Account Used',
+                    data: [8000, 8100, 8150, 8155, 8200, 8500, 3000, 8350, 4000, 5000, 8000, 500, 7000, 8000, 8500, 9000, 9500, 9000, 9100, 9100, 1200, 9150, 9300, 9500, 9560, 9600, 9650, 9680, 9690, 9000, 7500, 8000, 8300, 9830]
+
+                }, {
+                    name: 'Income Surplus',
+                    data: [10000, 18100, 18150, 28155, 18200, 18500, 13000, 18350, 24000, 15000, 18000, 10500, 17000, 18000, 18500, 9000, 19500, 19000, 19100, 19100, 10200, 12150, 14300, 15500, 17560, 19600, 21650, 22680, 23690, 24000, 17500, 24000, 18300, 19830]
+
+                }, {
+                    name: 'Shortfall',
+                    data: [17000, 17100, 17200, 17500, 17600, 17700, 17800, 17900, 18000, 18100, 18200, 18300, 18400, 18500, 18600, 18700, 18800, 18900, 19000, 19100, 19200, 19300, 19350, 19400, 19500, 19560, 19600, 19700, 19800, 19850, 19870, 19900, 20000, 20000],
+                    color: '#F74545'
+
+                }]
+            });
+        });
+
+        // Stacked Column Chart Right
+      $(function () {
+          $('#stackedColumnChart-Right').highcharts({
+              chart: {
+                  type: 'column',
+                  marginTop: 90
+              },
+              title: {
+                  text: 'Current with $100,000 Annuity* '
+              },
+              subtitle: {
+                  text: 'Lifetime Shortfall $5,000'
+              },
+              xAxis: {
+                  categories: ['2040', '2041', '2042', '2043', '2044', '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', '2055', '2056', '2057', '2058', '2059', '2060', '2061', '2062', '2063', '2064', '2065', '2066', '2067', '2068', '2069', '2070', '2071', '2072', '2073'],
+                  labels: {
+                    step: 5
+                }
+              },
+              yAxis: {
+                  min: 0,
+                  title: {
+                      text: 'Income '
+                  },
+                  labels: {
+                    format: '${value}',
+                  }
+              },
+              legend: {
+                  backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+                  borderColor: '#CCC',
+                  borderWidth: 1,
+                  x: 40,
+                  y: 10,
+                  itemMarginBottom: 3
+              },
+              tooltip: {
+                  formatter: function () {
+                      return '<b>' + this.x + '</b><br/>' +
+                          this.series.name + ': ' + this.y + '<br/>' +
+                          'Total: ' + this.point.stackTotal;
+                  }
+              },
+              plotOptions: {
+                  column: {
+                      stacking: 'normal',
+                      
+                  }
+              },
+              series: [{
+                name: 'Income',
+                data: [0, 81000, 81500, 81550, 82000, 82500, 83000, 83500, 84000, 85000, 86000, 86500, 87000, 88000, 88500, 89000, 89500, 90000, 91000, 91000, 91200, 91350, 93000, 95000, 95600, 96000, 96500, 96800, 96900, 97000, 97500, 98000, 98300, 98350]
+
+                }, {
+                    name: 'Cash Account Used',
+                    data: [0, 8100, 8150, 8155, 8200, 8500, 3000, 8350, 4000, 5000, 8000, 500, 7000, 8000, 8500, 9000, 9500, 9000, 9100, 9100, 1200, 9150, 9300, 9500, 9560, 9600, 9650, 9680, 9690, 9000, 7500, 8000, 8300, 9830]
+
+                }, {
+                    name: 'Income Surplus',
+                    data: [0, 18100, 18150, 28155, 18200, 18500, 13000, 18350, 24000, 15000, 18000, 10500, 17000, 18000, 18500, 9000, 19500, 19000, 19100, 19100, 10200, 12150, 14300, 15500, 17560, 19600, 21650, 22680, 23690, 24000, 17500, 24000, 18300, 19830]
+
+                },
+                {
+                    name: 'Annuity Income Used',
+                    data: [110000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+                }, {
+                    name: 'Shortfall',
+                    data: [0, 1700, 17200, 17500, 17600, 17700, 17800, 1790, 18000, 18100, 18200, 18300, 18400, 18500, 18600, 18700, 18800, 18900, 19000, 19100, 19200, 19300, 19350, 19400, 19500, 19560, 19600, 19700, 19800, 19850, 19870, 19900, 20000, 20000],
+                    color: '#F74545'
+
+                }]
+            });
+        });        
+    </script>
+
+    <!-- Slider Scripts -->
+    <script type="text/javascript">
+      // Client Slider
+      // Append the option elements
+      for ( var i = 55; i <= 100; i++ ){
+        $('#client-input-select').append(
+          '<option value="'+i+'">'+i+'</option>'
+        );
+      }
+
+      $('#clientSlider').noUiSlider({
+      start: 75,
+      connect: "lower",
+      range: {
+      'min': 55,
+      'max': 100
+      }
+      });
+
+      $('#clientSlider').Link('lower').to($('#client-input-number'), null, wNumb({
+        decimals: 0
+      }));
+
+      // Co-Client Slider
+      // Append the option elements
+      for ( var i = 55; i <= 100; i++ ){
+        $('#coclient-input-select').append(
+          '<option value="'+i+'">'+i+'</option>'
+        );
+      }
+
+      $('#coclientSlider').noUiSlider({
+      start: 70,
+      connect: "lower",
+      range: {
+      'min': 55,
+      'max': 110
+      }
+      });
+
+      $('#coclientSlider').Link('lower').to($('#coclient-input-number'), null, wNumb({
+        decimals: 0
+      }));
+
+      // Living Expense Slider
+      // Append the option elements
+      for ( var i = 55; i <= 100; i++ ){
+        $('#livingExpense-input-select').append(
+          '<option value="'+i+'">'+i+'</option>'
+        );
+      }
+
+      $('#livingExpense-slider').noUiSlider({
+        start: 50500,
+        connect: "lower",
+        range: {
+        'min': 0,
+        'max': 300000
+        },
+        format: wNumb({
+        thousand: ',',
+        postfix: ' (US $)',
+        })
+      });
+      $('#livingExpense-slider').Link('lower').to($('#livingExpense-input-number'), null, wNumb({
+        decimals: 0
+      }));
+
+    </script>
+
+  </body>
+</html>

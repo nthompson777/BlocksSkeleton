@@ -1,0 +1,3192 @@
+/****************
+Global PIEtech Overrides to the base Bootstrap core & components
+Updated: 03.05.15.1123
+- See variables.less (default variables) AND variables-overrides.less (MGP variables) for variable reference
+****************/
+@import "../bootstrap.less";  // Global PIEtech Base/Core Overrides
+
+@import "variables-overrides.less";  // Global PIEtech Overrides (and additions) to the base VARIABLES ("variables.less") for Bootstrap core & components
+@import "global-mixins.less";  // PIEtech Global Mixins
+@import "../font-awesome/font-awesome.less";  // Import Font Awesome globally
+@import "../fontmgp/style.css";  // Import Font MGP globally
+
+// Import Global Plugin Styles - If we end up not using some/all of these plugin styles then we just delete the import of that less file.
+@import "tutorial.less";  // Boostro Tutorial plugin
+@import "datepicker.less";  // Datepicker plugin styles
+@import "zebra-tooltip.less";  // Zebra Tooltip plugin styles
+@import "../../css/overrides/ion.rangeSlider.css";  // ionRangeSlider Plugin
+@import "../../css/overrides/ion.rangeSlider.skinHTML5.css";  // ionRangeSlider Plugin SKIN
+@import "highcharts.less";  // Highcharts plugin Base Styles 
+@import "bootstrap-switch.less";  // On/Off Switch styles (imported On/Off styles from G3)
+
+p.copyright {
+  margin-top: 20px;
+}
+a[name] {
+  display: block;
+  position: relative;
+  top: -80px;
+  visibility: hidden;
+}
+
+
+//  Add new/updated styles from MGP below !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+/*********************************
+Global PIETech MGP CSS/LESS Styles
+Updated: 10.27.15.1611
+*********************************/
+/// <reference path="global.less" />
+
+//  Global & Scaffolding Styles
+// -----------------------------------
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding-top: 110px; /* for navbar-fixed-top & global spacing */
+  background-color: @bg-light;
+  font-size: 14px;
+  margin-bottom: 170px; /*  Note: margin-top on the footer doesn't mean anything since it's positioned absolutely to the bottom */
+}
+
+section {
+  padding: 0 0 30px;
+
+  > .row {
+    h1, h2 { 
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  section:last-child {
+    padding: 0;
+  }
+
+  + hr {
+    margin-top: 10px;
+  }
+}
+
+.container {
+
+  > h1 {
+    margin-top: 0;
+  }
+}
+
+  a {
+  -webkit-transition: color 0.7s ease-in-out;
+  -moz-transition: color 0.7s ease-in-out;
+  -o-transition: color 0.7s ease-in-out;
+  transition: color 0.7s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.highlighted-result {
+  padding: 3px 7px;
+  margin: 0 5px;
+  background: @state-info-bg; /*@brand-primary-light;*/
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: bold;
+  color: @gray-light;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.description {   // Styled descriptive text with readability presentation
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+// "Last Updated" Date display style
+.last-updated {
+  margin: 5px 0 20px;
+  float: right;
+
+  .date {
+    font-weight: bold;
+    margin-left: 5px;
+    // color: @brand-primary;
+
+    &:after {
+      font-family: 'FontAwesome';
+      content: '\f274';
+      margin-left: 8px;
+    }
+  }
+}
+
+.center-block {
+  float: none;
+}
+
+// Bootstrap has invisible class (visibility: hidden;), but no visible class (visibility: visible;)
+.visible {
+  visibility: visible;
+}
+
+//Improvements for ViewOnly Mode - particularly for selects and input radio
+input[readonly],
+input[disabled],
+input.disabled, 
+.form-control[readonly],
+.form-control[disabled],
+.form-control.disabled {
+  pointer-events: none;
+  background-color: #eee;
+}
+
+
+// Global CTA (Call to Action) Icons
+// -----------------------------------
+.add-item:after {
+  .fa-icon-standard('\f055'; @link-color);
+  .fa-lg();
+}
+
+.edit-item:after {
+  .fa-icon-standard('\f044'; @link-color);
+  .fa-lg();
+}
+
+.delete-item:after {
+  .fa-icon-standard('\f00d'; @brand-danger);
+  .fa-lg();
+}
+
+.copy-plan:after {
+  .fa-icon-standard('\f0c5'; @link-color);
+  .fa-lg();
+}
+
+
+// Type
+// ------------------------------------
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: ceil((@line-height-computed / 2)); // orig 1.34
+  margin-bottom: floor((@line-height-computed / 1));
+}
+
+h1, .h1 {
+  color: inherit; // keep the h1's the same font-color as our body text
+}
+
+h2, .h2,
+h3, .h3 {
+  color: @brand-primary; // Differentiate the h2 & h3 font-colors for sectioning and ease of readability
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: inherit; // keep these headers the same font-color as our body text
+}
+
+h5 {
+  font-weight: bold;
+}
+
+@font-size-h1: floor((@font-size-base * 2.4)); // ~33px
+@font-size-h2: floor((@font-size-base * 2.0)); // ~28px
+@font-size-h3: ceil((@font-size-base * 1.6));  // ~23px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: @font-size-base;                // ~14px
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+p {
+  margin: 0 0 ceil((@line-height-computed / 1.34));
+}
+
+
+// Footer Styles
+// -----------------------------------
+footer {
+  position: absolute;
+  /*display: table;*/
+  bottom: 0;
+  width: 100%;
+  min-height: 90px; /* Set the fixed height of the footer here */
+  // margin-top: 30px;
+  background: @footer-bg;
+  color: @footer-text-color;
+  font-size: 0.95em;
+  text-align: center;
+  padding: 5px 15px 5px 15px;
+
+  p.copyright-text,
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    /*display: table-cell;*/
+    max-width: 1140px;
+    vertical-align: middle;
+    color: @footer-text-color;
+    font-size: 0.95em;
+    margin: 8px auto;
+  }
+
+  p.copyright-text {  
+    padding: 20px 0 5px;
+  }
+
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    padding: 5px 0;
+
+    + p.copyright-text {  
+      padding: 5px 0;
+    }
+  }
+
+  a {
+    color: @footer-text-color;
+    text-decoration:underline;
+
+    &:hover {
+      color: @footer-text-color;
+    }
+  }
+}
+
+
+// Nav Styles
+// -----------------------------------
+.navbar {
+  min-height: 60px;
+  height: auto;
+}
+
+.navbar-default {
+  z-index: 1001; /*set this to prevent ui dialog for being overlayed*/
+  background: #fff;
+  border-bottom: solid 1px #efefef;
+  -moz-box-shadow: 0 25px 20px -30px rgba(0,0,0,0.4);
+  -webkit-box-shadow: 0 25px 20px -30px rgba(0,0,0,0.4);
+  box-shadow: 0 25px 20px -30px rgba(0,0,0,0.4);
+
+  .navbar-nav .open .dropdown-menu > li > a {
+    color: @link-color;
+
+    &:focus, &:hover {
+      color: @link-hover-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+.navbar-nav {
+  margin-top: 5px;
+  float: right;
+
+  &.navbar-right {
+    margin-right: 0;
+  }
+}
+
+// Remove the right padding for the last nav link so we stay aligned w/ grid
+.navbar-fixed-top .nav > li:last-child > a {
+  padding-right: 0;
+}
+
+
+// Breadcrumbs directly below Main Nav
+//------------------------------------
+#breadcrumbs {
+  background-color: @breadcrumb-bg;
+  font-size: 0.95em;
+  // offset top margin so breadcrumb bar is directly under navbar. Setting a negative top margin retains proper spacing under navbar for instances where the breadcrumb bar is not used
+  margin-top: -45px;
+  margin-bottom: 30px; /*40px; tighten up per Bob */
+
+  .breadcrumb {
+    padding: 15px 0 5px;
+    background-color: transparent;
+    margin-bottom: 10px;
+
+    li.pull-right:last-child {
+      //font-family: @breadcumb-client-font;
+      font-size: 1.15em;
+    }
+
+    li.pull-right:last-child:before {
+      content: '\e60c';
+      font-family: font-mgp;
+      margin-right: 1px;
+      float: left;
+      color: inherit;
+    }
+
+    li {
+       color: @breadcrumb-color;
+    }
+    a { 
+      color: @breadcrumb-link-color;
+    }
+  }
+}
+
+
+// Mega Menu Styles
+// http://jsfiddle.net/apougher/ydcMQ/
+//------------------------------------
+.menu-large {
+  position: static !important;
+}
+
+.megamenu {
+  padding: 10px 5px;
+  /*width: 100%;*/
+  max-width: @screen-xs-max;
+}
+
+.megamenu > li > .super-solve-button {
+  .super-solve-button;
+}
+
+.megamenu > li > ul {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.megamenu > li > ul > li {
+  list-style: none;
+}
+
+.megamenu > li > ul > li > a {
+  display: inline-block;
+  padding: 3px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  white-space: normal;
+}
+
+.megamenu > li ul > li > a:hover,
+.megamenu > li ul > li > a:focus {
+  background-color: @gray-lighter; /*#f2f2f2;*/
+}
+
+.megamenu .dropdown-header,
+.megamenu .dropdown-header:hover {
+  font-size: 1.1em;
+  white-space: normal;
+  padding: 3px;
+}
+
+.navbar-right .dropdown-menu {
+  max-height: 500px;
+  overflow-y: auto;
+  right: auto;
+}
+
+/*Center Explore button under meter*/
+.meter-results-section {
+  display:inline-block;
+  text-align:center;
+
+  .details-menu {
+    position: relative !important;
+    width: auto;
+
+    .dropdown-menu {
+      top:auto;
+      min-width: 260px;
+
+      &.megamenu {
+        max-height: 250px;
+        overflow-y: auto;
+      }
+    }
+  } 
+
+  .btn-cont-alt {
+    margin-top:0;
+
+    .btn {
+      margin-left:10px;
+      margin-right:0;
+    }
+
+    .dropdown-menu {
+      top:22px;
+    }
+  }
+}
+
+// Results Menu
+#results-details-nav {
+  .dropdown-menu {
+    max-height: 340px;
+    left: 14px;
+  }
+}
+
+
+// MGP Button & Button Container Styles
+// -----------------------------------
+// Use "btn-cont" class as a button container for right aligned buttons (i.e.- "Back, Next, Done, etc.) so positioning is consistent globally
+.btn-cont {
+  clear: both;
+  float: right;
+  margin: 20px 0 30px;
+
+  &.narrow { 
+    margin: 0; 
+  }
+
+  .btn {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -20px;
+  }
+}
+
+
+// Remove the outline onClick of button links
+.btn-link {
+  &:active,
+  &:focus,
+  &:hover,
+  &:active:focus {
+    outline: none;
+    color: @link-hover-color;
+  }
+}
+
+
+// Alternate LEFT aligned button container - for uses besides main form/application control (see .btn-cont above)
+.btn-cont-alt {
+  clear: both;
+  margin: 20px 0 0;
+  display: block;
+
+  .btn {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    float: left;
+  }
+
+  // Fix for Investment Assets "OR" text between buttons
+  .non-btn-content {
+    margin-right: 30px;
+    margin-top: 5px;
+    float: left;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -20px;
+  }
+}
+
+.btn {
+  -webkit-transition: background-color 1s ease-in-out;
+  -moz-transition: background-color 1s ease-in-out;
+  -o-transition: background-color 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+}
+
+//For "click Next to skip" text on Loss Tolerance, Bear Market Reaction, etc.
+.btn-forward-text {
+  /*color: @btn-positive-action-bg;*/
+  font-weight: bold;
+}
+
+.btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+.btn-secondary, .super-solve-button {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
+
+.btn-tertiary {
+  .button-variant(@btn-tertiary-color; @btn-tertiary-bg; @btn-tertiary-border);
+}
+
+.btn-forward, .btn-done {
+  .button-variant(@btn-positive-action-color; @btn-positive-action-bg; @btn-positive-action-border);
+}
+
+.btn-back, .btn-cancel, .btn-close {
+  .button-variant(@btn-negative-action-color; @btn-negative-action-bg; @btn-negative-action-border);
+}
+
+.btn-light {
+  .button-variant(@btn-light-color; @btn-light-bg; @btn-light-border);
+}
+
+.btn-yodlee {
+  .button-variant(@btn-yodlee-color; @btn-yodlee-bg; @btn-yodlee-border);
+}
+
+// Bootbox Plugin for Modal Style Overrides
+.bootbox .btn-primary {
+  .button-variant(@btn-positive-action-color; @btn-positive-action-bg; @btn-positive-action-border); 
+}
+
+.super-solve-button:after {
+  font-family: font-mgp;
+  content: "\e900";
+  margin: 0 .3em 0 .3em;
+  /* display: inline-block;
+  font-size: 1.2em;
+  margin: -5px 0;  // May need to remove this hacky approach - NT */
+}
+
+
+// Main Logo Styles
+// -----------------------------------
+.mainlogo {
+  float: left;
+  // max-width: 315px; // set max-width so logo stays in correct proportions
+  // height: 60px;
+  position: relative;
+
+  img {
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 225px; //315px on dev/prod;
+    max-height: 60px;
+  }
+}
+
+
+// Form Styles (general)
+// -----------------------------------
+// Remove/hide webkit input spinners/arrows on input type="number"
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Required form fields places an asterisk on the form element
+/*.required:after {
+  color: @gray-light;
+  content: " *";
+  font-size: 1em;
+}*/
+
+.input-group-addon {
+  min-width: 40px;
+  background-color: @gray-lighter;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group:not(td, th) {
+  margin-bottom: 15px;
+}
+
+.form-horizontal {
+
+  .input-group {
+    margin-bottom: 0;
+  }
+
+  .form-group {
+    clear: both;
+  }
+
+  .control-label label {
+    display: inline;
+  }
+}
+
+.form-inline {
+  .form-group .input-group { margin-bottom: 0; }
+}
+
+.row-eq-height {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+// Hide Co-client labels unless <= Small Viewport (see media query below)
+.hideCoClientLabels:nth-child(2) {
+
+  .spacer-col,
+  label {
+    display: none;
+  }
+}
+
+// Used for form fields that display a total (highlighted in green by default)
+.input-total {
+  font-weight:bold;
+  //institutions not liking this so instead bolded totals
+  //.form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+}
+
+
+// Form Validation Styles
+//------------------------------------
+.has-error.input-total {
+  .form-control-validation(@alert-danger-text; @alert-danger-text; @alert-danger-bg);
+}
+
+.has-error .input-total .input-group-addon {
+  color: @alert-danger-text;
+  background-color: @alert-danger-bg;
+  border-color: @alert-danger-text;
+}
+
+.has-error .input-total .form-control {
+  border-color: @alert-danger-text;
+}
+
+.table > tfoot > tr.totals > td.has-error {
+  color: @alert-danger-text;
+  background-color: @alert-danger-bg;
+}
+
+.has-error .required:after,
+.has-error label,
+.has-error .input-total .help-error-info {
+  color: @alert-danger-text;
+}
+
+.has-error input[type=radio],
+.has-error .yes-no-toggle {
+  outline: 1px solid @alert-danger-text;
+  margin-right: .5em; //leave space so error text isn't touching
+}
+
+.has-error .input-valid {
+  outline: none;
+  border-color: @input-border;
+}
+
+.has-error .input-valid:focus {
+  border-color: @input-border-focus;
+  outline: none;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @input-border-focus; //rgba(102, 175, 233, 0.6);
+}
+
+.has-error .input-valid .input-group-addon {
+  color: @gray;
+  border-color: @input-border;
+  background-color: @gray-lighter;
+}
+
+.has-warning .input-group-addon {
+    color: @brand-warning;
+    border-color:@brand-warning;
+    background-color: @alert-warning-bg;
+}
+
+.has-warning .form-control,
+.has-warning .form-control:focus {
+    border-color: @brand-warning;
+}
+
+/*Hide help-error-info when valid prevent jumping and spacing issue on submit*/
+.help-error-info.valid {
+  display:none;
+}
+
+/*We use .help-block for text like "today's dollars, after-tax" and .help-error-info for validation error msgs */
+.help-error-info {
+  .help-block;
+  color: @alert-danger-text;
+}
+
+.has-error .help-block {
+  color: lighten(@text-color, 25%);
+}
+
+
+// Dropdown Menu Styles
+//------------------------------------
+// Multi-select dropdown styling
+.btn-multiselect { // same as .form-control
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @input-border;
+  border-radius: 0 3px 3px 0;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+
+  .btn-group .caret {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+}
+
+.multiselect-container {
+
+  &.dropdown-menu > .active > a {
+    background-color: @input-bg;
+    color: @input-color;
+  }
+}
+
+ul.multiselect-container.dropdown-menu {
+  overflow: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  max-height: 200px;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  min-width: 175px;
+  overflow-x: auto;
+  // min-width: 200px;
+
+  > li {
+    > a:hover > label {
+      cursor: pointer;
+    }
+    > a {
+      color: @link-color;
+    }
+
+    > ul {
+      list-style: none;
+    }
+    /* &:hover {
+    background-color: @gray-lighter;
+  } */
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  /*a.super-solve-button:hover {
+    background-color:@btn-secondary-bg;
+  }*/
+}
+
+a.dropdown-toggle {
+  cursor: pointer;
+
+  &:hover, 
+  &:focus  {
+    text-decoration: none;
+  }
+}
+
+// Dropdown Accordion Menu
+.dropdown-accordion.full-width .dropdown-menu {
+  width: 100%;
+
+  .panel, .panel-heading, .panel-group {
+    max-width: 100%;
+  }
+}
+
+.accordion-menu.accordion-menu-xl {
+  #resources-menu .panel-group { max-width: 400px; }
+}
+
+.dropdown-accordion.accordion-menu .dropdown-menu {
+  padding: 0;
+
+  .panel, .panel-heading, .panel-group {
+    display: block !important;
+    padding: 0 !important; margin: 0 !important;
+    border: none !important;
+  }
+
+  .panel-heading > [aria-expanded="true"] {
+    border-bottom: 1px solid #FFF;
+  }
+
+  .panel-heading a, .panel-body a, .panel > a {
+    display: block;
+    position: relative;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    outline: none;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    margin-top: -1px;
+    background: #F9F9F9;
+    .transition(~"background .25s ease-in-out, color .25s ease-in-out");
+
+    &:hover {
+      text-decoration: none;
+      background: #EFEFEF;
+    }
+
+    &:focus { text-decoration: none; }
+
+    span, &:after {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &:after { 
+      width: 20px; 
+      text-align: center;
+    }
+
+    span {
+      width: calc(~"100% - 28px");
+    }
+  }
+
+  .panel-body {
+    padding: 0 !important;
+    
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .cat-name {
+      display: block;
+      width: 100%;
+      font-size: .9em;
+      padding: 5px 10px;
+      background: #eee;
+    }
+
+
+    a {
+      background: #FFF;
+      font-size: .95em;
+      padding-left: 20px;
+
+      &:hover { background: #F9F9F9; }
+
+      &.active-sub { 
+        background: @brand-secondary; 
+        color: #FFF;
+      }
+    }
+
+    & > a {
+      &:first-child {
+        border-top: none;
+        .box-shadow(inset 0 10px 7px -11px rgba(0,0,0,.35));
+      }
+      &:last-child {
+        position: relative;
+        z-index: 5;
+        border-bottom-color: #FFF;
+        .box-shadow(inset 0 -10px 7px -11px rgba(0,0,0,.35));
+      }
+      &:first-child:last-child {
+        .box-shadow(~"inset 0 10px 7px -11px rgba(0,0,0,.35),inset 0 -10px 7px -11px rgba(0,0,0,.35)");
+      }
+    }
+
+    & > p {
+      padding: 0;
+    }
+
+    & > ul:first-child {
+      & > li .cat-name {
+        .box-shadow(inset 0 10px 7px -11px rgba(0,0,0,.35));
+      }
+    }
+
+    & > ul:last-child {
+      & > li > ul li:last-child a {
+        position: relative;
+        z-index: 5;
+        border-bottom-color: #FFF;
+        margin-bottom: -1px;
+        .box-shadow(inset 0 -10px 7px -11px rgba(0,0,0,.35));
+      }
+    }
+  }
+
+  .panel:last-child .panel-body {
+    & > a:last-child { .box-shadow(~"none !important"); }
+  }
+  //Needed for double level menus, i.e. Insurance Policies
+  ul > li > ul a:after {
+     content: "";
+  }
+}
+
+
+// Form Progress Bar (form progression w/out numbered steps)
+//------------------------------------
+ul.progressbar {
+  margin: 0 auto 38px; /*50px; tighten up per Bob*/
+  display: block;
+  min-height: 70px;
+  z-index: 2;
+  margin-left: -40px;
+  overflow: visible;
+
+  .active {
+
+    a {
+      color: @brand-secondary;
+    }
+  }
+
+  .dropdown-toggle:after {
+    font-family: FontAwesome;
+    content: '\f0d7';
+    margin-left: 5px;
+  }
+
+  .dropdown-menu {
+    margin-top: 20px;
+    left: 40%;
+
+    > li {
+      &.active-sub,
+      > a.active-sub {
+        background: @brand-secondary;
+        color: @font-color-for-darkBG;
+      }
+
+      > a {
+        padding: 5px;
+        color: @brand-primary;
+      }
+    }
+  }
+
+  .caret {
+    position: relative;
+    top: 46px;
+    z-index: 110;
+  }
+
+  > li {
+    list-style-type: none;
+    color: #ccc;
+    font-size: 1em;
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 25%;
+
+    > a, 
+    a.dropdown-toggle {
+      position: relative;
+      top: 47px; 
+      padding-top: 40px;
+      z-index: 110; // Keep this z-index higher so the circle step is clickable and "part of" the anchor
+      font-size: 1.1em;
+    }
+
+    &:after {
+      content: ''; 
+      width: 20px; 
+      height: 20px;
+      display: block;
+      color: @text-color;
+      background: #fff;
+      border-radius: 50%;
+      border: #dfdede solid 3px;
+      margin: 0 auto 5px auto;
+      z-index: 100;
+      position: relative;
+    }
+
+    // Progressbar connectors
+    &:before { 
+      content: '';
+      width: 100%;
+      height: 4px; // was 5px
+      background: #ccc;
+      position: absolute;
+      left: -50%;
+      top: 30px;
+      z-index: 1;
+    }
+
+    // Connector not needed before the first step:
+    &:first-child:before { 
+      content: none;
+      margin-left: -30px;
+    }
+
+    &.active:after {
+      background: @brand-secondary;
+      color: #fff;
+      border: 0;
+    }
+  }
+}
+
+
+// Tooltip Styles
+// -----------------------------------
+.tooltip-inner {
+  font-size: @tooltip-font-size;
+  padding: @tooltip-padding;
+  border-radius: @tooltip-border-radius;
+  box-shadow: @tooltip-shadow;
+  text-align: left;
+}
+
+.warning-tooltip:after {
+  .fa-icon-standard('\f071'; @brand-warning);
+}
+
+.warning-tooltip,
+.help-tooltip,
+.slider-tooltip {
+  cursor: pointer;
+}
+
+.close.tooltip-close {
+  top: -15px;
+  right: -10px;
+  position: relative;
+  color: @gray-light;
+  opacity: @tooltip-opacity;
+}
+
+
+// Goal Cards
+// -----------------------------------
+.goal-summary-table {
+  
+  .goal-card {
+    height: 100px;
+    width: 100px;
+    max-height: 100px; /*85px;*/
+    max-width: 100px; /*85px;*/
+  }
+
+  &.compact-view {
+    position: relative;
+    //padding: 20px;
+    overflow: hidden;
+
+    button.scroll-panel {
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+      background: #ddd;
+      .button-scroll();
+    }
+
+    .goal-card {
+      height: 70px;
+      width: 70px;
+      max-width: 70px;
+      max-height: 70px;
+    }
+
+    section {
+      padding-bottom: 0;
+    }
+
+    .goal-container {
+      padding-bottom: 20px;
+    }
+
+    hr {
+      margin-top: 5px;
+    }
+
+    .panel-body {
+       max-height: 350px;
+       //overflow: hidden;
+       overflow-y: auto;
+       // overflow-x: hidden;
+       //margin-bottom: 50px;
+    }
+  }
+
+  .panel-title a {
+    font-size:.8em;
+    text-decoration:underline;
+    width: auto;
+    display:inline-block;
+
+    &:after {
+      content: '';
+      margin-left: 0;
+    }
+  }
+}
+  
+/*
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    background-color: #fff;
+    -webkit-border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar:hover {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #ddd;
+    -webkit-border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover,
+  &::-webkit-scrollbar-thumb:active {
+    background: #bbb;
+  }
+} */
+
+#available-goals  {
+  .goal-cell {
+    min-height: 100px;
+  }
+
+  .goal-card {
+    height: 65px;
+  }
+
+  .available-draggable.ui-draggable {
+    position: absolute !important;   // Keep positioning of "absolute" so the icon follows the cursor when scrolling to a Goal List section past the viewport
+    min-width: 80px;
+    padding:5px;
+
+    &:hover {
+      background-color: @table-bg-hover;
+      border-radius: 4px;
+    }
+
+    &:active,
+    &:focus {
+      background-color: #fff;
+      -webkit-box-shadow: -4px 2px 10px 0 rgba(0,0,0,0.30);
+      -moz-box-shadow: -4px 2px 10px 0 rgba(0,0,0,0.30);
+      box-shadow: -4px 2px 10px 0 rgba(0,0,0,0.30);
+    }
+  }
+}
+
+.goal-container {
+  padding-bottom: 10px;
+
+  .delete-item:after {
+    margin: 0 0.3em 0 0;  
+  }
+
+  h4 {
+    margin: 0 0 10px;
+  }
+
+  .hover-highlight .delete-item:after {
+    margin: 0 -0.3em 0 0;
+  } 
+}  
+
+.goal-carousel {
+  margin-left: 30px;
+  margin-top: -15px;
+  height: 110px;
+}
+
+//SS Max Specific Styles
+// -----------------------------------
+.ssMax tr {
+  th:not(:first-child),
+  td:not(:first-child) { 
+    text-align: center; 
+  }
+}
+
+#table-datatable-soc-sec-max_wrapper tr {
+  td, th {
+    min-width: 80px; 
+  }
+  td:first-child, 
+  th:first-child {
+    min-width: 100px; 
+  }
+}
+
+.ssMax-maincols {
+  min-width:210px;
+}
+
+//SS Max Styles that can be applied globally 
+// -----------------------------------
+//.table-responsive element on scroll-table needs this or animation causes vertical scroll
+.hide-vertical-scroll {
+  overflow-y:hidden;
+}
+
+.table-scroll-cell {
+  position:relative;
+  overflow:hidden;
+}
+
+button.scroll-table {
+  right: 10px;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  background: @brand-primary;
+  .button-scroll();
+}
+
+
+// General Charting Styles
+// -----------------------------------
+.chart-legend, .asset-class-legend {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+// Accordions
+// -----------------------------------
+// Open/Close Toggle Icons for Accordions
+.toggle.collapsed:after,
+.dropdown-menu .panel-heading a.collapsed:after {
+  font-family: 'FontAwesome';
+  content: '\f054';
+  font-size: 0.75em;
+  margin-left: 2px;
+  display: inline-block;
+}
+
+.toggle.collapse.in{
+  display: inline-block;
+}
+
+// Fixes a Bootstrap bug where headers "jump" within collapsable panels once opened
+.collapse.in {  
+  > h2, > h3, > h4 {
+    margin-top: 25px;
+  }
+}
+
+.panel-title a:after,
+.toggle:after,
+.dropdown-menu .panel-heading a:after {
+  font-family: 'FontAwesome';
+  content: '\f078';
+  font-size: 0.75em;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.moreless.toggle {
+  margin-left: 20px;
+  font-size: 12px; //uses static pixel value since headings change based off media queries
+  color: @brand-primary;
+
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f141';
+    font-size: 1.2em;
+    margin-left: .3em;
+    vertical-align: -50%;
+    display: inline-block;
+    overflow: hidden;
+  }
+}
+.moreless,
+.is-less {
+  font-size: .9em;
+  
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f141';
+    font-size: 1.2em;
+    margin-left: .3em;
+    vertical-align: -50%;
+    display: inline-block;
+    overflow: hidden;
+  }  
+}
+
+
+// Tutorial Styles
+//------------------------------------
+.tutorial_start {
+
+  a {
+    float: right;
+    margin-top: 30px;
+  }
+}
+
+
+// Yes/No Toggle Switch Styles - Changes per BOB on 1/12/2016 ...
+//------------------------------------
+.yes-no-toggle {
+  min-width: 77px;
+
+  // Slightly speeds up our standard button animation for the Yes/No toggle buttons
+  .btn-xs {
+    font-size: 1em;
+  }
+
+  .btn {
+    -webkit-transition: background-color 0.25s ease-in-out;
+    -moz-transition: background-color 0.25s ease-in-out;
+    -o-transition: background-color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+  }
+
+  .btn + .btn {
+    margin-left: 0; // override bs default -1px for our Yes/No switches
+  }
+
+  .btn-default {
+    background: #fff;
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+    color: #aaa; /*#fff;*/
+    border-color: #ccc;
+  }
+
+  .btn-primary {
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+  }
+
+  .btn-default:hover {
+    background-color: #fff; /*@gray-lighter;*/
+  }
+
+  .btn-primary.active {
+    color: #fff;
+    background: @btn-primary-bg;
+    border-color: transparent; // @brand-primary;
+    box-shadow: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    .btn-primary.active {
+      opacity: 0.6;
+      filter: alpha(opacity=60); /* For IE8 and earlier */
+    }
+  }
+
+  .btn:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// Zoomer Action btn floated right - lose ability to click without this
+.btn-pull-right {
+  float:right;
+  position:relative; 
+  z-index:999;
+}
+
+
+// Panel Styles
+//------------------------------------
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+
+.panel-secondary {
+  .panel-variant(@panel-secondary-border; @panel-secondary-text; @panel-secondary-heading-bg; @panel-secondary-border);
+}
+
+.panel-tertiary {
+  .panel-variant(@panel-tertiary-border; @panel-tertiary-text; @panel-tertiary-heading-bg; @panel-tertiary-border);
+}
+
+.panel-default > .panel-heading {
+  color: inherit;
+}
+
+.panel-statement {
+  .panel-default;
+  -webkit-box-shadow: 0 2px 5px 0 rgba(153, 153, 153, 0.35);
+  -moz-box-shadow:    0 2px 5px 0 rgba(153, 153, 153, 0.35);
+  box-shadow:         0 2px 5px 0 rgba(153, 153, 153, 0.35);
+}
+
+
+// Expandable/Collapsible Panel Styles
+.panel-title {
+
+  > a {
+    width: 100%;
+    display: block;
+
+    &.toggle:after {
+      float: right;
+      margin-top: 5px;
+    }
+  }
+}
+
+
+.panel {
+
+  // Button containers within panels
+  .btn-cont,
+  .btn-cont-alt {
+    margin: 20px 0 0;
+  }
+
+  p {
+    + .btn-cont,
+    + .btn-cont-alt {
+      margin: 0;
+    }
+  }
+
+  p:last-child, ul:last-child {
+    margin-bottom: 0;
+  }
+
+  &.helpful-tip {
+    .panel-title:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+
+// Tab Styles
+//------------------------------------
+.tab-content {
+  margin-top: 40px;
+  &.side-content {
+    margin-top: -10px;
+  }
+}
+
+.nav-tabs {
+  margin-top: 20px;
+
+  > .tabdrop > a {
+    border-color: @gray-lighter @gray-lighter #ddd;
+    background-color: @gray-lighter;
+  }
+}
+
+// "Tab Drop" dropdown triggers when tabs do not fit in viewport
+.nav-tabs,
+.nav-pills {
+  position: relative;
+}
+
+
+// Scroll To Top (function) Styles
+//------------------------------------
+.scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #bbb;
+  font-family: FontAwesome;
+  content: '\f05a';
+  font-size: 25px;
+  color: @font-color-for-darkBG;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+  z-index: 1000;
+
+  .fa {
+    margin: 12px 0 0 9px;
+  }
+
+  &:hover {
+    color: @font-color-for-darkBG;
+  }
+}
+
+
+// Progress Bar Styles
+//------------------------------------
+.progress-bar-secondary {
+  .progress-bar-variant(@progress-bar-secondary-bg);
+}
+
+.progress-bar-tertiary {
+  .progress-bar-variant(@progress-bar-tertiary-bg);
+}
+
+// To ensure that the label text remains legible even for zero or low percentages:
+.progress-bar {
+  min-width: 2em;
+}
+
+
+// Callout Styles
+//------------------------------------
+
+// Base Callout Style
+.callout {
+  padding: @callout-padding;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: @callout-border-left-width;
+  border-radius: @callout-border-radius;
+
+  + .callout {
+    margin-top: -5px;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &.helpful-tip {
+    h4:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+.callout-primary {
+  border-left-color: @brand-primary;
+
+  h4 {
+    color: @brand-primary;
+  }
+}
+
+.callout-secondary {
+  border-left-color: @brand-secondary;
+
+  h4 {
+    color: @brand-secondary;
+  }
+}
+
+.callout-tertiary {
+  border-left-color: @brand-tertiary;
+
+  h4 {
+    color: @brand-tertiary;
+  }
+}
+
+.callout-info {
+  border-left-color: @brand-info;
+
+  h4 {
+    color: @brand-info;
+  }
+}
+
+.callout-warning {
+  border-left-color: @brand-warning;
+
+  h4 {
+    color: @brand-warning;
+  }
+}
+
+.callout-danger {
+  border-left-color: @brand-danger;
+
+  h4 {
+    color: @brand-danger;
+  }
+}
+
+
+// Modal Styles
+//------------------------------------
+
+// TODO - REMOVE THIS STYLE AFTER table layouts are removed from the (old/legacy) Modal _layout view 
+.modal-body table h4 {
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+
+// Font-Awesome Overrides
+// -----------------------------------
+a:after,
+a:before
+{
+  display: inline-block;
+  text-decoration:none;
+}
+
+.help-inline:after,
+.fa.help-inline:after,
+.help-tooltip:after,
+.fa.help-tooltip:after {
+  .fa-icon-standard('\f05a'; @link-color);
+}
+
+.help-modal:after,
+.fa.help-modal:after {
+  .fa-icon-standard('\f059'; @link-color);
+}
+
+a.help-modal,
+a.fa.help-modal,
+a.help-tooltip {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+#navbar .help-modal:after {
+  content: none;
+}
+
+.info-warn-icon:after {
+  .fa-icon-standard('\f05a'; @brand-warning);
+}
+
+.warn-icon:after {
+  .fa-icon-standard('\f071'; @brand-warning);
+}
+
+// Info icon size globally standardized
+h1, h2, h3, h4, h5, h6, p {
+
+  .help-tooltip,
+  .help-modal {
+    font-size: 14px; // Using pixels here instead of em's to standardize the icon size due to various base font-sizes of header tags
+
+    > .fa {
+      vertical-align: text-bottom;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+a.fa:hover,
+a.fmgp {
+  text-decoration: none;
+}
+
+// use the "color" class to give a font-awesome or Font MGP icon the same color as our links without wrapping it in an anchor tag - useful for tooltips!
+.fa.color,
+.fmgp.color {
+  color: @link-color;
+}
+
+
+// Table Styles
+// -----------------------------------
+// Firefox fieldset bug for styling that involves width of responsive tables
+.table-responsive {
+  border: none;
+
+  @-moz-document url-prefix() {
+
+    fieldset {
+      display: table-cell;
+    }
+  }
+}
+
+// Table Mixin - MGP Default Table Style - Expanded size table
+.table-expanded,
+.table-default {
+  .table();
+  .table-bordered();
+  .table-striped();
+  .table-hover();
+}
+
+// Table Mixin - Compacted/Condensed Table - For tables with Large Amounts of data
+.table-condensed {
+  .table();
+  .table-condensed();
+  .table-bordered();
+  .table-striped();
+  .table-hover();
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+
+  th {
+    font-weight: bold;
+    border: 1px solid @table-border-color;
+    color: @table-heading-text-color;
+    background: @table-heading-bg-color;
+  }
+
+  > thead > tr > th {
+    border-bottom: none;
+  }
+
+}
+
+table {
+
+  h3, .h3,
+  h4, .h4,
+  h5, .h5 {
+    margin: 2px 0 !important;
+  }
+  
+  h4 {
+    font-size: 1.2em;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  .joined-header {
+    border-bottom: hidden !important;
+    text-align: center;
+  }
+
+  .delete-row-cue {
+    background-color: @gray-lighter;
+    opacity: 0.5;
+  }
+
+  // Set min-width of form fields within tables so fields can accomodate a minimum of 7 digits (millions) and so form fields don't collapse on smaller viewports
+  .form-control {
+    min-width: 120px; //120px smallest value without cropping mm/dd/yyyy inputs
+  }
+
+  tr {
+
+    &.primary,
+    &.secondary,
+    &.tertiary {
+
+      > th {
+        color: #fff;
+      }
+    }
+  }
+}
+
+  // Mixins - Hightlight entire columns with "colgroups" 
+  // (example - see SS Maximization table) 
+  .colgroup-highlight(primary; @brand-primary);
+  .colgroup-highlight(selected; @brand-primary);
+  .colgroup-highlight(secondary; @brand-secondary);
+  .colgroup-highlight(success; @state-success-bg);
+  .colgroup-highlight(error; @state-danger-bg);
+  .colgroup-highlight(warning; @state-warning-bg);
+  .colgroup-highlight(info; @state-info-bg);
+
+
+// Auto Counter Increments for Tables ( add <div class="numbered-col"></div> to the headers - i.e.- see new Soc Sec Max)
+table {
+  counter-reset: section;
+
+  .numbered-col {
+    counter-reset: subsection;
+    background: @state-info-bg;
+    text-align: center;
+    font-size: 0.8em;
+    color: @brand-primary;
+    margin: 0 0 15px; // -8px for flush at top
+  }
+
+  .numbered-col:before {
+    counter-increment: section;
+    content: counter(section);      
+  }
+
+  &.ssMax>thead>tr>th {
+    vertical-align: top;  
+  }
+}
+
+tbody > tr:empty {
+  display: none;
+}
+
+.highlight-col {
+  background-color: @state-info-bg; /*@brand-primary-light;*/
+}
+
+// Table Row Variant Styles - uses "table-row-variant" mixin
+// use table row class "totals" for highlighted rows w/ totals
+.table-row-variant(totals; @gray-lighter); /*Insts were not liking this green*/
+.table-row-variant(primary; @brand-primary);
+.table-row-variant(secondary; @brand-secondary);
+.table-row-variant(tertiary; @brand-tertiary);
+
+.table>tbody>tr.totals>td, 
+.table>tbody>tr.info>td {
+  font-weight: bold;
+}
+
+//Per Tony's Request - Used for highlighting non-table elements on hover
+.hover-highlight {
+  cursor: pointer;
+  padding: 5px 0 5px 0;
+
+  &:hover {
+    background-color: @table-bg-hover;
+  }
+}
+
+//Make indents accessible to all elements
+.table>tbody>tr>td.indent-1,
+.indent-1 { 
+  padding-left: 1em; 
+}
+.table>tbody>tr>td.indent-2,
+.indent-2 {
+  padding-left: 2em; 
+}
+.table>tbody>tr>td.indent-3,
+.indent-3 {
+  padding-left: 3em; 
+}
+
+//Tab indents for complex tables
+//with nested rows
+.table {
+  tr.spacer {
+    background: none !important;
+    border: none;
+  }
+}
+
+
+// Off-canvas Menus for Options, Calculators, & Other Features: Base Style for ALL VIEWPORT SIZES!!
+//-------------------------------------
+.offcanvas-menu {
+  position: relative;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.offcanvas-left {
+  left: 0;
+
+  .options-menu,
+  .calculators-menu,
+  .otherfeat-menu {
+    display: none;
+    left: -30%;
+  }
+}
+
+.offcanvas-left.active-calc
+ {
+  left: 30%;
+  margin-left: -15px;
+}
+
+.calculators-menu
+ {
+  position: absolute;
+  top: 0;
+  width: 27%;
+
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.active-calc {
+
+  .calculators-menu {
+    display: block;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+.active-otherFeat {
+
+  .otherfeat-menu {
+    display: block;
+  }
+
+  .options-menu,
+  .calculators-menu {
+    display: none;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+// Labels/Tags
+// ------------------------------------
+.label {
+  border-radius: @label-border-radius;
+}
+
+.label-primary {
+  .label-variant(@label-primary-bg);
+}
+
+.label-secondary {
+  .label-variant(@label-secondary-bg);
+}
+
+.label-tertiary {
+  .label-variant(@label-tertiary-bg);
+}
+
+
+// Draggable Overrides
+// ------------------------------------
+.ui-draggable-dragging {
+  z-index: 10;
+}
+
+.draggable,
+.available-draggable {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: move;
+  display:inline-block;
+
+}
+
+.droppable, .selected-droppable {
+  min-height: 80px;
+  max-height: 100%;
+  width: 100%;
+}
+
+
+// ion Range Slider overrides
+// ------------------------------------
+.irs-bar {
+    border-top-color: @slider-bar-bg!important;
+    border-bottom-color: @slider-bar-bg!important;
+    background: @slider-bar-bg!important;
+    background: linear-gradient(to top, @slider-bar-bg 0, lighten(@slider-bar-bg, 25%) 100%)!important;
+}
+
+.irs-bar-edge {
+    border-color: @slider-bar-bg!important;
+    background: @slider-bar-bg!important;
+    background: linear-gradient(to top, @slider-bar-bg 0, lighten(@slider-bar-bg, 25%) 100%)!important;
+}
+
+.irs-slider {
+  z-index: 7 !important;  // TODO - REMOVE THE IMPORTANT ONCE WE MOVE THE ORDER OF THE GLOBAL STYLESHEET SO IT OVERRIDES THE IonRangeSlider base styles!
+}
+
+.irs-slider.type_last {
+  z-index: 8 !important;
+}
+
+.irs-from,
+.irs-to {
+  z-index: 6;
+  border: 1px solid #fff;
+  font-size: .9em;
+  background-color: @brand-primary!important;
+}
+
+.irs-single {
+  z-index: 6;
+  font-size: .9em;
+  background-color: @brand-primary!important;
+}
+
+.irs-grid {
+  z-index: 4;
+}
+
+//hide ticks between years on social security
+.soc-security .irs-grid-pol.small {
+  height: 0;
+}
+
+//Used for ion Range Slider custom slider handles on retirement age sliders
+.irs-from-label, 
+.irs-to-label, 
+.irs-single-label {
+  z-index: 5;  //less than "real" irs-from, irs-to, irs-single labels so slider can be moved with label
+  color: #fff;
+  font-size: .9em;
+  line-height: 1.333;
+  text-shadow: none;
+  padding: 1px 5px;
+  background-color: @brand-primary; /*#428bca;*/
+  border-radius: 3px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.custom-label-slider .irs-single-label {
+  margin-left:-15px;
+}
+
+.custom-label-slider .irs-from, 
+.custom-label-slider .irs-to,
+.custom-label-slider .irs-single  {
+  color:transparent;
+  background-color:rgba(255,255,255,0.01)!important;
+  border-color:transparent;
+}
+
+.custom-label-slider .irs-from, 
+.custom-label-slider .irs-to {
+  padding-right:35px;
+}
+
+// ion Range Slider Addon features
+// ------------------------------------
+.slider-container {
+  position: relative;
+  margin: 15px 0 30px 0; // keep the right margin due to needing the offset for <= sm viewports when slider value pushes off the viewport -when slider is pushed to the max value
+}
+
+// Form fields that are paired/accompanied to be in alignment with our sliders 
+.paired-slider {
+  margin-top: 35px;
+}
+
+.marker {
+  position: absolute;
+  z-index: 2;
+
+  &.above {
+    top: -50px;
+    color: @brand-secondary;
+
+    &.risk-profile {
+      z-index: 3;
+      top: -47px;
+      color: @brand-primary;
+    }
+  }
+
+  &.below {
+    top: -10px;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: @brand-tertiary;
+  }
+
+  :before {
+    font-family: FontAwesome;
+    content: "\f041";
+    font-size: 2em;
+  }
+}
+
+.tickmark {
+  position: absolute;
+  z-index: 8;
+  top: -33px;
+  color: #555;
+  font-size: .8em;
+}
+
+//Slick Carousel Overrides
+//for use with preventing flash of unstyled content (FOUC)
+.slick-initialized,
+.slick-slide:first-child { 
+  display: block; 
+}
+
+
+//jQuery Datatables Overrides
+// ------------------------------------
+//plan notes header width wrong unless you add this class
+.dataTable, .dataTables_scrollHeadInner {
+  width: 100% !important;
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  top: auto;
+  bottom: 8px;
+}
+
+table.dataTable.table-condensed thead .sorting:after, 
+table.dataTable.table-condensed thead .sorting_asc:after, 
+table.dataTable.table-condensed thead .sorting_desc:after {
+  right: 3px;
+}
+
+table.dataTable tbody tr.highlight {
+  background-color: @state-info-bg!important; /*Datatable css has important for this so I had to add important to override*/
+}
+
+// dataTables_wrapper doesn't play well with bs responsive tables, so hide the scrollbar overflow-x ONLY for Responsive Tables on lg and md viewports
+.table-responsive .dataTables_wrapper {
+  overflow: hidden;
+}
+
+// Used to create scrollable datatables, Datatables sScrollY option causes header and body to misalign
+.scroll-datatable {
+  max-height:300px; 
+  overflow:auto;
+}
+
+.scroll-datatable table.dataTable {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/*jQuery Datatables Editor Overrides */
+div.DTE_Body div.DTE_Body_Content div.DTE_Field {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+
+  > label {
+    width: 0;
+  }
+
+  > div.DTE_Field_Input {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+div.DTED_Lightbox_Background,
+div.DTED_Envelope_Background,
+div.DTED_Envelope_ShadowLeft,
+div.DTED_Envelope_ShadowRight {
+  z-index: 1051;
+}
+
+div.DTED_Envelope_Wrapper,
+div.DTED_Lightbox_Wrapper {
+  z-index: 1052;
+}
+
+div.DTED_Lightbox_Close,
+div.DTED_Envelope_Close {
+  z-index: 1053;
+}
+
+div.DTE button.DTE_Button,
+div.DTE div.DTE_Form_Buttons button {
+  background: transparent;
+  background-color: @btn-primary-bg;
+  border-color: @btn-primary-border;
+  filter: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  text-shadow: none;
+
+  &:hover {
+    background: @btn-primary-border;
+    border-color: @btn-primary-border;
+    box-shadow: none;
+  }
+}
+
+div.DTED_Envelope_Wrapper div.DTED_Envelope_Container div.DTED_Envelope_Close {
+  position: relative;
+  top: -41px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+
+// My Plans Page
+// ----------------------------------
+#plansselection {
+  h3 {
+    margin-top: 0;
+  }
+}
+
+#otherfeatures {
+  .dialog-explain {
+    float: left;
+    position: relative;
+    top: 5px;
+    left: -40px;
+    width: 0; // Keep this at 0px due to floating issues
+  }
+}
+
+.addnewplans {
+ 
+  .list-group-item:before {
+    //position: relative;
+    //top: -18px;
+    //right: -15px;
+    //font-family: 'FontAwesome';
+    //content: '\f055';
+    //color: @brand-primary;
+    //font-size: .9em;
+    //float: left;
+    //margin: 2px 7px 2px 0;
+  }
+
+  .list-group-item {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    .box-shadow(inset 0 0 0 1px #DDD);
+
+    &:first-child .fa { border-radius: 4px 0 0 0; }
+    &:last-child .fa { border-radius: 0 0 0 4px; }
+
+    .fa {
+      color: #FFF;
+      width: 3em; height: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0; top: 0;
+      line-height: 3;
+      .box-shadow(inset 0 0 0 1px darken(@brand-primary, 10%));
+      #gradient > .vertical(@brand-primary, darken(@brand-primary, 5%));
+    }
+
+    &:hover .fa {
+      background: darken(@brand-primary, 5%);
+    }
+
+    .fa + span {
+      display: inline-block;
+      padding-left: 2.5em;
+    }
+
+    & + .dialog-explain {
+      position: absolute;
+      z-index: 5;
+      right: 1.25em;
+      margin-top: -2.05em;
+    }
+  }
+}
+
+.recommended-plan:after {
+  font-family: 'FontAwesome';
+  content: '\f005';
+  font-size: 1em;
+  color: @brand-secondary;
+  margin-left: 5px;  
+}
+
+.otherfeaturesitem {
+  width: 145px;
+  height: 105px;
+  padding-top: 58px;
+  border: 1px solid #ddd;
+  border-bottom: 6px solid @brand-primary-light;
+  border-radius: 6px;
+  float: left;
+  margin: 0 15px 30px 0;
+  font-size: .9em;
+  text-align: center;
+  position: relative;
+  -webkit-transition: border-color 0.4s ease-in-out;
+  -moz-transition: border-color 0.4s ease-in-out;
+  -o-transition: border-color 0.4s ease-in-out;
+  transition: border-color 0.4s ease-in-out;
+  
+  button& {
+    background:#fff;
+    color: @brand-primary;
+
+    &:hover {
+      color:@brand-secondary;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    border-bottom: 6px solid @brand-secondary;
+    text-decoration: none;
+  }
+
+  // Icons
+  &.snapshot:after {
+    .plans-icon(); // mixin
+    content: '\f030';
+  }
+  &.calculators:after {
+    .plans-icon();
+    content: '\f1ec';
+  }
+
+  &.profile:after {
+    .plans-icon();
+    font-family: 'font-mgp';
+    content: '\e923';
+  }
+
+  &.budget:after {
+    .plans-icon();
+    font-family: 'font-mgp';
+    content: '\e610';
+  }
+  &.integrations:after {
+    .plans-icon();
+    content: '\f12e';
+  }
+  &.Finametricapro {
+    background: url('/Img/Plans/IconFinaMetrica.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+  &.Cashedgepro {
+    background: url('/Img/Plans/IconCashEdge.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+  &.Yodlee {
+    background: url('/Img/Plans/IconYodlee.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+  &.BankOfWestRetirementCalc {
+    background: url('/Img/Plans/IconRetirementCalculator.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+  
+}
+
+// Manage Integrations Page
+// ----------------------------------
+
+.partner-logo {
+  padding-top: 0;
+  margin-right: 0;
+  display: table;
+
+    .partner-logo-text {
+      display: table-row;
+      vertical-align: middle;
+
+      span {
+        display: block;
+        padding: 0 12px;
+        line-height: 1.15;
+      }
+    }
+
+    img {
+      margin: 12px auto 0 auto;
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+      opacity: .75;
+    }
+
+    &:hover img {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+      opacity: 1;
+    }
+}
+
+// Goals
+// ----------------------------------
+.goals {
+    
+    h4 {
+    font-size: 1.3em;
+    margin-bottom: 20px !important;
+  }
+}
+
+.needs-block {
+  float: left; 
+  margin-left:-5px;
+
+  .goal {
+    width:25px; 
+    height:25px; 
+    background: @needs-goal-bg; 
+    float: left; 
+    color: @goal-text; 
+    text-align: center; 
+    padding: 2px; 
+    margin-right: 8px;
+  }
+}
+
+.wants-block {
+  float: left; 
+  margin-left: 10px;
+  
+  .goal {
+    width:25px; 
+    height:25px;
+    border-radius: 25px; 
+    background: @wants-goal-bg; 
+    float: left; 
+    color: @goal-text; 
+    text-align: center; 
+    padding: 2px; 
+    margin-right: 8px;
+  }
+} 
+
+.wishes-block {
+  float: left; 
+  margin-left: 8px;
+  
+  .goal {
+    width: 0; 
+    height: 0; 
+    border-style: solid; 
+    border-width: 0 14px 23px; 
+    border-color: transparent transparent @wishes-goal-bg transparent; 
+    float: left; 
+    color: @goal-text; 
+    text-align: center; 
+    margin-right: 7px;
+    
+    .number {
+      position: relative;
+      top: 4px;
+      left: -4px;
+    }
+  }
+}
+
+// This allows Goal List (Masterpiece) goals to be draggable and droppable anywhere in each section
+.selected-droppable {
+  &.needs:before {
+    content: 'Needs';
+    .h3();  // mixin for text styling
+    display: block;
+  }
+  &.wants:before {
+    content: 'Wants';
+    .h3();
+    display: block;
+  }
+  &.wishes:before {
+    content: 'Wishes';
+    .h3();
+    display: block;
+  }
+}
+
+#importance-table .radio-inline {
+  //padding-top: 10px;
+  height: 25px;
+
+  input[type=radio] {
+    cursor: pointer;
+
+    &.disable {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+  }
+}
+
+table.importance,
+.table.importance {
+  border: none;
+  
+  td {
+    border-top: none;
+  }
+
+  .goals {
+    min-width: 420px;
+  }
+} 
+
+
+// Yodlee
+// -----------------------------------
+.yodlee-dialog .modal-dialog {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.yodlee-dialog .modal-body {
+  height: 700px;
+}
+
+/*Bootstrap 3 input-spinner http://codepen.io/Thomas-Lebeau/pen/csHqx*/
+.spinner input {
+  text-align: right;
+}
+
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+
+.input-group-btn-vertical i{
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+//Bootbar Classes
+.alert-messages {
+  position: fixed;
+  font-size:.9em;
+  opacity:0.9;
+  padding-top:2px;
+  padding-bottom:0;
+  width:100%;
+  text-align:center;
+  top: 0;
+  left: 0;
+  z-index: 1002;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+}
+
+// Load MGP Webfonts
+// -----------------------------------
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../fonts/Roboto-Regular-webfont.eot');
+  src: url('../fonts/Roboto-Regular-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Regular-webfont.woff') format('woff'), url('../fonts/Roboto-Regular-webfont.ttf') format('truetype'), url('../fonts/Roboto-Regular-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium';
+  src: url('../fonts/Roboto-Medium-webfont.eot');
+  src: url('../fonts/Roboto-Medium-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Medium-webfont.woff') format('woff'), url('../fonts/Roboto-Medium-webfont.ttf') format('truetype'), url('../fonts/Roboto-Medium-webfont.svg#latobold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold';
+  src: url('../fonts/Roboto-Bold-webfont.eot');
+  src: url('../fonts/Roboto-Bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Roboto-Bold-webfont.woff') format('woff'), url('../fonts/Roboto-Bold-webfont.ttf') format('truetype'), url('../fonts/Roboto-Bold-webfont.svg#latoregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Institution Specific Styles to Hide for Default Version of MGP
+// ----------------------------------------
+
+.chase {
+  display: none;
+}
+
+// END Institution Specific Styles !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+// Media Queries
+// ----------------------------------------
+
+// >= Medium or Larger Viewport
+// ----------------------------------------
+@media (min-width:@screen-md-min) {
+  .text-right-md {
+    text-align: right;
+  }
+}
+
+// Medium ONLY!!! Viewport
+// ----------------------------------------
+@media (min-width:@screen-md-min) and (max-width:@screen-md-max) {
+  .slick-next {
+    right: -30px;
+  }
+}
+
+// <= Medium or Smaller Viewport
+// ----------------------------------------
+@media (max-width:@screen-md-max) {
+  .yodlee-dialog .modal-dialog {
+    width: 100%;
+  }
+}
+
+
+// >= Small or Larger Viewport
+// ----------------------------------------
+@media (min-width:@screen-sm-min) {
+  .text-right-sm {
+    text-align: right;
+  }
+  .text-center-sm {
+    text-align: center;
+  }
+  .navbar-right .dropdown-menu {
+    right: auto;
+  }
+}
+
+
+// Small ONLY!!! Viewport
+// ----------------------------------------
+@media (min-width:@screen-sm-min) and (max-width:@screen-sm-max) {
+  .chart-wrapper {
+    padding-bottom: 100%;
+  }
+
+  /* Use ONLY on sm Viewport when labels wrap to 2 lines and spacing is thrown off from hiding co-client labels on that col (see example on G4 Retirement Goal Retirement and Planning Age  */ 
+  .form-group.multi-line {
+    margin-top: 18px;
+  }
+}
+
+
+// <= Small Viewport
+// ----------------------------------------
+@media (max-width: @screen-sm-max) {
+  body {
+    padding-top: 75px;
+  }
+
+  .mainlogo {
+    margin-left: 15px;
+
+    img {
+      max-width: 200px;
+    }
+  }
+
+  #breadcrumbs {
+    margin-top: -15px;
+    margin-bottom: 30px;
+  }
+
+  .navbar-nav {
+    float: left;
+    font-size: 1.2em;
+  }
+
+  .navbar-right .dropdown-menu {
+    max-height: none;
+  }
+
+  // Form Styles
+  .form-horizontal {
+
+    .radio-inline,
+    .checkbox-inline {
+      margin-bottom: 15px; // compensate for clearing the float on mobile
+      padding-top: 7px;
+    }
+
+    .radio {
+      min-height: 22px;
+    }
+  }
+  // Fix for stacked form fields that are in the same form-group or row (please keep in this cascading order!)
+  .form-group, 
+  .row {
+
+    .form-control:not(td, th) {
+      margin-bottom: 10px;
+    }
+
+    .input-group .form-control {
+      margin-bottom: 0;
+    }
+
+    .input-group:nth-of-type(1):not(td, th),
+    .clearfix.visible-sm-block {
+      margin-bottom: 10px;
+    }
+  }
+
+  // Typography - Scale down slightly to free up space for smaller viewports
+  h1 {
+    font-size: 2.0em;
+  }
+
+  h2 {
+    font-size: 1.65em;
+  }
+
+  h3 {
+    font-size: 1.45em;
+  }
+
+  .dropdown-accordion > .btn-block + .dropdown-menu {
+    margin-top: 0;
+  }
+
+  // Off-Canvas Menus
+  .calculators-menu,
+  .otherfeat-menu {
+    position: absolute;
+    top: 0;
+    width: 35%;
+  }
+
+  .offcanvas-left {
+
+    .calculators-menu,
+    .otherfeat-menu {
+      left: -39%;
+    }
+
+    &.active-calc,
+    &.active-otherFeat {
+      left: 40%;
+    }
+  }
+
+  // "Last Updated" date display style
+  .last-updated {
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .chart-inner {
+    position: absolute;
+  }
+
+  // Mega Menu Styles for Main Nav Dropdown
+  .megamenu {
+    padding: 10px 0;
+
+    > li {
+      margin-bottom: 10px;
+    }
+
+    .dropdown-header {
+      padding: 3px !important;
+    }
+  }
+
+  .table-responsive .dataTables_wrapper {
+    overflow: visible;
+  }
+
+  .slider-container {
+    position: relative;
+    margin: 15px 5px 30px 0; // keep the right margin due to needing the offset for <= sm viewports when slider value pushes off the viewport -when slider is pushed to the max value
+  }
+
+  // Mobile Menu Animation from "Hamburger" menu to "X" 
+  .navbar-toggle {
+    border: none;
+    background: transparent !important;
+
+    &:hover {
+      background: transparent !important;
+    }
+
+    .icon-bar {
+      width: 22px;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    .top-bar {
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+
+      -moz-transform-origin: 10% 10%;
+      -ms-transform-origin: 10% 10%;
+      -o-transform-origin: 10% 10%;
+      -webkit-transform-origin: 10% 10%;
+      transform-origin: 10% 10%;
+    }
+
+    .middle-bar {
+      opacity: 0;
+    }
+
+    .bottom-bar {
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+
+      -moz-transform-origin: 10% 90%;
+      -ms-transform-origin: 10% 90%;
+      -o-transform-origin: 10% 90%;
+      -webkit-transform-origin: 10% 90%;
+      transform-origin: 10% 90%;
+    }
+
+    &.collapsed {
+
+      .top-bar {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+
+      .middle-bar {
+        opacity: 1;
+      }
+
+      .bottom-bar {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .goal-carousel {
+    height: 80px;
+    margin-left: 30px;
+    margin-top: 0;
+
+    .slick-prev {
+      left: 0;
+    }
+    .slick-next {
+      right: 0;
+    }
+  }
+
+  .goal-summary-table .goal-card {
+    height: 70px;
+    width: 70px;
+    max-height: 70px;
+    max-width: 70px;
+  }
+  
+  /*.goal-carousel-label {
+    margin-top: 20px; 
+
+    &.retirement {
+      clear: both;
+    }
+  }*/
+
+  /*.goal-img-picker img {
+    max-width: 65px;
+    max-height: 65px;
+  }*/
+
+  #available-goals .goal-cell {
+    min-height: 120px;
+  }
+
+
+  /*.goal-img-picker img.selected {
+    max-width: 85px;
+    max-height: 85px;
+  }*/
+
+   // Shows the Co-client labels when stacked on Xsmall Viewports
+ .soc-security .hideCoClientLabels:nth-child(2),
+ .side-by-side-clients .hideCoClientLabels:nth-child(2) {
+
+    .spacer-col,
+    label {
+      display: inline-block;
+    }
+  }
+
+  .row-eq-height {
+    height: inherit;
+    margin-bottom: 15px;
+  }
+
+}
+
+
+// Xsmall ONLY!!! Viewport
+// ----------------------------------------
+@media (max-width: @screen-xs-max) {
+  .mainlogo img {
+    max-width: 210px; //175px;
+  }
+
+  section {
+    padding: 0 0 20px;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+  }
+
+  #breadcrumbs {
+
+    .breadcrumb.hidden-xs {
+      display: block !important;
+      padding: 7px 0 0;
+      text-align: center;
+
+      li {
+        display: none;
+      }
+
+      li.pull-right:last-child {
+        display: inline-block;
+        text-align: center;
+        float: none !important;
+        padding: 5px 0 0;
+        font-size: 1em;
+        clear: both;
+      }
+    }
+  }
+
+  .visible-xs#breadcrumbs {
+    background-color: transparent;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-bottom: solid 1px #eee;
+    font-size: 0.85em;
+
+    .breadcrumb {
+      margin-bottom: 20px;
+      padding-left: 15px;
+    }
+  }
+
+  ul.progressbar {
+    margin-bottom: 30px;
+
+    > li > a {
+      font-size: 0.85em;
+    }
+  }
+
+  .hideClientLabels {
+    display:none;
+  }
+
+ // Shows the Co-client labels when stacked on Xsmall Viewports
+ .hideCoClientLabels:nth-child(2) {
+
+    .spacer-col,
+    label {
+      display: inline-block;
+    }
+  }
+
+  /*.btn-cont,
+  .btn-cont-alt {
+    .dropdown-accordion .dropdown-menu {
+    }
+  }*/
+
+  // Setting font-size to >= 16px on form input(s) disables iOS auto-zoom when focus is on form input field since we allow pinch and zoom on our application
+  input.form-control {
+    font-size: 1.15em;
+  }
+
+  .form-control {
+    height: 35px; // bump up the height 1px to accomodate the font size increase so the bottoms of y's and g's aren't cut off
+  }
+
+
+  .chart-wrapper {
+    padding-bottom: 150%;
+  }
+
+  .scrollToTop {
+    bottom: 10%; // accomodate for copyright visibility
+  }
+
+  // Mega Menu 
+  // http://jsfiddle.net/apougher/ydcMQ/ 
+  .megamenu {
+    margin-left: 0;
+    margin-right: 0;
+
+    > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .dropdown-header {
+      padding: 3px /*15px*/ !important;
+    }
+  }
+
+  // Auto Scroll Elements that need to Stay Full Width on xs Viewport Size
+  .overflow-cont {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 15px;  // give some padding for the scroll bar
+
+    > .row [class*="col-lg"], 
+    > .row [class*="col-md"], 
+    > .row [class*="col-sm"] {
+      float:none;
+      display:inline-block;
+      white-space:normal;
+      vertical-align:top;
+    }
+
+    .overflow-block {
+
+      &.goals {
+        min-width: 400px;
+      }
+
+    }
+
+    h5 {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .indent-1:not(td),
+  .indent-2:not(td) { 
+    padding-left: 0; 
+  }
+
+  .yodlee-dialog .modal-body {
+    height: 720px;
+  }
+
+  //Override Bootstrap from no-wrapping tables cells on xs viewport
+  .table-responsive {
+    > .table {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+// Breakpoint for Left Offcanvas Menu
+// ----------------------------------------
+@media (max-width: 600px) {
+  .active-calc button {
+    float: none;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .offcanvas-left {
+    .calculators-menu,
+    .otherfeat-menu {
+      left: -95%;
+    }
+
+    &.active-calc,
+    &.active-otherFeat {
+      left: 100%;
+    }
+  }
+
+  .calculators-menu,
+  .otherfeat-menu {
+    position: absolute;
+    top: 0;
+    min-width: 80%;
+  }
+}
+
+////////////////////////////////////////////////////////////////////////
+
+@import "styleguide-styles.less";  // Styles Specific to the Style Guide

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+
+    <title>Style Guide for MoneyGuide Pro</title>
+
+    <!-- CSS
+    ======================================== -->
+    <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+    <link href="css/global.min.css" rel="stylesheet">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/min/jquery.nouislider.all.min.js"></script>
+  </head>
+
+  <body id="Style-Guide">
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="#" title="MoneyGuide Pro">
+              <img src="img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="tutorial"><a href="#" class="tutorial_start"><i class="fa fa-book fa-fw"></i> Tutorial Example</a></li>
+            <li><a href="#" class="toggle-push-left">Calculators</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+            <li><a href="#about">Support</a></li>
+            <li><a href="#contact">Help</a></li>
+            <li><a href="#logout"><i class="fa fa-unlock fa-fw"></i> Logout</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+<div class="container">
+
+    <!-- Begin Unique Body Content -->
+    <section>
+      <h1>No uiSlider Test
+      </h1>
+
+    
+      <div id="html5">
+      </div>
+      <select id="input-select"></select>
+      <input type="number" min="-20" max="40" step="1" id="input-number">
+      <script>
+      // Append the option elements
+		for ( var i = -20; i <= 40; i++ ){
+			$('#input-select').append(
+				'<option value="'+i+'">'+i+'</option>'
+			);
+		}
+
+		$('#html5').noUiSlider({
+		start: [ 10, 30 ],
+		connect: true,
+		range: {
+		'min': -20,
+		'max': 40
+		}
+		});
+      // A select element can't show any decimals
+$('#html5').Link('lower').to($('#input-select'), null, wNumb({
+	decimals: 0
+}));
+
+$('#html5').Link('upper').to($('#input-number'));
+    </script> 
+		
+    </section>
+
+</div> <!-- /container -->
+
+
+    <!-- Core JavaScript
+    ======================================== -->
+    <!-- Placed at the end of the document so our pages load faster -->
+
+
+    <!-- <script src="js/min/bootstrap.min.js"></script> 
+    <script src="js/min/global.min.js"></script>-->
+
+    
+
+
+  </body>
+</html>

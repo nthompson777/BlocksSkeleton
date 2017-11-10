@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>MGP Charts</title>
+
+    <!-- CSS
+    ======================================== -->
+    <!-- Bootstrap & Global Base/Core MGP Styles - one stylesheet to rule them all -->
+    <link href="../css/global.min.css" rel="stylesheet">
+  </head>
+
+  <body id="Charts">
+    
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle navbar-toggle__htx collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="mainlogo">
+            <a class="navbar-brand" href="/" title="MoneyGuide Pro">
+              <img src="../img/mainlogo-2x.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+  <div class="container">
+<!-- Interactive Charts and Graphs Section -->
+    <section>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2>Interactive Charts &amp; Graphs</h2>
+        </div>
+      </div>
+
+      <div class="row"> 
+        <div class="col-md-6" id="tutorial_A04">
+          <div id="barGrouping"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="columnNegative"></div>
+        </div>
+      </div><!-- /row -->
+
+      <div class="row">
+        <div class="col-md-6">
+          <div id="scatterChart"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="areaSpline"></div>
+        </div>
+      </div><!-- /row -->
+
+        <div class="row"> 
+          <div class="col-md-6">
+            <div id="pieChart"></div>
+          </div>
+          <div class="col-md-6">
+            <div id="basicColumnChart"></div>
+          </div>
+        </div><!-- /row -->
+
+        <div class="row"> 
+          <div class="col-md-12">
+            <div id="lineChart"></div>
+          </div>
+        </div><!-- /row -->
+
+      </section>
+    </div><!-- /container -->
+
+       <!-- Core JavaScript
+    ======================================== -->
+    <!-- Placed at the end of the document so our pages load faster -->
+    <script src="../js/min/jquery-1.11.2.min.js"></script>
+    <script src="../js/min/bootstrap.min.js"></script>
+
+    <!-- Only Load on Pages with Charts and Graphs -->
+    <script src="../js/min/highcharts.min.js"></script>
+
+    <!-- Highcharts Options -->
+    <script type="text/javascript">
+      // 3D Column Stacking Grouping Chart
+      $(function () {
+        $('#barGrouping').highcharts({
+
+            chart: {
+                type: 'column',
+                options3d: {
+                    enabled: true,
+                    alpha: 10,
+                    beta: 15,
+                    viewDistance: 25,
+                    depth: 40
+                },
+                marginTop: 90,
+                marginRight: 40
+            },
+
+            title: {
+                text: '3D Column Stacked Grouping Chart'
+            },
+              subtitle: {
+                  text: 'Click Names Below to Disable Their Values'
+              },
+
+            xAxis: {
+                categories: ['1st Quarter', '2nd Quarter', '3rd Quarter', '4th Quarter']
+            },
+
+            yAxis: {
+                allowDecimals: false,
+                min: 0,
+                title: {
+                    text: 'Money Saved (per quarter)'
+                }
+            },
+
+            tooltip: {
+                headerFormat: '<b>{point.key}</b><br>',
+                pointFormat: '<span style="color:{series.color}">\u25CF</span> {series.name}: {point.y} / {point.stackTotal}'
+            },
+
+            plotOptions: {
+                column: {
+                    stacking: 'normal',
+                    depth: 40
+                }
+            },
+
+            series: [{
+                name: 'Bob',
+                data: [452, 750, 1000, 200],
+                stack: 'male'
+            }, {
+                name: 'Karla',
+                data: [253, 650, 700, 1200],
+                stack: 'male'
+            }, {
+                name: 'Tony',
+                data: [400, 1200, 150, 255],
+                stack: 'female'
+            }, {
+                name: 'Laura',
+                data: [150, 800, 1800, 700],
+                stack: 'female'
+            }]
+        });
+    });
+    
+    // Column Negative Chart
+    $(function () {
+    $('#columnNegative').highcharts({
+        chart: {
+            type: 'column',
+            marginTop: 90,
+            marginRight: 40
+        },
+        title: {
+            text: 'Column chart with negative values'
+        },
+        subtitle: {
+                  text: 'Click Names Below to Disable Their Values'
+              },
+        xAxis: {
+            categories: ['1st Quarter', '2nd Quarter', '3rd Quarter', '4th Quarter']
+        },
+        yAxis: {
+            title: {
+                text: 'Money Saved (per quarter)'
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Bob',
+            data: [5000, 3000, 4000, 7500]
+        }, {
+            name: 'Karla',
+            data: [2000, -2000, -3050, 7000]
+        }]
+    });
+});
+
+    // 3D Donut Chart
+      $(function () {
+          $('#donutChart').highcharts({
+              chart: {
+                  type: 'pie',
+                  marginTop: 90,
+                  options3d: {
+                      enabled: true,
+                      alpha: 55
+                  }
+              },
+              title: {
+                  text: '3D Donut Chart'
+              },
+              subtitle: {
+                  text: 'Hover over areas for interactive labeling'
+              },
+              plotOptions: {
+                  pie: {
+                      innerSize: 100,
+                      depth: 45
+                  }
+              },
+              series: [{
+                  name: 'Retirement Expectations',
+                  data: [
+                      ['Active Lifestyle', 8],
+                      ['Less Stress', 3],
+                      ['Moving to New Home', 1],
+                      ['Quiet Lifestyle', 6],
+                      ['Time w/ Friends & Family', 8],
+                      ['More Time w/ Spouse', 4],
+                      ['Helping Others', 4],
+                      ['Set Own Schedule', 1],
+                      ['Something Else', 1]
+                  ]
+              }]
+          });
+      });
+      
+      // 3D Scatter Chart
+      $(function () {
+
+          // Give the points a 3D feel by adding a radial gradient
+          Highcharts.getOptions().colors = $.map(Highcharts.getOptions().colors, function (color) {
+              return {
+                  radialGradient: {
+                      cx: 0.4,
+                      cy: 0.3,
+                      r: 0.5
+                  },
+                  stops: [
+                      [0, color],
+                      [1, Highcharts.Color(color).brighten(-0.2).get('rgb')]
+                  ]
+              };
+          });
+
+          var chart = new Highcharts.Chart({
+              chart: {
+                  renderTo: 'scatterChart',
+                  margin: 100,
+                  type: 'scatter',
+                  options3d: {
+                      enabled: true,
+                      alpha: 10,
+                      beta: 30,
+                      depth: 150,
+                      viewDistance: 5,
+
+                      frame: {
+                          bottom: { size: 1, color: 'rgba(0,0,0,0.02)' },
+                          back: { size: 1, color: 'rgba(0,0,0,0.04)' },
+                          side: { size: 1, color: 'rgba(0,0,0,0.06)' }
+                      }
+                  }
+              },
+              title: {
+                  text: '3D Scatter Chart'
+              },
+              subtitle: {
+                  text: 'Click and drag the plot area to rotate in space'
+              },
+              plotOptions: {
+                  scatter: {
+                      width: 10,
+                      height: 10,
+                      depth: 10
+                  }
+              },
+              yAxis: {
+                  min: 0,
+                  max: 10,
+                  title: null
+              },
+              xAxis: {
+                  min: 0,
+                  max: 10,
+                  gridLineWidth: 1
+              },
+              zAxis: {
+                  min: 0,
+                  max: 10
+              },
+              legend: {
+                  enabled: false
+              },
+              series: [{
+                  name: 'Reading',
+                  colorByPoint: true,
+                  data: [[1, 6, 5], [8, 7, 9], [1, 3, 4], [4, 6, 8], [5, 7, 7], [6, 9, 6], [7, 0, 5], [2, 3, 3], [3, 9, 8], [3, 6, 5], [4, 9, 4], [2, 3, 3], [6, 9, 9], [0, 7, 0], [7, 7, 9], [7, 2, 9], [0, 6, 2], [4, 6, 7], [3, 7, 7], [0, 1, 7], [2, 8, 6], [2, 3, 7], [6, 4, 8], [3, 5, 9], [7, 9, 5], [3, 1, 7], [4, 4, 2], [3, 6, 2], [3, 1, 6], [6, 8, 5], [6, 6, 7], [4, 1, 1], [7, 2, 7], [7, 7, 0], [8, 8, 9], [9, 4, 1], [8, 3, 4], [9, 8, 9], [3, 5, 3], [0, 2, 4], [6, 0, 2], [2, 1, 3], [5, 8, 9], [2, 1, 1], [9, 7, 6], [3, 0, 2], [9, 9, 0], [3, 4, 8], [2, 6, 1], [8, 9, 2], [7, 6, 5], [6, 3, 1], [9, 3, 1], [8, 9, 3], [9, 1, 0], [3, 8, 7], [8, 0, 0], [4, 9, 7], [8, 6, 2], [4, 3, 0], [2, 3, 5], [9, 1, 4], [1, 1, 4], [6, 0, 2], [6, 1, 6], [3, 8, 8], [8, 8, 7], [5, 5, 0], [3, 9, 6], [5, 4, 3], [6, 8, 3], [0, 1, 5], [6, 7, 3], [8, 3, 2], [3, 8, 3], [2, 1, 6], [4, 6, 7], [8, 9, 9], [5, 4, 2], [6, 1, 3], [6, 9, 5], [4, 8, 2], [9, 7, 4], [5, 4, 2], [9, 6, 1], [2, 7, 3], [4, 5, 4], [6, 8, 1], [3, 4, 0], [2, 2, 6], [5, 1, 2], [9, 9, 7], [6, 9, 9], [8, 4, 3], [4, 1, 7], [6, 2, 5], [0, 4, 9], [3, 5, 9], [6, 9, 1], [1, 9, 2]]
+              }]
+          });
+
+
+          // Add mouse events for rotation
+          $(chart.container).bind('mousedown.hc touchstart.hc', function (e) {
+              e = chart.pointer.normalize(e);
+
+              var posX = e.pageX,
+                  posY = e.pageY,
+                  alpha = chart.options.chart.options3d.alpha,
+                  beta = chart.options.chart.options3d.beta,
+                  newAlpha,
+                  newBeta,
+                  sensitivity = 5; // lower is more sensitive
+
+              $(document).bind({
+                  'mousemove.hc touchdrag.hc': function (e) {
+                      // Run beta
+                      newBeta = beta + (posX - e.pageX) / sensitivity;
+                      newBeta = Math.min(100, Math.max(-100, newBeta));
+                      chart.options.chart.options3d.beta = newBeta;
+
+                      // Run alpha
+                      newAlpha = alpha + (e.pageY - posY) / sensitivity;
+                      newAlpha = Math.min(100, Math.max(-100, newAlpha));
+                      chart.options.chart.options3d.alpha = newAlpha;
+
+                      chart.redraw(false);
+                  },
+                  'mouseup touchend': function () {
+                      $(document).unbind('.hc');
+                  }
+              });
+          });
+
+      });
+
+  // Area Spline Chart
+  $(function () {
+    $('#areaSpline').highcharts({
+        chart: {
+            type: 'areaspline',
+            marginTop: 90
+        },
+        title: {
+            text: 'Area Spline Chart'
+        },
+        subtitle: {
+            text: 'w/ Highlighted Months - Enable/Disable Client or Co-Client View'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            verticalAlign: 'top',
+            x: 150,
+            y: 100,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        xAxis: {
+            categories: [
+                'January',
+                'February',
+                'March',
+                'April',
+                'May',
+                'June',
+                'July'
+            ],
+            plotBands: [{ // visualize/highlight important months
+                from: 4.5,
+                to: 6.5,
+                color: 'rgba(68, 170, 213, .2)'
+            }]
+        },
+        yAxis: {
+            title: {
+                text: 'Savings Per Thousand $'
+            }
+        },
+        tooltip: {
+            shared: true,
+            valueSuffix: ' units'
+        },
+        credits: {
+            enabled: false
+        },
+        plotOptions: {
+            areaspline: {
+                fillOpacity: 0.5
+            }
+        },
+        series: [{
+            name: 'John',
+            data: [3, 4, 3, 5, 4, 10, 12]
+        }, {
+            name: 'Jane',
+            data: [1, 3, 4, 3, 3, 5, 4]
+        }]
+    });
+});
+
+// 3D Pie Chart
+      $(function () {
+    $('#pieChart').highcharts({
+        chart: {
+            type: 'pie',
+            marginTop: 90,
+            options3d: {
+                enabled: true,
+                alpha: 45,
+                beta: 0
+            }
+        },
+        title: {
+            text: '3D Pie Chart'
+        },
+        subtitle: {
+            text: 'Retirement Goals'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                depth: 35,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            }
+        },
+        series: [{
+            type: 'pie',
+            name: 'Retirement Activities',
+            data: [
+                ['Lounging',   45.0],
+                ['Constantly Brushing Teeth',       26.8],
+                {
+                    name: 'Ring & Run Neighborhood Doorbells',
+                    y: 12.8,
+                    sliced: true,
+                    selected: true
+                },
+                ['Golf',    8.5],
+                ['Spending Time w/ Spouse',     6.2],
+                ['Twerking',   0.7]
+            ]
+        }]
+    });
+});
+
+// Basic Column Chart
+$(function () {
+    $('#basicColumnChart').highcharts({
+        chart: {
+            type: 'column',
+            marginTop: 90
+        },
+        title: {
+            text: 'Basic Bar Chart'
+        },
+        subtitle: {
+            text: 'Monthly Savings Totals'
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ]
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Total Dollars Saved (per thousand)'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} k</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Bob',
+            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+
+        }, {
+            name: 'Karla',
+            data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+
+        }, {
+            name: 'Tony',
+            data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+
+        }, {
+            name: 'Laura',
+            data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+
+        }]
+    });
+});
+
+
+// Basic Line Chart
+
+$(function () {
+    $('#lineChart').highcharts({
+        chart: {
+            marginTop: 90,
+            marginRight: 40
+        },
+        title: {
+            text: 'Social Security Break Even'
+        },
+
+        subtitle: {
+            text: 'Break Even in 2038 (Ages: 77/75)',
+            x: 0
+        },
+        xAxis: {
+            categories: ['62/60', '63/61', '64/62', '65/63', '66/64', '67/65',
+                '68/66', '69/67', '70/68', '71/69', '72/70', '73/71', '74/72', '75/73', '76/74', '77/75', '78/76', '79/77', '80/78', '81/79', '82/80', '83/81', '84/82', '85/83', '86/84', '87/85', '88/86', '89/87', '90/88', '91/89', 'Mark: Plan Ends/91', 'Both Plans Ended']
+        },
+        yAxis: {
+            title: {
+                text: 'Cumulative Benefit'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valuePrefix: '$'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+        series: [{
+            name: 'ASAP',
+            data: [0, 100000, 200000, 250000, 350000, 400000, 450000, 575000, 600000, 700000, 800000, 850000, 870000, 900000, 1000000, 1250000, 1350000, 1450000, 1550000, 1800000, 1850000, 1900000, 1950000, 2000000, 2500000, 2750000, 2900000, 2900000, 3000000, 3200000, 3300000, 3400000]
+        }, {
+            name: 'Solved',
+            data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 100000, 150000, 300000, 300000, 400000, 500000, 1250000, 1750000, 2500000, 2550000, 2850000, 2950000, 3000000, 3100000, 3500000, 3500000, 3750000, 3900000, 4200000, 4700000, 5100000, 5200000, 5400000]
+        }]
+    });
+});
+
+    </script> <!-- End Chart & Graph scripts -->
+
+  </body>
+</html>

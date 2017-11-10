@@ -1,0 +1,27 @@
+// Highcharts Plugin - Less Base Styles - Put client styles for charts in the clientFolderName/client-overrides.less file
+
+.highcharts-container {
+	margin-top: 30px;
+	margin-left: -10px;  // Offset to align the charts and chart titles to our grid
+	.tab-content & {
+		margin-top: 0;
+	}
+}
+.highcharts-title,
+.highcharts-title tspan {
+	color: @gray-light !important;
+	font-size: 1.35em !important;
+	fill: @gray-light !important;
+	font-family: @headings-font-family;
+	line-height: @headings-line-height;
+	text-align: left;
+	margin-top: 40px;
+}
+.highcharts-subtitle tspan {
+	color: @gray-light;
+	font-size: 1.3em;
+	font-family: @headings-font-family;
+	fill: @gray-light;
+	line-height: @headings-line-height;
+	text-align: left;
+}

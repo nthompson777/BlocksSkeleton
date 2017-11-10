@@ -1,0 +1,53 @@
+{
+    "success": true,
+    "result": [
+        {
+            "selector": "#tutorial_A01",
+            "title": "MGP Main Color Palette",
+            "content": "This is our Color Palette that follows the MGP Mkt Branding Guidelines. <em>Hover over the color swatches for more info. Go ahead, try it now...",
+            "placement": "top"
+        },
+        {
+            "selector": "#tutorial_A02",
+            "title": "Code Snippets Are Your Friend",
+            "content": "Code snippets will help guide developers so there is more continuity and consistency with our front-end code. Click the 'code snippet' button below to see it in action.",
+            "placement": "top"
+        },
+        {
+            "selector": "#tutorial_A03",
+            "title": "Button Styles",
+            "content": "Button styles are here. See below how we can highlight a whole column or row if we want.",
+            "placement": "top"
+        },
+        {
+            "selector": "#tutorial_A04",
+            "title": "Interactive Charts",
+            "content": "Try clicking on one or more of the names above to narrow down the displayed chart data.",
+            "placement": "bottom"
+        },
+         {
+            "selector": "#tutorial_B01",
+            "title": "Bank Account Info",
+            "content": "Start by filling in the information for your bank account.",
+            "placement": "top"
+        },
+         {
+            "selector": "#tutorial_B02",
+            "title": "Escrow Setup",
+            "content": "Next, provide some information about your company so that we can set up an escrow account for your raise.",
+            "placement": "top"
+        },
+         {
+            "selector": "#tutorial_B03",
+            "title": "Term Sheet",
+            "content": "Choose which offering instrument you would like to use to raise funds, and then input the details of your offering.",
+            "placement": "top"
+        },
+         {
+            "selector": "#tutorial_B04",
+            "title": "Offering Memorandum",
+            "content": "Select which exemption you wish to raise funds under.",
+            "placement": "top"
+        }
+    ]
+}
