@@ -1,0 +1,121 @@
+/// <reference path="../../variables.scss" />
+
+$brand-primary:   #333;
+$brand-secondary: #037dae;
+$brand-tertiary:  #98a4ae;
+
+// Scaffolding Styles
+// ------------------------------------
+// Global text color on <body>.
+$text-color:            #333;
+
+// Background color for <footer>
+$footer-bg:				      #fff;
+$footer-text-color:		  #666;
+
+// Global textual footer link color.
+$link-color:            #0066CC;
+
+// Link hover color set via `darken()` function.
+$link-hover-color:      #0066CC;
+$font-color-for-darkBG:   #fff;
+
+// Button Styles
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 #008e00;
+$btn-primary-border:             #2D7121;
+
+$btn-secondary-color:            $text-color;
+$btn-secondary-bg:               #e9e9e9;
+$btn-secondary-border:           #AAAAAA;
+
+$btn-tertiary-color:             $text-color;
+$btn-tertiary-bg:                #e9e9e9;
+$btn-tertiary-border:            #AAAAAA;
+
+$btn-positive-action-color:      #fff;
+$btn-positive-action-bg:         #008e00;
+$btn-positive-action-border:      #2D7121;
+$btn-positive-action-gradient-dark: #008a00;
+$btn-positive-action-gradient-medium: #008e00;
+$btn-positive-action-gradient-light: #019201;
+
+$btn-negative-action-color:      $text-color;
+$btn-negative-action-bg:         #dadcd7;
+$btn-negative-action-border:     #AAAAAA;
+$btn-negative-action-gradient-dark: #dedede; 
+$btn-negative-action-gradient-medium: #e9e9e9;
+$btn-negative-action-gradient-light: #f4f4f4;
+
+// Panel Styles
+$panel-default-text:          #333;
+$panel-default-border:        #d9d9d9;
+$panel-default-heading-bg:    transparent;
+
+$panel-primary-text:          #333;
+$panel-primary-border:        #d9d9d9;
+$panel-primary-heading-bg:    transparent;
+
+$panel-info-text:             #333;
+$panel-info-border:           #d9d9d9;
+$panel-info-heading-bg:       transparent;
+
+// Table Styles
+$table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #fff;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #edf8fd;
+$table-bg-active:               $table-bg-hover;
+//** Border color for table and cell borders.
+$table-border-color:            #d9d9d9;
+
+$table-heading-text-color:      $text-color;
+$table-heading-bg-color:        #fff;
+
+//Line Styles
+$hr-border:                     #00a0df;
+
+//Nav Section Bar Styles
+$section-bar-background:        #037DAE;
+$section-bar-marker-background-highlighted: #005F83;
+$section-bar-marker-background-completed: #999;
+$section-bar-marker-background-incomplete: #d9d9d9;
+$section-bar-active-page-title: #fff;
+$section-bar-chervon-color:     #999;  
+$section-bar-marker-color:      #fff;
+
+//Highlighted and Info Styles
+$state-info-bg:                 #e6ecf2;
+
+// Goals Styles
+$needs-goal-bg:                 $brand-primary;
+$wants-goal-bg:                 $brand-secondary;
+$wishes-goal-bg:                $brand-tertiary;
+$goal-text:                     $font-color-for-darkBG;
+
+//Slider Styles
+$slider-bar-bg:                 #425563;
+
+//BreadCrumb Style
+$breadcrumb-bg:                 #f5f5f5;
+$breadcrumb-color:              $link-color;
+$breadcrumb-active-color:       $link-hover-color;
+$breadcrumb-link-color:         $link-color;
+
+//Custom Schwab
+$brand-success:                  #019201;
+$brand-warning:                  #edb700;
+$brand-danger:                   #aa0033;
+
+$state-success-text:             #019201;
+$state-success-bg:               #F0F9F0;
+$state-success-border:           #ADDCAD;
+
+$state-warning-text:             #edb700;
+$state-warning-bg:               #fefaee;
+$state-warning-border:           #edb700;
+
+$state-danger-text:              #aa0033;
+$state-danger-bg:                #fcf7f9;
+$state-danger-border:            #aa0033;

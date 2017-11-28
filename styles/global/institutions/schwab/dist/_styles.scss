@@ -1,0 +1,97 @@
+/// <reference path="global.scss" />
+
+.btn-primary,
+/*.super-solve-button,*/
+.btn-default,
+.btn-forward, 
+.btn-done {
+   background: linear-gradient(to bottom, $btn-positive-action-gradient-light 0%, $btn-positive-action-gradient-medium 33%, $btn-positive-action-gradient-dark 100%);
+}
+
+.btn-secondary,
+.btn-tertiary,
+.btn-back, 
+.btn-cancel, 
+.btn-close {
+  background: linear-gradient(to bottom, $btn-negative-action-gradient-light 0%, $btn-negative-action-gradient-medium 33%, $btn-negative-action-gradient-dark 100%);
+}
+
+.btn {
+  border-radius: 1px;
+}
+
+.form-control,
+.input-group-addon {
+  border-color: #999999;
+  border-radius: 0;
+}
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+  > thead > tr > th {
+    border-bottom: 1px solid $table-border-color;
+  }
+}
+
+ul.progressbar {
+
+  &>li.nav-active a,
+  &>li.nav-active a.dropdown-toggle {
+    color: $btn-primary-bg;
+  }
+  .dropdown-menu>li a.active-page {
+    background-color: $btn-primary-bg !important
+  }
+  .dropdown-accordion.accordion-menu .dropdown-menu .panel-body a.active-sub {
+    background-color: $btn-primary-bg;
+    opacity: .6;  
+  }
+}
+
+//Custom Styles for Labs
+#pane-divider,
+.pretty-split-pane-component-inner {
+  border-color: $brand-secondary;
+}
+
+#pane-divider,
+#right-pane-resize-btn,
+#pane-divider.dragged:hover,
+#pane-divider.dragged,
+.pretty-split-pane-frame,
+.pretty-split-pane-frame .split-pane > .split-pane-divider.dragged.touch,
+.split-pane-component .header {
+  background-color: $brand-secondary;
+}
+
+//Custom Video Pane Sizing
+#left-component,
+#pane-divider {
+  right: 25%;
+}
+
+#right-component {
+  width: 25%;
+}
+
+//Only Instit that is using Closed Captioning 10/09/2017
+.jw-icon-cc {
+  display: inline-block !important;
+}
+

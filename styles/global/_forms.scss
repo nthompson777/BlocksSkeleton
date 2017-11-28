@@ -1,0 +1,373 @@
+/// <reference path="_global.scss" />
+
+// Slide Up Animated Input Label
+// ----------------------------------
+
+//  KEEP THE COMMENTED OUT STYLES BELOW -- TODO: Get this displaying correctly
+
+// XS Viewport ONLY
+/*@media (max-width: $screen-xs-max) {
+  .form-horizontal {
+
+    .form-group .form-control, 
+    .row .form-control {
+      margin-bottom: 0;
+    }
+  }
+
+  .form-group:not(.no-input-anim)   {
+	  position: relative;
+    margin-bottom: 5px;
+    
+    label:not(.radio-inline) {
+	    position: absolute;
+	    top: 0; 
+      left: 1em;
+	    opacity: 0;
+      z-index: 100;
+      color: $gray-light;
+    } 
+
+    label.has-input-group {
+      margin-left: 60px;
+    }
+
+    &.focused label:not(.radio-inline),
+    &.populated label:not(.radio-inline) {
+	    opacity: 1;
+      font-size: .8em;
+      color: $brand-primary;
+      font-weight: normal;
+    }
+
+    &.focused input:not([type=radio]),
+    &.populated input:not([type=radio]),
+    &.focused select,
+    &.populated select,
+    &.focused textarea,
+    &.populated textarea {
+	    padding-top: 1em;
+      height: 42px;
+    }
+
+    input,
+    textarea,
+    label {
+	    transition: 0.35s ease-in-out;
+    }
+    input.form-control, 
+    select.form-control {
+      color: #888;
+    }
+  }
+}*/
+
+
+
+// Form Styles (general)
+// -----------------------------------
+// Remove/hide webkit input spinners/arrows on input type="number"
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Select Browser Specific Fixes
+// -----------------------------------
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  /* webkit specific styles go here */ 
+  select.form-control { 
+    -webkit-padding-end: 1px; //removes excessive padding to left of arrow 
+    padding-left: 7px;
+  }
+} 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  /* IE10+ specific styles go here */
+  select.form-control { padding-right: 3px; padding-left: 10px; }  
+}
+@-moz-document url-prefix() {
+  /* moz specific styles go here */
+  select.form-control { padding-right: 3px; padding-left: 10px; }  
+}
+
+// Required form fields places an asterisk on the form element
+/*.required:after {
+  color: $brand-primary;
+  content: " *";
+  font-size: 1em;
+}*/
+
+.input-group-addon {
+  min-width: 40px;
+  background-color: $gray-lighter;
+}
+
+.input-group:not(td, th) {
+  margin-bottom: 15px;
+}
+
+// Xsmall ONLY!!! Viewport
+@media (max-width: $screen-xs-max) {
+  // Setting font-size to >= 16px on form input(s) disables iOS auto-zoom when focus is on form input field (since we allow pinch and zoom on our application)
+  input, select {
+    &.form-control {
+      font-size: 1.15em;  // == 16px
+      height: 35px; // bump up the height 1px to accomodate the font size increase so the bottoms of y's and g's aren't cut off
+    }
+  }
+}
+
+
+// Form Horizontal
+// ---------------------------------------- 
+.form-horizontal {
+
+  .input-group {
+    margin-bottom: 0;
+  }
+
+  .form-group {
+    clear: both; 
+  }
+
+  .control-label label {
+    display: inline;
+  }
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    .radio-inline,
+    .checkbox-inline {
+      margin-bottom: 15px; // compensate for clearing the float on mobile
+      padding-top: 7px;
+    }
+
+    .radio {
+      min-height: 22px;
+    }
+
+    // Fix for stacked form fields that are in the same form-group or row (please keep in this cascading order!)
+    .form-group,
+    .row {
+
+      .form-control { // Do not add :not here - which kills the fix!  See below...
+        margin-bottom: 10px;
+      }
+
+      .input-group .form-control {
+        margin-bottom: 0;
+      }
+
+      .input-group:nth-of-type(1), // Do not add :not to nth-of-type here - which kills the fix!  See below...
+      .clearfix.visible-sm-block {
+        margin-bottom: 10px;
+      }
+    }
+
+  }
+
+}
+
+
+// Form Inline
+// ---------------------------------------- 
+.form-inline {
+
+  .form-group .input-group {
+    margin-bottom: 0;
+  }
+
+  @media (min-width:$screen-sm-min) and (max-width:$screen-sm-max) {
+    // Use ONLY on sm Viewport when labels wrap to 2 lines and spacing is thrown off from hiding co-client labels 
+    // on that col (see example on G4 Retirement Goal Retirement and Planning Age
+    .form-group.multi-line {
+      margin-top: 18px;
+    }
+  }
+}
+
+.row-eq-height {
+  height: 40px;
+  margin-bottom: 15px;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    height: inherit;
+    margin-bottom: 15px;
+  }
+}
+
+// Hide Co-client labels unless <= Small Viewport (see media query below)
+.hideCoClientLabels:nth-child(2) {
+
+  .spacer-col,
+  label:not(.radio-inline) {
+    display: none;
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      display: inline-block;
+    }
+  }
+
+  .spacer-col,
+  legend {
+    position: absolute; 
+    overflow: hidden; 
+    clip: rect(0 0 0 0); 
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      position: relative; 
+      display: inline-block;
+      overflow: visible;
+    }
+  }
+
+}
+
+// Xsmall ONLY!!! Viewport
+@media (max-width: $screen-xs-max) {
+  .hideClientLabels {
+    display: none;
+  }
+}
+
+// Used for form fields that display a total (highlighted in green by default)
+.input-total {
+  font-weight: bold;
+}
+
+
+// Form Fields within a Table
+// ----------------------------------------
+
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  th, td {
+
+    .form-control {
+      margin-bottom: 0;
+    }
+
+    .form-group,
+    .row {
+
+      .input-group:nth-of-type(1),
+      .clearfix.visible-sm-block {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+
+// Form Fields with Side-by-side Client & Co-client
+// ----------------------------------------
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+
+  // Shows the Co-client labels when stacked on Xsmall Viewports
+  .soc-security .hideCoClientLabels:nth-child(2),
+  .side-by-side-clients .hideCoClientLabels:nth-child(2) {
+
+    .spacer-col,
+    label {
+      display: inline-block;
+    }
+    .spacer-col,
+    legend {
+      position: relative; 
+      display: inline-block;
+      overflow: visible; 
+    }
+  }
+
+  .side-by-side-clients {
+   .control-label {
+      text-align: left;
+    }
+  }
+}
+
+
+// Form Validation Styles
+//------------------------------------
+.has-error {
+
+  &.input-total {
+    @include form-control-validation($alert-danger-text, $alert-danger-text, $alert-danger-bg);
+  }
+
+  .input-total .input-group-addon {
+    color: $alert-danger-text;
+    background-color: $alert-danger-bg;
+    border-color: $alert-danger-text;
+  }
+
+  .input-total .form-control {
+    border-color: $alert-danger-text;
+  }
+
+  .required:after,
+  label,
+  .input-total .help-error-info {
+    color: $alert-danger-text;
+  }
+
+  input[type=radio],
+  .yes-no-toggle {
+    outline: 1px solid $alert-danger-text;
+    margin-right: .5em; //leave space so error text isn't touching
+  }
+
+  .input-valid {
+    outline: none;
+    border-color: $input-border;
+  }
+
+  .input-valid:focus {
+    border-color: $input-border-focus;
+    outline: none;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px $input-border-focus; //rgba(102, 175, 233, 0.6);
+  }
+
+  .input-valid .input-group-addon {
+    color: $gray;
+    border-color: $input-border;
+    background-color: $gray-lighter;
+  }
+
+}
+
+.table > tfoot > tr.totals > td.has-error {
+  color: $alert-danger-text;
+  background-color: $alert-danger-bg;
+}
+
+.has-warning .input-group-addon {
+  color: $brand-warning;
+  border-color: $brand-warning;
+  background-color: $alert-warning-bg;
+}
+
+.has-warning .form-control,
+.has-warning .form-control:focus {
+  border-color: $brand-warning;
+}
+
+/*Hide help-error-info when valid prevent jumping and spacing issue on submit*/
+.help-error-info.valid {
+  display: none;
+}
+
+.help-block {
+  color: $text-color; /*lighten($text-color, 25%); <- doesn't pass 508 color contrast test */
+}
+
+/*We use .help-block for text like "today's dollars, after-tax" and .help-error-info for validation error msgs */
+.help-error-info {
+  @extend .help-block;
+  color: $alert-danger-text;
+}

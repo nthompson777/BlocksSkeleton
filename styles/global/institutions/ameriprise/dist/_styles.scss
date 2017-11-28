@@ -1,0 +1,93 @@
+/// <reference path="global.scss" />
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+  > thead > tr > th {
+    border-bottom: 1px solid $table-border-color;
+  }
+}
+
+/*Custom requests on 05/03/2017*/
+.zoomer-inactive-page {
+  background-color: $section-bar-marker-background-completed;
+
+  a {
+    color: $brand-primary;
+  }
+
+  a:hover,
+  a:focus {
+    .section-completed-marker,
+    .section-incomplete-marker,
+    .fa-chevron-down,
+	  .fa-chevron-up {
+      color: #fff;
+    }
+	}
+
+  .section-completed-marker,
+  .section-incomplete-marker,
+  .fa-chevron-down,
+	.fa-chevron-up {
+    color: $brand-primary;
+    background-color: transparent;
+  }
+}
+
+.numSteps {
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-top: 8px;
+
+  .zoomer-number-circle {
+    font-weight: normal;
+    border-radius: 0;
+    border: none;
+    width: .7em;
+    margin-right: 0;
+  }
+  .zoomer-number-of-steps {
+    font-weight: normal;
+    margin-left: 0;
+    font-size: 1em;
+  }
+}
+
+ul.progressbar {
+  border-bottom: 1px solid #dcdcdc;
+}
+
+ul.progressbar > li {
+  a {
+    color: $brand-primary;
+  }
+  &:before {
+    border: none;
+  }
+	&.nav-active a.dropdown-toggle
+  {
+    color: $brand-primary;
+		border-bottom: 5px solid $brand-secondary;
+	}
+  .dropdown-toggle:after {
+    font-family: FontAwesome;
+    content: '';
+    margin-left: 0;
+  }
+}

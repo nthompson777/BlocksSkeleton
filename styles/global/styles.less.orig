@@ -1,0 +1,4079 @@
+﻿/*********************************
+Global PIETech MGP CSS/LESS Styles
+Updated: 07.11.16.1243
+*********************************/
+/// <reference path="global.less" />
+
+//  Global & Scaffolding Styles
+// -----------------------------------
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: @bg-light; 
+  font-size: 14px;
+  margin:0;
+}
+
+body > .bootstrap-wrapper + .container {
+  padding-top: 20px;
+}
+
+#maincontent {
+ padding-bottom: 50px;  //pad content so footer is spaced correctly
+}
+
+select optgroup {
+  font-weight: bold;
+
+  & > option {
+    font-weight: normal;
+  }
+}
+
+section {
+  padding: 0 0 30px;
+
+  > .row {
+    h1, h2 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  section:last-child {
+    padding: 0;
+  }
+
+  + hr {
+    margin-top: 10px;
+  }
+}
+
+.container {
+
+  > h1 {
+    margin-top: 0;
+  }
+}
+
+a {
+  -webkit-transition: color 0.7s ease-in-out;
+  -moz-transition: color 0.7s ease-in-out;
+  -o-transition: color 0.7s ease-in-out;
+  transition: color 0.7s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.highlighted-result {
+  padding: 3px 7px;
+  margin: 0 5px;
+  background: @state-info-bg; /*@brand-primary-light;*/
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: bold;
+  color: @gray-light;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.description { // Styled descriptive text with readability presentation
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+// "Last Updated" Date display style
+.last-updated {
+  margin: 5px 0 20px;
+  float: right;
+
+  .date {
+    font-weight: bold;
+    margin-left: 5px;
+    // color: @brand-primary;
+    &:after {
+      font-family: 'FontAwesome';
+      content: '\f274';
+      margin-left: 8px;
+    }
+  }
+}
+
+.center-block {
+  float: none;
+}
+
+
+// Centered Columns Styles --  NOTE: use sparingly in rare instances since our application is not a centered block style app!!!
+.row-centered {
+  text-align: center;
+}
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px;
+}
+
+
+// Bootstrap has invisible class (visibility: hidden;), but no visible class (visibility: visible;)
+.visible {
+  visibility: visible;
+}
+
+
+//Improvements for ViewOnly Mode - particularly for selects and input radio
+input[readonly],
+input[disabled],
+input.disabled,
+.form-control[readonly],
+.form-control[disabled],
+.form-control.disabled {
+  pointer-events: none;
+  background-color: #eee;
+}
+
+
+// Sec 508 Accessibility Styles
+// -----------------------------------------------
+
+// Custom default :focus styles that work with "What-Input"
+// Mouse Navigation Style
+/* [data-whatinput='mouse'] :focus {
+  border: none;
+} */
+
+//Hide all desc tags used in HighCharts from Screen Readers
+desc {
+  display: none;
+}
+
+// Keyboard Navigation Style
+[data-whatinput='keyboard'] :focus {
+  .accessibility-focus();  // Accessibility Mixin
+  border: dotted 1px lighten(@brand-primary, 7%);
+}
+
+// Touch Navigation Style
+[data-whatinput='touch'] :focus {
+  .accessibility-focus();  // Accessibility Mixin
+}
+
+//Added for fieldsets/legends b/c Yes No Toggles and radios and risk tol questions
+legend {
+  color: @text-color;
+  font-size: 1em; 
+  border-bottom: none;
+  margin-bottom: 0;
+
+  &.control-label { 
+    font-weight: bold;
+  }
+  &.question-label { 
+    display: inline;
+  }
+}
+
+//Default color doesn't pass 508 color contrast test
+.help-block {
+  color: @text-color;
+}
+
+/*Recommended in Bootstrap 3 Docs - http://getbootstrap.com/getting-started/#accessibility*/
+#maincontent:focus, 
+#zoomer-body:focus { 
+  outline: none!important; 
+}
+
+// Global CTA (Call to Action) Icons
+// -----------------------------------
+.add-item:after {
+  .fa-icon-standard('\f055'; @link-color);
+  .fa-lg();
+}
+
+.edit-item:after {
+  .fa-icon-standard('\f044'; @link-color);
+  .fa-lg();
+}
+
+.delete-item:after {
+  .fa-icon-standard('\f00d'; @brand-danger);
+  .fa-lg();
+}
+
+.save-item:after {
+  .fa-icon-standard('\f0c7'; @link-color);
+  .fa-lg();
+}
+
+.copy-plan:after {
+  .fa-icon-standard('\f0c5'; @link-color);
+  .fa-lg();
+}
+
+.fixed-width:after {
+  width: 0.92em;
+  text-align: center;
+}
+
+// Global Stars
+// -----------------------------------
+.starfull:before {
+  .fa-icon-standard('\f005'; @star-color; 0 .1em 0 .1em; default);
+  .fa-lg();
+}
+.starhalf:before {
+  .fa-icon-standard('\f123'; @star-color; 0 .1em 0 .1em; default);
+  .fa-lg();
+}
+.starempty:before {
+  .fa-icon-standard('\f006'; @star-color; 0 .1em 0 .1em; default);
+  .fa-lg();
+}
+
+
+// Type
+// ------------------------------------
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  margin-top: ceil((@line-height-computed / 2)); // orig 1.34
+  margin-bottom: floor((@line-height-computed / 1));
+}
+
+h1, .h1 {
+  color: inherit; // keep the h1's the same font-color as our body text
+}
+
+h2, .h2,
+h3, .h3 {
+  color: @brand-primary; // Differentiate the h2 & h3 font-colors for sectioning and ease of readability
+}
+
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+  color: inherit; // keep these headers the same font-color as our body text
+}
+
+h5 {
+  font-weight: bold;
+}
+
+@font-size-h1: floor((@font-size-base * 2.4)); // ~33px
+@font-size-h2: floor((@font-size-base * 2.0)); // ~28px
+@font-size-h3: ceil((@font-size-base * 1.6)); // ~23px
+@font-size-h4: ceil((@font-size-base * 1.25)); // ~18px
+@font-size-h5: @font-size-base; // ~14px
+@font-size-h6: ceil((@font-size-base * 0.85)); // ~12px
+
+p {
+  margin: 0 0 ceil((@line-height-computed / 1.34));
+}
+
+
+//Use for cases with the table or panel heading color isn't web accessible b/c of low contrast 
+//with links or explain icons in the heading (i.e. link/icon and heading background color both dark)
+th .help-modal:after,
+.panel-heading .help-modal:after,
+.header-link {
+  color: @link-color-heading-action;
+}
+
+.header-link,
+.header-link:hover {
+  text-decoration: underline;
+}	
+
+
+// Footer Styles
+// -----------------------------------
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  background: @footer-bg;
+  color: @footer-text-color;
+  font-size: 0.95em;
+  text-align: center;
+  //padding: 10px 0;  // DO NOT PUT PADDING/MARGIN ON FOOTER since it will overlap body content, instead put padding/margin on the ELEMENTS WITHIN the footer 
+
+  p.copyright-text,
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    /*display: table-cell;*/
+    max-width: 1140px;
+    vertical-align: middle;
+    color: @footer-text-color;
+    font-size: 0.95em;
+    margin: 8px auto;
+  }
+
+  p.copyright-text {
+    padding: 20px 0;
+  }
+
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    padding: 5px 0;
+
+    + p.copyright-text {
+      padding: 5px 0;
+    }
+  }
+
+  a {
+    color: @footer-text-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: @footer-text-color;
+    }
+  }
+}
+
+
+// Nav Styles
+// -----------------------------------
+.navbar {
+  min-height: 60px;
+  height: auto;
+}
+
+.navbar-default {
+  z-index: 1001; /*set this to prevent ui dialog for being overlayed*/
+  background: #fff;
+  border-bottom: solid 1px #efefef;
+  box-shadow: 0 25px 20px -29px rgba(0,0,0,0.35);
+
+  .navbar-nav .open .dropdown-menu > li > a {
+    color: @link-color;
+
+    &:focus, &:hover {
+      color: @link-hover-color;
+      text-decoration: underline;
+    }
+  }
+
+  /*&.navbar-fixed-top {   // Removed this 08.03.16 since we don't have a fixed nav anymore (only on XS viewports)
+    position: absolute;
+  }*/
+}
+
+.navbar-collapse.collapse {
+  padding-bottom: 5px;
+}
+
+.navbar-nav {
+  margin-top: 0;
+  float: right;
+  /*&.navbar-right {
+    margin-right: 0;
+  }*/
+}
+
+#navbar .nav > li:last-child > a {
+  padding-right: 0;
+}
+
+
+// Presentation Mode
+//------------------------------------
+[data-present-fixed-nav="true"] { 
+  position: fixed; 
+  background-color: fade(#FFFFFF, 90%);
+  z-index: 1002; 
+  top: 0;
+  border-bottom: 1px solid #efefef;
+  box-shadow: 0 25px 20px -29px rgba(0,0,0,.35);
+  padding-top: 20px;
+}
+
+[data-present-fixed-nav="false"] { 
+  position: static; 
+  background-color: transparent; 
+  opacity: 1; 
+  z-index: auto; 
+  width: auto;
+  top: auto;
+  border-bottom: none;
+  box-shadow: none;
+  padding-top: 0;
+}
+
+#presentation-view {
+  padding: 9px 15px;
+}
+
+.no-present,
+.present {
+  position: absolute;
+  float: right;
+  top: -105px;
+  right: -94px;
+  z-index: 1003;
+  font-size: 1.3em;
+  width: 45px;
+  color: @font-color-for-darkBG;
+  background-color: @brand-secondary;
+  padding: 4px 2px 7px;
+  text-align: center;
+  border-radius: 0 0 6px 6px;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+  /* &:before {
+    font-family: FontAwesome;
+    content: '\f139';
+  }
+
+  &:after {
+    font-family: @font-family-sans-serif;
+    margin-left: 5px;
+  } */
+  &:hover, &:active, &:focus {
+    background-color: lighten(@brand-secondary, 15%) !important;
+    color: @font-color-for-darkBG;
+    text-decoration: none;
+  }
+}
+
+.present {
+  top: 0;
+  background-color: lighten(@brand-primary, 12%) !important;
+  -webkit-transition: all .5s ease-in;
+  -moz-transition: all .5s ease-in;
+  -o-transition: all .5s ease-in;
+  transition: all .5s ease-in;
+
+  &.init-present {
+    .notransition();
+  }
+
+  &:before {
+    font-family: FontAwesome;
+    content: '\f13a';
+  }
+
+  &:after {
+    font-family: @font-family-sans-serif;
+    margin-left: 5px;
+  }
+
+  &:hover, &:active, &:focus {
+    color: @font-color-for-darkBG;
+    text-decoration: none;
+  }
+}
+
+#mgp-toolbar {
+  opacity: 1;
+  -o-transition: opacity .8s ease-in-out;
+  -moz-transition: opacity .8s ease-in-out;
+  -webkit-transition: opacity .8s ease-in-out;
+  transition: opacity .8s ease-in-out;
+  &.no-toolbar {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    -o-transition: all .5s ease-out;
+    -moz-transition: all .5s ease-out;
+    -webkit-transition: all .5s ease-out;
+    transition: all .5s ease-out;
+    // display: none;
+  }
+}
+
+
+
+// Breadcrumbs directly below Main Nav
+//------------------------------------
+#breadcrumbs {
+  background-color: @breadcrumb-bg;
+  font-size: 0.95em;
+  // offset top margin so breadcrumb bar is directly under navbar. Setting a negative top margin retains proper spacing under navbar for instances where the breadcrumb bar is not used
+  /*margin-top: -53px;*/ // was -45px
+  margin-bottom: 0; // 30px  No more whitespace per the CEO and CTO
+  .breadcrumb {
+    padding: 10px 0 0;
+    /*background-color: transparent;*/
+    margin-bottom: 10px;
+
+    li.pull-right:last-child {
+      //font-family: @breadcumb-client-font;
+      font-size: 1.15em;
+    }
+
+    li.pull-right:last-child:before {
+      content: '\e60c';
+      font-family: font-mgp;
+      margin-right: 1px;
+      float: left;
+      color: inherit;
+    }
+    // Mike please double check this stuff below - merging this removed some of the styles
+    // above and changed some of the look and feel of the breadcrumbs unless that's how
+    // you or Tony discussed it?
+    li.crumb-right {
+      float: right;
+      font-size: 1.05em;
+
+      &:last-child:before {
+        content: '\e60c';
+        font-family: font-mgp;
+        margin-right: 1px;
+        color: inherit;
+      }
+    }
+
+
+    > li + li.crumb-right:before {
+      content: none;
+    }
+
+    > li.crumb-right + li.crumb-right:after {
+      content: '|';
+      padding: 0 8px;
+    }
+
+
+    li {
+      color: @breadcrumb-color;
+
+      &.active {
+        color: @breadcrumb-active-color;
+      }
+    }
+
+    a {
+      color: @breadcrumb-link-color;
+    }
+  }
+}
+
+
+// Mega Menu Styles
+// http://jsfiddle.net/apougher/ydcMQ/
+//------------------------------------
+.menu-large {
+  position: static !important;
+}
+
+.megamenu {
+  padding: 10px 5px;
+  /*width: 100%;*/
+  max-width: @screen-xs-max;
+}
+
+.megamenu > li > .super-solve-button {
+  .super-solve-button;
+}
+
+.megamenu > li > ul {
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+
+.megamenu > li > ul > li {
+  list-style: none;
+}
+
+.megamenu > li > ul > li > a {
+  display: inline-block;
+  padding: 3px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.428571429;
+  white-space: normal;
+}
+
+.megamenu > li ul > li > a:hover,
+.megamenu > li ul > li > a:focus {
+  background-color: @gray-lighter;
+}
+
+.megamenu .dropdown-header,
+.megamenu .dropdown-header:hover {
+  font-size: 1.1em;
+  white-space: normal;
+  padding: 3px;
+}
+
+.navbar-right .dropdown-menu {
+  max-height: 500px;
+  overflow-y: auto;
+  right: auto;
+}
+
+/*Center Explore button under meter*/
+.meter-results-section {
+  display: inline-block;
+  text-align: center;
+
+  .details-menu {
+    position: relative !important;
+    width: auto;
+
+    .dropdown-menu {
+      top: auto;
+      min-width: 260px;
+
+      &.megamenu {
+        max-height: 250px;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .btn-cont-alt {
+    margin-top: 0;
+
+    .btn {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+
+    .dropdown-menu {
+      top: 22px;
+    }
+  }
+}
+
+// Results Menu
+#results-details-nav {
+  .dropdown-menu {
+    max-height: 340px;
+    left: 14px;
+  }
+}
+
+
+// MGP Button & Button Container Styles
+// -----------------------------------
+// Use "btn-cont" class as a button container for right aligned buttons (i.e.- "Back, Next, Done, etc.) so positioning is consistent globally
+.btn-cont {
+  .clearfix(); /*clear: both;*/
+  float: right;
+  margin: 20px 0 30px;
+
+  &.narrow {
+    margin: 0;
+  }
+
+  .btn {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -20px;
+  }
+}
+
+
+// Remove the outline onClick of button links
+.btn-link {
+  &:active,
+  &:focus,
+  &:hover,
+  &:active:focus {
+    outline: none;
+    color: @link-hover-color;
+  }
+}
+
+
+// Alternate LEFT aligned button container - for uses besides main form/application control (see .btn-cont above)
+.btn-cont-alt {
+  .clearfix(); /*clear: both;*/
+  margin: 20px 0 0;
+  display: block;
+
+  .btn {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    float: left;
+  }
+  // Fix for Investment Assets "OR" text between buttons
+  .non-btn-content {
+    margin-right: 30px;
+    margin-top: 5px;
+    float: left;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -30px;
+    float: left;
+  }
+}
+
+.btn {
+  -webkit-transition: background-color 1s ease-in-out;
+  -moz-transition: background-color 1s ease-in-out;
+  -o-transition: background-color 1s ease-in-out;
+  transition: background-color 1s ease-in-out;
+}
+
+//For "click Next to skip" text on Loss Tolerance, Bear Market Reaction, etc.
+.btn-forward-text {
+  /*color: @btn-positive-action-bg;*/
+  font-weight: bold;
+}
+
+.btn-primary {
+  .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+}
+
+.btn-secondary, .super-solve-button {
+  .button-variant(@btn-secondary-color; @btn-secondary-bg; @btn-secondary-border);
+}
+
+.btn-tertiary {
+  .button-variant(@btn-tertiary-color; @btn-tertiary-bg; @btn-tertiary-border);
+}
+
+.btn-forward, .btn-done {
+  .button-variant(@btn-positive-action-color; @btn-positive-action-bg; @btn-positive-action-border);
+}
+
+.btn-back, .btn-cancel, .btn-close {
+  .button-variant(@btn-negative-action-color; @btn-negative-action-bg; @btn-negative-action-border);
+}
+
+.btn-light {
+  .button-variant(@btn-light-color; @btn-light-bg; @btn-light-border);
+}
+
+/*.btn-yodlee {
+  .button-variant(@btn-yodlee-color; @btn-yodlee-bg; @btn-yodlee-border);
+}*/
+
+// Bootbox Plugin for Modal Style Overrides
+.bootbox {
+  .btn-primary {
+    .button-variant(@btn-positive-action-color; @btn-positive-action-bg; @btn-positive-action-border);
+  }
+
+  // Reverse order of buttons on confirm modal - give button you want to be on the right (usually Cancel/No)- className: 'btn-default reverse-order' 
+  .reverse-order {
+    float: right;
+    margin-left: 10px;
+  }
+
+  .yes-no-toggle .btn-primary {
+    &:active,
+    &:focus,
+    &:hover {
+      .button-variant(@btn-primary-color; @btn-primary-bg; @btn-primary-border);
+    }
+  }
+}
+
+.super-solve-button:after {
+  font-family: font-mgp;
+  content: "\e900";
+  margin: 0 .3em 0 .3em;
+  /* display: inline-block;
+  font-size: 1.2em;
+  margin: -5px 0;  // May need to remove this hacky approach - NT */
+}
+
+
+// Main Logo Styles
+// -----------------------------------
+.mainlogo {
+  float: left;
+  max-width: 570px; //set max-width so logo stays in correct proportions
+  height: 60px;
+  position: relative;
+
+  img {
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 570px;
+    max-height: 60px;
+  }
+}
+
+
+// Form Styles (general)
+// -----------------------------------
+// Remove/hide webkit input spinners/arrows on input type="number"
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+// Required form fields places an asterisk on the form element
+/*.required:after {
+  color: @gray-light;
+  content: " *";
+  font-size: 1em;
+}*/
+
+.input-group-addon {
+  min-width: 40px;
+  background-color: @gray-lighter;
+}
+
+.input-group:not(td, th) {
+  margin-bottom: 15px;
+}
+
+.form-horizontal {
+
+  .input-group {
+    margin-bottom: 0;
+  }
+
+  .form-group {
+    clear: both;
+  }
+
+  .control-label label {
+    display: inline;
+  }
+}
+
+.form-inline {
+  .form-group .input-group {
+    margin-bottom: 0;
+  }
+}
+
+.row-eq-height {
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+// Hide Co-client labels unless <= Small Viewport (see media query below)
+.hideCoClientLabels:nth-child(2) {
+
+  .spacer-col,
+  label:not(.radio-inline) {
+    display: none;
+  }
+  .spacer-col,
+  legend {
+     position: absolute; 
+     overflow: hidden; 
+     clip: rect(0 0 0 0); 
+  }
+
+}
+
+// Used for form fields that display a total (highlighted in green by default)
+.input-total {
+  font-weight: bold;
+  //institutions not liking this so instead bolded totals
+  //.form-control-validation(@state-success-text; @state-success-text; @state-success-bg);
+}
+
+
+// Form Validation Styles
+//------------------------------------
+.has-error.input-total {
+  .form-control-validation(@alert-danger-text; @alert-danger-text; @alert-danger-bg);
+}
+
+.has-error .input-total .input-group-addon {
+  color: @alert-danger-text;
+  background-color: @alert-danger-bg;
+  border-color: @alert-danger-text;
+}
+
+.has-error .input-total .form-control {
+  border-color: @alert-danger-text;
+}
+
+.table > tfoot > tr.totals > td.has-error {
+  color: @alert-danger-text;
+  background-color: @alert-danger-bg;
+}
+
+.has-error .required:after,
+.has-error label,
+.has-error .input-total .help-error-info {
+  color: @alert-danger-text;
+}
+
+.has-error input[type=radio],
+.has-error .yes-no-toggle {
+  outline: 1px solid @alert-danger-text;
+  margin-right: .5em; //leave space so error text isn't touching
+}
+
+.has-error .input-valid {
+  outline: none;
+  border-color: @input-border;
+}
+
+.has-error .input-valid:focus {
+  border-color: @input-border-focus;
+  outline: none;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @input-border-focus; //rgba(102, 175, 233, 0.6);
+}
+
+.has-error .input-valid .input-group-addon {
+  color: @gray;
+  border-color: @input-border;
+  background-color: @gray-lighter;
+}
+
+.has-warning .input-group-addon {
+  color: @brand-warning;
+  border-color: @brand-warning;
+  background-color: @alert-warning-bg;
+}
+
+.has-warning .form-control,
+.has-warning .form-control:focus {
+  border-color: @brand-warning;
+}
+
+/*Hide help-error-info when valid prevent jumping and spacing issue on submit*/
+.help-error-info.valid {
+  display: none;
+}
+
+/*We use .help-block for text like "today's dollars, after-tax" and .help-error-info for validation error msgs */
+.help-error-info {
+  .help-block;
+  color: @alert-danger-text;
+}
+
+.has-error .help-block {
+  color: @text-color; /*lighten(@text-color, 25%); <- doesn't pass 508 color contrast test */
+}
+
+
+// Dropdown Menu Styles
+//------------------------------------
+// Multi-select dropdown styling
+.btn-multiselect { // same as .form-control
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border: 1px solid @input-border;
+  border-radius: 0 3px 3px 0;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+  }
+
+  .btn-group .caret {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+  }
+}
+
+.multiselect-container {
+
+  &.dropdown-menu > .active > a {
+    background-color: @input-bg;
+    color: @input-color;
+  }
+}
+
+ul.multiselect-container.dropdown-menu {
+  overflow: hidden;
+  overflow-y: auto;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  max-height: 200px;
+  padding: 10px;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  min-width: 175px;
+  overflow-x: auto;
+  // min-width: 200px;
+  z-index: 1005; //fixes overlap of datatables
+  > li {
+    > a:hover > label {
+      cursor: pointer;
+    }
+
+    > a {
+      color: @link-color;
+    }
+
+    > ul {
+      list-style: none;
+    }
+    /* &:hover {
+		background-color: @gray-lighter;
+	} */
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  /*a.super-solve-button:hover {
+    background-color:@btn-secondary-bg;
+  }*/
+}
+
+a.dropdown-toggle {
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+// Dropdown Accordion Menu
+.dropdown-accordion.full-width .dropdown-menu {
+  width: 100%;
+
+  .panel, .panel-heading, .panel-group {
+    max-width: 100%;
+  }
+}
+
+.accordion-menu.accordion-menu-xl {
+  #resources-menu .panel-group {
+    max-width: 400px;
+  }
+}
+
+.dropdown-accordion.accordion-menu .dropdown-menu {
+  padding: 0;
+
+  .panel, .panel-heading, .panel-group {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: none !important;
+  }
+
+  .panel-heading > [aria-expanded="true"] {
+    border-bottom: 1px solid #FFF;
+  }
+
+  .panel-heading a, .panel-body a, .panel > a {
+    display: block;
+    position: relative;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: normal;
+    outline: none;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+    margin-top: -1px;
+    background: #F9F9F9;
+    .transition(~"background .25s ease-in-out, color .25s ease-in-out");
+
+    &:hover {
+      text-decoration: none;
+      background: #EFEFEF;
+    }
+
+    &:focus {
+      text-decoration: none;
+    }
+
+    span, &:after {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    &:after {
+      width: 20px;
+      text-align: center;
+    }
+
+    span {
+      width: calc(~"100% - 28px");
+    }
+  }
+
+  .panel-body {
+    padding: 0 !important;
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    .cat-name {
+      display: block;
+      width: 100%;
+      padding: 5px 10px;
+      font-size: .95em;
+      background: @gray-lighter;
+      color: @text-color;
+    }
+
+    a {
+      background: #FFF;
+      font-size: .95em;
+      padding-left: 20px;
+
+      &:hover {
+        background: @gray-lightest;
+      }
+
+      &.active-sub {
+        background: lighten(@brand-secondary, 15%);
+        color: #FFF;
+      }
+    }
+
+    & > a {
+      &:first-child {
+        border-top: none;
+        .box-shadow(inset 0 10px 7px -11px rgba(0,0,0,.35));
+      }
+
+      &:last-child {
+        position: relative;
+        z-index: 5;
+        border-bottom-color: #FFF;
+        .box-shadow(inset 0 -10px 7px -11px rgba(0,0,0,.35));
+      }
+
+      &:first-child:last-child {
+        .box-shadow(~"inset 0 10px 7px -11px rgba(0,0,0,.35),inset 0 -10px 7px -11px rgba(0,0,0,.35)");
+      }
+    }
+
+    & > p {
+      padding: 0;
+    }
+
+    & > ul:first-child {
+      & > li .cat-name {
+        .box-shadow(inset 0 10px 7px -11px rgba(0,0,0,.35));
+      }
+    }
+
+    & > ul:last-child {
+      & > li > ul li:last-child a {
+        position: relative;
+        z-index: 5;
+        border-bottom-color: #FFF;
+        margin-bottom: -1px;
+        .box-shadow(inset 0 -10px 7px -11px rgba(0,0,0,.35));
+      }
+    }
+  }
+
+  .panel:last-child .panel-body {
+    & > a:last-child {
+      .box-shadow(~"none !important");
+    }
+  }
+  //Needed for double level menus, i.e. Insurance Policies
+  ul > li > ul a:after {
+    content: "";
+  }
+}
+
+
+// Form Progress Bar (App progression - De-balled/Neutered Style)
+//------------------------------------
+ul.progressbar {
+  margin: 0 auto 18px -35px; //knock 10px off per Tony 5.19.2016
+  display: block;
+  min-height: 50px;
+  z-index: 2;
+  overflow: visible;
+
+  .social-security-navigation & {
+    margin-bottom: 30px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .active {
+
+    a {
+      color: @brand-secondary;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .dropdown-toggle:after {
+    font-family: FontAwesome;
+    content: '\f0d7';
+    margin-left: 5px;
+  }
+
+  .dropdown-menu {
+    margin-top: 20px;
+    left: 40%;
+
+    > li {
+
+      a.active-page {
+        background: @brand-secondary!important;
+        color: @font-color-for-darkBG;
+      }
+
+      &.active-sub,
+      > a.active-sub {
+        background: @brand-secondary;
+        color: @font-color-for-darkBG;
+      }
+
+      > a {
+        padding: 5px;
+        color: @brand-primary;
+      }
+    }
+  }
+
+  .caret {
+    position: relative;
+    top: 46px;
+    z-index: 110;
+  }
+
+  > li {
+    list-style-type: none;
+    color: #ccc;
+    font-size: 1em;
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 25%;
+
+    > a,
+    a.dropdown-toggle {
+      position: relative;
+      top: 22px;
+      // padding-top: 40px;
+      z-index: 110; // Keep this z-index higher so the circle step is clickable and "part of" the anchor
+      font-size: 1.2em;
+    }
+    // Progressbar connectors
+    &:before {
+      content: '';
+      width: 53%;
+      position: absolute;
+      left: -25%;
+      border: solid 2px @gray-lighter;
+      top: 33px;
+      z-index: 1;
+    }
+    // Connector not needed before the first step:
+    &:first-child:before {
+      content: none;
+      margin-left: -30px;
+    }
+
+    &.active:after {
+      background: @brand-secondary;
+      color: #fff;
+      border: 0;
+    }
+    .circle-text {
+      font-family: @font-family-sans-serif;
+      font-size: .9em;
+      margin:-1px 0 0 1px;
+    }
+  }
+}
+
+
+// Tooltip Styles
+// -----------------------------------
+.tooltip-inner {
+  font-size: @tooltip-font-size;
+  padding: @tooltip-padding;
+  border-radius: @tooltip-border-radius;
+  box-shadow: @tooltip-shadow;
+  text-align: left;
+}
+
+.warning-tooltip:after {
+  .fa-icon-standard('\f071'; @brand-warning);
+}
+
+.warning-tooltip,
+.help-tooltip,
+.slider-tooltip {
+  cursor: pointer;
+}
+
+.close.tooltip-close {
+  top: -15px;
+  right: -10px;
+  position: relative;
+  color: @gray-light;
+  opacity: @tooltip-opacity;
+}
+
+
+// Goal Cards
+// -----------------------------------
+.goal-summary-table {
+  
+  .highlight {
+    //border: dashed 3px @gray-light;
+    width: 96%;
+    display: block;
+    height: 75px;
+    padding: 30px 0;
+    // margin: 10px 0; // DO NOT USE MARGINS ON THE PLACEHOLDER!! Having a margin on the placeholder creates a bug on jQuery UI droppable!!! 
+    font-size: 1em;
+    color: #ccc;
+    text-align: center;
+    outline: 6px dashed #eee;
+    box-shadow: 0 0 0 6px #fff;
+  }
+
+  .highlight:after {
+    margin-top: 40px;
+    content: 'Goal Will Be Placed Here';
+  }
+
+  .ui-droppable .ui-draggable {
+    //max-width: 80px;  // having a max-width on this element creates a width float bug when dragging from one col to another 
+    max-height: 125px;
+  }
+
+  .goal-card {
+    height: 85px;
+    width: 85px;
+    max-height: 85px;
+    max-width: 85px; 
+    padding: 3px;
+  }
+
+  .goal-details {
+    margin-left: -20px;
+  }
+
+  /*.delete-goal {
+    margin-right: -15px;
+    float: right;
+  }*/
+
+  .ui-sortable-helper {
+    opacity: .8;
+  }
+
+  section {
+    padding-bottom: 0;
+  }
+
+  .importance-header h3 {
+    margin-bottom: 7px;  
+  }
+
+  hr {
+    margin: 10px 0 15px;
+  }
+
+  .goal-container {
+    // padding-bottom: 5px;
+    font-size: .9em;
+    margin: 15px 0;
+  }
+
+  .panel-title {
+    margin-bottom: -5px;
+
+    a {
+    font-size: .8em;
+    text-decoration: underline;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    top: -4px;
+
+      &:after {
+        content: '';
+        margin-left: 0;
+      }
+    }
+  }
+  
+  .hover-highlight {
+    padding: 5px 0;
+    border-right: solid 1px #eee;
+    margin-bottom: 7px;
+    // width: 105%;   
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.65);
+      cursor: pointer;
+      padding: 5px 0 8px;
+    }
+
+    &:hover:after {
+      content: "Edit";
+      position: relative;
+      bottom: 19px;
+      left: 85%;  // 92%
+      color: @brand-primary;
+      margin-bottom: -20px;
+      cursor: pointer;
+    }
+  }
+
+  .wishes, .Wishes {
+   .hover-highlight {
+      border-right: none;  
+    }
+  }
+
+  // Compact View Styles Below !!!
+  &.compact-view {
+    position: relative;
+    //padding: 20px;
+    overflow: hidden;
+
+    button.scroll-panel {
+      left: 0;
+      right: 0;
+      bottom: -20px;
+      margin: 0 auto;
+      width: 50px;
+      height: 50px;
+      background: #ddd;
+      .button-scroll();
+    }
+
+    .goal-card {
+      height: 40px;
+      width: 40px;
+      max-width: 40px;
+      max-height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .droppable, 
+    .selected-droppable {
+      padding: 0;
+      margin-bottom: 0;
+    }
+
+    section {
+      padding-bottom: 0;
+    }
+
+    .importance-header h3 {
+      margin-bottom: 12px;  
+    }
+
+    .goal-container {
+      padding-bottom: 20px;
+      font-size: .9em;
+    }
+
+    hr {
+      margin-top: 5px;
+    }
+
+    .panel-body {
+      max-height: 350px;
+      //overflow: hidden;
+      overflow-y: auto;
+      // overflow-x: hidden;
+      //margin-bottom: 50px;
+    }
+  }  
+}
+
+// View Only Goal Masterpiece and Goal Summary Styles
+.view-only {
+
+  #goals-masterpiece&,
+  #goals-summary& {
+  
+    .hover-highlight {
+  
+      &:hover {
+        cursor: pointer;
+        padding: 30px 0 25px;
+      
+        &:before {
+          content: " ";
+          margin-top: -25px;
+        }
+
+        &:after {
+          content: " ";
+          margin-bottom: -20px;
+        }
+      }
+    }
+  }
+}
+
+// Goal Masterpiece and Summary ONLY Styles (aka - Goal Pictures and Data Entry Method)
+#goals-masterpiece,
+#goals-summary {
+
+  .panel-body h3 {
+    margin-bottom: 7px;
+  }
+
+  .available-draggable.ui-draggable-dragging > img {
+    width: 65px; /* normaflize draggable/cloned goal icon width */
+  }
+
+  .hover-highlight {
+  
+    &:hover {
+      cursor: move;
+      padding: 7px 0 8px;
+    }
+
+    &:hover:before {
+      content: "\f07d";
+      font-family: 'FontAwesome';
+      position: relative;
+      top: 55px;
+      left: 4px;
+      font-size: 1.3em;
+      color: @gray-light;
+      margin-top: -25px;
+      cursor: move;
+    }
+  }
+}
+
+#goals-summary .scroll-panel {
+  display: none;
+}
+
+#available-goals {
+  margin: 10px 0 20px;
+
+  .goal-cell {
+    min-height: 100px;
+    float: left;
+    width: 135px;
+
+    &:nth-of-type(1) {
+      margin-left: 40px;
+    }
+
+    &:nth-of-type(9) {
+      margin-left: 100px;
+    }
+  }
+
+  .goal-card {
+    height: 65px;
+  }
+
+  .available-draggable.ui-draggable {
+    position: absolute; // Keep positioning of "absolute" so the icon follows the cursor when scrolling to a Goal List section past the viewport
+    min-width: 80px;
+    padding: 5px;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background-color: lighten(@brand-info, 35%);
+      border-radius: 4px;
+    }
+
+     /*{
+      background-color: lighten(@brand-info, 30%);;
+      /*-webkit-box-shadow: -4px 2px 10px 0 rgba(0,0,0,0.30);
+      box-shadow: -4px 2px 10px 0 rgba(0,0,0,0.30); 
+    }*/
+  }
+}
+
+.goal-container {
+  padding-bottom: 10px;
+  
+  .delete-item:after {
+    margin: 0 0.3em 0 0;
+  }
+
+  h4 {
+    margin: 0 0 10px;
+  }
+
+  .hover-highlight .delete-item:after {
+    margin: 0 -0.3em 0 0;
+  }
+}
+
+.goal-carousel {
+  margin-left: 30px;
+  margin-top: -15px;
+  height: 110px;
+  max-width: 85vw; /*Needed to constrain carousel to viewport in Lab experience on iPad (issue with iOS and iframes)*/
+}
+
+//SS Max Specific Styles
+// -----------------------------------
+.ssMax tr {
+  th:not(:first-child),
+  td:not(:first-child) {
+    text-align: center;
+  }
+}
+
+#table-datatable-soc-sec-max_wrapper tr {
+  td, th {
+    min-width: 80px;
+  }
+
+  td:first-child,
+  th:first-child {
+    min-width: 100px;
+  }
+}
+
+.ssMax-maincols {
+  min-width: 210px;
+}
+
+//SS Max Styles that can be applied globally
+// -----------------------------------
+//.table-responsive element on scroll-table needs this or animation causes vertical scroll
+.hide-vertical-scroll {
+  overflow-y: hidden;
+}
+
+.table-scroll-cell {
+  position: relative;
+  overflow: hidden;
+}
+
+button.scroll-table {
+  right: 10px;
+  bottom: -10px;
+  width: 40px;
+  height: 40px;
+  background: @brand-primary;
+  .button-scroll();
+}
+
+
+// General Charting Styles
+// -----------------------------------
+.chart-legend, .asset-class-legend {
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+
+// Accordions
+// -----------------------------------
+// Open/Close Toggle Icons for Accordions
+.toggle.collapsed:after,
+.dropdown-menu .panel-heading a.collapsed:after {
+  font-family: 'FontAwesome';
+  content: '\f054';
+  font-size: 0.75em;
+  margin-left: 2px;
+  display: inline-block;
+}
+
+.toggle.collapse.in {
+  display: inline-block;
+}
+
+// Fixes a Bootstrap bug where headers "jump" within collapsable panels once opened
+.collapse.in {
+  > h2, > h3, > h4 {
+    margin-top: 25px;
+  }
+}
+
+.panel-title a:after,
+.toggle:after,
+.dropdown-menu .panel-heading a:after {
+  font-family: 'FontAwesome';
+  content: '\f078';
+  font-size: 0.75em;
+  display: inline-block;
+  margin-left: 3px;
+}
+
+.moreless.toggle {
+  margin-left: 20px;
+  font-size: 12px; //uses static pixel value since headings change based off media queries
+  color: @link-color;
+
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f141';
+    font-size: 1.2em;
+    margin-left: .3em;
+    vertical-align: -50%;
+    display: inline-block;
+    overflow: hidden;
+  }
+}
+
+.moreless,
+.is-less {
+  font-size: .9em;
+
+  &:after {
+    font-family: 'FontAwesome';
+    content: '\f141';
+    font-size: 1.2em;
+    margin-left: .3em;
+    vertical-align: -50%;
+    display: inline-block;
+    overflow: hidden;
+  }
+}
+
+
+// Tutorial Styles
+//------------------------------------
+.tutorial_start {
+
+  a {
+    float: right;
+    margin-top: 30px;
+  }
+}
+
+
+// Yes/No Toggle Switch Styles - Changes per BOB on 1/12/2016 ...
+//------------------------------------
+.yes-no-toggle {
+  min-width: 77px;
+  // Slightly speeds up our standard button animation for the Yes/No toggle buttons
+  .btn-xs {
+    font-size: 1em;
+  }
+
+  .btn {
+    -webkit-transition: background-color 0.25s ease-in-out;
+    -moz-transition: background-color 0.25s ease-in-out;
+    -o-transition: background-color 0.25s ease-in-out;
+    transition: background-color 0.25s ease-in-out;
+  }
+
+  .btn + .btn {
+    margin-left: 0; // override bs default -1px for our Yes/No switches
+  }
+
+  .btn-default {
+    background: #fff;
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+    color: #666; /*#fff;*/
+    border-color: #ccc;
+  }
+
+  .btn-primary {
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+  }
+
+  .btn-default:hover {
+    background-color: #fff; /*@gray-lighter;*/
+  }
+
+  .btn-primary.active {
+    color: #fff;
+    background: @btn-primary-bg;
+    border-color: transparent; // @brand-primary;
+    box-shadow: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    .btn-primary.active {
+      opacity: 0.6;
+    }
+  }
+
+  .btn:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// Zoomer Action btn floated right - lose ability to click without this
+.btn-pull-right {
+  .clearfix();
+  float: right;
+  position: relative;
+  z-index: 999;
+}
+
+
+// Panel Styles
+//------------------------------------
+.panel-primary {
+  .panel-variant(@panel-primary-border; @panel-primary-text; @panel-primary-heading-bg; @panel-primary-border);
+}
+
+.panel-secondary {
+  .panel-variant(@panel-secondary-border; @panel-secondary-text; @panel-secondary-heading-bg; @panel-secondary-border);
+}
+
+.panel-tertiary {
+  .panel-variant(@panel-tertiary-border; @panel-tertiary-text; @panel-tertiary-heading-bg; @panel-tertiary-border);
+}
+
+/*.panel-default > .panel-heading {
+  color: inherit;
+}*/
+
+.panel-statement {
+  .panel-default;
+  box-shadow: 0 2px 5px 0 rgba(153, 153, 153, 0.35);
+}
+
+
+// Expandable/Collapsible Panel Styles
+.panel-title {
+
+  > a {
+    width: 100%;
+    display: block;
+
+    &.toggle:after {
+      float: right;
+      margin-top: 5px;
+    }
+  }
+}
+
+
+.panel {
+  // Button containers within panels
+  .btn-cont,
+  .btn-cont-alt {
+    margin: 20px 0 0;
+  }
+
+  p {
+    + .btn-cont,
+    + .btn-cont-alt {
+      margin: 0;
+    }
+  }
+
+  p:last-child, ul:last-child {
+    margin-bottom: 0;
+  }
+
+  &.helpful-tip {
+    .panel-title:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+
+// Tab Styles
+//------------------------------------
+.tab-content {
+  margin-top: 40px;
+
+  &.side-content {
+    margin-top: -10px;
+  }
+}
+
+.nav-tabs {
+  margin-top: 20px;
+
+  > .tabdrop > a {
+    border-color: @gray-lighter @gray-lighter #ddd;
+    background-color: @gray-lighter;
+  }
+}
+
+// "Tab Drop" dropdown triggers when tabs do not fit in viewport
+.nav-tabs,
+.nav-pills {
+  position: relative;
+}
+
+
+// Scroll To Top (function) Styles
+//------------------------------------
+.scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #bbb;
+  font-family: FontAwesome;
+  content: '\f05a';
+  font-size: 25px;
+  color: @font-color-for-darkBG;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+  z-index: 1004;
+
+  .fa {
+    margin: 12px 0 0 9px;
+  }
+
+  &:hover {
+    color: @font-color-for-darkBG;
+  }
+}
+
+
+// Progress Bar Styles
+//------------------------------------
+.progress-bar-secondary {
+  .progress-bar-variant(@progress-bar-secondary-bg);
+}
+
+.progress-bar-tertiary {
+  .progress-bar-variant(@progress-bar-tertiary-bg);
+}
+
+// To ensure that the label text remains legible even for zero or low percentages:
+.progress-bar {
+  min-width: 2em;
+}
+
+
+// Callout Styles
+//------------------------------------
+
+// Base Callout Style
+.callout {
+  padding: @callout-padding;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: @callout-border-left-width;
+  border-radius: @callout-border-radius;
+
+  + .callout {
+    margin-top: -5px;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &.helpful-tip {
+    h4:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+.callout-primary {
+  border-left-color: @brand-primary;
+
+  h4 {
+    color: @brand-primary;
+  }
+}
+
+.callout-secondary {
+  border-left-color: @brand-secondary;
+
+  h4 {
+    color: @brand-secondary;
+  }
+}
+
+.callout-tertiary {
+  border-left-color: @brand-tertiary;
+
+  h4 {
+    color: @brand-tertiary;
+  }
+}
+
+.callout-info {
+  border-left-color: @brand-info;
+
+  h4 {
+    color: @brand-info;
+  }
+}
+
+.callout-warning {
+  border-left-color: @brand-warning;
+
+  h4 {
+    color: @brand-warning;
+  }
+}
+
+.callout-danger {
+  border-left-color: @brand-danger;
+
+  h4 {
+    color: @brand-danger;
+  }
+}
+
+
+// Modal Styles
+//------------------------------------
+
+// TODO - REMOVE THIS STYLE AFTER table layouts are removed from the (old/legacy) Modal _layout view
+.modal-body table h4 {
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.notransition {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+}
+
+
+// Font-Awesome Overrides
+// -----------------------------------
+a:after,
+a:before {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.help-inline:after,
+.help-tooltip:after {
+  .fa-icon-standard('\f05a'; @link-color);
+}
+
+.help-modal:after {
+  .fa-icon-standard('\f059'; @link-color);
+}
+
+a.help-modal,
+a.help-tooltip {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+#navbar .help-modal:after {
+  content: none;
+}
+
+.icon-linked-account-problem:after {
+  .fa-icon-standard('\f024'; @brand-danger);
+}
+
+.info-warn-icon:after {
+  .fa-icon-standard('\f05a'; @brand-warning);
+}
+
+.warn-icon:after {
+  .fa-icon-standard('\f071'; @brand-warning);
+}
+
+i.port-current:after {
+  .fa-icon-standard('\f0c8'; @brand-primary);
+}
+
+i.port-risk-based:after {
+  .fa-icon-standard('\f04b'; @brand-tertiary);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
+  display: inline-block;
+}
+
+i.port-target:after {
+  .fa-icon-standard('\f111'; @brand-secondary);
+}
+
+i.port-risk-band:after {
+  .fa-icon-standard('\f04d'; lighten(@brand-info, 33%));
+}
+
+td.port-risk-band {
+  background: lighten(@brand-info, 33%);
+}
+
+
+// Info icon size globally standardized
+h1, h2, h3, h4, h5, h6, p {
+
+  .help-tooltip,
+  .help-modal {
+    font-size: 14px; // Using pixels here instead of em's to standardize the icon size due to various base font-sizes of header tags
+    > .fa {
+      vertical-align: text-bottom;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+a.fa:hover,
+a.fmgp {
+  text-decoration: none;
+}
+
+// use the "color" class to give a font-awesome or Font MGP icon the same color as our links without wrapping it in an anchor tag - useful for tooltips!
+.fa.color,
+.fmgp.color {
+  color: @link-color;
+}
+
+
+// Table Styles
+// -----------------------------------
+// Firefox fieldset bug for styling that involves width of responsive tables
+.table-responsive {
+  border: none;
+
+  @-moz-document url-prefix() {
+
+    fieldset {
+      display: table-cell;
+    }
+  }
+}
+
+// Table Mixin - MGP Default Table Style - Expanded size table
+.table-expanded,
+.table-default {
+  .table();
+  .table-bordered();
+  .table-striped();
+  .table-hover();
+}
+
+// Table Mixin - Compacted/Condensed Table - For tables with Large Amounts of data
+.table-condensed {
+  .table();
+  .table-condensed();
+  .table-bordered();
+  .table-striped();
+  .table-hover();
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+
+  th {
+    font-weight: bold;
+    border: 1px solid @table-border-color;
+    color: @table-heading-text-color;
+    background: @table-heading-bg-color;
+  }
+
+  > thead > tr > th {
+    border-bottom: none;
+  }
+
+  > tbody > tr > th {
+    color: @text-color;
+  }
+}
+
+// Fixed Floating Table Header
+.floatThead-container {
+  background: @table-fixed-heading-bg-color;  
+}
+
+table {
+
+  h3, .h3,
+  h4, .h4,
+  h5, .h5 {
+    margin: 2px 0 !important;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  .joined-header {
+    border-bottom: hidden !important;
+    text-align: center;
+  }
+
+  .delete-row-cue {
+    background-color: @gray-lighter;
+    opacity: 0.5;
+  }
+  // Set min-width of form fields within tables so fields can accomodate a minimum of 7 digits (millions) and so form fields don't collapse on smaller viewports
+  .form-control {
+    min-width: 120px; //120px smallest value without cropping mm/dd/yyyy inputs
+  }
+
+  tr {
+
+    &.primary,
+    &.secondary,
+    &.tertiary {
+
+      > th {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Mixins - Hightlight entire columns with "colgroups"
+// (example - see SS Maximization table)
+.colgroup-highlight(primary; @brand-primary);
+.colgroup-highlight(selected; @brand-primary);
+.colgroup-highlight(secondary; @brand-secondary);
+.colgroup-highlight(success; @state-success-bg);
+.colgroup-highlight(error; @state-danger-bg);
+.colgroup-highlight(warning; @state-warning-bg);
+.colgroup-highlight(info; @state-info-bg);
+
+// Mixins - Hightlight entire cell with border
+// (example - see Risk/Reward table)
+.td-highlight(outline-primary; @brand-primary);
+.td-highlight(outline-secondary; @brand-secondary);
+
+
+// Auto Counter Increments for Tables ( add <div class="numbered-col"></div> to the headers - i.e.- see new Soc Sec Max)
+table {
+  counter-reset: section;
+
+  .numbered-col {
+    counter-reset: subsection;
+    background: @state-info-bg;
+    text-align: center;
+    font-size: 0.8em;
+    color: @brand-primary;
+    margin: 0 0 15px; // -8px for flush at top
+  }
+
+  .numbered-col:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+  &.ssMax > thead > tr > th {
+    vertical-align: top;
+  }
+}
+
+tbody > tr:empty {
+  display: none;
+}
+
+// Table Row Variant Styles - uses "table-row-variant" mixin
+// use table row class "totals" for highlighted rows w/ totals
+.table-row-variant(totals; @gray-lighter); /*Insts were not liking this green*/
+.table-row-variant(primary; @brand-primary);
+.table-row-variant(secondary; @brand-secondary);
+.table-row-variant(tertiary; @brand-tertiary);
+
+.table > tbody > tr.totals > td,
+.table > tbody > tr.info > td {
+  font-weight: bold;
+}
+
+.highlight-col {
+  background-color: @state-info-bg; /*@brand-primary-light;*/
+}
+
+.hover-highlight {
+  padding: 5px 0;
+
+  &:hover {
+    background-color: @table-bg-hover;
+  }
+}
+
+
+
+//Make indents accessible to all elements
+.table > tbody > tr > td.indent-1,
+.indent-1 {
+  padding-left: 1em;
+}
+
+.table > tbody > tr > td.indent-2,
+.indent-2 {
+  padding-left: 2em;
+}
+
+.table > tbody > tr > td.indent-3,
+.indent-3 {
+  padding-left: 3em;
+}
+
+//Tab indents for complex tables
+//with nested rows
+.table {
+  tr.spacer {
+    background: none !important;
+    border: none;
+  }
+}
+
+
+// Off-canvas Menus for Options, Calculators, & Other Features: Base Style for ALL VIEWPORT SIZES!!
+//-------------------------------------
+.offcanvas-menu {
+  position: relative;
+  -webkit-transition: all .25s ease-in-out;
+  -o-transition: all .25s ease-in-out;
+  -moz-transition: all .25s ease-in-out;
+  transition: all .25s ease-in-out;
+}
+
+.offcanvas-left {
+  left: 0;
+
+  .offcanvas-default-menu {
+    display: none;
+    left: -30%;
+  }
+}
+
+.offcanvas-left.active-menu-item {
+  left: 30%;
+  margin-left: -15px;
+}
+
+.offcanvas-default-menu {
+  position: absolute;
+  top: 0;
+  width: 27%;
+
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.active-menu-item {
+
+  .offcanvas-default-menu {
+    display: block;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+// Labels/Tags
+// ------------------------------------
+.label {
+  border-radius: @label-border-radius;
+}
+
+.label-primary {
+  .label-variant(@label-primary-bg);
+}
+
+.label-secondary {
+  .label-variant(@label-secondary-bg);
+}
+
+.label-tertiary {
+  .label-variant(@label-tertiary-bg);
+}
+
+
+// Draggable Overrides
+// ------------------------------------
+.ui-draggable-dragging {
+  z-index: 10;
+}
+
+.draggable,
+.available-draggable {
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.8);
+  cursor: move;
+  display: inline-block;
+}
+
+.droppable, .selected-droppable {
+  min-height: 100px;
+  max-height: 100%;
+  width: 100%;
+  padding: 0 0 250px;  // was at 75px
+  margin-bottom: -250px;
+}
+
+
+// ion Range Slider overrides
+// ------------------------------------
+.irs-bar {
+  border-top-color: @slider-bar-bg; /*!important;*/
+  border-bottom-color: @slider-bar-bg; /*!important;*/
+  background: @slider-bar-bg; /*!important;*/
+  background: linear-gradient(to top, @slider-bar-bg 0, lighten(@slider-bar-bg, 25%) 100%); /*!important;*/
+}
+
+.irs-bar-edge {
+  border-color: @slider-bar-bg; /*!important;*/
+  background: @slider-bar-bg; /*!important;*/
+  background: linear-gradient(to top, @slider-bar-bg 0, lighten(@slider-bar-bg, 25%) 100%); /*!important;*/
+}
+
+.irs-slider {
+  z-index: 7; /*!important;*/ // TODO - REMOVE THE IMPORTANT ONCE WE MOVE THE ORDER OF THE GLOBAL STYLESHEET SO IT OVERRIDES THE IonRangeSlider base styles!
+}
+
+.irs-slider.type_last {
+  z-index: 8; /*!important;*/
+}
+
+.irs-from,
+.irs-to {
+  z-index: 6;
+  border: 1px solid #fff;
+  font-size: .9em;
+  cursor: pointer !important;
+  background-color: @brand-primary; /*!important;*/
+}
+
+.irs-single {
+  z-index: 6;
+  font-size: .9em;
+  cursor: pointer !important;
+  background-color: @brand-primary; /*!important;*/
+}
+
+.irs-grid {
+  z-index: 4;
+}
+
+//hide ticks between years on social security
+.soc-security .irs-grid-pol.small {
+  height: 0;
+}
+
+//Used for ion Range Slider custom slider handles on retirement age sliders
+.irs-from-label,
+.irs-to-label,
+.irs-single-label {
+  z-index: 5; //less than "real" irs-from, irs-to, irs-single labels so slider can be moved with label
+  color: #fff;
+  font-size: .9em;
+  /*line-height: 1.333;*/
+  text-shadow: none;
+  padding: 1px 5px;
+  background-color: @brand-primary; /*#428bca;*/
+  border-radius: 3px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.irs-from-label-sub, 
+.irs-to-label-sub, 
+.irs-single-label-sub {
+    position:absolute;
+    top:54px;
+    text-align:center;
+    font-size:.7em;
+    color:darken(@text-color, 20%)
+}
+
+.irs-from-label-sub,
+.irs-to-label-sub {
+  margin-left:25px;
+}
+
+.irs-single-label-sub {
+  margin-left:9px;
+
+  .double & {
+    margin-left:19px;
+  }
+}
+
+.custom-label-slider {
+  &.single .irs-single-label {
+    margin-left: -12px;
+  }
+
+  &.double .irs-single-label {
+    margin-left: 21px;
+  }
+  .irs-grid-text {
+    bottom:-2px;
+  }
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    color: transparent;
+    background-color: rgba(255,255,255,0.01);
+    border-color: transparent;
+  }
+  .irs-from,
+  .irs-to {
+    padding-right: 35px;
+  }
+}
+
+// ion Range Slider Addon features
+// ------------------------------------
+.slider-container {
+  position: relative;
+  margin: 15px 0 30px 0; // keep the right margin due to needing the offset for <= sm viewports when slider value pushes off the viewport -when slider is pushed to the max value
+}
+
+// Form fields that are paired/accompanied to be in alignment with our sliders
+.paired-slider {
+  margin-top: 35px;
+}
+
+.marker {
+  position: absolute;
+  z-index: 2;
+
+  &.above {
+    top: -50px;
+    color: @brand-secondary;
+
+    &.risk-profile {
+      z-index: 3;
+      top: -47px;
+      color: @brand-primary;
+    }
+  }
+
+  &.below {
+    top: -10px;
+    -webkit-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: @brand-tertiary;
+  }
+
+  :before {
+    font-family: FontAwesome;
+    content: "\f041";
+    font-size: 2em;
+  }
+}
+
+.tickmark {
+  position: absolute;
+  z-index: 8;
+  top: -33px;
+  color: #555;
+  font-size: .8em;
+}
+
+//Slick Carousel Overrides
+//for use with preventing flash of unstyled content (FOUC)
+.slick-initialized,
+.slick-slide:first-child {
+  display: block;
+}
+
+
+//jQuery Datatables Overrides
+// ------------------------------------
+//plan notes header width wrong unless you add this class
+.dataTable, .dataTables_scrollHeadInner {
+  width: 100%; /*!important;*/
+}
+
+table.dataTable thead .sorting:after,
+table.dataTable thead .sorting_asc:after,
+table.dataTable thead .sorting_desc:after {
+  top: auto;
+  bottom: 8px;
+}
+
+table.dataTable.table-condensed thead .sorting:after,
+table.dataTable.table-condensed thead .sorting_asc:after,
+table.dataTable.table-condensed thead .sorting_desc:after {
+  right: 3px;
+}
+
+table.dataTable tbody tr.highlight {
+  background-color: @state-info-bg !important; /*Datatable css has important for this so I had to add important to override*/
+}
+
+// dataTables_wrapper doesn't play well with bs responsive tables, so hide the scrollbar overflow-x ONLY for Responsive Tables on lg and md viewports
+.table-responsive .dataTables_wrapper {
+  overflow: hidden;
+}
+
+// Used to create scrollable datatables, Datatables sScrollY option causes header and body to misalign
+.scroll-datatable {
+  max-height: 300px;
+  overflow: auto;
+}
+
+.scroll-datatable table.dataTable {
+  margin-top: 0; /*!important;*/
+  margin-bottom: 0; /*!important;*/
+}
+
+/*jQuery Datatables Editor Overrides */
+div.DTE_Body div.DTE_Body_Content div.DTE_Field {
+  width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+
+  > label {
+    width: 0;
+  }
+
+  > div.DTE_Field_Input {
+    width: 100%;
+  }
+
+  &:hover {
+    background-color: #fff;
+    border-color: #fff;
+  }
+}
+
+div.DTED_Lightbox_Background,
+div.DTED_Envelope_Background,
+div.DTED_Envelope_ShadowLeft,
+div.DTED_Envelope_ShadowRight {
+  z-index: 1051;
+}
+
+div.DTED_Envelope_Wrapper,
+div.DTED_Lightbox_Wrapper {
+  z-index: 1052;
+}
+
+div.DTED_Lightbox_Close,
+div.DTED_Envelope_Close {
+  z-index: 1053;
+}
+
+div.DTE button.DTE_Button,
+div.DTE div.DTE_Form_Buttons button {
+  background: transparent;
+  background-color: @btn-primary-bg;
+  border-color: @btn-primary-border;
+  filter: none;
+
+  box-shadow: none;
+  text-shadow: none;
+
+  &:hover {
+    background: @btn-primary-border;
+    border-color: @btn-primary-border;
+    box-shadow: none;
+  }
+}
+
+div.DTED_Envelope_Wrapper div.DTED_Envelope_Container div.DTED_Envelope_Close {
+  position: relative;
+  top: -41px;
+  left: 10px;
+  width: 0;
+  height: 0;
+  border: none;
+}
+
+
+// My Plans Page
+// ----------------------------------
+#plansselection {
+  h3 {
+    margin-top: 0;
+  }
+}
+
+#otherfeatures {
+  .dialog-explain {
+    float: left;
+    position: relative;
+    top: 5px;
+    left: -40px;
+    width: 0; // Keep this at 0px due to floating issues
+  }
+}
+
+.addnewplans {
+  .list-group-item {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    .box-shadow(inset 0 0 0 1px #DDD);
+
+    &:first-child .fa {
+      border-radius: 4px 0 0 0;
+    }
+
+    &:last-child .fa {
+      border-radius: 0 0 0 4px;
+    }
+
+    .fa {
+      color: #FFF;
+      width: 3em;
+      height: 100%;
+      text-align: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      line-height: 3;
+      .box-shadow(inset 0 0 0 1px darken(@link-color, 10%));
+      #gradient > .vertical(@link-color, darken(@link-color, 5%));
+    }
+
+    &:hover .fa {
+      background: darken(@link-color, 5%);
+    }
+
+    .fa + span {
+      display: inline-block;
+      padding-left: 2.5em;
+    }
+
+    & + .dialog-explain {
+      position: absolute;
+      z-index: 5;
+      right: 1.25em;
+      margin-top: -2.05em;
+    }
+  }
+}
+
+.recommended-plan:after {
+  font-family: 'FontAwesome';
+  content: '\f005';
+  font-size: 1em;
+  color: @brand-secondary;
+  margin-left: 5px;
+}
+
+.client-portal-icon:before {
+  .fa-icon-standard('\f234'; @link-color);
+}
+
+.otherfeaturesitem {
+  width: 145px;
+  height: 105px;
+  padding-top: 58px;
+  border: 1px solid #ddd;
+  border-bottom: 6px solid lighten(@link-color, 15%); /*@brand-primary-light;*/
+  border-radius: 6px;
+  float: left;
+  margin: 0 15px 30px 0;
+  font-size: .9em;
+  text-align: center;
+  position: relative;
+  -webkit-transition: border-color 0.4s ease-in-out;
+  -moz-transition: border-color 0.4s ease-in-out;
+  -o-transition: border-color 0.4s ease-in-out;
+  transition: border-color 0.4s ease-in-out;
+
+  button& {
+    background: #fff;
+    color: @brand-primary;
+
+    &:hover {
+      color: @brand-secondary;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    border-bottom: 6px solid @brand-secondary;
+    text-decoration: none;
+  }
+  // Icons
+  &.snapshot:after {
+    .plans-icon(); // mixin
+    content: '\f030';
+  }
+
+  &.calculators:after {
+    .plans-icon();
+    content: '\f1ec';
+  }
+
+  &.profile:after {
+    .plans-icon();
+    font-family: 'font-mgp';
+    content: '\e923';
+  }
+
+  &.budget:after {
+    .plans-icon();
+    font-family: 'font-mgp';
+    content: '\e610';
+  }
+
+  &.integrations:after {
+    .plans-icon();
+    content: '\f12e';
+  }
+
+  &.Finametricapro {
+    background: url('/Img/Plans/IconFinaMetrica.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+
+  &.Cashedgepro {
+    background: url('/Img/Plans/IconCashEdge.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+
+  &.Yodlee {
+    background: url('/Img/Plans/IconYodlee.png') no-repeat center center;
+    background-position-y: 20px;
+  }
+
+  /*&.MX {
+    background: url('/Img/Plans/IconMX.png') no-repeat center center;
+    background-position-y: 20px;
+  }*/
+
+  &.BankOfWestRetirementCalc {
+    background: url('/Img/Plans/IconRetirementCalculator.png') no-repeat;
+    background-position: 55px 15px;
+  }
+}
+
+// Manage Integrations Page
+// ----------------------------------
+
+.partner-logo {
+  padding-top: 0;
+  margin-right: 0;
+  display: table;
+
+  .partner-logo-text {
+    display: table-row;
+    vertical-align: middle;
+
+    span {
+      display: block;
+      padding: 0 12px;
+      line-height: 1.15;
+    }
+  }
+
+  img {
+    margin: 12px auto 0 auto;
+    opacity: .8;
+  }
+
+  &:hover img {
+    opacity: 1;
+  }
+}
+
+// Expectations & Concerns
+[data-whatinput=keyboard] {
+  .client-icons, .table.fears {
+    input[type="checkbox"]:focus + .fa-user {
+      border: 1px dotted #5491cc;
+      box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    }
+  }
+}
+
+.client-icons {
+  input[type="checkbox"]:focus + .fa-user {
+    cursor: pointer;
+  }
+}
+
+
+// Goals
+// ----------------------------------
+.goals {
+
+  h4 {
+    font-size: 1.3em;
+    margin-bottom: 20px !important;
+  }
+}
+
+.needs-block {
+  float: left;
+  margin-left: -5px;
+
+  .goal {
+    width: 25px;
+    height: 25px;
+    background: @needs-goal-bg;
+    float: left;
+    color: @goal-text;
+    text-align: center;
+    padding: 2px;
+    margin-right: 8px;
+  }
+}
+
+.wants-block {
+  float: left;
+  margin-left: 10px;
+
+  .goal {
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background: @wants-goal-bg;
+    float: left;
+    color: @goal-text;
+    text-align: center;
+    padding: 2px;
+    margin-right: 8px;
+  }
+}
+
+.wishes-block {
+  float: left;
+  margin-left: 8px;
+
+  .goal {
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 14px 23px;
+    border-color: transparent transparent @wishes-goal-bg transparent;
+    float: left;
+    color: @goal-text;
+    text-align: center;
+    margin-right: 7px;
+
+    .number {
+      position: relative;
+      top: 4px;
+      left: -4px;
+    }
+  }
+}
+
+
+#importance-table .radio-inline {
+  //padding-top: 10px;
+  height: 25px;
+
+  input[type=radio] {
+    cursor: pointer;
+
+    &.disable {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+  }
+}
+
+table.importance,
+.table.importance {
+  border: none;
+
+  td {
+    border-top: none;
+  }
+
+  .goals {
+    min-width: 420px;
+  }
+}
+
+//What Are You Afraid Of? currently uses but can be used globally
+.list-group-item {
+  [role="button"] {
+    &:focus, &:hover {
+      background-color: @list-group-hover-bg;
+    }
+  }
+
+  &.active {
+    [role="button"] {
+      &:focus, &:hover, & {
+        background-color: @list-group-active-bg;
+      }
+    }
+    i, span { color: #FFF !important; }
+  }
+}
+
+
+// Yodlee
+// -----------------------------------
+.yodlee-dialog .modal-dialog, 
+.mx-dialog .modal-dialog {
+  margin: 0 auto;
+  width: 1080px;
+}
+
+.yodlee-dialog .modal-body,
+.mx-dialog .modal-body {
+  height: 700px;
+}
+
+/*Bootstrap 3 input-spinner http://codepen.io/Thomas-Lebeau/pen/csHqx*/
+.spinner input {
+  text-align: right;
+}
+
+.input-group-btn-vertical {
+  position: relative;
+  white-space: nowrap;
+  width: 1%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+.input-group-btn-vertical > .btn {
+  display: block;
+  float: none;
+  width: 100%;
+  max-width: 100%;
+  padding: 8px;
+  margin-left: -1px;
+  position: relative;
+  border-radius: 0;
+}
+
+.input-group-btn-vertical > .btn:first-child {
+  border-top-right-radius: 4px;
+}
+
+.input-group-btn-vertical > .btn:last-child {
+  margin-top: -2px;
+  border-bottom-right-radius: 4px;
+}
+
+.input-group-btn-vertical i {
+  position: absolute;
+  top: 0;
+  left: 4px;
+}
+
+//Bootbar Classes
+.alert-messages {
+  position: fixed;
+  font-size: .9em;
+  opacity: 0.9;
+  padding-top: 2px;
+  padding-bottom: 0;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  z-index: 1005;
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+
+  .session-notify & {
+    font-size: 1em;
+    padding: 15px 30px 15px 30px;
+  }
+}
+
+//Account Aggregation
+#aggregation-iframe {
+  width: 100%;
+  height: 550px; /*Max widget height is 550px for mx*/
+  background-color: transparent;
+  border: 0;
+  overflow: scroll;
+}
+
+/*Prevents error msg from overflowing modal*/
+.aggregation-modal .container {
+  width: 100%;
+}
+
+.account-aggregation {
+  .nav-tabs {
+    a {
+      font-size: .85em;
+      color: @text-color;
+      border: 1px solid #e3e3e3;
+    }
+    >li.active>a:not(.tabdrop) {
+      color: #fff;
+      background-color: @link-color;
+    }
+    i.fa {
+      font-size: 1.75em;
+      margin-bottom: .1em;
+      display: block;
+      width: 100%;
+    }
+    .tabdrop.active.open {
+      a:not(.dropdown-toggle) {
+        border: none;
+        padding-top: .5em;
+        padding-bottom: .5em;
+      }
+      li.active a {
+        color: #fff;
+        background-color: @link-color;
+      }
+      i.fa {
+        font-size: 1.25em;
+        display: inline-block;
+        width: auto;
+        margin-right: .5em;
+      }
+    }
+  }
+  .tab-content {
+    margin-top:0;
+  }
+}
+
+//Mainly for UBS to handle their network slowness and slow loading js (where href set by javascript) - Soc Sec
+.prevent-click-before-load {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+// Load MGP Webfonts
+// -----------------------------------
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../fonts/roboto-regular-webfont.woff2') format('woff2'),
+       url('../fonts/roboto-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotomedium';
+  src: url('../fonts/roboto-medium-webfont.woff2') format('woff2'),
+       url('../fonts/roboto-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// Institution Specific Styles to Hide for Default Version of MGP
+// ----------------------------------------
+
+.chase {
+  display: none;
+}
+
+// END Institution Specific Styles !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+// Media Queries
+// ----------------------------------------
+
+// Presentation Mode for Lg Viewports Breakpoint
+// ----------------------------------------
+@media (min-width:1201px) and (max-width:1330px) {
+  .no-present, .present {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    border-radius: 6px 0 0 6px;
+  }
+}
+
+// >= Medium or Larger Viewport
+// ----------------------------------------
+@media (min-width:@screen-md-min) {
+  .text-right-md {
+    text-align: right;
+  }
+}
+
+
+// Medium ONLY!!! Viewport
+// ----------------------------------------
+@media (min-width:@screen-md-min) and (max-width:@screen-md-max) {
+  .slick-next {
+    right: -30px;
+  }
+
+  .no-present, .present {
+    position: absolute;
+    top: -105px;
+    right: -94px;
+    border-radius: 0 0 6px 6px;
+  }
+
+  .present {
+    top: -6px;
+  }
+
+  ul.progressbar > li:before {
+    width: 20% !important; // 45%
+    left: -8% !important; // -20%
+  }
+  
+  #available-goals {
+    .goal-cell:nth-of-type(1),
+    .goal-cell:nth-of-type(9) {
+      margin-left: 0;
+    }
+
+    .goal-cell {
+      width: 110px;
+    }
+  }
+
+  .goal-summary-table .goal-card {
+    height: 70px;
+    width: 70px;
+    max-height: 70px;
+    max-width: 70px;
+  }
+  
+  #goals-masterpiece .hover-highlight:hover:before {
+    top: 45px;
+  }
+
+  #available-goals .available-draggable.ui-draggable {
+    position: relative;
+    height: 110px;
+  }
+}
+
+
+// Presentation Mode for Md Viewports Breakpoint
+// ----------------------------------------
+@media (max-width:1125px) {
+  .no-present, .present {
+    position: fixed;
+    top: 105px;
+    right: 0;
+    border-radius: 6px 0 0 6px;
+  }
+}
+
+
+// <= Medium or Smaller Viewport
+// ----------------------------------------
+@media (max-width:@screen-md-max) {
+  .yodlee-dialog .modal-dialog,
+  .mx-dialog .modal-dialog {
+    width: 100%;
+  }
+  //Only hide Admin menu if viewport md or less
+  #adminMenu.offcanvas-left {
+    &.active-menu-item {
+      left: 0;
+      margin-left: 0;
+    }
+    .offcanvas-default-menu {
+      display: none;
+    }
+  }
+}
+
+
+// >= Small or Larger Viewport
+// ----------------------------------------
+@media (min-width:@screen-sm-min) {
+  .text-right-sm {
+    text-align: right;
+  }
+
+  .text-center-sm {
+    text-align: center;
+  }
+
+  .navbar-right .dropdown-menu {
+    right: auto;
+  }
+}
+
+
+// Small ONLY!!! Viewport
+// ----------------------------------------
+@media (min-width:@screen-sm-min) and (max-width:@screen-sm-max) {
+  .chart-wrapper {
+    padding-bottom: 100%;
+  }
+
+  /* Use ONLY on sm Viewport when labels wrap to 2 lines and spacing is thrown off from hiding co-client labels on that col (see example on G4 Retirement Goal Retirement and Planning Age  */
+  .form-group.multi-line {
+    margin-top: 18px;
+  }
+}
+
+
+// <= Small Viewport
+// ----------------------------------------
+@media (max-width: @screen-sm-max) {
+
+  .mainlogo {
+    margin-left: 15px;
+  }
+
+  // Presentation Mode for Tablets
+  .present {
+    top: 5px;
+  }
+
+  ul.progressbar > li:before {
+    display: none;
+  }
+
+  #breadcrumbs {
+    margin-bottom: 0; // No more whitespace per the CEO and CTO
+
+    .breadcrumb {
+      padding: 10px 0 0;
+      background: transparent;
+    }
+  }
+
+  ul.progressbar>li a.dropdown-toggle,
+  ul.progressbar>li>a {
+    font-size: 1.1em;
+  } 
+
+  //Handles cases where there is a navbar, but no breadcrumbs (guest using MyMg frame)
+  //Couldn't set margin or padding bottom of .navbar-default b/c it is absolutely positioned
+  //so had to add the spacer element #no-breadcrumbs for these cases
+  #no-breadcrumbs {
+    padding-bottom:60px; //Do not change this without talking to MLK!!!
+  }
+
+  .container>.navbar-collapse {
+    background: #fff;
+  }
+
+  .navbar-collapse.collapse.in {
+    box-shadow: -5px 25px 30px -26px rgba(0,0,0,.35);
+  }
+
+  .navbar {
+    border: none;
+  }
+
+  .navbar-nav {
+    float: left;
+    font-size: 1.2em;
+    /*max-height: 60px;
+    margin-top: 60px;   
+    margin-bottom: 0;*/
+  }
+
+  .navbar-right .dropdown-menu {
+    max-height: none;
+  }
+
+  // Form Styles
+  .form-horizontal {
+
+    .radio-inline,
+    .checkbox-inline {
+      margin-bottom: 15px; // compensate for clearing the float on mobile
+      padding-top: 7px;
+    }
+
+    .radio {
+      min-height: 22px;
+    }
+  }
+
+  // Fix for stacked form fields that are in the same form-group or row (please keep in this cascading order!)
+  .form-group,
+  .row {
+
+    .form-control { // Do not add :not here - which kills the fix!  See below...
+      margin-bottom: 10px;
+    }
+
+    .input-group .form-control {
+      margin-bottom: 0;
+    }
+
+    .input-group:nth-of-type(1), // Do not add :not to nth-of-type here - which kills the fix!  See below...
+    .clearfix.visible-sm-block {
+      margin-bottom: 10px;
+    }
+  }
+
+  th, td {
+
+    .form-control {
+      margin-bottom: 0;
+    }
+
+    .form-group,
+    .row {
+
+      .input-group:nth-of-type(1),
+      .clearfix.visible-sm-block {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Typography - Scale down slightly to free up space for smaller viewports
+  h1 {
+    font-size: 2.0em;
+  }
+
+  h2 {
+    font-size: 1.65em;
+  }
+
+  h3 {
+    font-size: 1.45em;
+  }
+
+  .dropdown-accordion > .btn-block + .dropdown-menu {
+    margin-top: 0;
+  }
+
+  // Off-Canvas Menus
+  .offcanvas-default-menu {
+    position: absolute;
+    top: 0;
+    width: 35%;
+  }
+
+  .offcanvas-left {
+
+    .offcanvas-default-menu {
+      left: -39%;
+    }
+
+    &.active-menu-item {
+      left: 40%;
+    }
+  }
+
+  // "Last Updated" date display style
+  .last-updated {
+    float: left;
+    margin-bottom: 20px;
+  }
+
+  .chart-inner {
+    position: absolute;
+  }
+
+  // Mega Menu Styles for Main Nav Dropdown
+  .megamenu {
+    padding: 10px 0;
+
+    > li {
+      margin-bottom: 10px;
+    }
+
+    .dropdown-header {
+      padding: 3px !important;
+    }
+  }
+
+  .table-responsive .dataTables_wrapper {
+    overflow: visible;
+  }
+
+  .slider-container {
+    position: relative;
+    margin: 15px 5px 30px 0; // keep the right margin due to needing the offset for <= sm viewports when slider value pushes off the viewport -when slider is pushed to the max value
+  }
+
+  // Mobile Menu Animation from "Hamburger" menu to "X"
+  .navbar-toggle {
+    border: none;
+    background: transparent !important;
+    margin-right: 5px; // aligns hamburger menu with the grid (only use this margin spacing if no border around hamburger menu)
+    &:hover {
+      background: transparent !important;
+    }
+
+    .icon-bar {
+      width: 22px;
+      -moz-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      -webkit-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    .top-bar {
+      -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      -o-transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      transform: rotate(45deg);
+      -moz-transform-origin: 10% 10%;
+      -ms-transform-origin: 10% 10%;
+      -o-transform-origin: 10% 10%;
+      -webkit-transform-origin: 10% 10%;
+      transform-origin: 10% 10%;
+    }
+
+    .middle-bar {
+      opacity: 0;
+    }
+
+    .bottom-bar {
+      -moz-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+      -o-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      -moz-transform-origin: 10% 90%;
+      -ms-transform-origin: 10% 90%;
+      -o-transform-origin: 10% 90%;
+      -webkit-transform-origin: 10% 90%;
+      transform-origin: 10% 90%;
+    }
+
+    &.collapsed {
+
+      .top-bar {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+
+      .middle-bar {
+        opacity: 1;
+      }
+
+      .bottom-bar {
+        -moz-transform: rotate(0);
+        -ms-transform: rotate(0);
+        -o-transform: rotate(0);
+        -webkit-transform: rotate(0);
+        transform: rotate(0);
+      }
+    }
+  }
+
+  .goal-carousel {
+    height: 80px;
+    margin-left: 30px;
+    margin-top: 0;
+
+    .slick-prev {
+      left: 0;
+    }
+
+    .slick-next {
+      right: 0;
+    }
+  }
+
+  // Goal Styles
+  .goal-summary-table {
+
+    .goal-card {
+      height: 80px;
+      width: 80px;
+      max-height: 80px;
+      max-width: 80px;
+    }
+    
+    .highlight {
+      width: inherit;
+    }
+
+    .hover-highlight {
+      border-right: none;
+    }
+
+    .droppable, .selected-droppable {
+      padding: 0 0 75px;
+      margin-bottom: -60px;
+    }
+
+    /*.delete-goal {
+      margin-right: 0;
+    }*/
+
+    .mobile-handle {
+      cursor: move;
+      opacity: .45;
+      height: 40px;
+    }
+  }
+
+  // Goals Compact View Only
+  .compact-view {
+    
+    .mobile-handle {
+      display: none;
+    }
+  }
+
+  #available-goals {
+    .goal-cell:nth-of-type(1),
+    .goal-cell:nth-of-type(9) {
+      margin-left: 0;
+    }
+
+    .goal-cell {
+      width: 100px;
+    }
+  }
+
+  #available-goals .goal-cell {
+    min-height: 120px;
+  }
+
+  // Shows the Co-client labels when stacked on Xsmall Viewports
+  .soc-security .hideCoClientLabels:nth-child(2),
+  .side-by-side-clients .hideCoClientLabels:nth-child(2) {
+
+    .spacer-col,
+    label {
+      display: inline-block;
+    }
+    .spacer-col,
+    legend {
+      position: relative; 
+      display: inline-block;
+      overflow: visible; 
+    }
+  }
+
+  .side-by-side-clients {
+   .control-label {
+      text-align: left;
+    }
+  }
+
+  .row-eq-height {
+    height: inherit;
+    margin-bottom: 15px;
+  }
+
+  // Goals Styles
+  #available-goals {
+    
+    .goal-card {
+      height: 45px;
+    }
+
+    .goal-cell {
+      min-height: 80px;
+      width: 100px;
+    }
+  }
+
+  .goal-summary-table .hover-highlight {
+    width: inherit;
+  }
+
+  .available-draggable, 
+  .draggable {
+    font-size: .75em;
+  }
+
+  .goal-container h4 {
+    font-size: 1.2em;
+  }
+
+  .view-only {
+
+    #goals-masterpiece&,
+    #goals-summary& {
+
+      .mobile-handle {
+        display: none;
+      }
+    }
+  }
+}
+
+
+// Xsmall ONLY!!! Viewport
+// ----------------------------------------
+@media (max-width: @screen-xs-max) {
+  /*body {
+    margin-bottom: 250px; //for large disclosures
+  }*/
+  .mainlogo img {
+    max-width: 210px; //175px;
+  }
+
+  section {
+    padding: 0 0 15px;
+  }
+
+  .navbar-default.navbar-fixed-top {
+    position: fixed;
+  }
+
+  .navbar-nav.navbar-right {
+    width: 100%;
+  }
+
+  #breadcrumbs .navbar-toggle {
+    margin-top: 3px;
+    margin-bottom:0;
+
+    .icon-bar {
+      background-color: @navbar-default-toggle-icon-bar-bg;
+    }
+  }
+  // Hide Presentation View on Xsmall Viewports and Override the Styles in case it is enabled on Small Viewport size and orientation is changed to XS
+  #presentation-view {
+    display: none;
+  }
+
+  .no-toolbar {
+    opacity: 1 !important;
+
+    &.hidden {
+      display: block !important;
+    }
+  }
+
+  /*body.no-TopPadding {
+    padding-top: 70px;
+  }*/
+
+  /* .navbar-nav {
+    margin-top: 0;
+   
+    &.navbar-right {
+      margin-top: 0;
+      width: 100%;
+    }
+  } */
+ #breadcrumbs {
+    .breadcrumb.hidden-xs {
+      display: inline-block !important;
+      margin-top: 0; // 60px
+      text-align: center;
+
+      li {
+        display: none;
+      }
+
+      li.crumb-right:last-child {
+        display: inline-block;
+        text-align: center;
+        float: none !important;
+        padding: 0;
+        font-size: 1em;
+        clear: both;
+
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  .visible-xs#breadcrumbs {
+    // background-color: transparent;
+    // margin-bottom: 0;
+    margin-top: 0;
+    //border-bottom: solid 1px #eee;
+    font-size: 0.85em;
+    background: @breadcrumb-bg; /* Old browsers */
+    background: linear-gradient(to right, @breadcrumb-bg 57%, @font-color-for-darkBG 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@breadcrumb-bg', endColorstr='@font-color-for-darkBG',GradientType=1 ); /* IE6-9 */
+
+    .breadcrumb {
+      padding: 10px 0 10px 15px;
+      margin-bottom: 0;
+      padding-left: 15px;
+      background: @breadcrumb-bg !important;
+      //width: 104%;
+    }
+  }
+
+  ul.progressbar {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    > li > a {
+      font-size: 0.85em;
+    }
+
+    & > li:before {
+      display: none;
+    }
+  }
+
+  .hideClientLabels {
+    display: none;
+  }
+
+  // Shows the Co-client labels when stacked on Xsmall Viewports
+  .hideCoClientLabels:nth-child(2) {
+
+    .spacer-col,
+    label {
+      display: inline-block;
+    }
+    .spacer-col,
+    legend {
+      position: relative; 
+      display: inline-block;
+      overflow: visible;  
+    }
+  }
+
+  // Setting font-size to >= 16px on form input(s) disables iOS auto-zoom when focus is on form input field (since we allow pinch and zoom on our application)
+  input, select {
+    &.form-control {
+      font-size: 1.15em;  // == 16px
+    }
+  }
+
+  .form-control {
+    height: 35px; // bump up the height 1px to accomodate the font size increase so the bottoms of y's and g's aren't cut off
+  }
+
+
+  .chart-wrapper {
+    padding-bottom: 150%;
+  }
+
+  .scrollToTop {
+    bottom: 10%; // accomodate for copyright visibility
+  }
+
+  // Mega Menu
+  // http://jsfiddle.net/apougher/ydcMQ/
+  .megamenu {
+    margin-left: 0;
+    margin-right: 0;
+
+    > li:last-child {
+      margin-bottom: 0;
+    }
+
+    .dropdown-header {
+      padding: 3px /*15px*/ !important;
+    }
+  }
+
+  // ion Range Slider
+  .slider-container {
+    position: relative;
+    margin: 10px 0; // keep the right margin due to needing the offset for <= sm viewports when slider value pushes off the viewport -when slider is pushed to the max value
+  }
+
+  // Auto Scroll Elements that need to Stay Full Width on xs Viewport Size
+  .overflow-cont {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 15px; // give some padding for the scroll bar
+    > .row [class*="col-lg"],
+    > .row [class*="col-md"],
+    > .row [class*="col-sm"] {
+      float: none;
+      display: inline-block;
+      white-space: normal;
+      vertical-align: top;
+    }
+
+    .overflow-block {
+
+      &.goals {
+        min-width: 400px;
+      }
+    }
+
+    h5 {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .indent-1:not(td),
+  .indent-2:not(td) {
+    padding-left: 0;
+  }
+
+  .yodlee-dialog .modal-body,
+  .mx-dialog .modal-body {
+    height: 720px;
+  }
+
+  //Override Bootstrap from no-wrapping tables cells on xs viewport
+  .table-responsive {
+    > .table {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: normal;
+          }
+        }
+      }
+    }
+  }
+
+  // Goal Styles
+  .goal-summary-table {
+
+    .goal-card {
+      height: 50px;
+      width: 50px;
+      max-height: 50px;
+      max-width: 50px;
+    }
+
+    #available-goals .goal-cell {
+      width: 90px;
+    }
+
+    .goal-details {
+      margin-left: 0;
+      padding-top: 5px;
+    }
+
+    .delete-goal {
+      font-size: 1.2em;
+    }
+
+    .mobile-sort {
+      padding: 15px 0px 0 15px;
+    }
+
+    .hover-highlight:hover {
+      cursor: pointer !important;
+      
+      &:before {
+        color: transparent !important;
+      }
+
+      &:after {
+        color: transparent !important;
+        left: 87%;
+      }
+    }
+
+  }
+
+  #importance .table-responsive {
+    .horiz-scroll();  // Mixin: Horizontal Scrollbars for Webkitt 
+  }
+}
+
+// Partner Mapping/Integration Styles
+// ----------------------------------------
+#partner-mapping .table { 
+  table-layout: fixed; 
+
+  .form-control { min-width: initial; }
+
+  tr {
+    td { vertical-align: middle; }
+  }
+
+  thead {
+    tr th {
+      width: 70px;
+      &.md { width: 120px; }
+      &.lg { width: 220px; }
+    }
+  }
+
+  & > tbody > tr {
+    &:hover {background: initial; }
+    &:nth-of-type(odd):hover { background: #f9f9f9; }
+  }
+}
+
+
+// Breakpoint for Left Offcanvas Menu
+// ----------------------------------------
+@media (max-width: 600px) {
+  .active-menu-item button {
+    float: none;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .offcanvas-left {
+    .offcanvas-default-menu {
+      left: -95%;
+    }
+
+    &.active-menu-item {
+      left: 100%;
+    }
+  }
+
+  .offcanvas-default-menu {
+    position: absolute;
+    top: 0;
+    min-width: 80%;
+  }
+}

@@ -1,0 +1,187 @@
+/// <reference path="_global.scss" />
+
+
+// Form Progress Bar (App progression - De-balled/Neutered Style) - Spacing handles up to 4 nav sections
+//------------------------------------
+ul.progressbar {
+  margin: 0 auto 18px 0; //knock 10px off per Tony 5.19.2016
+  padding: 0;
+  display: block;
+  min-height: 50px;
+  z-index: 2;
+  overflow: visible;
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+
+  .social-security-navigation & {
+    margin-bottom: 30px;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  .active {
+    a {
+      color: $brand-secondary;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .dropdown-toggle:after {
+    font-family: FontAwesome;
+    content: '\f0d7';
+    margin-left: 5px;
+  }
+
+  .dropdown-menu {
+    margin-top: 20px;
+    left: 40%;
+
+    // Xsmall ONLY!!! Viewport 
+    @media (max-width: $screen-xs-max) {
+      min-width:100px;
+			left: 0;
+
+      a {
+        font-size: 0.9em;
+      }
+    }
+
+    > li {
+
+      a.active-page {
+        background: $brand-secondary!important;
+        color: $font-color-for-darkBG;
+      }
+
+      &.active-sub,
+      > a.active-sub {
+        background: $brand-secondary;
+        color: $font-color-for-darkBG;
+      }
+
+      > a {
+        padding: 5px;
+        color: $brand-primary;
+      }
+    }
+  }
+
+  .caret {
+    position: relative;
+    top: 46px;
+    z-index: 110;
+  }
+
+  > li {
+    list-style-type: none;
+    color: #ccc;
+    font-size: 1em;
+    float: left;
+    position: relative;
+    text-align: center;
+    width: 25%;
+
+    > a,
+    a.dropdown-toggle {
+      position: relative;
+      top: 22px;
+      z-index: 110; // Keep this z-index higher (>= 110) so the step is clickable and "part of" the anchor
+      font-size: 1.2em;
+
+      // <= Small Viewport
+      @media (max-width: $screen-sm-max) {
+        font-size: 1.1em;
+      }
+
+      // Xsmall ONLY!!! Viewport
+      @media (max-width: $screen-xs-max) {
+        font-size: 0.85em;
+      }
+
+    }
+
+    // Progressbar connectors
+    &:before {
+      content: '';
+      width: 53%;
+      position: absolute;
+      left: -25%;
+      border: solid 2px $gray-lighter;
+      top: 33px;
+      z-index: 1;
+
+      // Medium ONLY!!! Viewport
+      @media (min-width:$screen-md-min) and (max-width:$screen-md-max) {
+        width: 20%;
+        left: -8%;
+      }
+
+      // <= Small Viewport
+      @media (max-width: $screen-sm-max) {
+        display: none;
+      }
+
+    }
+
+    // Connector not needed before the first step:
+    &:first-child:before {
+      content: none;
+      margin-left: -30px;
+    }
+
+    &.active:after {
+      background: $brand-secondary;
+      color: #fff;
+      border: 0;
+    }
+    .circle-text {
+      font-family: $font-family-sans-serif;
+      font-size: .9em;
+      margin:-1px 0 0 1px;
+    }
+  }
+}
+
+
+// Progress Bar Styles
+//------------------------------------
+.progress-bar-secondary {
+  @include progress-bar-variant($progress-bar-secondary-bg);
+}
+
+.progress-bar-tertiary {
+  @include progress-bar-variant($progress-bar-tertiary-bg);
+}
+
+// To ensure that the label text remains legible even for zero or low percentages:
+.progress-bar {
+  min-width: 2em;
+}
+
+// Breakpoint for Zoomer Nav (hide the text label for the nav)
+@media (max-width: 570px) {
+	ul.progressbar > li > .dropdown > a { 
+		font-size: 0;
+
+    .social-security-navigation & {
+      font-size: .85em;
+    }
+
+		&:after {
+			font-size: 14px;
+		}
+
+		> i {
+			font-size: 22px;
+		}
+	}
+}

@@ -1,0 +1,24 @@
+﻿/// <reference path="global.less" />
+
+.btn-back, .btn-cancel, .btn-default, .btn-close {
+  @include button-variant($btn-negative-action-color, $btn-negative-action-bg, $btn-negative-action-border);
+}
+
+ul.progressbar > li {
+  &.nav-active > a,
+	&.nav-active a.dropdown-toggle,
+  a.nav-active {
+		color: $brand-primary;
+	}
+}
+
+.zoomer-inactive-page {
+  color: #5b6770;
+  background-color: #B4B4B4;
+
+  a:hover,
+  a:focus {
+    color: #5b6770;
+    background-color: #EEF0F0;
+	} 
+}

@@ -1,0 +1,392 @@
+/// <reference path="_global.scss" />
+
+
+// MGP Button & Button Container Styles
+// -----------------------------------
+// Use "btn-cont" class as a button container for right aligned buttons (i.e.- "Back, Next, Done, etc.) so positioning is consistent globally
+.btn-cont {
+  @include clearfix(); /*clear: both;*/
+  float: right;
+  margin: 20px 0 30px;
+
+  &.narrow {
+    margin: 0;
+  }
+
+  .btn {
+    margin-left: 30px;
+    margin-bottom: 10px;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -20px;
+  }
+}
+
+// Remove the outline onClick of button links
+.btn-link {
+  &:active,
+  &:focus,
+  &:hover,
+  &:active:focus {
+    outline: none;
+    color: $link-hover-color;
+  }
+}
+
+.btn[class*="-outline"] {
+  &:hover {
+    .explain-icon:after {
+      color: #FFF;
+    }
+  }
+}
+
+
+// Buttons without Backgrounds - 100% Transparent
+// --------------------------------
+// Using a Sass Map (key: value) 
+$noBGbtns-list: ( 
+  btn-primary:    $btn-primary-border,
+  btn-secondary:  $btn-secondary-border,
+  btn-info:       $btn-info-border,
+  btn-success:    $btn-success-border,
+  btn-warning:    $btn-warning-border,
+  btn-danger:     $btn-danger-border
+);
+
+@each $buttonKey, $btnValues in $noBGbtns-list {
+  .btn.#{$buttonKey}-outline { 
+     @include button-outline-variant($btnValues);  
+  }
+}
+
+
+// Alternate LEFT aligned button container - for uses besides main form/application control (see .btn-cont above)
+.btn-cont-alt {
+  @include clearfix(); /*clear: both;*/
+  margin: 20px 0 0;
+  display: block;
+
+  .btn {
+    margin-right: 30px;
+    margin-bottom: 15px;
+    float: left;
+  }
+  // Fix for Investment Assets "OR" text between buttons
+  .non-btn-content {
+    margin-right: 30px;
+    margin-top: 5px;
+    float: left;
+  }
+
+  .dropdown-accordion .dropdown-menu {
+    margin-top: 35px;
+  }
+
+  .explain-icon {
+    margin-left: -30px;
+    float: left;
+  }
+}
+
+.btn {
+  transition: background-color 1s ease-in-out;
+}
+
+//For "click Next to skip" text on Loss Tolerance, Bear Market Reaction, etc.
+.btn-forward-text {
+  font-weight: bold;
+}
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);  // 'button-variant' is a Bootstrap Mixin (located in Components folder)
+}
+
+.btn-secondary, .super-solve-button {
+  @include button-variant($btn-secondary-color, $btn-secondary-bg, $btn-secondary-border);
+}
+
+.btn-tertiary {
+  @include button-variant($btn-tertiary-color, $btn-tertiary-bg, $btn-tertiary-border);
+}
+
+.btn-light {
+  @include button-variant($btn-light-color, $btn-light-bg, $btn-light-border);
+}
+
+.btn-forward, .btn-done {
+  @include button-variant($btn-positive-action-color, $btn-positive-action-bg, $btn-positive-action-border);
+}
+
+.btn-back, .btn-cancel, .btn-close {
+  @include button-variant($btn-negative-action-color, $btn-negative-action-bg, $btn-negative-action-border);
+}
+
+// Bootbox Plugin for Modal Style Overrides
+.bootbox .btn-primary {
+  @include button-variant($btn-positive-action-color, $btn-positive-action-bg, $btn-positive-action-border);
+}
+
+.bootbox .yes-no-toggle .btn-primary {
+  &:active,
+  &:focus,
+  &:hover {
+    @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+  }
+}
+
+.super-solve-button:after {
+  font-family: font-mgp;
+  content: "\e900";
+  margin: 0 .3em 0 .3em;
+}
+
+.client-portal-icon:before {
+  font-family: FontAwesome;
+  cursor: pointer;
+  color: $brand-primary;
+  content: "\f234";
+  font-style: normal;
+  font-weight: 400;
+  margin: 0px 0.3em;
+}
+
+// Global CTA (Call to Action) Icons
+// -----------------------------------
+
+// This uses a Sass Map (key: value) w/ a List - Add NEW CTA Icons to list below
+$ctaItems-list: (     
+  add-item    : ('\f055', $link-color, 0 .3em 0 .3em, pointer), 
+  edit-item   : ('\f044', $link-color, 0 .3em 0 .3em, pointer), 
+  delete-item : ('\f00d', $brand-danger, 0 .3em 0 .3em, pointer), 
+  copy-plan   : ('\f0c5', $link-color, 0 .3em 0 .3em, pointer),
+  save-item   : ('\f0c7', $link-color, 0 .3em 0 .3em, pointer),
+);
+
+// @each directive loops through the list (Sass Map) above - 
+// New CTA Icon? Only add it to the list above. Don't add anything below! 
+@each $ctaKeys, $ctaValues in $ctaItems-list {
+  $v1: nth($ctaValues, 1);
+  $v2: nth($ctaValues, 2);
+  $v3: nth($ctaValues, 3);
+  $v4: nth($ctaValues, 4);
+
+  .#{$ctaKeys}:after { 
+      @include fa-icon-standard($v1, $v2, $v3, $v4);
+      @include fa-lg;
+  }
+}
+
+
+// Global Stars
+// -----------------------------------
+
+// This uses a Sass Map (key: value) w/ a List
+$starItems-list: (     
+  starfull    : ('\f005', $star-color, 0 .1em 0 .1em, default), 
+  starhalf    : ('\f123', $star-color, 0 .1em 0 .1em, default), 
+  starempty   : ('\f006', $star-color, 0 .1em 0 .1em, default), 
+);
+
+// @each directive loops through the list (Sass Map) above
+@each $starKeys, $starValues in $starItems-list {
+  $v1: nth($starValues, 1);
+  $v2: nth($starValues, 2);
+  $v3: nth($starValues, 3);
+  $v4: nth($starValues, 4);
+
+  .#{$starKeys}:before { 
+      @include fa-icon-standard($v1, $v2, $v3, $v4);
+      @include fa-lg;
+  }
+}
+
+
+// Zoomer Icon Styles
+//------------------------------------
+.client-icons {
+	color: lighten($gray-light, 40%);
+	margin: 5px 0;
+}
+
+.fears,
+.fears-summary {
+  
+  .fa-user {
+    color: lighten($gray-light, 40%);
+  }
+}
+
+.icon-client-selected .fa-user {
+	color: $icon-client-selected-color;
+}
+
+.icon-coclient-selected .fa-user {
+	color: $icon-coclient-selected-color;
+}
+
+.fa-user.allow-selection {
+  cursor:pointer;
+}
+
+
+// Yes/No Toggle Switch Styles - Changes per BOB on 1/12/2016 ...
+//------------------------------------
+.yes-no-toggle {
+  min-width: 77px;
+  //Slightly speeds up our standard button animation for the Yes/No toggle buttons
+  .btn-xs {
+    font-size: 1em;
+  }
+
+  .btn {
+    transition: background-color 0.25s ease-in-out;
+  }
+
+  .btn + .btn {
+    margin-left: 0; //override bs default -1px for our Yes/No switches
+  }
+
+  .btn-default {
+    background: #fff;
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+    color: #666; /*#fff;*/
+    border-color: #ccc;
+  }
+
+  .btn-primary {
+    padding: 2px 8px;
+    margin: 2px 0 2px 0;
+  }
+
+  .btn-default:hover {
+    background-color: #fff; /*$gray-lighter;*/
+    color: #666;
+  }
+
+  .btn-primary.active {
+    color: #fff;
+    background: $btn-primary-bg;
+    border-color: transparent; //$brand-primary;
+    box-shadow: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+
+    .btn-primary.active {
+      opacity: 0.6;
+    }
+  }
+
+  .btn:last-child {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+// Zoomer Action btn floated right - lose ability to click without this
+.btn-pull-right {
+  @include clearfix();
+  float: right;
+  position: relative;
+  z-index: 999;
+}
+
+
+// Font-Awesome Overrides
+// -----------------------------------
+a:after,
+a:before {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.help-inline:after,
+.help-tooltip:after {
+  @include fa-icon-standard('\f05a', $link-color, 0 .3em 0 .3em, pointer);
+}
+
+.help-modal:after {
+  @include fa-icon-standard('\f059', $link-color, 0 .3em 0 .3em, pointer);
+}
+
+a.help-modal,
+a.help-tooltip {
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    outline: none;
+  }
+}
+
+#navbar .help-modal:after {
+  content: none;
+}
+
+
+// Warning Icons
+// ---------------------------------------
+
+// This uses a Sass Map (key: value) w/ a List
+$iconItems-list: (     
+  icon-linked-account-problem : ('\f024', $brand-danger, 0 .3em 0 .3em, default), 
+  info-warn-icon              : ('\f05a', $brand-warning, 0 .3em 0 .3em, default), 
+  warn-icon                   : ('\f071', $brand-warning, 0 .3em 0 .3em, default),
+  port-current                : ('\f0c8', $brand-primary, 0 .3em 0 .3em, default),
+  port-risk-based             : ('\f04b', $brand-tertiary, 0 .3em 0 .3em, default),
+  port-target                 : ('\f111', $brand-secondary, 0 .3em 0 .3em, default),
+  port-risk-band              : ('\f04d', lighten($brand-info, 33%), 0 .3em 0 .3em, default),
+);
+
+// @each directive loops through the list (Sass Map) above
+@each $iconKeys, $iconValues in $iconItems-list {
+  $v1: nth($iconValues, 1);
+  $v2: nth($iconValues, 2);
+  $v3: nth($iconValues, 3);
+  $v4: nth($iconValues, 4);
+
+  .#{$iconKeys}:after { 
+    @include fa-icon-standard($v1, $v2, $v3, $v4);
+  }
+}
+
+i.port-risk-based:after {  // add additional styles to i.port-risk-based in above list
+  transform: rotate(270deg);
+  display: inline-block;
+}
+
+td.port-risk-band {
+  background: lighten($brand-info, 33%);
+}
+
+
+// Info icon size globally standardized
+h1, h2, h3, h4, h5, h6, p {
+
+  .help-tooltip,
+  .help-modal {
+    font-size: 14px; // Using pixels here instead of em's to standardize the icon size due to various base font-sizes of header tags
+    > .fa {
+      vertical-align: text-bottom;
+      padding-bottom: 10px;
+    }
+  }
+}
+
+a.fa:hover,
+a.fmgp {
+  text-decoration: none;
+}
+
+// use the "color" class to give a font-awesome or Font MGP icon the same color as our links without wrapping it in an anchor tag - useful for tooltips!
+.fa.color,
+.fmgp.color {
+  color: $link-color;
+}

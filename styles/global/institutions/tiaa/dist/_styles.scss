@@ -1,0 +1,27 @@
+/// <reference path="global.scss" />
+.btn-primary,
+.btn-default,
+.btn-forward, 
+.btn-done,
+.btn-secondary,
+.btn-tertiary,
+.btn-back, 
+.btn-cancel, 
+.btn-close {
+  background: linear-gradient(to bottom, $btn-positive-action-gradient-light 0%, $btn-positive-action-gradient-medium 33%, $btn-positive-action-gradient-dark 100%);
+}
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}

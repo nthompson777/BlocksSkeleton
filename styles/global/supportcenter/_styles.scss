@@ -1,0 +1,130 @@
+body {
+  background-color: $bg-light !important;
+}
+
+#sidebar {
+  h5, .h5 {
+    margin-bottom: 10px;
+  }
+  li.selected {
+    font-weight:bold;
+  }
+  &.navbar-default  {
+    border-bottom: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  #navbar {
+    background-color:#fff; 
+    margin-top:-40px;
+  }
+}
+
+#pg-support-center {
+  font-size: 14px;
+  padding-top: 0;
+
+  section {
+    padding: 2em 0;
+  }
+
+  .panel-heading { 
+      
+    &.no-bg { 
+      background: none; 
+    }
+    
+    &.accordion-toggle { 
+      cursor: pointer; 
+    }
+  }
+}
+
+.support-jumbotron{
+  background-image: url(/Img/MGP-Pattern-Blue.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  color: #fff;
+  padding-bottom: 60px;
+  padding-top: 50px;
+  text-align: left;
+}
+
+.support-jumbotron h1{
+  text-align: center;
+}
+.support-jumbotron h1 sup {
+  font-size: 0.4em;
+  vertical-align: top;
+  line-height: 35px;
+  margin-left: -10px;  
+}
+
+.support-jumbotron .btn,
+.btn-default.alt {
+  background-color: #FB9920;
+  border-color: #d87100;
+  color: #FFF;
+}
+.support-jumbotron textarea {
+  max-width: 100%;
+}
+
+/*Support welcome page panel*/
+.support-options {
+	padding: 0 0;
+	margin-top: 45px;
+}
+
+.support-options h3 {
+	padding-bottom: 15px;
+}
+
+.support-options p {
+	margin-top: 20px;
+}
+
+#categories {
+	margin-top: 45px;
+}
+
+.welcome .panel-heading {
+  font-size: .95em;
+}
+
+.welcome .panel-body {
+	min-height: 130px;
+}
+
+.sectionTitle {
+	padding: 50px;
+	color: #666;
+	text-align: center;
+} 
+
+/*welcome section Text*/
+.welcome {
+	padding: 0;
+	color: #666;
+  width: 100%;
+}
+
+/*Live Online Training*/
+#training-tabs li.active>a, 
+#training-tabs li.active>a:hover, 
+#training-tabs li.active>a:focus  {
+  background-color: $brand-tertiary;
+} 
+
+#training-tabs a {
+  background-color: #ccc;
+  color: #fff;
+}
+
+#training-tabs a:hover,
+#training-tabs a:active,
+#training-tabs a:focus {
+  background-color: $brand-tertiary;
+} 

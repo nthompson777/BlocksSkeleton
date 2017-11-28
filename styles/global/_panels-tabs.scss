@@ -1,0 +1,169 @@
+/// <reference path="_global.scss" />
+
+
+// Panel Styles
+//------------------------------------
+.panel-primary {
+  @include panel-variant($panel-primary-border, $panel-primary-text, $panel-primary-heading-bg, $panel-primary-border);
+}
+
+.panel-secondary {
+  @include panel-variant($panel-secondary-border, $panel-secondary-text, $panel-secondary-heading-bg, $panel-secondary-border);
+}
+
+.panel-tertiary {
+  @include panel-variant($panel-tertiary-border, $panel-tertiary-text, $panel-tertiary-heading-bg, $panel-tertiary-border);
+}
+
+.panel-statement {
+  //@include panel-default; // There's no mixin/extend selector for this!???
+  box-shadow: 0 2px 5px 0 rgba(153, 153, 153, 0.35);
+}
+
+
+// Expandable/Collapsible Panel Styles
+//------------------------------------
+.panel-title {
+
+  > a {
+    width: 100%;
+    display: block;
+
+    &.toggle:after {
+      float: right;
+      margin-top: 5px;
+    }
+  }
+}
+
+.panel {
+  // Button containers within panels
+  .btn-cont,
+  .btn-cont-alt {
+    margin: 20px 0 0;
+  }
+
+  p {
+    + .btn-cont,
+    + .btn-cont-alt {
+      margin: 0;
+    }
+  }
+
+  p:last-child, ul:last-child {
+    margin-bottom: 0;
+  }
+
+  &.helpful-tip {
+    .panel-title:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+
+// Zoomer Panel Boxes (i.e.- used in Expectations section, etc.)
+//------------------------------------
+.zoomer-panel {
+	border: solid 2px $gray-lighter;
+	border-radius: $border-radius-base;
+	height: 210px;
+	max-height: 210px;
+	padding: 15px;
+	margin: 0 0 30px;
+	text-align: center;
+	color: $brand-primary;
+
+	.edit-icons {
+		position: absolute;
+		top: 12px;
+		right: 25px;
+
+    // Xsmall ONLY!!! Viewport 
+    @media (max-width: $screen-xs-max) {
+      top: 0;
+      right: 16px;
+    }
+
+		a {
+			font-size: 1.2em;
+
+      // Xsmall ONLY!!! Viewport 
+      @media (max-width: $screen-xs-max) {
+        margin-left: 0;
+      }
+
+		}
+	}
+}
+
+.expectation-label {
+  height: 60px;
+  max-height: 60px;
+  overflow: hidden;
+}
+
+.retire-icon {
+  margin: 0 0 10px;
+  min-height: 56px;
+
+  i span:not(:empty) {
+    display: none;
+  }
+
+  i span:empty:before {
+    font-family: FontAwesome;
+    content: "\f14a";
+  }
+}
+
+.retire-icon > .null:before {
+  font-family: FontAwesome;
+  content: "\f14a";
+}
+
+.add-custom {
+
+	.zoomer-panel {
+		border: solid 2px lighten($brand-secondary, 30%);
+		color: $brand-secondary;
+		padding-top: 45px;
+
+		a {
+			color: $brand-secondary;
+		}
+
+		.retire-icon,
+		.client-icons { 
+			display: none;
+		}
+	}
+}
+
+
+// Tab Styles
+//------------------------------------
+.tab-content {
+  margin-top: 40px;
+
+  &.side-content {
+    margin-top: -10px;
+  }
+}
+
+.nav-tabs {
+  margin-top: 20px;
+
+  > .tabdrop > a {
+    border-color: $gray-lighter $gray-lighter #ddd;
+    background-color: $gray-lighter;
+  }
+}
+
+// "Tab Drop" dropdown triggers when tabs do not fit in viewport
+.nav-tabs,
+.nav-pills {
+  position: relative;
+}

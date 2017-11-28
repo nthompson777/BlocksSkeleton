@@ -1,0 +1,37 @@
+/// <reference path="global.scss" />
+
+.form-control,
+.input-group-addon {
+  border-radius: 1px;
+}
+
+.panel-default>.panel-heading,
+.panel-primary>.panel-heading,
+.panel-info>.panel-heading,
+.panel-group .panel-heading+.panel-collapse>.list-group, 
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-color: transparent;
+}
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+  > thead > tr > th {
+    border-bottom: 1px solid $table-border-color;
+  }
+}

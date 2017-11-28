@@ -1,0 +1,18 @@
+/// <reference path="global.scss" />
+
+.btn-forward, 
+.btn-done {
+  @include button-variant($btn-positive-action-color, $btn-positive-action-bg, $btn-positive-action-border);
+}
+
+.bootbox .yes-no-toggle .btn-primary {
+  &:active,
+  &:focus,
+  &:hover {
+    @include button-variant($btn-positive-action-color, $btn-positive-action-bg, $btn-positive-action-border);
+  }
+ }
+
+.yes-no-toggle .btn-primary.active {
+   background: $btn-positive-action-bg;
+}

@@ -1,0 +1,30 @@
+/// <reference path="global.scss" />
+
+.btn-primary,
+/*.super-solve-button,*/
+.btn-default,
+.btn-forward, 
+.btn-done {
+   background: linear-gradient(to bottom, $btn-positive-action-gradient-light 0%, $btn-positive-action-gradient-medium 33%, $btn-positive-action-gradient-dark 100%);
+}
+
+.btn-secondary,
+.btn-tertiary,
+.btn-back, 
+.btn-cancel, 
+.btn-close {
+  background: linear-gradient(to bottom, $btn-negative-action-gradient-light 0%, $btn-negative-action-gradient-medium 33%, $btn-negative-action-gradient-dark 100%);
+}
+
+/*.super-solve-button {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+}*/
+
+/* Bear Market Reaction - Investment Statement */
+.panel-statement .table>thead>tr.statement-header>th {
+  background-color:#c0c7cc;
+}
+
+.panel-statement .table>tbody>tr.statement-summary>td  {
+  background-color:#e0dedc;
+}

@@ -1,0 +1,50 @@
+/// <reference path="_global.scss" />
+
+
+// Sec 508 Accessibility Styles
+// -----------------------------------------------
+// Custom default :focus styles that work with "What-Input" plugin:
+
+// Keyboard Navigation Style
+[data-whatinput='keyboard'] :focus {
+  @include accessibility-focus;  // Accessibility Mixin
+  border: dotted 1px lighten($brand-primary, 7%);
+}
+
+// Touch Navigation Style
+[data-whatinput='touch'] :focus {
+  @include accessibility-focus;  // Accessibility Mixin
+}
+// End "What-Input" Styles
+
+// Hide all desc tags used in HighCharts from Screen Readers
+desc {
+  display: none;
+}
+
+// Added for fieldsets/legends b/c Yes No Toggles and radios and risk tol questionsk
+legend {
+  color: $text-color;
+  font-size: 1em; 
+  border-bottom: none;
+  margin-bottom: 0;
+
+  &.control-label { 
+    font-weight: bold;
+  }
+
+  &.question-label { 
+    display: inline;
+  }
+}
+
+// Default color doesn't pass 508 color contrast test
+.help-block {
+  color: $text-color;
+}
+
+/*Recommended in Bootstrap 3 Docs - http://getbootstrap.com/getting-started/#accessibility*/
+#maincontent:focus, 
+#zoomer-body:focus { 
+  outline: none!important; 
+}

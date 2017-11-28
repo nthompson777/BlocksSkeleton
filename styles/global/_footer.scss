@@ -1,0 +1,47 @@
+/// <reference path="_global.scss" />
+
+// Footer Styles
+// -----------------------------------
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  clear: both;
+  background: $footer-bg;
+  color: $footer-text-color;
+  font-size: 0.95em;
+  text-align: center;
+  //padding: NOPE!! // DO NOT PUT PADDING/MARGIN ON FOOTER since it will overlap body content, instead put padding/margin ON THE ELEMENTS WITHIN the footer 
+
+  p.copyright-text,
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    max-width: 1140px;
+    vertical-align: middle;
+    color: $footer-text-color;
+    font-size: 0.95em;
+    margin: 8px auto;
+  }
+
+  p.copyright-text {
+    padding: 20px 0;
+  }
+
+  p.broker-disclosure-text,
+  p.advisor-disclosure-text {
+    padding: 5px 0;
+
+    + p.copyright-text {
+      padding: 5px 0;
+    }
+  }
+
+  a {
+    color: $footer-text-color;
+    text-decoration: underline;
+
+    &:hover {
+      color: $footer-text-color;
+    }
+  }
+}

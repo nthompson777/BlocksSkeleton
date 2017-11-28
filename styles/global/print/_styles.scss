@@ -1,0 +1,36 @@
+/*Print specific styles*/ 
+@media print {
+  * {
+    box-shadow:none!important;
+  } 
+
+  /*Chrome - bug where box-shadow cause black background*/
+  a[href]:after {
+    content: none !important;
+  } 
+
+  /*Fix Bootstrap always using xs for printing*/
+  /*https://blog.donnierayjones.com/2014/10/fix-bootstrap3-printing/*/
+  @include make-grid(sm);
+
+  .visible-xs {
+      @include responsive-invisibility('.visible-xs');
+  }
+
+  .hidden-xs {
+      @include responsive-visibility('.hidden-xs');
+  }
+
+  .hidden-xs.hidden-print {
+      @include responsive-invisibility('.hidden-print');
+  }
+
+  .hidden-sm {
+      @include responsive-invisibility('.hidden-sm');
+  }
+
+  .visible-sm {
+      @include responsive-visibility('.visible-sm');
+  }
+
+}

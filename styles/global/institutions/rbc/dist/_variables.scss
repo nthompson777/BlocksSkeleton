@@ -1,0 +1,110 @@
+/// <reference path="../../variables.scss" />
+
+$brand-primary:   #585858; /*#0469c1;*/
+$brand-secondary: #002750;
+$brand-tertiary:  #6f6f6f;
+
+// Scaffolding Styles
+// ------------------------------------
+// Global text color on <body>.
+$text-color:            #444;
+
+// Background color for <footer>
+$footer-bg:				      #0d62a6;
+$footer-text-color:		  #dbe8f2;
+
+// Global textual footer link color.
+$link-color:            #006ac3;
+$link-color-heading-action: #fff;
+
+// Link hover color set via `darken()` function.
+$link-hover-color:      #006ac3;
+$font-color-for-darkBG:   #fff;
+
+// Button Styles
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-secondary;
+$btn-primary-border:             $brand-secondary;
+
+$btn-secondary-color:            $btn-primary-color;
+$btn-secondary-bg:               $brand-primary;
+$btn-secondary-border:           $brand-primary;
+
+$btn-tertiary-color:             $btn-secondary-color;
+$btn-tertiary-bg:                $btn-secondary-bg;
+$btn-tertiary-border:            $btn-secondary-border;
+
+$btn-positive-action-color:      $btn-primary-color;
+$btn-positive-action-bg:         $btn-primary-bg;
+$btn-positive-action-border:     $btn-primary-border;
+/*$btn-positive-action-gradient-dark: ;
+$btn-positive-action-gradient-medium: ;
+$btn-positive-action-gradient-light: ;*/
+
+$btn-negative-action-color:      $btn-positive-action-color;
+$btn-negative-action-bg:         $btn-positive-action-bg;
+$btn-negative-action-border:     $btn-positive-action-border;
+/*$btn-negative-action-gradient-dark: $btn-positive-action-gradient-dark;
+$btn-negative-action-gradient-medium: $btn-positive-action-gradient-medium;
+$btn-negative-action-gradient-light: $btn-positive-action-gradient-light;*/
+
+// Panel Styles
+$panel-default-text:          #fff;
+$panel-default-border:        $brand-tertiary;
+$panel-default-heading-bg:    $brand-tertiary;
+
+$panel-primary-text:          $panel-default-text;
+$panel-primary-border:        $panel-default-border;
+$panel-primary-heading-bg:    $panel-default-heading-bg;
+
+$panel-info-text:             $panel-default-text;
+$panel-info-border:           $panel-default-border;
+$panel-info-heading-bg:       $panel-default-heading-bg;
+
+// Table Styles
+$table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #f9f9f9;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #E8ECED;
+$table-bg-active:               $table-bg-hover;
+//** Border color for table and cell borders.
+$table-border-color:            #dcdfe4;
+
+$table-heading-text-color:      #fff;
+$table-heading-bg-color:        $brand-tertiary;
+
+//Line Styles
+$hr-border:                     #fedf01;
+
+//Nav Section Bar Styles
+$section-bar-background:        $brand-tertiary;
+$section-bar-marker-background-highlighted: $brand-secondary;
+$section-bar-marker-background-completed: $brand-secondary;
+$section-bar-marker-background-incomplete: $brand-tertiary;
+$section-bar-active-page-title: #fff;
+$section-bar-chervon-color:     #fff;  
+$section-bar-marker-color:      #fff;
+
+//Highlighted and Info Styles
+$state-info-bg:                 #E8ECED;
+
+// Goals Styles
+$needs-goal-bg:                 $brand-primary;
+$wants-goal-bg:                 $brand-secondary;
+$wishes-goal-bg:                $brand-tertiary;
+$goal-text:                     $font-color-for-darkBG;
+
+//Slider Styles
+$slider-bar-bg:                 $brand-secondary;
+
+//BreadCrumb Style
+$breadcrumb-bg:                 #fff;
+$breadcrumb-color:              $brand-primary;
+$breadcrumb-active-color:       $brand-primary;
+$breadcrumb-link-color:         $link-color;
+
+//Client/Co-client Icon Styles
+$icon-client-selected-color:    #006ac3;
+$icon-coclient-selected-color:  $brand-secondary;
+

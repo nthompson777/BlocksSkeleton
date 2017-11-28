@@ -1,0 +1,58 @@
+/****************
+Global PIETech Style Components  - Sass Version
+Updated: 02.03.17.1544
+- Base Styles Common to all institutions
+- This file imports all global style modules & components, and is then imported in to each global institution Sass file.
+****************/
+// loadPaths: ['/Components', '/Content'];
+
+// Global MGP Variables
+@import "variables";  // Unlike Less, we have to declare our variables before we use them
+
+
+// Import Bootstrap Sass
+@import "../../Components/bootstrap-sass/scss/bootstrap";
+
+
+// Libraries and Plugins 
+@import 
+  "fontawesome-import",   // Custom FontAwesome Import - NOTE: This will not effect updates in Components
+  "../../Content/font-mgp/scss/font-mgp",
+  "../../Content/highcharts/scss/highcharts-overrides",
+  "../../Content/slick-carousel/scss/slick-theme",
+  "../../Content/animate/scss/animate", 
+  "../../Components/datatables-plugins/css/dataTables.bootstrap",
+  "../../Content/datatables/scss/datatables-overrides",
+  "../../Components/ion.rangeslider/css/ion.rangeSlider",
+  "../../Components/ion.rangeslider/css/ion.rangeSlider.skinHTML5";
+
+
+// Base Style Modules: Mixins, Global Base Styles, and Overrides 
+@import 
+  "mixins",               // Our main base mixins and Bootstrap mixin overrides 
+  "scaffolding",          // Main scaffolding styles: body containers, main logo, layout blocks, global formatting 
+  "type",                 // Headers, paragraph spacing, styling, Main Body Font 
+  "nav",                  // Nav, breadcrumb, and Mega Menu styling/overrides
+  "footer",               // Global Footer styles
+  "accessibility",        // Sec 508 Accessibility Styles
+  "buttons-icons",        // General button styles and global CTA icons/buttons
+  "panels-tabs",          // Panels and Tab (and content within each) styles
+  "presentation-mode",    // Presentation mode styles
+  "forms",                // Forms and form validation
+  "menus-accordions",     // Dropdown menus, accordions
+  "tooltips",             // Tooltips
+  "app-progressbar",      // Our deballed progress-bar / app progression indicator
+  "callouts",             // Callout box styles
+  "tables",               // Table styles
+  "sliders",              // Slider styles - ION Range Slider Styles and overrides
+  "labels";               // Label styles 
+  
+
+// MGP Application Style Module
+@import "application";    // MGP Applicaton Specific Styles: Goals, Soc Security, What Are You Afraid Of, Playzone, Yodlee, etc.
+
+// Support Center Styles Only
+@import "supportcenter/supportcenter";
+
+// Print Styles Only
+@import "print/print";

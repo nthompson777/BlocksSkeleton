@@ -1,0 +1,55 @@
+﻿/// <reference path="global.less" />
+
+.btn-back, .btn-cancel, .btn-default, .btn-close {
+  @include button-variant($btn-negative-action-color, $brand-secondary, $brand-secondary);
+}
+
+.btn {
+  border-radius: 0;
+}
+
+ul.progressbar > li {
+  &.nav-active > a,
+	&.nav-active a.dropdown-toggle,
+  a.nav-active {
+		color: $brand-primary;
+	}
+}
+
+.dropdown-accordion.accordion-menu .dropdown-menu .panel-body a.active-sub {
+  background: #EBF7F5;
+  color: $brand-primary;
+}
+
+ul.progressbar .dropdown-menu > li a.active-page {
+  background: #EBF7F5!important;
+  color: $brand-primary;
+}
+
+.zoomer-inactive-page {
+  background-color: #EBF7F5;
+
+  a {
+    color: $brand-primary;
+  }
+
+  .section-incomplete-marker {
+    color: #fff;
+    background-color: $brand-primary;
+  }
+}
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}

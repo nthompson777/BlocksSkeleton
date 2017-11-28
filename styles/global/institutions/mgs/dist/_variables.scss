@@ -1,0 +1,115 @@
+/// <reference path="../../variables.scss" />
+
+$brand-primary:   #115e92;
+$brand-secondary: #1574b1;
+$brand-tertiary:  #013461;
+
+// Scaffolding Styles
+// ------------------------------------
+// Global text color on <body>.
+$text-color:            #000;
+
+// Background color for <footer>
+$footer-bg:				      $brand-tertiary;
+$footer-text-color:		  #fff;
+
+// Global textual footer link color.
+$link-color:            $brand-secondary;
+
+// Link hover color set via `darken()` function.
+$link-hover-color:      $brand-secondary;
+
+// Button Styles
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-secondary;
+$btn-primary-border:             $brand-secondary;
+
+$btn-secondary-color:            $btn-primary-color;
+$btn-secondary-bg:               $btn-primary-bg;
+$btn-secondary-border:           $btn-primary-border;
+
+$btn-tertiary-color:             $btn-primary-color;
+$btn-tertiary-bg:                $btn-primary-bg;
+$btn-tertiary-border:            $btn-primary-border;
+
+$btn-positive-action-color:      $btn-primary-color;
+$btn-positive-action-bg:         $btn-primary-bg;
+$btn-positive-action-border:     $btn-primary-border;
+
+$btn-negative-action-color:      #fff;
+$btn-negative-action-bg:         #b2b2b2;
+$btn-negative-action-border:     #b2b2b2;
+
+// Panel Styles
+$panel-default-text:          $text-color;
+$panel-default-border:        #eaeaea;
+$panel-default-heading-bg:    transparent;
+
+$panel-primary-text:          $text-color;
+$panel-primary-border:        #eaeaea;
+$panel-primary-heading-bg:    transparent;
+
+$panel-info-text:             $text-color;
+$panel-info-border:           #eaeaea;
+$panel-info-heading-bg:       transparent;
+
+// Table Styles
+$table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #fff;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f6f6f6;
+$table-bg-active:               $table-bg-hover;
+//** Border color for table and cell borders.
+$table-border-color:            #eaeaea;
+
+$table-heading-text-color:      $text-color;
+$table-heading-bg-color:        #fff;
+
+//Line Styles
+$hr-border:                     $brand-primary;
+
+//Nav Section Bar Styles
+$section-bar-background:        $brand-primary;
+$section-bar-marker-background-highlighted: $brand-tertiary;
+$section-bar-marker-background-completed: #999;
+$section-bar-marker-background-incomplete: #eaeaea;
+$section-bar-active-page-title: #fff;
+$section-bar-chervon-color:     #999;  
+$section-bar-marker-color:      #fff;
+
+//Highlighted and Info Styles
+$state-info-bg:                 #e6ecf2;
+
+// Goals Styles
+$needs-goal-bg:                 $brand-primary;
+$wants-goal-bg:                 #ff7900;
+$wishes-goal-bg:                #38a1da;
+$goal-text:                     #fff;
+
+//Slider Styles
+$slider-bar-bg:                 $brand-primary;
+
+//BreadCrumb Style
+$breadcrumb-bg:                 $brand-tertiary;
+$breadcrumb-color:              #fff;
+$breadcrumb-active-color:       #38a1da;
+$breadcrumb-link-color:         #fff;
+
+//Custom MGS
+$brand-warning:                  #ff7900;
+$brand-danger:                   #ff7900;
+
+$state-warning-text:             #ff7900;
+$state-warning-bg:               #fff;
+$state-warning-border:           #ff7900;
+
+$state-danger-text:              #ff7900;
+$state-danger-bg:                #fff;
+$state-danger-border:            #ff7900;
+
+//Client/Co-client Icon Styles
+$icon-client-selected-color:    $brand-tertiary;
+$icon-coclient-selected-color:  #38a1da;
+
+

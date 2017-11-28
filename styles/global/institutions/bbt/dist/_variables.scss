@@ -1,0 +1,99 @@
+/// <reference path="../../variables.scss" />
+
+$brand-primary:          #30373d;
+$brand-secondary:        #990033;
+$brand-tertiary:         #ffc905;
+
+// Scaffolding Styles
+// ------------------------------------
+// Global text color on <body>.
+$text-color:            #252525;
+
+// Background color for <footer>
+$footer-bg:				      #f1f1f1;
+$footer-text-color:		  $text-color;
+
+// Global textual footer link color.
+$link-color:            #405ebe;
+$link-color-heading-action: $link-color;
+
+// Link hover color set via `darken()` function.
+$link-hover-color:      $brand-secondary;
+$font-color-for-darkBG: #fff;
+
+// Button Styles
+$btn-primary-color:              #333333;
+$btn-primary-bg:                 #fff;
+$btn-primary-border:             #333333;
+
+$btn-secondary-color:            $btn-primary-color;
+$btn-secondary-bg:               $btn-primary-bg;
+$btn-secondary-border:           $btn-primary-border;
+
+$btn-tertiary-color:             $btn-primary-color;
+$btn-tertiary-bg:                $btn-primary-bg;
+$btn-tertiary-border:            $btn-primary-border;
+
+$btn-positive-action-color:      #fff;
+$btn-positive-action-bg:         #405ebe;
+$btn-positive-action-border:     #405ebe;
+
+$btn-negative-action-color:      $btn-primary-color;
+$btn-negative-action-bg:         $btn-primary-bg;
+$btn-negative-action-border:     $btn-primary-border;
+
+// Panel Styles
+$panel-default-text:          $text-color;
+$panel-default-border:        #c6c6c6;
+$panel-default-heading-bg:    #f1f1f1;
+
+$panel-primary-text:          $text-color;
+$panel-primary-border:        $panel-default-border;
+$panel-primary-heading-bg:    $panel-default-heading-bg;
+
+$panel-info-text:             $text-color;
+$panel-info-border:           $panel-default-border;
+$panel-info-heading-bg:       $panel-default-heading-bg;
+
+// Table Styles
+$table-bg:                      transparent;
+//** Background color used for `.table-striped`.
+$table-bg-accent:               #f5f5f5;
+//** Background color used for `.table-hover`.
+$table-bg-hover:                #f3f7ff;
+$table-bg-active:               $table-bg-hover;
+//** Border color for table and cell borders.
+$table-border-color:            #d6d5d2;
+
+$table-heading-text-color:      #555555;
+$table-heading-bg-color:        #e0e0e0;
+
+//Line Styles
+$hr-border:                     $brand-tertiary;
+
+//Nav Section Bar Styles
+$section-bar-background:        $brand-primary;
+$section-bar-marker-background-highlighted:  $brand-primary;
+$section-bar-marker-background-completed: #ddd;
+$section-bar-marker-background-incomplete: #ddd;
+$section-bar-active-page-title: #fff;
+$section-bar-chervon-color:     #fff;  
+$section-bar-marker-color:      #fff;
+
+//Highlighted and Info Styles
+$state-info-bg:                 #f3f7ff;
+
+// Goals Styles
+$needs-goal-bg:                 $brand-primary;
+$wants-goal-bg:                 $brand-secondary;
+$wishes-goal-bg:                $brand-tertiary;
+$goal-text:                     $font-color-for-darkBG;
+
+//Slider Styles
+$slider-bar-bg:                  $brand-primary;
+
+//BreadCrumb Style
+$breadcrumb-bg:                 $brand-primary;
+$breadcrumb-color:              #fff;
+$breadcrumb-active-color:       $brand-tertiary;
+$breadcrumb-link-color:         #fff;

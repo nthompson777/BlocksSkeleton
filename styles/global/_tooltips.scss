@@ -1,0 +1,31 @@
+/// <reference path="_global.scss" />
+
+
+// Tooltip Styles
+// -----------------------------------
+.tooltip-inner {
+  font-size: $tooltip-font-size;
+  padding: $tooltip-padding;
+  border-radius: $tooltip-border-radius;
+  box-shadow: $tooltip-shadow;
+  text-align: left;
+  padding: 10px;
+}
+
+.warning-tooltip:after {
+  @include fa-icon-standard('\f071', $brand-warning, 0 .3em 0 .3em, pointer);
+}
+
+.warning-tooltip,
+.help-tooltip,
+.slider-tooltip {
+  cursor: pointer;
+}
+
+.close.tooltip-close {
+  top: -10px;
+  right: -5px;
+  position: relative;
+  color: $gray-light;
+  opacity: $tooltip-opacity;
+}

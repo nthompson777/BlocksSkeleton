@@ -1,0 +1,19 @@
+/// <reference path="_global.scss" />
+
+// Labels/Tags
+// ------------------------------------
+.label {
+  border-radius: $label-border-radius;
+}
+
+.label-primary {
+  @include label-variant($label-primary-bg);
+}
+
+.label-secondary {
+  @include label-variant($label-secondary-bg);
+}
+
+.label-tertiary {
+  @include label-variant($label-tertiary-bg);
+}

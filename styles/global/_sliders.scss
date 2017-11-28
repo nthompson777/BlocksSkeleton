@@ -1,0 +1,186 @@
+/// <reference path="_global.scss" />
+
+
+// ion Range Slider overrides
+// ------------------------------------
+.irs-bar {
+  border-top-color: $slider-bar-bg; 
+  border-bottom-color: $slider-bar-bg; 
+  background: $slider-bar-bg; 
+  background: linear-gradient(to top, $slider-bar-bg 0, lighten($slider-bar-bg, 10%) 100%); 
+}
+
+.irs-bar-edge {
+  border-color: $slider-bar-bg; 
+  background: $slider-bar-bg; 
+  background: linear-gradient(to top, $slider-bar-bg 0, lighten($slider-bar-bg, 10%) 100%); 
+}
+
+.irs-slider {
+  z-index: 7; 
+}
+
+.irs-slider.type_last {
+  z-index: 8; 
+}
+
+.irs-from,
+.irs-to {
+  z-index: 6;
+  border: 1px solid #fff;
+  font-size: .9em;
+  cursor: pointer !important;
+  background-color: $brand-primary;
+}
+
+.irs-single {
+  z-index: 6;
+  font-size: .9em;
+  cursor: pointer !important;
+  background-color: $brand-primary; 
+}
+
+.irs-grid {
+  z-index: 4;
+}
+
+//hide ticks between years on social security
+.soc-security .irs-grid-pol.small {
+  height: 0;
+}
+
+//Used for ion Range Slider custom slider handles on retirement age sliders
+.irs-from-label,
+.irs-to-label,
+.irs-single-label {
+  z-index: 5; //less than "real" irs-from, irs-to, irs-single labels so slider can be moved with label
+  color: #fff;
+  font-size: .9em;
+  text-shadow: none;
+  padding: 1px 5px;
+  background-color: $brand-primary;
+  border-radius: 3px;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+}
+
+.irs-from-label-sub, 
+.irs-to-label-sub, 
+.irs-single-label-sub {
+    position:absolute;
+    top:54px;
+    text-align:center;
+    font-size:.7em;
+    color:darken($text-color, 20%)
+}
+
+.irs-from-label-sub,
+.irs-to-label-sub {
+  margin-left:25px;
+}
+
+.irs-single-label-sub {
+  margin-left:9px;
+
+  .double & {
+    margin-left:19px;
+  }
+}
+
+.custom-label-slider {
+  &.single .irs-single-label {
+    margin-left: -12px;
+  }
+
+  &.double .irs-single-label {
+    margin-left: 21px;
+  }
+  .irs-grid-text {
+    bottom:-2px;
+  }
+  .irs-from,
+  .irs-to,
+  .irs-single {
+    color: transparent;
+    background-color: rgba(255,255,255,0.01);
+    border-color: transparent;
+  }
+  .irs-from,
+  .irs-to {
+    padding-right: 35px;
+  }
+}
+
+// ion Range Slider Addon features
+// ------------------------------------
+.slider-container {
+  position: relative;
+  margin: 15px 0 30px 0; 
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    // KEEP THE RIGHT MARGIN due to needing the offset for <= sm viewports when slider value pushes off the viewport (when slider is pushed to the max value)
+    margin: 15px 5px 30px 0; 
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    margin: 10px 0;
+  }
+}
+
+// Form fields that are paired/accompanied to be in alignment with our sliders
+.paired-slider {
+  margin-top: 35px;
+}
+
+.marker {
+  position: absolute;
+  z-index: 2;
+
+  &.above {
+    top: -50px;
+    color: $brand-secondary;
+
+    &.risk-profile {
+      z-index: 3;
+      top: -47px;
+      color: $brand-primary;
+    }
+
+    &.risk-alyze {
+      z-index: 4;
+      top: -47px;
+      color: #f7961b;
+    }
+  }
+
+  &.below {
+    top: -10px;
+    transform: rotate(180deg);
+    color: $brand-tertiary;
+  }
+
+  :before {
+    font-family: FontAwesome;
+    content: "\f041";
+    font-size: 2em;
+  }
+}
+
+.tickmark {
+  position: absolute;
+  z-index: 8;
+  top: -33px;
+  color: #555;
+  font-size: .8em;
+}
+
+//One-Off Style for Goal Sliders Entry Page
+// ----------------------------------
+.group-title {
+  h4 { margin: 7px 0 0 0; }
+}

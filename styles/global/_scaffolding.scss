@@ -1,0 +1,375 @@
+/// <reference path="_global.scss" />
+
+// Global & Scaffolding Styles
+// -----------------------------------
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: $bg-light;  // $bg-light
+  font-size: 14px;
+  margin:0;
+  
+  > .bootstrap-wrapper + .container {
+    padding-top: 20px;
+  }
+}
+
+#maincontent {
+ padding-bottom: 50px;
+}
+
+select optgroup {
+  font-weight: bold;
+
+  & > option {
+    font-weight: normal;
+  }
+}
+
+section {
+  padding: 0 0 30px;
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    padding: 0 0 15px;
+  }
+
+  > .row {
+    h1, h2 {
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  section:last-child {
+    padding: 0;
+  }
+
+  + hr {
+    margin-top: 10px;
+  }
+}
+
+.container {
+
+  > h1 {
+    margin-top: 0;
+  }
+}
+
+a {
+  transition: color 0.7s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.highlighted-result {
+  padding: 3px 7px;
+  margin: 0 5px;
+  background: $state-info-bg; /*$brand-primary-light;*/
+  display: inline-block;
+  border-radius: 3px;
+  font-weight: bold;
+  color: $gray-light;
+
+  &:empty {
+    display: none;
+  }
+}
+
+.description { // Styled descriptive text with readability presentation
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+
+// "Last Updated" Date display style
+// -----------------------------------
+.last-updated {
+  margin: 5px 0 20px;
+  float: right;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    float: left;
+    margin-bottom: 20px;  
+  }
+
+  .date {
+    font-weight: bold;
+    margin-left: 5px;
+    // color: $brand-primary;
+    &:after {
+      font-family: 'FontAwesome';
+      content: '\f274';
+      margin-left: 8px;
+    }
+  }
+}
+
+.center-block {
+  float: none !important;
+}
+
+
+// Centered Columns Styles --  NOTE: use sparingly in rare instances since our application is not a centered block style app!!!
+.row-centered {
+  text-align: center;
+}
+
+.col-centered {
+  display: inline-block;
+  float: none;
+  /* reset the text-align */
+  text-align: left;
+  /* inline-block space fix */
+  margin-right: -4px;
+}
+
+
+// Bootstrap has invisible class (visibility: hidden;), but no visible class (visibility: visible;)
+.visible {
+  visibility: visible;
+}
+
+
+// Improvements for ViewOnly Mode - particularly for selects and input radio
+input, .form-control {
+  &[readonly], &[disabled], &.disabled  {
+    pointer-events: none;
+    background-color: #eee;
+  }
+}
+
+
+// Main Logo Styles
+// -----------------------------------
+.mainlogo {
+  float: left;
+  max-width: 570px; //set max-width so logo stays in correct proportions
+  height: 60px;
+  position: relative;
+
+  @media (max-width: $screen-sm-max) {
+    margin-left: 15px;
+  }
+
+  img {
+    overflow: auto;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    max-width: 570px;
+    max-height: 60px;
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      max-width: 210px;
+    }
+  }
+}
+
+
+// Scroll To Top (function) Styles
+//------------------------------------
+.scrollToTop {
+  display: none;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  background: #bbb;
+  font-family: FontAwesome;
+  content: '\f05a';
+  font-size: 25px;
+  color: $font-color-for-darkBG;
+  opacity: 0.7;
+  filter: alpha(opacity=70); /* For IE8 and earlier */
+  z-index: 1004;
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    bottom: 10%; // accomodate footer copyright visibility
+  }
+
+  .fa {
+    margin: 12px 0 0 9px;
+  }
+
+  &:hover {
+    color: $font-color-for-darkBG;
+  }
+}
+
+
+// Off-canvas Menus for Options, Calculators, & Other Features: Base Style for ALL VIEWPORT SIZES!!
+//-------------------------------------
+.offcanvas-menu {
+  position: relative;
+  transition: all .25s ease-in-out;
+}
+
+.offcanvas-left {
+  left: 0;
+
+  .offcanvas-default-menu {
+    display: none;
+    left: -30%;
+  }
+}
+
+.offcanvas-left.active-menu-item {
+  left: 30%;
+  margin-left: -15px;
+}
+
+.offcanvas-default-menu {
+  position: absolute;
+  top: 0;
+  width: 27%;
+
+  .fa {
+    margin-right: 5px;
+  }
+}
+
+.active-menu-item {
+
+  .offcanvas-default-menu {
+    display: block;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+
+// XS Viewport ONLY - Stacked CENTER Block Style
+//------------------------------------
+// Xsmall ONLY!!! Viewport
+@media (max-width: $screen-xs-max) {
+  .xs-center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+}
+
+
+// Modal Styles (temporary)
+//------------------------------------
+// TODO - REMOVE THIS STYLE AFTER table layouts are removed from the (old/legacy) Modal _layout view
+.modal-body table h4 {
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.notransition {
+  transition: none !important;
+}
+
+
+// >= Medium or Larger Viewport  (!!! selector(s) below not used in other viewport sizes !!!)
+// ----------------------------------------
+@media (min-width:$screen-md-min) {
+  .text-right-md {
+    text-align: right;
+  }
+}
+
+
+// >= Small or Larger Viewport  (!!! selector(s) below not used in other viewport sizes !!!)
+// ----------------------------------------
+@media (min-width:$screen-sm-min) {
+  .text-right-sm {
+    text-align: right;
+  }
+
+  .text-center-sm {
+    text-align: center;
+  }
+
+  .navbar-right .dropdown-menu {
+    right: auto!important;
+  }
+}
+
+
+// Xsmall ONLY!!! Viewport (selector(s) below not used in other viewport sizes !!!)
+// ----------------------------------------
+@media (max-width: $screen-xs-max) {
+  // Auto Scroll Elements that need to Stay Full Width on xs Viewport Size
+  .overflow-cont {
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-bottom: 15px; // give some padding for the scroll bar
+
+    > .row [class*="col-lg"],
+    > .row [class*="col-md"],
+    > .row [class*="col-sm"] {
+      float: none;
+      display: inline-block;
+      white-space: normal;
+      vertical-align: top;
+    }
+
+    .overflow-block {
+
+      &.goals {
+        min-width: 400px;
+      }
+    }
+
+    h5 {
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .indent-1:not(td),
+  .indent-2:not(td) {
+    padding-left: 0;
+  }
+
+}
+
+// Breakpoint for Left Offcanvas Menu
+// ----------------------------------------
+@media (max-width: 600px) {
+  .active-menu-item button {
+    float: none;
+    display: block;
+    margin-top: 15px;
+  }
+
+  .offcanvas-left {
+    .offcanvas-default-menu {
+      left: -95%;
+    }
+
+    &.active-menu-item {
+      left: 100%;
+    }
+  }
+
+  .offcanvas-default-menu {
+    position: absolute;
+    top: 0;
+    min-width: 80%;
+  }
+}

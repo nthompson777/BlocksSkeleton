@@ -1,0 +1,135 @@
+/// <reference path="_global.scss" />
+
+
+// Presentation Mode
+//------------------------------------
+[data-present-fixed-nav="true"] { 
+  position: fixed; 
+  background-color: rgba(#FFFFFF, 90%/100.0%);
+  z-index: 1002; 
+  top: 0;
+  border-bottom: 1px solid #efefef;
+  box-shadow: 0 25px 20px -29px rgba(0,0,0,.35);
+  padding-top: 20px;
+}
+
+[data-present-fixed-nav="false"] { 
+  position: static; 
+  background-color: transparent; 
+  opacity: 1; 
+  z-index: auto; 
+  width: auto;
+  top: auto;
+  border-bottom: none;
+  box-shadow: none;
+  padding-top: 0;
+}
+
+#presentation-view {
+  padding: 9px 15px;
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    display: none;  // Hide Presentation View on Xsmall Viewports
+  }
+}
+
+.no-present,
+.present {
+  position: absolute;
+  float: right;
+  top: -105px;
+  right: -94px;
+  z-index: 1003;
+  font-size: 1.3em;
+  width: 45px;
+  color: $font-color-for-darkBG;
+  background-color: $brand-secondary;
+  padding: 4px 2px 7px;
+  text-align: center;
+  border-radius: 0 0 6px 6px;
+  transition: all .5s ease;
+
+  @media (min-width:1201px) and (max-width:1330px) {
+    position: fixed;
+    top: 120px;
+    right: 0;
+    border-radius: 6px 0 0 6px;
+  }
+
+  @media (min-width:$screen-md-min) and (max-width:$screen-md-max) {
+    position: absolute;
+    top: -105px;
+    right: -94px;
+    border-radius: 0 0 6px 6px;
+  }
+
+  // Presentation Mode for Md Viewports Breakpoint
+  @media (max-width:1125px) {
+    position: fixed;
+    top: 105px;
+    right: 0;
+    border-radius: 6px 0 0 6px;
+  }
+  
+  &:hover, &:active, &:focus {
+    background-color: lighten($brand-secondary, 15%) !important;
+    color: $font-color-for-darkBG;
+    text-decoration: none;
+  }
+}
+
+.present {
+  top: 0;
+  background-color: lighten($brand-primary, 12%) !important;
+  transition: all .5s ease-in;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {  
+    top: 5px;  
+  }
+
+  &.init-present {
+    @extend .notransition;
+  }
+
+  &:before {
+    font-family: FontAwesome;
+    content: '\f13a';
+  }
+
+  &:after {
+    font-family: $font-family-sans-serif;
+    margin-left: 5px;
+  }
+
+  &:hover, &:active, &:focus {
+    color: $font-color-for-darkBG;
+    text-decoration: none;
+  }
+
+  @media (min-width:$screen-md-min) and (max-width:$screen-md-max) {
+    top: -6px;
+  }
+}
+
+#mgp-toolbar {
+  opacity: 1;
+  transition: opacity .8s ease-in-out;
+  
+  &.no-toolbar {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all .5s ease-out;
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      opacity: 1 !important;
+
+      &.hidden {
+        display: block !important;
+      }
+    }
+  }
+}

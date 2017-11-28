@@ -1,0 +1,10 @@
+/// <reference path="global.scss" />
+
+.btn-forward, .btn-done {
+  @include button-variant($btn-positive-action-color, $brand-secondary, $brand-secondary);
+}
+
+.btn-back, .btn-cancel, .btn-close {
+  @include button-variant($btn-negative-action-color, $brand-primary, $brand-primary);
+}
+

@@ -1,0 +1,9 @@
+/// <reference path="global.scss" />
+
+.panel:not(.goal-summary-table){
+ background: linear-gradient(to-bottom, #fff 0%, #fff 75%, #fff 75%, #dbe9e2 100%);
+}
+
+.panel-heading {
+  border-bottom: none;
+}

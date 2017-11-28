@@ -1,0 +1,44 @@
+/// <reference path="global.scss" />
+.btn-forward, .btn-done {
+  @include button-variant($btn-positive-action-color, $btn-positive-action-bg, $btn-positive-action-border);
+}
+
+.btn-back, .btn-cancel, .btn-close {
+  @include button-variant($btn-negative-action-color, $btn-negative-action-bg, $btn-negative-action-border);
+}
+
+.panel-default>.panel-heading,
+.panel-primary>.panel-heading,
+.panel-info>.panel-heading,
+.panel-group .panel-heading+.panel-collapse>.list-group, 
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-color: transparent;
+}
+
+.client-portal-icon:before {
+	@include fmgp-icon-standard('\e603', $link-color, 0 .3em 0 .3em, pointer);
+  @include fa-lg();
+}
+
+.table-bordered {
+  border: 0;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      > th,
+      > td {
+        border-left: 0;
+        border-right: 0;
+      }
+    }
+  }
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+  > thead > tr > th {
+    border-bottom: 1px solid $table-border-color;
+  }
+}

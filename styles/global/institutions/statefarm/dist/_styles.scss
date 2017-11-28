@@ -1,0 +1,23 @@
+﻿/// <reference path="global.less" />
+
+.panel-default>.panel-heading,
+.panel-primary>.panel-heading,
+.panel-info>.panel-heading,
+.panel-group .panel-heading+.panel-collapse>.list-group, 
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+  border-color: transparent;
+}
+
+ul.progressbar {
+  &>li.nav-active a,
+  &>li.nav-active a.dropdown-toggle {
+    color: $brand-primary;
+  }
+  .dropdown-menu>li a.active-page {
+    background-color: $brand-primary !important
+  }
+  .dropdown-accordion.accordion-menu .dropdown-menu .panel-body a.active-sub {
+    background-color: $brand-primary;
+    opacity: .6;
+  }
+}

@@ -1,0 +1,63 @@
+/// <reference path="_global.scss" />
+
+
+// Callout Styles
+//------------------------------------
+
+// Base Callout Style
+.callout {
+  padding: $callout-padding;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: $callout-border-left-width;
+  border-radius: $callout-border-radius;
+
+  + .callout {
+    margin-top: -5px;
+  }
+
+  p {
+    margin-top: 5px;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  &.helpful-tip {
+    h4:before {
+      margin-right: 5px;
+      font-family: FontAwesome;
+      content: '\f0eb';
+    }
+  }
+}
+
+
+// Standard Callout Styles 
+// ---------------------------------------
+// This uses a Sass Map (key: value) w/ a List
+$calloutItems-list: (     
+  primary     : $brand-primary, 
+  secondary   : $brand-secondary, 
+  tertiary    : $brand-tertiary,
+  info        : $brand-info,
+  warning     : $brand-warning,
+  danger      : $brand-danger
+);
+
+// @each directive loops through the list (Sass Map) above
+@each $calloutKeys, $calloutValues in $calloutItems-list {
+  .callout-#{$calloutKeys} { 
+    border-left-color: $calloutValues;
+
+    h4 {
+      color: $calloutValues;
+    }
+  }
+}

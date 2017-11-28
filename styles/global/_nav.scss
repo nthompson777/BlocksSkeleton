@@ -1,0 +1,777 @@
+/// <reference path="_global.scss" />
+
+// Nav Styles
+// -----------------------------------
+.navbar {
+  min-height: 60px;
+  height: auto;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    border: none;
+  }
+}
+
+.navbar-default {
+  z-index: 1001; // set this to prevent ui dialog from being overlayed
+  background: #fff;
+  border-bottom: solid 1px #efefef;
+  box-shadow: 0 25px 20px -29px rgba(0,0,0,0.35);
+
+  .navbar-nav .open .dropdown-menu > li > a {
+    color: $link-color;
+
+    &:focus, &:hover {
+      color: $link-hover-color;
+      text-decoration: underline;
+    }
+  }
+
+  .return-home {
+    font-weight: bold;
+
+    a:before {
+      @include fa-icon-standard('\f015', $gray-light, 0 .3em 0 .3em, pointer);
+      @include fa-lg;
+
+      @media (max-width: $screen-sm-max) {
+        content: '';
+        margin: 0;
+      }
+    }
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    &.navbar-fixed-top {
+      position: fixed;
+    }
+  }
+}
+
+.navbar-collapse.collapse {
+  padding-bottom: 5px;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    &.in {
+      box-shadow: -5px 25px 30px -26px rgba(0,0,0,.35);
+    }
+  }
+}
+
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  .container>.navbar-collapse {
+    background: #fff;
+  }
+}
+
+.navbar-nav {
+  margin-top: 0;
+  float: right;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    float: left;
+    font-size: 1.2em;  
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    &.navbar-right {
+      width: 100%;
+    }
+  }
+}
+
+#navbar .nav > li:last-child > a {
+  padding-right: 0;
+}
+
+.navbar-right .dropdown-menu {
+  max-height: 500px;
+  overflow-y: auto;
+  right: auto;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    max-height: none;
+  }
+}
+
+
+// Zoomer Nav/Menu Styles
+//------------------------------------
+// Set width of Zoomer Menu Steps
+#mgp-nav ul.progressbar > li {
+
+  // Nav can have 2 - 6 items so set width dynamically 
+  /* 2 items */
+  &:first-child:nth-last-child(2),
+  &:first-child:nth-last-child(2) ~ li {
+	  width: 50%;
+  }
+
+  /* 3 items */
+  &:first-child:nth-last-child(3),
+  &:first-child:nth-last-child(3) ~ li {
+	  width: 33.33%;
+  }
+
+  /* 4 items */
+  &:first-child:nth-last-child(4),
+  &:first-child:nth-last-child(4) ~ li {
+	  width: 25%;
+  }
+
+   /* 5 items */
+  &:first-child:nth-last-child(5),
+  &:first-child:nth-last-child(5) ~ li {
+	  width: 20%;
+
+    //Shrink Progressbar connectors from default
+    &:before {
+      left: -10%;
+      width: 25%;
+    }
+  }
+
+  /* 6 items */
+  &:first-child:nth-last-child(6),
+  &:first-child:nth-last-child(6) ~ li {
+	  width: 16.66%;
+
+    //Shrink Progressbar connectors from default
+    &:before {
+      left: -10%;
+      width: 25%;
+    }
+  }
+
+  /* 7 items */
+  &:first-child:nth-last-child(7),
+  &:first-child:nth-last-child(7) ~ li {
+	  width: 14.28%;
+
+    //Hide Progressbar connectors from default (too crowded)
+    &:before {
+      border: none;
+    }
+  }
+
+
+	&.disabled,
+  a.disabled {
+		pointer-events: none;  // disable the click/pointer event
+    color: #ccc;  // disabled Zoomer menu color
+    background-color: transparent; 
+	}
+	.fmgp-mcmeter {
+		margin-right: 3px;
+	}
+}
+
+ ul.progressbar > li {
+  &.nav-active > a,
+	&.nav-active a.dropdown-toggle,
+  a.nav-active {
+		color: $brand-secondary;
+	}
+}
+
+#mgp-nav {
+  margin-top: -20px;
+}
+
+#zoomer {
+  &[data-present-fixed-nav-padding="true"] {
+    padding-top: 61px; // #mgp-fixed-nav height - #mgp-fixed-nav padding-top + 10px;
+  }
+
+  &[data-present-fixed-nav-padding="false"] {
+    padding-top: 0;
+  }
+}
+
+.zoomer-navigation {
+  .dropdown.dropdown-accordion {
+    position:static;
+  }
+
+  .dropdown-menu  {
+    min-width: 205px; // Prevent wrapping of zoomer navagation dropdown-accordion
+    max-height: 340px;
+    margin-top: 0;
+    width: auto;
+  }
+}
+
+.section-incomplete-marker {
+	color: #fff;
+  background: $section-bar-marker-background-incomplete;
+  padding: 8px 10px;
+  margin-right: 10px;
+  font-size: $section-bar-font-size;
+}
+
+.networth {
+  font-weight: bold;
+}
+
+.dropdown-menu {
+  max-height: 200px;
+  overflow-x: auto;
+}
+
+
+// Active Page Styles - Zoomer Separator/Section Bar 
+// -----------------------------
+.zoomer-active-page {
+	background-color: $section-bar-background;
+	display: inline-block;
+	margin-bottom: 30px;
+	width: 100%;
+  font-weight: 500;
+	font-size: $section-bar-font-size;
+	color: $section-bar-active-page-title;
+
+	span {
+		text-align: center;
+	}
+
+	h1 {
+		font-weight: 500;
+		font-size: 1.10em;
+		color: $section-bar-active-page-title;
+    margin: 3px 0 0 -45px;
+    display: inline-block;
+	}
+
+	.zoomer-navigate-link {
+
+    &:hover, 
+    &:focus {
+       text-decoration: none;
+	  }
+	}
+
+	.fa-chevron-up {
+		float: right;
+    margin: 7px 5px 0 15px;
+		color: $section-bar-active-page-title; // $section-bar-marker-background-highlighted;
+		font-size: $section-bar-chervon-font-size;
+	}
+
+	.section-completed-marker {
+		color: $section-bar-marker-color;
+		background-color: $section-bar-marker-background-highlighted;
+		padding: 8px;
+		font-size: $section-bar-font-size;
+	}
+}
+
+
+// Inactive Page Styles - Zoomer Separator/Section Bar
+// -----------------------------
+.zoomer-inactive-page {
+	background-color: $gray-lighter;
+	margin-bottom: 5px;
+	width: 100%;
+	font-weight: bold;
+
+  &:last-of-type {
+    margin-bottom: 30px;
+  }
+
+  .zoomer-step-summary,
+  .zoomer-inactive-page-header {
+    margin-left: -45px;
+    margin-top: 3px;  
+  }
+
+	a {
+		font-size: $section-bar-font-size;
+		width: 100%;
+		display: block;
+		color: $gray-light;
+
+    &:hover, 
+    &:focus {
+      color: $section-bar-active-page-title;
+      background-color: $section-bar-background;
+      text-decoration: none;
+	  }
+	}
+
+	&:hover, 
+  &:focus {
+    color: $section-bar-active-page-title;
+		background-color: $section-bar-background;
+	}
+
+	.fa-chevron-down,
+	.fa-chevron-up {
+		float: right;
+    margin: 7px 5px 0 0;
+		color: $section-bar-chervon-color;
+		font-size: 1.15em;
+	}
+
+	.section-completed-marker {
+		color: $section-bar-marker-color;
+		background-color: $section-bar-marker-background-completed;
+		padding: 9px;
+		font-size: 1.05em;
+		margin-right: 10px;
+	}
+}
+
+
+// Section Headers for Sequential version of Zoomer
+//------------------------------------
+.numSteps {
+  float: right;
+  margin: 6px 0 0 0;
+  font-size: 0.9em;
+  color: $section-bar-active-page-title;
+
+  // <= Small Viewport 
+  @media (max-width: $screen-sm-max) {
+    margin: 3px 0 0;
+  }
+
+  .zoomer-number-circle {
+	  border-radius: 20px;
+	  border: 2px solid;
+	  display: inline-block;
+	  width: 22px;
+	  height: 22px;
+    margin-right: 1px;
+
+	  font-weight: 700;
+  }
+
+  .zoomer-number-of-steps {
+	  font-weight: 700;
+    margin-left: 1px;
+	  font-size: $section-bar-font-size;
+  }
+}
+
+.zoomer-toggle-content {
+  display: inline-block;
+}
+
+
+// Breadcrumbs directly below Main Nav
+//------------------------------------
+#breadcrumbs {
+  background-color: $breadcrumb-bg;
+  font-size: 0.95em;
+  margin-bottom: 0; // 30px  No whitespace per the CEO and CTO
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    .navbar-toggle {
+      margin-top: 3px;
+      margin-bottom:0;
+
+      .icon-bar {
+        background-color: $navbar-default-toggle-icon-bar-bg;
+      }
+    }
+  }
+
+  .breadcrumb {
+    padding: 10px 0 0;
+    margin-bottom: 10px;
+
+    // <= Small Viewport
+    @media (max-width: $screen-sm-max) {
+      padding: 10px 0 0;
+      background: transparent;  
+    }
+
+    li.pull-right:last-child {
+      font-size: 1.15em;
+    }
+
+    li.pull-right:last-child:before {
+      content: '\e60c';
+      font-family: font-mgp;
+      margin-right: 1px;
+      float: left;
+      color: inherit;
+    }
+
+    li.crumb-right {
+      float: right;
+      font-size: 1.05em;
+
+      &:last-child:before {
+        content: '\e60c';
+        font-family: font-mgp;
+        margin-right: 1px;
+        color: inherit;
+      }
+    }
+
+
+    > li + li.crumb-right:before {
+      content: none;
+    }
+
+    > li.crumb-right + li.crumb-right:after {
+      content: '|';
+      padding: 0 8px;
+    }
+
+    li {
+      color: $breadcrumb-color;
+
+      &.active {
+        color: $breadcrumb-active-color;
+      }
+    }
+
+    a {
+      color: $breadcrumb-link-color;
+    }
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      &.hidden-xs {
+        display: inline-block !important;
+        margin-top: 0; // 60px
+        text-align: center;
+
+        li {
+          display: none;
+        }
+
+        li.crumb-right:last-child {
+          display: inline-block;
+          text-align: center;
+          float: none !important;
+          padding: 0;
+          font-size: 1em;
+          clear: both;
+
+          &:after {
+            content: none;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  // Handles cases where there is a navbar, but no breadcrumbs (guest using MyMg frame). Couldn't set margin or padding bottom of .navbar-default b/c it is absolutely positioned
+  // so had to add the spacer element #no-breadcrumbs for these cases
+  #no-breadcrumbs {
+    padding-bottom:60px; //Do not change this without talking to MLK!!!
+  }
+}
+
+// Xsmall ONLY!!! Viewport
+@media (max-width: $screen-xs-max) {
+  .visible-xs#breadcrumbs {
+    margin-top: 0;
+    font-size: 0.85em;
+    background: $breadcrumb-bg; /* Old browsers */
+    background: linear-gradient(to left, $breadcrumb-bg 57%, $font-color-for-darkBG 100%);
+
+    .breadcrumb {
+      padding: 10px 0 10px 15px;
+      margin-bottom: 0;
+      padding-left: 15px;
+      background: $breadcrumb-bg !important;
+    }
+  }
+}
+
+
+// Mega Menu Styles
+// http://jsfiddle.net/apougher/ydcMQ/
+//------------------------------------
+.menu-large {
+  position: static !important;
+}
+
+.megamenu {
+  padding: 10px 5px;
+  max-width: $screen-xs-max;
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    padding: 10px 0;
+
+    > li {
+      margin-bottom: 10px;
+    }
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    // http://jsfiddle.net/apougher/ydcMQ/
+    margin-left: 0;
+    margin-right: 0;
+
+    > li:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  > li > .super-solve-button {
+    @extend .super-solve-button;
+  }
+
+  > li > ul {
+    padding: 0;
+    margin: 0 0 10px 0;
+  }
+
+  > li > ul > li {
+    list-style: none;
+  }
+
+  > li > ul > li > a {
+    display: inline-block;
+    padding: 3px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    white-space: normal;
+  }
+
+  > li ul > li > a:hover,
+  > li ul > li > a:focus {
+    background-color: $gray-lighter;
+  }
+
+  .dropdown-header,
+  .dropdown-header:hover {
+    font-size: 1.1em;
+    white-space: normal;
+    padding: 3px;
+
+    // Xsmall ONLY!!! Viewport
+    @media (max-width: $screen-xs-max) {
+      padding: 3px !important;  
+    }
+  }
+}
+
+
+// Medium ONLY!!! Viewport
+//-----------------------------------
+@media (min-width:$screen-md-min) and (max-width:$screen-md-max) {
+  // Covers both Active and Inactive states for Zoomer section/separator bars
+  .zoomer-active-page,
+  .zoomer-inactive-page {
+    h1,
+    .zoomer-step-summary,
+    .zoomer-inactive-page-header {
+      margin-left: -35px;
+    }
+  }
+}
+
+
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  .megamenu .dropdown-header {
+    padding: 3px !important;
+  }
+}
+
+// Center Explore button under meter
+.meter-results-section {
+  display: inline-block;
+  text-align: center;
+
+  .details-menu {
+    position: relative !important;
+    width: auto;
+
+    .dropdown-menu {
+      top: auto;
+      min-width: 260px;
+
+      &.megamenu {
+        max-height: 250px;
+        overflow-y: auto;
+      }
+    }
+  }
+
+  .btn-cont-alt {
+    margin-top: 0;
+
+    .btn {
+      margin-left: 10px;
+      margin-right: 0;
+    }
+
+    .dropdown-menu {
+      top: 22px;
+    }
+  }
+}
+
+// Results Menu
+#results-details-nav {
+  .dropdown-menu {
+    max-height: 340px;
+    left: 14px;
+  }
+}
+
+// Mobile Menu Animation from "Hamburger" menu to "X": Small and XS viewports only 
+//------------------------------------
+// <= Small Viewport
+@media (max-width: $screen-sm-max) {
+  .navbar-toggle {
+    border: none;
+    background: transparent !important;
+    margin-right: 5px; // aligns hamburger menu with the grid (only use this margin spacing if no border around hamburger menu)
+    &:hover {
+      background: transparent !important;
+    }
+
+    .icon-bar {
+      width: 22px;
+      transition: all 0.2s;
+    }
+
+    .top-bar {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+
+    .middle-bar {
+      opacity: 0;
+    }
+
+    .bottom-bar {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+
+    &.collapsed {
+
+      .top-bar {
+        transform: rotate(0);
+      }
+
+      .middle-bar {
+        opacity: 1;
+      }
+
+      .bottom-bar {
+        transform: rotate(0);
+      }
+    }
+  }
+}
+
+
+// <= Small Viewport 
+//------------------------------------
+@media (max-width: $screen-sm-max) {
+  // Covers both Active and Inactive states for Zoomer section/separator bars
+  .zoomer-active-page,
+	.zoomer-inactive-page {
+		min-height: 32px;
+
+    h1,
+    .zoomer-step-summary,
+    .zoomer-inactive-page-header {
+      margin: 3px 0 0 -15px;
+    }
+
+    .fa-chevron-up {
+			font-size: 1em;
+		}
+
+		.section-completed-marker {
+			padding: 7px;
+			float: left;
+			margin-right: 10px;
+		}
+
+		.section-incomplete-marker {
+			float: left;
+			padding: 8px 10px;	
+		}
+
+		.zoomer-navigate-link,
+		.zoomer-active-page-title,
+		a,
+    h1 {
+			font-size: 1em;
+			padding-left: 0;
+      display: block;
+		}
+	}
+
+  .zoomer-inactive-page .section-completed-marker {
+	  padding: 9px;
+	}
+}
+
+
+// Xsmall ONLY!!! Viewport 
+//------------------------------------
+@media (max-width: $screen-xs-max) {
+
+	.zoomer-active-page,
+	.zoomer-inactive-page {
+    margin-bottom: 15px;
+
+		.zoomer-navigate-link,
+		.zoomer-active-page-title,
+		a, 
+    h1 {
+			font-size: 0.9em;
+      display: block;
+		}
+    h1,
+    .zoomer-step-summary,
+    .zoomer-inactive-page-header {
+      margin: 3px 0 0 -10px;
+    }
+	}
+}
+
+
+// Breakpoint for Xsmall Viewport 
+// ----------------------------------------
+@media (max-width: 600px) {
+  .zoomer-active-page,
+	.zoomer-inactive-page {
+
+    h1,
+    .zoomer-step-summary,
+    .zoomer-inactive-page-header {
+      margin: 3px 0 0 5px;
+    }
+
+  }
+}
+
+// Breakpoint for Zoomer Nav (hide the text label for the nav)
+@media (max-width: 390px) {
+	.zoomer-active-page,
+	.zoomer-inactive-page {
+    h1,
+    .zoomer-step-summary,
+    .zoomer-inactive-page-header {
+      margin: 0 0 0 10px;
+    }
+  }
+}

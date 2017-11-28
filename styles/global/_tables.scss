@@ -1,0 +1,261 @@
+/// <reference path="_global.scss" />
+
+
+// Table Styles
+// -----------------------------------
+
+.table-responsive {
+  border: none;
+
+  // Firefox fieldset bug for styling that involves width of responsive tables
+  @-moz-document url-prefix() {
+    fieldset {
+      display: table-cell;
+    }
+  }
+
+  // Xsmall ONLY!!! Viewport
+  @media (max-width: $screen-xs-max) {
+    //Override Bootstrap from no-wrapping tables cells on xs viewport
+    > .table {
+      > thead,
+      > tbody,
+      > tfoot {
+        > tr {
+          > th,
+          > td {
+            white-space: normal;
+          }
+        }
+      }
+    }
+
+    #importance & {
+      @include horiz-scroll();  // Mixin: Horizontal Scrollbars for Webkitt 
+    }
+  }
+}
+
+// Table Mixin - MGP Default Table Style - Expanded size table
+.table-expanded,
+.table-default {
+  @extend .table;
+  @extend .table-bordered;
+  @extend .table-striped;
+  @extend .table-hover;
+}
+
+// Table Mixin - Compacted/Condensed Table - For tables with Large Amounts of data
+.table-condensed {
+  @extend .table;
+  @extend .table-condensed;
+  @extend .table-bordered;
+  @extend .table-striped;
+  @extend .table-hover;
+}
+
+.table-expanded,
+.table-default,
+.table-condensed {
+
+  th {
+    font-weight: bold;
+    border: 1px solid $table-border-color;
+    color: $table-heading-text-color;
+    background: $table-heading-bg-color;
+  }
+
+  > thead > tr > th {
+    border-bottom: none;
+  }
+
+  > tbody > tr > th {
+    color: $table-heading-text-color;
+  }
+
+  // <= Small Viewport
+  @media (max-width: $screen-sm-max) {
+    .table-responsive & {
+      border: 1px solid $table-border-color;  
+    }
+  }
+}
+
+// Fixed Floating Table Header
+.floatThead-container {
+  background: $table-fixed-heading-bg-color;  
+}
+
+table {
+
+  h3, .h3,
+  h4, .h4,
+  h5, .h5 {
+    margin: 2px 0 !important;
+  }
+
+  h4 {
+    font-size: 1.2em;
+  }
+
+  h5 {
+    font-weight: bold;
+  }
+
+  .joined-header {
+    border-bottom: hidden !important;
+    text-align: center;
+  }
+
+  .delete-row-cue {
+    background-color: $gray-lighter;
+    opacity: 0.5;
+  }
+  // Set min-width of form fields within tables so fields can accomodate a minimum of 7 digits (millions) and so form fields don't collapse on smaller viewports
+  .form-control {
+    min-width: 120px; //120px smallest value without cropping mm/dd/yyyy inputs
+  }
+
+  tr {
+
+    &.primary,
+    &.secondary,
+    &.tertiary {
+
+      > th {
+        color: #fff;
+      }
+    }
+  }
+}
+
+// Mixins - Hightlight entire columns with "colgroups"
+// (example - see SS Maximization table)
+@include colgroup-highlight(primary, $brand-primary);
+@include colgroup-highlight(selected, $brand-primary);
+@include colgroup-highlight(secondary, $brand-secondary);
+@include colgroup-highlight(success, $state-success-bg);
+@include colgroup-highlight(error, $state-danger-bg);
+@include colgroup-highlight(warning, $state-warning-bg);
+@include colgroup-highlight(info, $state-info-bg);
+
+// Mixins - Hightlight entire cell with border
+// (example - see Risk/Reward table)
+@include td-highlight(outline-primary, $brand-primary);
+@include td-highlight(outline-secondary, $brand-secondary);
+
+
+// Auto Counter Increments for Tables ( add <div class="numbered-col"></div> to the headers - i.e.- see new Soc Sec Max)
+table {
+  counter-reset: section;
+
+  .numbered-col {
+    counter-reset: subsection;
+    background: $state-info-bg;
+    text-align: center;
+    font-size: 0.8em;
+    color: $brand-primary;
+    margin: 0 0 15px; // -8px for flush at top
+  }
+
+  .numbered-col:before {
+    counter-increment: section;
+    content: counter(section);
+  }
+
+  &.ssMax > thead > tr > th {
+    vertical-align: top;
+  }
+}
+
+tbody > tr:empty {
+  display: none;
+}
+
+// Table Row Variant Styles - uses "table-row-variant" mixin
+//-------------------------------------
+// use table row class "totals" for highlighted rows w/ totals
+@include table-row-variant(totals, $gray-lighter); /*Insts were not liking this green*/
+@include table-row-variant(primary, $brand-primary);
+@include table-row-variant(secondary, $brand-secondary);
+@include table-row-variant(tertiary, $brand-tertiary);
+
+.table > tbody > tr.totals > td,
+.table > tbody > tr.info > td {
+  font-weight: bold;
+}
+
+.highlight-col {
+  background-color: $state-info-bg; /*$brand-primary-light;*/
+}
+
+.hover-highlight {
+  padding: 5px 0;
+
+  &:hover {
+    background-color: $table-bg-hover;
+  }
+}
+
+// Make indents accessible to all elements - using @for loop directive
+//-----------------------------------------
+$indent-slug: indent !default;
+
+@for $i from 1 through 3 {
+  .table > tbody > tr > td.#{$indent-slug}-#{$i},
+  .#{$indent-slug}-#{$i} {
+    padding-left: + $i + em;  
+  }  
+}
+
+
+//Tab indents for complex tables with nested rows
+//-----------------------------------------
+.table {
+  tr.spacer {
+    background: none !important;
+    border: none;
+  }
+}
+
+
+// Partner Mapping/Integration Styles
+// ----------------------------------------
+// Xsmall ONLY!!! Viewport
+@media (max-width: $screen-xs-max) {
+  #partner-mapping .table { 
+    table-layout: fixed; 
+
+    .form-control {
+      min-width: 0; //IE11 doesnt support initial
+      min-width: initial; 
+    }
+
+    tr {
+      td { vertical-align: middle; }
+    }
+
+    thead {
+      tr th {
+        width: 70px;
+        &.md { width: 120px; }
+        &.lg { width: 220px; }
+      }
+    }
+
+    & > tbody > tr {
+      &:hover {background: initial; }
+      &:nth-of-type(odd):hover { background: #f9f9f9; }
+    }
+  }
+}
+
+//Override dataTables fixedColumns (causing double scrollbar in Cash Flow without this)
+.DTFC_LeftBodyLiner {
+  overflow: hidden;
+}
+
+//Override table width to remove 1px for chrome horizontal scrollbar issue
+.plansummary .table-responsive table {
+  width: calc(100% - 1px);
+}
